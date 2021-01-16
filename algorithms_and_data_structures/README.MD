@@ -53,8 +53,21 @@ A __queue__ is a __First In, First Out__ (__FIFO__) collection. This is a contra
 ### Priority Queue
 __Priority Queue__ differs from the normal queue in that they are not First In, First Out, but rather, they return the highest priority items first, regardless of the order of in which they were added to the Queue.
 
+## 4. Hash Table Data Structure
+A __hash table__ is a data structure that implements an _associative array_ abstract data type, a structure that can map __keys__ to __values__. In other words we can say that , __Hash Table__ is a data structure that stores the values using a __KEY:VALUE pairs__.
+
+In Python we make use of __Dictionaries__ to store data values in __KEY:VALUE pairs__. . So Dictionaries is the Python specific implementation for the __Hash Table__ or __Hash Map__ . Though we can implement same thing using 2D Arrays .
+
+### Hashing Functions(Algorithms)
+1. Additive
+2. Folding
+3. CRC32
+4. MD5
+5. SHA-2
+
 
 ## References
 1. https://carboncoffee.hashnode.dev/queue-in-python
 2. https://carboncoffee.hashnode.dev/implementing-stack-in-python
-3. 
+3. https://carboncoffee.hashnode.dev/linked-list-using-python
+4. https://carboncoffee.hashnode.dev/hash-table-in-python
