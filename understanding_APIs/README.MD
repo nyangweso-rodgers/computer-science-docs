@@ -25,7 +25,26 @@ Here I provided the IMDB id for the movie Guardians of the Galaxy 2, using the i
 3. __? Operator__: This operator is used to specify the parameters we want to send to the API or our “online function.” Here we give two params to our API i.e., IMDB movie ID and API Access Key using the ? operator. Since there are multiple inputs, we use & operator also.
 
 
+## What is REST?
+__Representational State Transfer__ (REST) is an architectural style that has gained a lot of popularity in recent years due to its simplicity and scalability. 
+Before REST gained popularity, __SOAP__ was the de-facto way of accessing resources and communicating over the web.
 
+## What is RESTful API?
+
+a __RESTful API__ (RESTful web service) is based on __Representational State Transfer__ (REST) technology, which is an architectural style and approach to communication often used in web service development. __RESTful API__ is mostly used for HTTP web APIs where there is no need for any additional or package to be installed.
+## Advantages of REST
+1. _REST is Easy to Understand and Implement:_ __REST__ is meant to work over HTTP (actually HTTP was influenced by REST). Therefore it makes use of HTTP verbs such as GET, POST, and PUT. 
+
+2. _REST Makes your Application More Scalable:_ There are 2 main reasons why REST can help make your application more scalable:
+
+* _No State:_ one of the core principles of REST is that it's stateless on the server-side. Therefore each request will be processed independently from the previous ones. In applications with a server-side state or sessions, a session is stored for possibly every logged-in user. This session data can easily get bloated and start to occupy a lot of resources on the server. On the other hand, stateless servers only keep resources (memory) occupied when they are handling a request and they free it as soon as the request is processed. Since the current trend in scalability is horizontal scaling (typically on the cloud), storing server-side sessions can also make it hard to scale your application because it creates some difficult problems. 
+
+* _Faster Data Interchange Format:_ __RESTful APIs__ typically use __JSON__ as the data interchange format. JSON is much more compact and smaller in size compared to __XML___. It can also be parsed faster than XML. 
+
+3. _Caching is Easier with REST:_ Caching is a critical factor for the scalability and performance of a modern web application. A well-established cache mechanism (with the best hit-rates possible) can drastically decrease the average response time of your server. __REST__ aims to make caching easier. Since the server is stateless and each request can be processed individually, GET requests should usually return the same response regardless of previous ones and the session. This makes the GET requests easily cacheable and browsers usually treat them as such. We can also make our __POST__ requests cacheable using __Cache-Control__ and __Expires headers__.
+
+4. _REST is Flexibile:_ i.e., it's easy to modify and it's also able to answer many clients who can ask for different data types (XML, JSON, and so on). The client can specify the type using the Accept header and the REST API can return different responses depending on that. __REST__ has the ability to handle multiple types of requests and return different types of data (such as JSON and XML)
 
 ## References
 1. https://towardsdatascience.com/a-layman-guide-for-data-scientists-to-create-apis-in-minutes-31e6f451cd2f
+2. https://www.freecodecamp.org/news/benefits-of-rest/
