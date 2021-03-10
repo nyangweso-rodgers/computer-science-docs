@@ -1,0 +1,2 @@
+# introduction to NodeJs
+Node.js is a __JavaScript__ _runtime environment_ that provides a large set of built-in APIs that help you build various types of _applications_, _command-line apps_, _web apps_, and more. It also offers _testing_ and _debugging_ capabilities and a rich ecosystem of third-party packages that you can easily add to your application. 
