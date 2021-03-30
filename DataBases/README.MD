@@ -1,4 +1,36 @@
 # Databases
+# SQL vs NoSQL Databases
+There are two major types of databases available: SQL. and NoSQL. They differ in the way they how they store and process data.
+
+__SQL__ - Structured Query Language are languages for defining and inserting, deleting, and updating data in relational databases such as MySQL, Oracle, Postgres, etc. It is very helpful in handling structured data.
+
+__NoSQL__ databases are non-relational databases that provide a way of storing and retrieving data in means other than tabular format orvides by relational databases. It is very helpful in handling unstructured data.
+
+## Difference between SQL and NoSQL
+1. __Type__: SQL databases are primarily Relational Databases. NoSQL databases are distributed or non-relational databases.
+2. __Storage__: In SQL databases, the data is stored in a tabular format, and the data is organized in a row-column format and each row is unique. NoSQL databases don't follow a table-based data storage model. Instead, they have a very flexible schema. The data can be stored in key-value, document, graph, and wide column format.
+3. __Schema__: SQL  databases have a fixed predetermined schema to determine the structure of your data before you work with it. Every time data is inserted it should  follow the predefined schema. The structure of the schema can be altered but it is difficult and also the entire database suffers downtime. __NoSQL__ schema has a very dynamic schema for storing unstructured data. It means additional columns can be added anytime and every row doesn't have to follow the same structure.
+4. __Querying Language__: SQL databases use __Standard Query Language__ for defining and manipulating the data. The __NoSQL__ databases don't have any fixed schema for storing data hence they use __Unstructured Query Language__(UnQL). Unlike SQL, different databases have different syntax for UnQL.
+5. __Property__: SQL databases follow __ACID__(Atomicity, Consistency, Isolation, and Durability) properties. __NoSQL__ databases follow __CAP__(Consistency Availability, and Partition tolerance) theorem.
+6. __Scalability__: SQL databases are mostly __vertically scalable__ which means we can increase performance of a single server by increasing various componets like RAM, SSD, and sometimes processors but the major challenge  with this approach is that increasing CPU components gets very expensive.
+
+The __NoSQL__ databases are __horizontally scalable__ i.e., we can easily shard the database or add more servers hence our NoSQL infrastructure can easily handle a lot of traffic. Moreover, horizontal scaling is cheaper as compared to vertical scaling. This ability to become larger and powerful at scale makes NoSQL databases the preferred choice for large or ever-changing data sets.
+7. __Example__ Most popular __SQL__ databases are __MySQL, Oracle Database, Mocrosoft SQL Server, PostgreSQL__. The most popular __NoSQL__ databases are - __MongoDB, Cassandra, Google Cloud BigTable, Apache HBase__
+
+## Which one to Choose?
+### 1. Use SQL When:
+1. the data is unchanging and structured.
+2. a SQL database is a great fir for transaction-oriented systems e.g., customer relationship management tools, accounting software, and e-commerce platforms.
+3. you need to ensure ACID compliance
+4. Preferred when you want to use joins and execute complex queries.
+
+### 2. Use NoSQL When:
+1. data is changing and unstructured and is present in large volumes.
+2. ACID property is not needed.
+3. Data is highly distributed abd you need the traffic with zero downtime.
+4. Rapid development is required because it doesn't need to be prepped ahead of time.
+5. support for new application paradigm is required.
+
 
 ## Database Schema
 A __schema__ is a logical database object holder. A __database schema__ of a database system is its structure described in a formal language supported by the database management system. The formal definition of a __database schema__ is a _set of formulas (sentences) called integrity constraints imposed on a database_. These integrity constraints ensure compatibility between parts of the schema.
