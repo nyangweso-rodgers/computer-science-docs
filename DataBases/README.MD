@@ -1,4 +1,61 @@
 # Databases
+## Definitions
+1. __Data Tier__: part of a web application that is responsible for performing your data operations. i.e., _Create_, _Read_, _Update_ and _Delete_ (CRUD).
+## WHY DO WE NEED DATABASES? 
+it must _grow_, _change over time_, _shared fast_, _searchble_, _reliable_, _interdependent_, _consistent_, _protected_ and _secure_.
+
+2. __Database__: application that allow one to store and access data. _a database is a collection of data that is organized in a manner that facilitates ease of access, as well as efficient management and tracking._. a database is made up of tables that store relevant information.
+
+3. __Database Tables__ : a table stores and displays data in a structtured format consisting of columns and rows. web applications use them to provide dynamic functions to users e.g., displaying products, content management, and user management.
+
+4. __primary keys__: a primary key is a field in the table that uniquely identifies the table records.
+### the primary key's main features:
+* it must contain a unique value for each row
+* it cannot contain NULL values
+
+5. __Database Management System__ (DBMS) : software to create, define and manage database. e.g., _Microsoft_, _Oracle_, _IBM_, _Apache_, _SQLServer_, _DB2_, _Cassandra_, _Firebind, _MongoDB_, _FileMaker_,  _MySQL_, _PostgreSQL_ .
+
+## Different databases are available. generally, they are divided into:
+1. Relational databases
+A common type of database is a __Relational Database Management System__ (RDMS) in which data is stored according to the relationship it has to other data. In many implementations, an RDMS consists of storing data in different tables and building relationships between rows in the table. Data that is stored in an RDMS is available for querying by using a language called __Structured Query Language__ (SQL). Most Relationsl databases support SQL that conforms to the __American Natioanl Standards Institute__ (ANSI) standards. However, different database implementations offer different features and not all of them support the full range of ANSI SQL equally. This issue makes writing SQL that can be used equally in many different databases difficult.
+2. NoSQL databases
+
+## The Marketpalce of Database Solutions
+Relational 	| Non - Relational
+----------|--------------
+1. Oracle DB|1. MongoDB
+2. Microsoft SQL Server |2. Redis
+3. IBM DB2| 3. Cassandra
+4. PostgreSQL|4. Noo4J
+5. MySQL| 5.
+
+
+
+## Structured Query Language (SQL)
+__SQL__ is used to access and manipulate a database. __MySQL__ is a program that understands  SQL. __SQL__ can:
+1. insert, update, or delete records in a database
+2. create new databases, tables, stored procedures views
+3. retrieve data from a database, e.t.c.
+
+
+__REMARK__: SQL is an __ANSI__ (American National Standards Institute) standard, but there are different versions of SQL langauge. Most SQL database programs have their own proritory extensions in addition to the SQL standard, but all of them support the major commands.
+
+Databases that uses SQL:
+1. SQLServer
+2. MySQL - this is an open source
+3. Oracle
+4. Postgre SQL
+5. SQLite
+6. DB2
+7. BigData							
+### Tools to write SQL:
+1. SQL Server Management Studio (SSMS)
+2. SQL Developer
+3. SQL Workbench
+4. TOAD
+## SQL Views
+In SQL, a __view__ is a _virtual table based on the result-set of an SQL statement_. A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+
 # SQL vs NoSQL Databases
 There are two major types of databases available: SQL. and NoSQL. They differ in the way they how they store and process data.
 
