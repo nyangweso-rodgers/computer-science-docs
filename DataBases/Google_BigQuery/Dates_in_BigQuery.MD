@@ -40,7 +40,7 @@ date_variables as (
                   last_day(date, month) as last_day_of_the_month, -- Last Day of the Month 
                   last_day(date, year) as last_day_of_the_year, -- Last Day of the Year
                   last_day(date, week(SUNDAY)) as last_day_of_the_week_sunday, -- Last Day of the week for a week starting on a Sunday
-                  last_day(date, week(MONDAY)) as last_day_of_the_week_monday-- Last Day of the week for a week starting on a Sunday
+                  last_day(date, week(MONDAY)) as last_day_of_the_week_monday-- Last Day of the week for a week starting on a Monday
                   from dates
                   )
 
