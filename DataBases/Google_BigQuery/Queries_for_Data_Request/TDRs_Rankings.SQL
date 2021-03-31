@@ -7,28 +7,18 @@ dates as (
 daily_sales_days as (select *,date_trunc(date,week) as week from dates), --where FORMAT_DATE('%A',date) <> 'Sunday' ) , 
 date_vars AS (
   --SELECT PARSE_DATE('%Y%m%d', @DS_START_DATE) as current_start_date, PARSE_DATE('%Y%m%d', @DS_END_DATE) as current_end_date ),
-    SELECT DATE '2021-03-24' as current_start_date, DATE '2021-03-24' as current_end_date ),
------------------------------------------------------------ TDRs Tracker --------------------------------------------------
+  SELECT DATE '2021-03-24' as current_start_date, DATE '2021-03-24' as current_end_date ),
 route_mapping as (select distinct route_id, depot_id, region_id,route_name, depot_name, region_name from dmslive.cache_route_mapping),
-sales_route_team as (select distinct sale_date, route_id, route_team_id from dmslive.sales_route_team),
-sales_route_team_member as (select distinct sale_date, route_team_id, user_id from dmslive.sales_route_team_member),
-user_service_user as (select distinct user_id, first_name,last_name,user_number,phone_number,email, primary_role_id from dmslive.user_service_user),
-user_service_role as (select distinct role_id, role_name from dmslive.user_service_role where active = true),
-
-tdr_assignment_mashup as (
-                          select srt.sale_date, srt.route_id,route_name, depot_name, region_name,srtm.user_id,user_number, first_name, last_name,concat(first_name,' ', last_name) as full_name,
-                          phone_number,primary_role_id, role_name 
-                          from sales_route_team srt
-                          left join route_mapping rm on rm.route_id = srt.route_id
-                          left join sales_route_team_member srtm on srtm.sale_date = srt.sale_date and srtm.route_team_id = srt.route_team_id
-                          left join user_service_user usu on usu.user_id = srtm.user_id
-                          left join user_service_role usr on usr.role_id = usu.primary_role_id
-                          ),
-combined_tdr_names as (
-                        select distinct route_name, depot_name, count(distinct user_id) as number_of_tdrs,
-                        string_agg(distinct full_name, "/" order by full_name) as full_name 
+----------------------------------------------------------- TDRs Tracker --------------------------------------------------
+tdr_assignment_mashup as (select * from dmslive.cache_tdrs_route_assignment where FORMAT_DATE('%A',sale_date) <> 'Sunday'),
+days_worked_per_tdr as (
+                        select distinct full_name, depot_name, route_name, cast(count(distinct sale_date) as string) as days_worked 
                         from tdr_assignment_mashup, date_vars where sale_date between current_start_date and current_end_date 
-                        and role_name in ('Trade Development Representative') group by 1,2
+                        and role_name in ('Trade Development Representative')  group by 1,2,3),
+combined_tdr_names as (
+                        select distinct route_name, depot_name, 
+                        string_agg(distinct full_name, "/" order by full_name) as full_name, cast(string_agg(distinct days_worked, "/" order by days_worked) as string) as days_worked
+                        from  days_worked_per_tdr group by 1,2
                         ),
  --------------------------------------------------- Actuals -----------------------------------------------------------
 routes as (select distinct depot_name, route_name,route_id, 400000 as revenue_target from route_mapping),
@@ -79,8 +69,16 @@ second_mashup as (
 third_mashup as (
                   select *, (weighted_behavious_performance+weighted_achieved_revenue) as performance
                   from
-                  (select *, (completion+achieved_conversion+achieved_location_accuracy)/3*0.5 as weighted_behavious_performance from second_mashup)
-                  )
+                  (
+                  select *except(weighted_achieved_revenue), 
+                  case when weighted_achieved_revenue > 0.5 then 0.5 else weighted_achieved_revenue end as weighted_achieved_revenue, 
+                  (completion+achieved_conversion+achieved_location_accuracy)/3*0.5 as weighted_behavious_performance 
+                  from second_mashup)
+                  ),
 
-select a.*, row_number()over(order by performance desc) as rank,full_name as tdrs_name from third_mashup a
-left join combined_tdr_names b on b.route_name = a.route_name and a.depot_name = b.depot_name
+final_mashup as (
+                  select a.*, row_number()over(order by performance desc) as rank,full_name as tdrs_name,days_worked
+                  from third_mashup a
+                  left join combined_tdr_names b on b.route_name = a.route_name and a.depot_name = b.depot_name
+                  )
+select * from final_mashup
