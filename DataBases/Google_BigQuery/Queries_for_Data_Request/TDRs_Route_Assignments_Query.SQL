@@ -16,9 +16,9 @@ mashup as (
             )
 
 #Daily List of number of TDRs
-select * from mashup where sale_date = '2021-03-30' 
+select * from mashup where sale_date = '2021-03-31' 
 and role_name = 'Trade Development Representative'
-and depot_name in ('Donholm')
+and depot_name in ('Nairobi West')
 --and route_name in ('Kaptembwa', 'Langalanga')
 order by 3,1
 -- Daily count of the number of TDRs
