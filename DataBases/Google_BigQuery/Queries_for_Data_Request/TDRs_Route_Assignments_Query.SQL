@@ -46,10 +46,10 @@ with
 #Daily List of number of TDRs
 select *
 from mashup
-where sale_date = '2021-03-31'
+where sale_date = '2021-04-10'
     and role_name = 'Trade Development Representative'
-    and depot_name in ('Nairobi West')
---and route_name in ('Kaptembwa', 'Langalanga')
+    --and depot_name in ('Nairobi West')
+    and route_name in ('Ahero', 'South C')
 order by 3,1
 -- Daily count of the number of TDRs
 --select sale_date, region_name, count(distinct  user_id) from mashup where primary_role_id = 'e46c97d5-cdd4-4876-8b19-2ec883faf771' group by 1,2 order by 1,2
