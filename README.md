@@ -87,3 +87,10 @@ in this policy, data is written only to the cache and the I/O operation is consi
 4. eliminates database hotspots
 5. increases Read Throughput(IOPS)
 6. reduces bandwidth consumption
+
+
+### 5. LocalHost
+__localhost__ refers to “_this computer_” or even more accurately “_the computer I’m working on_.”
+
+#### References
+_https://whatismyipaddress.com/localhost_
