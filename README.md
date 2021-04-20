@@ -1,4 +1,5 @@
-# Computer_Science_Concepts
+# Introduction to Computer Science
+## Computer Science Concepts
 
 ## 1. Definition of Terms
 ### 1.1 Payload
