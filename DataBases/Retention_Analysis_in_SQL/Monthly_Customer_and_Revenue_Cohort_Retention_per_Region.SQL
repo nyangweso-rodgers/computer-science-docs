@@ -1,9 +1,10 @@
 with 
 deliveries as (
-               select distinct delivery_date, unique_stalls as shop_id, region_name, sum(amount) as amount 
-               from dmslive.cache_finance_deliveries 
-               --where region_name in ( 'Kisumu', 'Nairobi')
-               where depot_name not in  ('Key Accounts') and route_name not in ('Staff Route') and shop_type <> 'Staff'
+               select distinct delivery_date,  shop_id, crm.region_name, sum(total_amount) as amount 
+               from dmslive.cache_delivery_mashup  cdm
+               left join dmslive.cache_route_mapping crm on crm.route_id = cdm.route_id
+               where region_name not in ('Tech-Region-Kisumu')
+               --where depot_name not in  ('Key Accounts') and route_name not in ('Staff Route') and shop_type <> 'Staff'
                group by 1,2,3),
 deliveries_with_index as (
                           select *, row_number()over(partition by shop_id,region_name order by delivery_month) as Index 
