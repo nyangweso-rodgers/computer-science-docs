@@ -1,9 +1,8 @@
 # Getting started with Computer Science
-## Computer Science Concepts (Definition of Terms)
-==================================================
-- [LocalHost](#1.-LocalHost)
-- [Payload](#2.-Payload)
-- [Cookies](#3.-Cookies)
+## Table of Contents
+- [LocalHost](#1-LocalHost)
+- [Payload](#2-Payload)
+- [Cookies](#3-Cookies)
     - [Mechanisms Behind Cookies](##3.1-Mechanism-Behind-Cookies)
     - [Types of Cookies](##3.2-Types-of-Cookies)
     - [Cookies vs. Session](##3.3-Cookies-vs.-Session)
@@ -16,14 +15,14 @@
     - [Countdown Function](##9.1-Example1:-Building-a-Countdown-Function)
     - [Power Function](##9.2-Example2:-Building-the-Power-Function)
     - [Factorial Function](##9.3-Example3:-Building-the-Factorial-Function)
+-----------------------------------------------------------------------
 
-
-# 1. LocalHost
+# 1 LocalHost
 __localhost__ refers to “_this computer_” or even more accurately “_the computer I’m working on_.” [References](https://whatismyipaddress.com/localhost)
-# 2. Payload
+# 2 Payload
 When data is sent over the Internet, each unit transmitted includes both header information and the actual data being sent. The header identifies the source and destination of the packet, while the actual data is referred to as the __payload__. Because header information, or overhead data, is only used in the transmission process, it is stripped from the packet when it reaches its destination. Therefore, the __payload__ is the only data received by the destination system.
 [References](https://techterms.com/definition/payload)
-# 3. Cookies
+# 3 Cookies
 By example. __cookies__ are something that bring you back to your Twitter account after you have signed in with _Remember me checkbox_ checked. By definition, _small chunk of information (4KB) that browser stores on behalf of Web server_.
 
 ## 3.1 Mechanism Behind Cookies
