@@ -5,17 +5,9 @@ with shop_details as (
                         from dmslive.cache_shop_details
                         ),
 ----------------------------------------- Deliveries Data -------------------------------------------------------------------
-deliveries as (
-                  select distinct(Unique_Stalls) as shop_id, 
-                  delivery_date,
-                  sum(Amount) as revenue
-                  from `dmslive.cache_finance_deliveries` 
-                  where depot_name not in ('Buruburu', 'Key Accounts', 'Kisumu', 'Market Depot', 'Tech-Depot-Kisumu', 'Valley Arcade', 'Westlands')
-                  and route_name not in ('Twiga B2C Thome', 'Twiga B2C Ruaka', 'Twiga B2C PH', 'Staff Route', 'Packhouse - Depot', 'Twiga B2C Nairobi West', 'Twiga B2C Donholm')
-                  and product_item_segment = 'FRESH' -- specify product type
-                  and delivery_date between '2019-12-29' and '2020-11-07'
-                  group by 1,2
-                  ),      
+finance_deliveries as (select * from dmslive.cache_finance_deliveries where product_type <> 'BUNDLE' and delivery_date between '2020-01-01' and '2021-04-30'),
+vendor_segment as (select distinct unique_stalls as shop_id, string_agg(distinct product_type, "/" order by product_type) as segment from finance_deliveries group by 1),
+deliveries as (select distinct(Unique_Stalls) as shop_id, delivery_date, sum(Amount) as revenue from finance_deliveries group by 1,2),      
 
  ---------------------------------------First Delivery Week ------------------------------------------------------------                  
 first_delivery_week as (
@@ -34,8 +26,8 @@ next_delivery_week as (
                       )
 
 -----------------------------------Delivery Retention Calculation----------------------------------------------------------------------
-select first_delivery_week.shop_id, 
-        s.depot_name,s.route_name,
+select first_delivery_week.shop_id, vs.segment,
+        s.depot_name,
        first_delivery_week.joining_week, 
        next_delivery_week.subsequent_delivery_week,
        next_delivery_week.revenue,
@@ -43,4 +35,5 @@ select first_delivery_week.shop_id,
 from first_delivery_week
 join next_delivery_week on first_delivery_week.shop_id = next_delivery_week.shop_id
 left join shop_details s on first_delivery_week.shop_id = s.shop_id
+left join vendor_segment vs on first_delivery_week.shop_id = vs.shop_id
 order by 1
