@@ -71,3 +71,7 @@ The __Scrum Master__ serves the __organization__ in several ways, including:
 - Planning and advising Scrum implementations within the organization;
 - Helping employees and stakeholders understand and enact an empirical approach for complex work; and,
 - Removing barriers between stakeholders and Scrum Teams.
+
+
+### References
+1. https://scrumguides.org/scrum-guide.html
