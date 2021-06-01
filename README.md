@@ -1,5 +1,10 @@
 # Getting started with Computer Science
 ## Table of Contents
+- [Object Oriented Programming (OOP)](#Object-Oriented-Programming)
+    - [Object Oriented Programming in Python]()
+    - [Object Oriented Programming in Java]()
+    - [Inheritance and Polymorphism](##Inheritance-and-Polymorphism)
+
 - [LocalHost](#1-LocalHost)
 - [Payload](#2-Payload)
 - [Cookies](#3-Cookies)
@@ -16,6 +21,21 @@
     - [Power Function](##9.2-Example2:-Building-the-Power-Function)
     - [Factorial Function](##9.3-Example3:-Building-the-Factorial-Function)
 -----------------------------------------------------------------------
+
+# Object Oriented Programming(OOP)
+__OOP__ is a programming technique that centers around thinking of code as __objects(entities)__ with _identities_, _attributes_, and _behaviours_. i.e., an ___object__ has a _name_, aa defined set of _attributes/characteristics_, and _behaviours_ or _actions_ the __object__ can perform.
+
+In classical coding, __objects__ are instances of __classes__ and a ___class__ is the _blueprint that contains all attributes and behaviours of an object_.
+
+__Example__:
+an __object__ can be a dog. And, naturally, a dog has a _name_, _colour_ of its fur, and _breed_. These are __attributes__ of the dog. It's also a living creature, so it can _run_, _bark_, _sleep_, e.t.c., We can call these the __behaviours__ or __actiona__ that can be performed by a dog.
+
+In programming, __attributes__ are used by _assigning variables in the class_ while __behaviours__ are _functions/methods (block of code used to perform a particular task) written in the same class_.
+
+## Inheritance and Polymorphism
+__Inheritance__ allows objects to derive _attributes_ and _functionality_ from other objects, creating a hierarchy moving from more general objects to more specific. For example, a Car and a Boat are both specific types of Vehicles. Objects can inherit their behavior from a single parent object or multiple parent objects, and are referred to as __child objects__ when they do.
+
+__Polymorphism__ allows two or more objects to behave like one another, which allows them to be used interchangeably. For example, if a method or function knows how to paint a Vehicle object, then it can also paint a Car or Boat object, since they inherit their data and behavior from the Vehicle.
 
 # 1 LocalHost
 __localhost__ refers to “_this computer_” or even more accurately “_the computer I’m working on_.” [References](https://whatismyipaddress.com/localhost)
@@ -189,7 +209,7 @@ These are the tools your browser uses to communicate with a server. The server r
 [References](https://realpython.com/python-https/)
 
 # 8. The Big O Notation
-An algorithm’s performance depends on the number of steps it takes. Computer Scientists have borrowed the term ‘__Big-O Notation__’ from the world of mathematics to accurately describe an _algorithm’s efficiency_. 
+An algorithm’s performance depends on the number of steps it takes. Computer Scientists have borrowed the term ‘__Big-O Notation__’ from the world of mathematics to accurately describe an _algorithm’s efficiency_. __Big O Naotation__ helps to analyze the __scalabiity__ and __efficiency__ of algorithms.
 ## 8.1 Time Complexity
 Instead of focusing on units of time, __Big-O__ puts the _number of steps_ in the spotlight. The hardware factor is taken out of the equation. Therefore we are not talking about _run time_, but about _time complexity_.
 
@@ -205,7 +225,7 @@ Given this 5-element array: [2,1,6,3,8] if we were searching for X=8 the algorit
 The Big-O notation takes a pessimistic approach to performance and refers to the worst case scenario. This is really important when we describe the complexities below, and also when you try to compute the complexity of your own algorithms: _Always think of the worst case scenarios_.
 
 ### 8.3.1 O(1) — Constant
-__O(1)__ means that the algorithm takes the same number of steps to execute regardless of how much data is passed in.
+__O(1)__ means that the algorithm takes the same number of steps to execute regardless of how much data is passed in. i.e., the __output__ is constant and is not affected bt the __input__.
 
 _Example_:Determine if the i-th element of an array is an odd number.
 
@@ -221,7 +241,7 @@ print(isOdd) # Output: True
 If we were to represent the number of steps (y-axis) vs the number of input elements (x-axis), O(1) is a perfect horizontal line, since the number of steps in the algorithm remains constant no matter how much data there is. This is why it is called __constant time__.
 
 ### 8.3.2 O(N) — Linear
-An algorithm that is __O(N)__ will take as many steps as there are elements of data. So when an array increases in size by one element, an __O(N) algorithm__ will increase by one step.
+An algorithm that is __O(N)__ will take as many steps as there are elements of data. So when an array increases in size by one element, an __O(N) algorithm__ will increase by one step. i.e., the __output__ is directly proportional to the __input__.
 
 _Exampl_: Traverse an array and print each element.
 ```py
