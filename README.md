@@ -1,9 +1,14 @@
 # Getting started with Computer Science
 ## Table of Contents
+- [Introduction to Computer Science]()
+    - [Computer Science vs. Software Engineering](#Computer-Science-vs-Software-Engineering)
+    - [Computer Programming - Overview](#Computer-Programming-Overview)
+    - [Software Development Methodologies](#Software-Development-Methodologies)
+
 - [Object Oriented Programming (OOP)](#Object-Oriented-Programming)
     - [Object Oriented Programming in Python]()
     - [Object Oriented Programming in Java]()
-    - [Inheritance and Polymorphism](##Inheritance-and-Polymorphism)
+    - [Inheritance and Polymorphism](#Inheritance-and-Polymorphism)
 
 - [LocalHost](#1-LocalHost)
 - [Payload](#2-Payload)
@@ -22,6 +27,43 @@
     - [Factorial Function](##9.3-Example3:-Building-the-Factorial-Function)
 -----------------------------------------------------------------------
 
+# Introduction to Computer Science
+# Computer Science vs Software Engineering
+__Computer Science__ is the study of how computers work, mostly the theoratical and mathematical perspective. __Software Engineering__ is the study of how software systems are built, including topics such as Project Management, Quality Assurance, and Software Testing.
+
+# Computer Programming Overview 
+## Definition of Terms
+__Computer Program__ is a sequence of instructions written using a Computer Programming Language to perform a specified task by the computer. A __computer program__ is also called a __computer software__, which can range from  two lines to millions of lines of instructions.
+
+ - An __algorithm__ is a step by step procedure to resolve a problem. It's an effective method expressed a finte set of well-defined instructions.
+ - __Source Code__ is a code written in a particular programming language.
+ - __Translators__ are responsible for converting the __source code__ to a machine language (__binary__). __Translators__ can be any of:
+
+    - __Interpreters__: processes the source code line by line and runs every line in the final program or app. Interpreted source code start running until it encounters an error. Then the interpreter stops to report such an error. _Python_ is a good example of an _interpreted programming language_
+    - __Compilers__: convert the __source code__ in its entirety via a compilation process to binary. The __binary__ is then executed. If there were errors in the __source code__, they are detected during the compilation time and flagged. This interrupts the compilation process, and no binary is generated.
+
+    - __Hybrid Translators__: combination of the __interpreter__ and __compiler__. A popular hybrid programming language is __Java__ which first compiles the source code to an intermediate format known as __Bytecode__. The __bytecode__ is then interpreted and executed by a runtime engine (also known an a __virtual machine__). This enables the __hybrid translators__ to run the __bytecode__ on various operating systems.
+
+    - __Assemblers__: for translating low-level Assembly language to __binary__
+
+- __Common bugs__
+    - __Syntactic Errors__: caused when one breaks the expected form or structure of the language.
+    - __Semantic Errors (Logical Errors)__: the program fails to produce the desired output.
+    - __Run - time Errors__: Unlike __semantic errors__, this type of error interrupt the program ad prevents it from executig further - they are usually  caused by unexpected result of some computation within the source code. e.g.,
+        - ZeroDivisionError
+        - StackOverflowError
+        - IndexOutofBoundError
+
+# Software Development Methodologies
+- # Waterfall Development
+You figure out everything you need to do and document them (requirements). Like a _waterfall_, there's no way to go back up unless you start over again. You move on to the next phase when current phase is completed.
+
+- # Agile Development
+In __Agile Development__, you figure out some of the things you need to do at the beginning. Then continously improve, evolve, collaborate and adapt as the development goes on. Some of the popular implementations of __Agile Development__ methodology include:
+
+    - Scrum
+    - Extreme Programming
+    - Kanban
 # Object Oriented Programming(OOP)
 __OOP__ is a programming technique that centers around thinking of code as __objects(entities)__ with _identities_, _attributes_, and _behaviours_. i.e., an ___object__ has a _name_, aa defined set of _attributes/characteristics_, and _behaviours_ or _actions_ the __object__ can perform.
 
@@ -32,7 +74,7 @@ an __object__ can be a dog. And, naturally, a dog has a _name_, _colour_ of its 
 
 In programming, __attributes__ are used by _assigning variables in the class_ while __behaviours__ are _functions/methods (block of code used to perform a particular task) written in the same class_.
 
-## Inheritance and Polymorphism
+# Inheritance and Polymorphism
 __Inheritance__ allows objects to derive _attributes_ and _functionality_ from other objects, creating a hierarchy moving from more general objects to more specific. For example, a Car and a Boat are both specific types of Vehicles. Objects can inherit their behavior from a single parent object or multiple parent objects, and are referred to as __child objects__ when they do.
 
 __Polymorphism__ allows two or more objects to behave like one another, which allows them to be used interchangeably. For example, if a method or function knows how to paint a Vehicle object, then it can also paint a Car or Boat object, since they inherit their data and behavior from the Vehicle.
