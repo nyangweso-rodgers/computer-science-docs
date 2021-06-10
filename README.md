@@ -18,7 +18,8 @@
     - [Cookies vs. Session](##3.3-Cookies-vs.-Session)
 - [TCP/IP Networking for Developers](#4.-TCP/IP-Networking-for-Developers)
 - [Caching](#5.-Caching)
-- [Concurrency](#6.-Collection-Concurrency)
+- [Concurrency vs Parallelism](#Concurrency-vs-Parallelism)
+    - [Situations for Concurrency](##Situations-for-Concurrency)
 - [HTTP(S)](#7.-HyperText-Transfer-Protocol)
 - [Big - O - Notation](#8.-The-Big-O-Notation)
 - [Recursion](#9.-Recursion)
@@ -64,7 +65,7 @@ In __Agile Development__, you figure out some of the things you need to do at th
     - Scrum
     - Extreme Programming
     - Kanban
-# Object Oriented Programming(OOP)
+# Object Oriented Programming
 __OOP__ is a programming technique that centers around thinking of code as __objects(entities)__ with _identities_, _attributes_, and _behaviours_. i.e., an ___object__ has a _name_, aa defined set of _attributes/characteristics_, and _behaviours_ or _actions_ the __object__ can perform.
 
 In classical coding, __objects__ are instances of __classes__ and a ___class__ is the _blueprint that contains all attributes and behaviours of an object_.
@@ -208,20 +209,31 @@ in this policy, data is written only to the cache and the I/O operation is consi
 5. increases Read Throughput(IOPS)
 6. reduces bandwidth consumption
 
-# 6. Collection Concurrency
-__Concurrency__ is when multiple instructions execute at the same time(concurrently)
+# Concurrency vs Parallelism
+__Concurrency__ is when multiple instructions execute at the same time(concurrently). __Concurrency__ is the ability to run multiple tasks on the CPU at the same time. Tasks can start, run, and complete in overlapping time periods. In the case of a single CPU, multiple tasks are run with the help of context switching, where the state of a process is stored so that it can be called and executed later.
 
-## 6.1 Situations for Concurrency
-## 6.2 Multiple Threads
-* multiple threads executing within a single process
-* _Example_: Multi-threaded .NET application accessing a shared collection
+__Parallelism__, meanwhile, is the ability to run multiple tasks at the same time across multiple CPU cores.
 
-## 6.3 Multiple Processes
-* Several processes executing on a single computer system
-* _Example_: Multiple applications accessing a common file
-## 6.4 Multiple Systems
-* Several systems, each accessing a common resource
-* _Example_: Multiple processes accessing a common database table.
+Though they can increase the speed of your application, concurrency and parallelism should not be used everywhere. The use case depends on whether the task is __CPU-bound__ or __IO-bound__.
+
+Tasks that are limited by the CPU are CPU-bound. For example, mathematical computations are CPU-bound since computational power increases as the number of computer processors increases. __Parallelism__ is for __CPU-bound__ tasks. In theory, If a task is divided into n-subtasks, each of these n-tasks can run in parallel to effectively reduce the time to 1/n of the original non-parallel task. __Concurrency__ is preferred for __IO-bound__ tasks, as you can do something else while the IO resources are being fetched.
+
+The best example of __CPU-bound__ tasks is in _data science_. Data Scientists deal with huge chunks of data. For data preprocessing, they can split the data into multiple batches and run them in parallel, effectively decreasing the total time to process. Increasing the number of cores results in faster processing.
+
+_Web scraping_ is __IO-bound__. Because the task has little effect on the CPU since most of the time is spent on reading from and writing to the network. Other common __IO-bound__ tasks include _database calls_ and _reading_ and _writing files to disk_. Web applications, like _Django_ and _Flask_, are __IO-bound__ applications.
+
+## Situations for Concurrency
+1. __Multiple Threads__
+    - multiple threads executing within a single process
+    - Example_: Multi-threaded .NET application accessing a shared collection
+
+2. __Multiple Processes__
+    - Several processes executing on a single computer system
+    - _Example_: Multiple applications accessing a common file
+
+3. __Multiple Systems__
+    - Several systems, each accessing a common resource
+    - _Example_: Multiple processes accessing a common database table.
 
 # 7. HyperText Transfer Protocol
 Fundamentally, HTTPS is the same protocol as HTTP but with the added implication that the communications are secure.
@@ -436,3 +448,7 @@ def factorial(num):
         return num * factorial(num-1)
 ```
 Note that this makes a lot of sense since we can always rewrite n! as n(n-1)!
+
+
+# References
+1. [Concurrency vs Parallelism](https://testdriven.io/blog/python-concurrency-parallelism/)
