@@ -53,17 +53,15 @@ Databases that uses SQL:
 2. SQL Developer
 3. SQL Workbench
 4. TOAD
-## SQL Views
+# SQL Views
 In SQL, a __view__ is a _virtual table based on the result-set of an SQL statement_. A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
 
 # SQL vs NoSQL Databases
 There are two major types of databases available: SQL. and NoSQL. They differ in the way they how they store and process data.
 
-__SQL__ - Structured Query Language are languages for defining and inserting, deleting, and updating data in relational databases such as MySQL, Oracle, Postgres, etc. It is very helpful in handling structured data.
+__SQL__ - Structured Query Language are languages for defining and inserting, deleting, and updating data in relational databases such as MySQL, Oracle, Postgres, etc. It is very helpful in handling structured data. __NoSQL__ databases are non-relational databases that provide a way of storing and retrieving data in means other than tabular format orvides by relational databases. It is very helpful in handling unstructured data.
 
-__NoSQL__ databases are non-relational databases that provide a way of storing and retrieving data in means other than tabular format orvides by relational databases. It is very helpful in handling unstructured data.
-
-## Difference between SQL and NoSQL
+# Difference between SQL and NoSQL
 1. __Type__: SQL databases are primarily Relational Databases. NoSQL databases are distributed or non-relational databases.
 2. __Storage__: In SQL databases, the data is stored in a tabular format, and the data is organized in a row-column format and each row is unique. NoSQL databases don't follow a table-based data storage model. Instead, they have a very flexible schema. The data can be stored in key-value, document, graph, and wide column format.
 3. __Schema__: SQL  databases have a fixed predetermined schema to determine the structure of your data before you work with it. Every time data is inserted it should  follow the predefined schema. The structure of the schema can be altered but it is difficult and also the entire database suffers downtime. __NoSQL__ schema has a very dynamic schema for storing unstructured data. It means additional columns can be added anytime and every row doesn't have to follow the same structure.
@@ -72,7 +70,17 @@ __NoSQL__ databases are non-relational databases that provide a way of storing a
 6. __Scalability__: SQL databases are mostly __vertically scalable__ which means we can increase performance of a single server by increasing various componets like RAM, SSD, and sometimes processors but the major challenge  with this approach is that increasing CPU components gets very expensive.
 
 The __NoSQL__ databases are __horizontally scalable__ i.e., we can easily shard the database or add more servers hence our NoSQL infrastructure can easily handle a lot of traffic. Moreover, horizontal scaling is cheaper as compared to vertical scaling. This ability to become larger and powerful at scale makes NoSQL databases the preferred choice for large or ever-changing data sets.
-7. __Example__ Most popular __SQL__ databases are __MySQL, Oracle Database, Mocrosoft SQL Server, PostgreSQL__. The most popular __NoSQL__ databases are - __MongoDB, Cassandra, Google Cloud BigTable, Apache HBase__
+7. __Example__ Most popular __SQL__ databases are: 
+  * MySQL
+  * Oracle Database, 
+  * Mocrosoft SQL Server
+  * PostgreSQL 
+  
+  The most popular __NoSQL__ databases are: 
+    * MongoDB,
+    * Cassandra, 
+    * Google Cloud BigTable, 
+    * Apache HBase
 
 ## Which one to Choose?
 ### 1. Use SQL When:
@@ -181,7 +189,23 @@ DATETIME | YYYY-MM-DD HH:MM:SS
 TIMESTAMP | YYYYMMDDHHMMSS
 TIME | SHH:MM:SS
 
-#### References
+# SQL Stored Procedure
+A __Stored procedure__ is a prepared __SQL code__ that you can save, so the code can be reused over and over  again. So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.
+
+## Stored Procedure Syntax
+```sql
+CREATE PROCEDURE procedure_name
+AS
+sql_statement
+GO;
+```
+## Execute a Stored Procedure
+```sql
+EXEC procedure_name;
+```
+
+# References
 1. https://www.w3resource.com/sql/sql-basic/create-schema.php
 2. https://www.guru99.com/how-to-create-a-database.html
 3. https://dev.mysql.com/doc/workbench/en/workbench-faq.html
+4. [Stored Procedure](https://www.w3schools.com/sql/sql_stored_procedures.asp)
