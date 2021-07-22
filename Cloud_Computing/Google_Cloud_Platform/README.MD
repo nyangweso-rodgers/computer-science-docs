@@ -19,7 +19,7 @@
 1. Computing Services
     * __Compute Engine__: let's you run __virtual machines__ on demand in the cloud. It's Google Cloud __Infrastructure as a Service__ solution. It provides maximum flexibility for people who prefer to manage server instances themselves.
 
-    * __Kubernetes Engine__:  let's you run containerized applications on a card environment that Google manages for you under your administrative control
+    * __Kubernetes Engine__:  this is an open-source container orchestration platform. It basically handles everything related to _deploying_, _managing_ and _scaling_ containerized applications.
     
     * __App Engine__ is GCP fully managed __PaaS__ framework. i.e., it's a way to run code in the cloud without worrying about infrastructure.
     
