@@ -126,6 +126,28 @@ __Representational State Transfer__ (__REST__) is an architectural style that ha
 
 a __RESTful API__ (__RESTful web service__) is based on **Representational State Transfer** (__REST__) technology, which is an architectural style and approach to communication often used in web service development. **RESTful API** is mostly used for HTTP web APIs where there is no need for any additional or package to be installed.
 
+__REST APIs__ operate on a simple request/response system. You can send a request using these __HTTP__ methods:
+* GET
+* POST
+* PUT
+* PATCH
+* DELETE
+
+Also, __REST APIs__ can include endpoints, headers, URL parameters, and the request body.
+
+A true __RESTful API__ will conform to the __REST__ architectural constraints outlines by __Fieldin's__ dessertation, including:
+1. __REST API: Client - Server Architecture__: The client and the server are decoupled to improve scalability and allow the components to evolve independently.
+2. ___REST API: Statelessness__: __Statelessness__ means that every HTTP request happens in complete isolation. Each request contains the information necessary to service the request. The server never relies on information from previous request. There's no state.
+3. __REST API: Layering__: Different layers of the API architecture should work together, creating a scalable system that is easy to update or adjust
+4. __REST API: Cacheability__: Responses can be explicitly or implicitly defined as cacheable or non-cacheable to improve scalability and performance. E.g., enabling the cache of __GET__ requests can improve the response times of requests for resource data.
+5. __REST API: Uniform Interface__: communication between the client and the server must be done in a standardized language that is independent of both. This improves scalability and flexibility.
+
+# When to Use REST APIs
+From the above constraints of the __REST__ architectural  style, __REST APIs__ are a good fit for projects that need to be
+* Flexible
+* Scalable
+* Fast
+
 # Advantages of REST
 1. _REST is Easy to Understand and Implement:_ **REST** is meant to work over HTTP (actually HTTP was influenced by REST). Therefore it makes use of HTTP verbs such as GET, POST, and PUT.
 2. _REST Makes your Application More Scalable:_ There are 2 main reasons why REST can help make your application more scalable:
