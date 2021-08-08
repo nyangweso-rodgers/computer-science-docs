@@ -3,7 +3,15 @@
 - [Introduction to Computer Science]()
     - [Computer Science vs. Software Engineering](#Computer-Science-vs-Software-Engineering)
     - [Computer Programming - Overview](#Computer-Programming-Overview)
-    - [Software Development Methodologies](#Software-Development-Methodologies)
+        - Operating System
+        - Computer Program
+        - Algorithm
+        - Source Code 
+        - Bytecode
+        - Translators
+        - Common Bugs
+        - Microservices
+        - Software Development Methodologies
 
 - [Object Oriented Programming (OOP)](#Object-Oriented-Programming)
     - [Object Oriented Programming in Python]()
@@ -33,14 +41,28 @@
 __Computer Science__ is the study of how computers work, mostly the theoratical and mathematical perspective. __Software Engineering__ is the study of how software systems are built, including topics such as Project Management, Quality Assurance, and Software Testing.
 
 # Computer Programming Overview 
-## Definition of Terms
-- __Computer Program__ is a sequence of instructions written using a Computer Programming Language to perform a specified task by the computer. A __computer program__ is also called a __computer software__, which can range from  two lines to millions of lines of instructions.
+# Definition of Terms
+1. __Operating System__: set of programs that controls and supports hardware and provide various services which are used for better performance of computer. The __operating system__ acts as a link between software and hardware. It controls and record of the execution of all other programs that are present in the computer including application programs and other system software. The major __functions of O.S__ are:
+    - it assigns processors to task
+    - manages memory and other storage areas
+    - acts as a command interpreter
+    - file management
+    - input-output management
+    - establish data security and integrity
+    - maintain account of processor time for billing purposes
+    - provides data and time services
+    - error detecting aids
+    - scheduling
 
- - An __algorithm__ is a step by step procedure to resolve a problem. It's an effective method expressed a finte set of well-defined instructions.
- - __Source Code__ is a code written in a particular programming language.
- - __Bytecode__ is a program that has been _compiled_ from a _source code_ into low-level code designed for a software __interpreter. It may be executed by a virtual machine (e.g., Java Virtual Machine) or further compiled into machine code, which is recognized by the processor. 
+The operating system can be classified as __Single User__ and __multi-user__
+
+2. __Computer Program__ is a sequence of instructions written using a Computer Programming Language to perform a specified task by the computer. A __computer program__ is also called a __computer software__, which can range from  two lines to millions of lines of instructions.
+
+3. An __algorithm__ is a step by step procedure to resolve a problem. It's an effective method expressed a finte set of well-defined instructions.
+4. __Source Code__ is a code written in a particular programming language.
+5. __Bytecode__ is a program that has been _compiled_ from a _source code_ into low-level code designed for a software __interpreter. It may be executed by a virtual machine (e.g., Java Virtual Machine) or further compiled into machine code, which is recognized by the processor. 
     - _Remark:_ __Bytecode__ is similar to __assembly language__ in that it is not a high-level language, but it is still somewhat readable, unlike __machine language__. Both may be considered "intermediate languages" that fall between source code and machine code. The primary difference between the two is that __bytecode__ is generated for a virtual machine (software), while __assembly language__ is created for a CPU (hardware).
- - __Translators__ are responsible for converting the __source code__ to a machine language (__binary__). __Translators__ can be any of:
+6. __Translators__ are responsible for converting the __source code__ to a machine language (__binary__). __Translators__ can be any of:
 
     - __Interpreters__: processes the source code line by line and runs every line in the final program or app. Interpreted source code start running until it encounters an error. Then the interpreter stops to report such an error. _Python_ is a good example of an _interpreted programming language_
     - __Compilers__: convert the __source code__ in its entirety via a compilation process to binary. The __binary__ is then executed. If there were errors in the __source code__, they are detected during the compilation time and flagged. This interrupts the compilation process, and no binary is generated.
@@ -49,24 +71,42 @@ __Computer Science__ is the study of how computers work, mostly the theoratical 
 
     - __Assemblers__: for translating low-level Assembly language to __binary__
 
-- __Common bugs__
+7. __Common bugs__
     - __Syntactic Errors__: caused when one breaks the expected form or structure of the language.
     - __Semantic Errors (Logical Errors)__: the program fails to produce the desired output.
     - __Run - time Errors__: Unlike __semantic errors__, this type of error interrupt the program ad prevents it from executig further - they are usually  caused by unexpected result of some computation within the source code. e.g.,
         - ZeroDivisionError
         - StackOverflowError
         - IndexOutofBoundError
+8. __Microservices__: generally meant to describe an approach to __software development__ that involves de-composing application functionality into individual components that can be deployed separately from each other, and typically communicate via __application programming interfaces__ or __APIs__. Common __characteristics of microservices__ include:
+    - Support HTTP/REST protocols
+    - Implement JSON or XML format for data exchange
+    - Deployed via a containerization framework, such as Docker
+    - Dynamically scaled on public or private cloud infrastructure
+    - Often use noSQL or microSQL or key value stores to persist data
 
-# Software Development Methodologies
-- # Waterfall Development
-You figure out everything you need to do and document them (requirements). Like a _waterfall_, there's no way to go back up unless you start over again. You move on to the next phase when current phase is completed.
+    __Benefits of a microservices__ architecture may include: 
+    - Improved resilience and fault tolerance due to service function isolation
+    - Improved scalability with the ability to individually scale services as needed
+    - Extreme reusability with standardized interface definitions
+    - Easier polyglot support since separate services can be built in different programming languages
+    - Easier migration since services can be re-architected or re-built with different technologies while supporting the same API definition to minimize disruption
 
-- # Agile Development
-In __Agile Development__, you figure out some of the things you need to do at the beginning. Then continously improve, evolve, collaborate and adapt as the development goes on. Some of the popular implementations of __Agile Development__ methodology include:
+    The opposite of a __microservices__ approach would be a “__monolithic__” application where all functionality is part of a single program running in a single environment. __Problem in monolithic application__:
+    - There is a team of developers working on the application : Modules dependency & every developer needs to understand each & every modules.
+    - We need that new team members must quickly become productive
+    - The application must be easy to understand and modify
+    - We want to practice continuous deployment of the application
+    - We must run multiple instances of the application on multiple machines in order to satisfy scalability and availability requirements
+    - We not able to take advantage of emerging technologies (frameworks, programming languages, etc)
 
-    - Scrum
-    - Extreme Programming
-    - Kanban
+9. __Software Development Methodologies__
+    - __Waterfall Development__: You figure out everything you need to do and document them (requirements). Like a _waterfall_, there's no way to go back up unless you start over again. You move on to the next phase when current phase is completed.
+    
+    - __Agile Development__: In __Agile Development__, you figure out some of the things you need to do at the beginning. Then continously improve, evolve, collaborate and adapt as the development goes on. Some of the popular implementations of __Agile Development__ methodology include:
+        - Scrum
+        - Extreme Programming
+        - Kanban
 # Object Oriented Programming
 __OOP__ is a programming technique that centers around thinking of code as __objects(entities)__ with _identities_, _attributes_, and _behaviours_. i.e., an ___object__ has a _name_, aa defined set of _attributes/characteristics_, and _behaviours_ or _actions_ the __object__ can perform.
 
