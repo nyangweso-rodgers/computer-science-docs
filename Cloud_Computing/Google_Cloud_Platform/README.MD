@@ -43,6 +43,21 @@
         - Machine Learning
         - Speech API
         - Translate API
+# 1. Computing Services - App Engine
+__Google App Engine__ is a platform which enables you to focus on developing web applications without worrying too much about anything else:
+- _system administration_, aka having take care of computer on which will run software for your webapp, installing operation system, database, programs, enough space to handle data... all that handles Google App Engine
+- depending on how many people visits your website one computer is not enough to handle the load (requests). Google App Engine takes care that you have just enough.
+
+_Remark:_ 
+* _Google app engine basically provide you resource (platform In programmers term) to run your application (or website ) free of cost with some agreement on the number of hits/visit to your web site._
+
+# Advantages of Google App engine:
+* App engine let’s you build highly scalable applications on a fully managed serverless platform.
+* You can Scale your applications from zero to planet scale without having to manage infrastructure.
+* Also you can free up your developers with zero server management and zero configuration deployments.
+* You can even stay agile with support for popular development languages and a range of developer tools with google app engine.\
+
+
 # Cloud SQL
 __Google Cloud SQL__ is a service that allows you to _create_, _configure_, and _use_ __relational databases__ that live in __Google's cloud__. It is a fully-managed service that maintains, manages, and administers your databases, allowing you to focus on your applications and services.
 
