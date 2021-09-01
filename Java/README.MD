@@ -1,4 +1,8 @@
 # Programming in Java
+# Java Frameworks
+1. (Grails)[https://grails.org/]
+2. (Spring Framework)[https://spring.io/projects/spring-framework]
+3. (Struts)[https://struts.apache.org/]
 
 ## Topics
 * variables, data types, and operators
