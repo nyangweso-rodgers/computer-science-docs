@@ -1,5 +1,5 @@
 # CloudSQL
-__Google Cloud SQL__ is a service that allows you to _create_, _configure_, and _use_ __relational databases__ that live in __Google's cloud__. It is a fully-managed service that maintains, manages, and administers your databases, allowing you to focus on your applications and services.
+__Google Cloud SQL__ is a service that allows you to _create_, _configure_, and _use_ __relational databases__ that live in __Google's cloud__. It is a fully-managed service that maintains, manages, and administers your databases, allowing you to focus on your applications and services. i.e., _CloudSQL is a fully managed relational database for MySQL, PostgreSQL and SQL Server. It reduces maintenance cost and automates database provisioning, storage capacity management, backups and out of the box High availability and Disaster recovery/failover._
 
 _Remarks:_
 * _Google Cloud SQL is a MySQL database that lives in Google's cloud._ 
@@ -41,3 +41,12 @@ _Remarks:_
 * The following MySQL Client Program features are not supported:
     - [mysqlimport](https://dev.mysql.com/doc/refman/8.0/en/mysqlimport.html) without using the --local option. This is due to the LOAD DATA INFILE restriction. If you need to load data remotely, use the Cloud SQL [import function](https://cloud.google.com/sql/docs/mysql/import-export#importing)
     - [mysqlimport](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) using the --tab option or options that are used with --tab. This is because the [FILE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_file) privilege is not granted for instance users. All other mysqlimport options are supported.
+
+# How to set up Cloud SQL?
+* select the region and zone where you would like the instance to be and they get created.
+* Configure the machine type with the right number of CPU & amount of memory your application needs
+* Choose storage type between solid state and hard disk drives depending on latency, QPS and cost requirements. 
+
+
+# Reference
+1. [What is CloudSQL](https://cloud.google.com/blog/topics/developers-practitioners/what-cloud-sql)
