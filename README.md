@@ -30,6 +30,12 @@
     - [Countdown Function](##9.1-Example1:-Building-a-Countdown-Function)
     - [Power Function](##9.2-Example2:-Building-the-Power-Function)
     - [Factorial Function](##9.3-Example3:-Building-the-Factorial-Function)
+
+- [Webhooks](#Webhooks)
+    - APIs vs. Webhooks
+    - How Webhooks Work
+    - When to use Webhhoks
+    - Webhook Maturity
 -----------------------------------------------------------------------
 
 # Introduction to Computer Science
@@ -522,6 +528,19 @@ def factorial(num):
 ```
 Note that this makes a lot of sense since we can always rewrite n! as n(n-1)!
 
+# Webhooks
+## APIs vs. Webhook
+__Webhooks__provide similar functionality as __APIs__ do but they work differently. With a standard __REST API__, you send a __request__ and get a __response__. However, no __request__ is required for a __Webhook__. Instead, the __response__ is sent whenever a specified event occurs.
+
+## How Webhooks Work
+When a specified event occurs, a __webhook__ makes an __HTTP request__ to a designated __URL__. This allows you to push data to your application the moment a particular event happens.
+
+## When to use Webhhoks
+* __Webhooks__ are commonly used when real-time data is required, but the data changes relatively infrequently. Instead of sending repeated API requests to get live data, a __webhook__ can be triggered every time there is an update. This will ensure you have accurate data without having to make frequent __API requests__, which can be costly or use a lot of bandwidth.
+* __Webhooks__ are also used to created notifications that are triggered by specific  events, making them very common for e-commerce, communication, social media and other platforms.
+
+## Webhook Maturity
+__Webhooks__ are the second most commonly used technology, right behind __REST APIs__. __Webhooks__ are also used by many of today's leading software companies including Twilio, Square, and MailChimp. 
 
 # References
 1. [Evolution of Operating Systems](https://www.notesjam.com/2017/09/evolution-of-operating-system.html)
