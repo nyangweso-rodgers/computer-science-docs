@@ -28,3 +28,4 @@ So when to use BigQuery? It is used for really larger datasets. You can query te
 
 # References
 1. [Getting table metadata using INFORMATION_SCHEMA](https://cloud.google.com/bigquery/docs/information-schema-tables)
+2. [How to unnest / extract nested JSON data in BigQuery](https://www.holistics.io/blog/how-to-extract-nested-or-array-json-in-bigquery/)
