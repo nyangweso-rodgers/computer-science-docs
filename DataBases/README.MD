@@ -9,6 +9,7 @@
   - Database Management System (DBMS)
   - Structured Query Language (SQL)
   - SQL Views
+  - Association (Composite) Table
 
 - [Types of Databases](#Types-of-Databases)
   - Relational Databases
@@ -144,6 +145,9 @@ _Remark:_ __WHY DO WE NEED DATABASES?__: it must
         * For making an audit trail of actions
         * For determining extra information that is not accessible inside a table.
 
+12. __Association (composition) Table__: _Association tables_ are used for _many-to-many_ relationships between two objects. They consist of at least two foreign keys, each of which references one of the two objects. i.e., when setting up a database to answe the following questions, then an _association table_ is implemensted:
+    - How many apples can one person eat?
+    - How many people can eat a single apple?
 
 # Types of Databases
 There are two major types of databases available: __SQL__. and __NoSQL__. They differ in the way they how they store and process data.
@@ -195,3 +199,4 @@ Preferred when you want to use joins and execute complex queries. | Rapid develo
 3. https://dev.mysql.com/doc/workbench/en/workbench-faq.html
 4. [Stored Procedure](https://www.w3schools.com/sql/sql_stored_procedures.asp)
 5. [SQL Trigger](https://www.quora.com/)
+6. [Creating Association Table in a Database  ](https://openclassrooms.com/en/courses/2071486-retrieve-data-using-sql/5758019-create-an-association-table)
