@@ -27,6 +27,13 @@
     - [When to Use SOAP API](#When-to-Use-SOAP-API)
 
 - [GraphQL Overview](#GraphQL-Overview)
+    - [GraphQL Query Document](#GraphQL-Query-Document)
+    - [GraphQL Type System](#GraphQL-Type-System)
+
+- [APIs vs Webhooks](#APIs-vs-Webhooks)
+    - [How Webhooks Work](#How-Webhooks-Work)
+    - [When to use Webhhoks](#When-to-use-Webhhoks)
+    - [Webhook Maturity](#Webhook-Maturity)
 
 - [References](#References)
 
@@ -212,15 +219,27 @@ __SOAP__ was initially developed for __Microsoft__ in __1998__ to provide a stan
 # GraphQL Overview
 __GraphQL__. Created by Facebook, __GraphQL__ is a very flexible query language for APIs, where the clients decide exactly what they want to fetch from the server instead of the server deciding what to send. A __query language__ allows you to query data from the data store. 
 
-## GraphQL Query Document
+# GraphQL Query Document
 In __GraphQL__ a __query document__ is a _string sent to a server to process and request data_. __Query Document__ are read-only operations, and cannot be manipulated. The query tells the server what it needs to do. The __fields__ are what the server used to identify what data to return.
 
-## GraphQL Type System
+# GraphQL Type System
 __GraphQL__ used a type system to describe data and is organized around three main buiding blocks:
 1. __Schema__: defines a set of types
 2. __Queries__: obtain information about a specific fields from objects
 3. __Resolvers__: retrieve data
 
+# APIs vs Webhooks
+__Webhooks__ provide similar functionality as __APIs__ do but they work differently. With a standard __REST API__, you send a __request__ and get a __response__. However, no __request__ is required for a __Webhook__. Instead, the __response__ is sent whenever a specified event occurs.
+
+# How Webhooks Work
+When a specified event occurs, a __webhook__ makes an __HTTP request__ to a designated __URL__. This allows you to push data to your application the moment a particular event happens.
+
+# When to use Webhhoks
+* __Webhooks__ are commonly used when real-time data is required, but the data changes relatively infrequently. Instead of sending repeated __API requests__ to get live data, a __webhook__ can be triggered every time there is an update. This will ensure you have accurate data without having to make frequent __API requests__, which can be costly or use a lot of bandwidth.
+* __Webhooks__ are also used to created notifications that are triggered by specific  events, making them very common for e-commerce, communication, social media and other platforms.
+
+# Webhook Maturity
+__Webhooks__ are the second most commonly used technology, right behind __REST APIs__. __Webhooks__ are also used by many of today's leading software companies including Twilio, Square, and MailChimp. 
 # References
 1. [Learning Advanced API Concepts](https://realpython.com/python-api/#learning-advanced-api-concepts)
 2. https://towardsdatascience.com/a-layman-guide-for-data-scientists-to-create-apis-in-minutes-31e6f451cd2f
