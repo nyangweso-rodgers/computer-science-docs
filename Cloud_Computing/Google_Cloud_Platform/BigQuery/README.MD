@@ -1,7 +1,7 @@
 # Google BigQuery
-__Google BigQuery__ is some kind of __read-only__. You can’t modify the data in a BigQuery, you can’t delete any row. You can only delete the whole table or append it to the table. This is a natural result of the technology behind it.
+__Google BigQuery__ is some kind of __read-only__. You can’t modify the data in a __BigQuery__, you can’t delete any row. You can only delete the whole table or append it to the table. This is a natural result of the technology behind it.
 
-So when to use BigQuery? It is used for really larger datasets. You can query terabytes of data in seconds with it. Big or small it will mostly respond in seconds.
+So when to use __BigQuery__? It is used for really larger datasets. You can query terabytes of data in seconds with it. Big or small it will mostly respond in seconds.
 
 # Cloud SQL vs. BigQuery
 - __Cloud SQL__ is a __relational database__ that is more intended for _transactional_ purposes while __BigQuery__, on the other hand, is an _analytics data warehouse that is intended for analytics, data visualization, business intelligence and/or machine learning_, etc.
