@@ -29,3 +29,4 @@ So when to use __BigQuery__? It is used for really larger datasets. You can quer
 # References
 1. [Getting table metadata using INFORMATION_SCHEMA](https://cloud.google.com/bigquery/docs/information-schema-tables)
 2. [How to unnest / extract nested JSON data in BigQuery](https://www.holistics.io/blog/how-to-extract-nested-or-array-json-in-bigquery/)
+3. [Optimizing BogQuery Cost](https://medium.com%2F@medium.com/zalora-data/optimising-queries-in-bigquery-for-beginners-971be491f1de)
