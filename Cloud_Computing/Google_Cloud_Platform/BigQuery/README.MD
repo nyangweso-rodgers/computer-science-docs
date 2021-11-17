@@ -26,6 +26,14 @@ So when to use __BigQuery__? It is used for really larger datasets. You can quer
     - __Only get the records and columns that are in need__: _Make sure users do proper research of the data sources that they are working with so they can retrieve only the data that they will need._
     - __Train users to learn BigQuery__: Users will get the most on optimizing their queries by having actually tried most of what they can do with BigQuery. [Qwiklabs has a lot of BigQuery hands-on labs](https://www.qwiklabs.com/catalog?keywords=bigquery) that you can complete each at your own pace where each lab takes less than an hour or two. The quests that we recommend to start with are [BigQuery Basics for Data Analysis](https://google.qwiklabs.com/quests/69), [BigQuery for Marketing Analysts](https://google.qwiklabs.com/quests/70), [BigQuery for Data Warehousing](https://google.qwiklabs.com/quests/68), and [BigQuery for Machine Learning](https://google.qwiklabs.com/quests/71).
 
+# BigQuery Table Partition
+__Partition__ involves dividing a large table into smaller portions.
+
+# Advantages of Table Partitions
+1. Improve Query Performance
+2. Control costs by reducing the number of bytes read by the query
+
+
 # References
 1. [Getting table metadata using INFORMATION_SCHEMA](https://cloud.google.com/bigquery/docs/information-schema-tables)
 2. [How to unnest / extract nested JSON data in BigQuery](https://www.holistics.io/blog/how-to-extract-nested-or-array-json-in-bigquery/)
