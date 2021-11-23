@@ -1,14 +1,17 @@
 with
 completed_orders as (
                         select distinct date(oir.completed_date_kenya) as completed_date_kenya,
+                        date_trunc(date(oir.completed_date_kenya), month) as month,
                         oir.catalog_sku, 
                         oir.catalog_name, 
                         oir.catalog_packaging, 
                         oir.service_zone_name,
-                        sum(delivered_catalog_amount) as delivered_catalog_amount
+                        sum(delivered_catalog_quantity) as delivered_catalog_qty,
+                        sum(delivered_catalog_amount) as delivered_catalog_amount,
+                        sum(delivered_catalog_amount) /  sum(delivered_catalog_quantity) as average_selling_price
                         FROM `kyosk-prod.inventory.views_ops_item_report` oir
                         where status = 'Completed' and date(completed_date_kenya) >= '2021-10-01'
-                        group by 1,2,3,4,5
+                        group by 1,2,3,4,5,6
                         ),
 product_mapping as (select * from `kyosk-prod.inventory.google_sheet_product_mapping`),
                         
