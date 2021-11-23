@@ -1,0 +1,28 @@
+SELECT DISTINCT 
+    id,
+    UPPER(code) AS code,
+    UPPER(name) AS name,
+    UPPER( CAST(has_smart_phone AS STRING) ) AS has_smart_phone,
+    UPPER(JSON_VALUE(agent, '$.name')) AS agent_name,
+    JSON_VALUE(agent, '$.phoneNumber') AS agent_phone,
+    UPPER(JSON_VALUE(agent, '$.login')) AS agent_login,
+    UPPER(JSON_VALUE(agent, '$.email')) AS agent_email,
+    UPPER(JSON_VALUE(owner, '$.name')) AS owner_name,
+    JSON_VALUE(owner, '$.phoneNumber') AS owner_phone,
+    UPPER(JSON_VALUE(owner, '$.login')) AS owner_login,
+    UPPER(JSON_VALUE(owner, '$.email')) AS owner_email,
+    JSON_EXTRACT_SCALAR(tels, '$') AS phone_number,
+    UPPER( CAST(status AS STRING) ) AS status,
+    UPPER(match_status) AS match_status,
+    UPPER(created_on_app) AS created_on_app,
+    UPPER(last_updated_on_app) AS last_updated_on_app,
+    FORMAT_DATE("%Y-%m-%d %H:%M:%S", created_date) AS created_date,
+    FORMAT_DATE("%Y-%m-%d %H:%M:%S", DATETIME(created_date, 'Africa/Nairobi')) AS created_date_kenya,
+    UPPER(created_by_name) AS created_by_name,
+    UPPER(created_by) AS created_by,
+    FORMAT_DATE("%Y-%m-%d %H:%M:%S", last_modified_date) AS last_modified_date,
+    FORMAT_DATE("%Y-%m-%d %H:%M:%S", DATETIME(last_modified_date, 'Africa/Nairobi')) AS last_modified_date_kenya,
+    UPPER(last_modified_by_name) AS last_modified_by_name,
+    UPPER(last_modified_by) AS last_modified_by
+FROM `kyosk-prod.sales.tbl_kyosk` ky
+LEFT JOIN UNNEST(JSON_QUERY_ARRAY(phone_numbers, '$')) AS tels;
