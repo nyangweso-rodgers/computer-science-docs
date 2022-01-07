@@ -34,7 +34,7 @@ ops_item_report as (
                       from `inv_prod_reports.ops_item_report` oir 
                       left join `inv_prod_reports.avg_costs` ac on oir.avgCostId = ac.id
                       where status = 'Completed'
-                      and date(completedDate , "Africa/Nairobi") >= '2021-11-01'
+                      and date(completedDate , "Africa/Nairobi") >= '2022-01-01'
                       ),
 ops_item_report_with_dates as (
                                 select distinct completedDateKenya,
