@@ -6,7 +6,7 @@ dates as (
 daily_sale_days as (select *,date_trunc(date,week) as week from dates where FORMAT_DATE('%A',date) <> 'Sunday' ) , 
 vars AS (
   SELECT PARSE_DATE('%Y%m%d', @DS_START_DATE) as current_start_date, PARSE_DATE('%Y%m%d', @DS_END_DATE) as current_end_date ),
-  --SELECT DATE '2021-12-01' as current_start_date, DATE '2021-12-31' as current_end_date ),
+  --SELECT DATE '2022-01-01' as current_start_date, DATE '2022-01-31' as current_end_date ),
 date_vars as (
                select *,
                        date_trunc(current_start_date,month) as start_month,
@@ -21,35 +21,25 @@ sales_agents_monthly_revenue_targets as (
                             group by 1,2
                             ),
 ops_item_report as (
-                      select oir.*, 
-                      -- Added by Rodgers and Evans to add a column for delivery_delay-status( Early, On-Time. Late
-                      case when deliveryDelay > 0 then 'Late'
-                      when deliveryDelay = 0 then 'On-Time'
-                      else 'Early' end as delivery_delay_status,
-                      date(originalDeliveryDate , "Africa/Nairobi") as originalDeliveryDateKenya, 
-                      ac.avgUnitCost,
-                      ac.avgUnitCostIncl,
-                      date(orderCreatedDate , "Africa/Nairobi") as orderCreatedDateKenya,
+                      select distinct
                       date(completedDate , "Africa/Nairobi") as completedDateKenya,
+                      --agentLogin,
+                      case when agentLogin = '34270825' then '28630155' else agentLogin end as agentLogin,
+                      agentName,
+                      serviceZoneName,
+                      orderCode,
+                      dukaCode,
+                      catalogName,
+                      catalogSku,
+                      sum(deliveredCatalogQty * unitSellingPriceIncl) as actual_revenue,
                       from `inv_prod_reports.ops_item_report` oir 
-                      left join `inv_prod_reports.avg_costs` ac on oir.avgCostId = ac.id
                       where status = 'Completed'
                       and date(completedDate , "Africa/Nairobi") >= '2022-01-01'
+                      group by 1,2,3,4,5,6,7,8
                       ),
-ops_item_report_with_dates as (
-                                select distinct completedDateKenya,
-                                agentLogin,
-                                agentName,
-                                serviceZoneName,
-                                orderCode,
-                                dukaCode,
-                                catalogName,
-                                catalogSku,
-                                sum(deliveredCatalogQty * unitSellingPriceIncl) as actual_revenue,
-                                from ops_item_report oir,date_vars 
-                                where  completedDateKenya between start_month and end_month
-                                group by 1,2,3,4,5,6,7,8
-                                ),
+                      
+ops_item_report_with_dates as ( select oir.* from ops_item_report oir,date_vars  where  completedDateKenya between start_month and end_month ),
+
 unique_skus_per_sales_agent as (
                             select distinct agentLogin, 
                             count(distinct catalogSku) as unique_sku_count
@@ -136,10 +126,6 @@ bonus_model as (
                            end as unlocked_unique_sku_bonus
                   from final_bonus_statistics
                   )
-/*
--- invastigation of Wycliffe Ochieng Sales
-select distinct catalogName, count(distinct dukaCode) as duka_count, sum(deliveredCatalogQty * unitSellingPriceIncl) as revenue
-from ops_item_report where agentLogin = '28493190' and completedDateKenya between '2021-11-01' and '2021-11-30' group by 1 order by 2 desc
-*/
 
-select *, unlocked_revenue_bonus + unlocked_avg_sku_per_duka_bonus + unlocked_duka_count_bonus + unlocked_unique_sku_bonus as total_unlocked_bonus from bonus_model  --where agentLogin = 'elibrounkisangau@gmail.com'
+select *, unlocked_revenue_bonus + unlocked_avg_sku_per_duka_bonus + unlocked_duka_count_bonus + unlocked_unique_sku_bonus as total_unlocked_bonus 
+from bonus_model
