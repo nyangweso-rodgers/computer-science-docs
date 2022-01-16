@@ -1,4 +1,12 @@
 # Google BigQuery
+- [Introduction to Google BigQuery](#Introduction-to-Google-BigQuery)
+- [Cloud SQL vs. BigQuery](#Cloud-SQL-vs.-BigQuery)
+- [BigQuery Pricing Model](#BigQuery-Pricing-Model)
+- [BigQuery Table Partition](#BigQuery-Table-Partition)
+    - [Advantages of Table Partitions](Advantages-of-Table-Partitions)
+- [How to ETL Data to BigQuery](#How-to-ETL-Data-to-BigQuery)
+- [References](#References)
+# Introduction to Google BigQuery
 __Google BigQuery__ is some kind of __read-only__. You can’t modify the data in a __BigQuery__, you can’t delete any row. You can only delete the whole table or append it to the table. This is a natural result of the technology behind it.
 
 So when to use __BigQuery__? It is used for really larger datasets. You can query terabytes of data in seconds with it. Big or small it will mostly respond in seconds.
@@ -8,7 +16,6 @@ So when to use __BigQuery__? It is used for really larger datasets. You can quer
 - __Google BigQuery__ is some kind _read only_. You can’t modify the data in a BigQuery, you can’t delete any row. You can only delete the whole table or append to table. This is a natural result of the technology behind it.
 - So when to use BigQuery? It is used for really larger datasets. You can query terabytes of data in seconds with it. Big or small it will mostly response in seconds.
 - And Google Cloud SQL is just a SQL. You can keep your users on it for example, edit it, delete it etc.
-
 
 # BigQuery Pricing Model
 * Given that the files stored in __BigQuery__ cannot be compressed and the current cost is $5 per 1TB queried and $20 per month for every 1TB stored, the bill becomes huge when multiple users often query denormalized tables in there.
@@ -33,6 +40,8 @@ __Partition__ involves dividing a large table into smaller portions.
 1. Improve Query Performance
 2. Control costs by reducing the number of bytes read by the query
 
+# How to ETL Data to BigQuery
+1. [Send CloudSQL Data to BigQuery](https://towardsdatascience.com/send-cloud-sql-data-to-bigquery-2603489a4330)
 
 # References
 1. [Getting table metadata using INFORMATION_SCHEMA](https://cloud.google.com/bigquery/docs/information-schema-tables)
