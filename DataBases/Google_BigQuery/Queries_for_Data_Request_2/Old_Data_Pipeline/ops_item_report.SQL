@@ -17,5 +17,4 @@ old_data_pipeline as (
 select distinct saleCode, bootSale --completedDateKenya, sum(deliveredCatalogQty * unitSellingPriceIncl) as delivered_catalog_amount
 from old_data_pipeline
 where status = 'Completed'
-and  completedDateKenya = '2021-11-07' 
 --group by 1 order by 1 desc
