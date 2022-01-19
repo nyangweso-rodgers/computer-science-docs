@@ -1,0 +1,30 @@
+SELECT
+      *
+FROM EXTERNAL_QUERY("projects/kyosk-prod/locations/europe-west4/connections/payment_conn", 
+'''SELECT
+    id::text,
+    created_by,
+    created_by_name,
+    created_date,
+    date_created,
+    last_modified_by,
+    last_modified_by_name,
+    last_modified_date,
+    bill_ref_number,
+    first_name,
+    invoice_number,
+    last_name,
+    matched,
+    middle_name,
+    msisdn,
+    org_account_balance,
+    short_code,
+    trans_id,
+    transaction_amount,
+    transaction_time,
+    transaction_type,
+    name,
+    created_on_app,
+    last_updated_on_app,
+    upload_type           
+FROM mpesa_transactions''')
