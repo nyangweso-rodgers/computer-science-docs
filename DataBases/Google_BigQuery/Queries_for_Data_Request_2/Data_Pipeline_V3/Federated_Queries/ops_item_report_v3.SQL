@@ -24,11 +24,18 @@ SELECT
       cat.catalog_sku,
       cat.catalog_name,
       cat.catalog_packaging,
+      i.stocking_sku,
+      i.stocking_name,
+      i.stocking_unit,
+      cat.conversion_ratio_from_catalog_to_inventory,
       opi.ordered_catalog_qty,
+      opi.ordered_stocking_qty,
       opi.delivered_catalog_quantity,
+      opi.delivered_stocking_quantity,
       opi.unit_sale_price_incl,
       opi.ordered_catalog_amount,
       opi.delivered_catalog_amount,
+      opi.delivered_stocking_amount,
       opi.avg_cost_id,
       avgc.avg_unit_cost,
       avgc.avg_unit_cost_incl,
@@ -50,7 +57,6 @@ SELECT
       opi.delivery_window_id,
       dw.delivery_window_start,
       case when dw.delivery_window_start = 8 then 'Morning Window' when dw.delivery_window_start = 13 then 'Afternoon Window' else 'Not Defined' end as delivery_window_status
-      --datetime(
 FROM EXTERNAL_QUERY("projects/kyosk-prod/locations/europe-west4/connections/inventory_conn", 
 '''SELECT id::text,
           date(order_created_date at time zone 'utc' at time zone 'Africa/Nairobi') as order_created_date_kenya,
@@ -71,9 +77,12 @@ FROM EXTERNAL_QUERY("projects/kyosk-prod/locations/europe-west4/connections/inve
           final_stocking_qty,
           unit_sale_price_incl,
           catalog_qty as ordered_catalog_qty,
+          stocking_qty as ordered_stocking_qty,
           final_catalog_qty as delivered_catalog_quantity,
+          final_stocking_qty as delivered_stocking_quantity,
           unit_sale_price_incl  * catalog_qty as ordered_catalog_amount,
           unit_sale_price_incl * final_catalog_qty as delivered_catalog_amount,
+          unit_sale_price_incl * final_stocking_qty as delivered_stocking_amount,
           sale_detail ->> 'saleCode' as sale_code,
           sales_tariff_id::text,
           avg_cost_id::text,
@@ -87,7 +96,9 @@ left join EXTERNAL_QUERY("projects/kyosk-prod/locations/europe-west4/connections
           name as catalog_name,
           packaging as catalog_packaging, 
           sku as catalog_sku, 
-          zone_code as service_zone_code
+          zone_code as service_zone_code,
+          conversion_ratio_from_catalog_to_inventory,
+          inv_id::text
        FROM catalog''') cat on opi.cat_id = cat.id
 left join EXTERNAL_QUERY("projects/kyosk-prod/locations/europe-west4/connections/inventory_conn", 
 '''SELECT id::text,
@@ -129,3 +140,9 @@ left join EXTERNAL_QUERY("projects/kyosk-prod/locations/europe-west4/connections
           avg_unit_cost,
           avg_unit_cost_incl
        FROM avg_cost''') avgc on opi.avg_cost_id = avgc.id
+left join EXTERNAL_QUERY("projects/kyosk-prod/locations/europe-west4/connections/inventory_conn", 
+'''SELECT id::text,
+          sku as stocking_sku,
+          name as stocking_name,
+          stocking_unit
+       FROM inventory''') i on cat.inv_id = i.id
