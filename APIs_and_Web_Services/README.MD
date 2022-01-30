@@ -1,5 +1,11 @@
 # Web Services and APIs
 # Table of Contents
+- [Introduction to HTTP](#Introduction-to-HTTP)
+    - [HTTP Methods](#HTTP-Methods)
+    - [HTTP Status Messages](#HTTP-Status-Messages)
+    - [HTTP Headers](#HTTP-Headers)
+    - [HTTP Response](#HTTP-Response)
+
 - [Introduction to Web Services and API](#Introduction-to-Web-Services-and-API)
 
 - [Web Services](#Web-Services)
@@ -35,7 +41,107 @@
     - [When to use Webhhoks](#When-to-use-Webhhoks)
     - [Webhook Maturity](#Webhook-Maturity)
 
+- [API Testing](#API-Testing)
+    - [Types of API Testing](#Types-of-API-Testing)
+
+- [API Optimizations](#API-Optimizations)
+
 - [References](#References)
+
+# Introduction to HTTP
+1. __Protocol__: system of rules that allows communication of information between different entities, like computers
+2. __Hypertext__: text displayed on a computer screen that contains hyperlinks to other text.
+3. __Hypertext Transfer Protocol (HTTP)__: set of rules, servers and browsers used to transfer web documents back and forth
+4. __Browser__: application used to access and navigate between __HTML__ documents.
+5. __User Agent__: application acting on behalf of the user - literally an agent  of the user-typically a browser.
+6. __Transmission Control Protocol (TCP)__: one of the main internet protocols used by the World Wide Web, email, FTP (File Transfer Protocol), and remote administration
+7. __Internet Protocol (IP) Address__: used to actually transfer data between computers over a network. Every device connected to the internet has an __IP address__.
+8. __Uniform Resource Locator (URL)__: address pointing at a resource on the web.
+9. __Domain Name Server (DNS)__: catalogs all domain name . __URLs__ and points them to the __IP addresses__ of servers.
+10. __Resource__: the file  or files available on a server when following a __URL__.
+11. __Server__: computer on the internet running some form of data storage  and sharing application, most commonly web server application.
+12. __Proxy__: software or hardware service acting as a middle person between clients and servers.
+13. __Request-Response Pairs__: Clients and servers communicate over __HTTP__ using request - response pairs. A __request__ is sent and a __response__ is returned.
+14. __Header__: requests and response use __HTTP headers__ to pass information back and forth.
+15. __Status Response Code__: numerical code in the 100 to 500 range describing what type of response the server sent back to the client.
+16. __Cache__: method for storing data on the __client__ or the __server__ to speed up performance. A __cache__ is a high speed data store which stores a part or the complete dataset so that future requests to the data are served faster. The data in a __cache__ is stored on a fast access hardware like __RAM__. Caching allows us to _efficiently reuse previously retrieved data_.  __Caching__ is leveraged at different layers of technology like:
+    * Operating systems
+    * CDN(Content Delivery Network)
+    * DNS(Domain Name Systems)
+    * Web Applications(APIs)
+    * Databases e.t.c.
+
+    __Caching__ information includes:
+    * database query results
+    * computationally intensive calculations
+    * API requests/responses
+    * data files like HTML, images or
+    * any application data in general e.t.c
+
+    In __distributed applications__ there are various caching __strategies__:
+    * write-through: _in this policy, data is written to both the cache and the underlying data source. The order in which it is written is not important. The main idea is that the I/O operation is considered complete when the data is written to both the cache and the DB._
+    * write-around: _in this policy, data is directly written to the underlying data source without disturbing the cache._
+    * write-back: _in this policy, data is written only to the cache and the I/O operation is considered complete. Typically, data is written  to the underlying data source as well, but it is done asynchronously using a worker process._
+
+     # Benefits of caching
+    * improves application performance
+    * reduced load on servers
+    * reduced load on databases
+    * eliminates database hotspots
+    * increases Read Throughput(IOPS)
+    * reduces bandwidth consumption
+
+17. __Stateless__: __HTTP__ is a __stateless__ protocol, meaning every request and response is unique, and no state is stored.
+18. __Cookie__: string of data passed back and forth between the __client__ and __server__ to create a __stateful__ session. By example. __cookies__ are something that bring you back to your Twitter account after you have signed in with _Remember me checkbox_ checked. By definition, _small chunk of information (4KB) that browser stores on behalf of Web server_. 
+    # Mechanism Behind Cookies
+    * server asks the browser to store this using a _Set-Cookie_ header.
+    * browser and server pass this info to and fro as part of request and response headers
+    * stores a name value pair and attributes like Expires, Domain, Path.
+    * Cookie in the header when communicating from Browser to server.
+    * Set-Cookie in the header when communicating from server to browser.
+    * These HTTP Cookies are used to store the name value pair that identify you. So, the next time you visit, your session is restored.
+    * It is used by numerous websites to track your online activities.
+
+     # Types of Cookies
+    * Session Cookies
+    * Persistent/Permanent Cookies
+    * Third Party Cookies
+19. __Session__: Clients and servers can share information about states by passing information back and forth, creating a __session__.  __Session__ is a period with all the parameters that suggest you are active on the website.
+
+20. __Payload__: When data is sent over the Internet, each unit transmitted includes both _header information_ and the _actual data_ being sent. The __header__ identifies the _source_ and _destination_ of the packet, while the actual data is referred to as the __payload__. Because header information, or overhead data, is only used in the transmission process, it is stripped from the packet when it reaches its destination. Therefore, the __payload__ is the only data received by the destination system.
+
+# HTTP Methods
+
+# HTTP Status Messages
+* 1xx - Information
+* 2xx - success
+    - 200 - Ok
+    - 201 - Created
+    - 204 - No content
+* 3xx - Redirection
+    - 301 - Moved permanently
+    - 302/303 - Found at this other __URI__
+    - 307 - Temporary redirect
+    - 308 - Permanent Redirect
+* 4xx - Client Error
+    - 400 - Bad Request
+    - 401 - Unauthorized
+    - 403 - Forbidden
+    - 404 - Not found
+    - 405 - Method not allowed
+* 5xx - Server Error
+    - 500 - Internal Server Error
+    - 502 - Bad gateway
+    - 503 - Service Unavailable
+
+# HTTP Headers
+
+# HTTP Response
+* __The version__ identifies the __HTTP__ version, which will typically be the same as the request’s version.
+* __The status code__ indicates whether a request was completed successfully. There are quite a few status codes.
+* __The status message__ provides a human-readable message that helps describe the status code.
+* __The headers__ allow the server to respond with additional metadata about the request. These are the same concept as request headers.
+* __The body__ carries the content. Technically, this is optional, but typically it contains a useful resource.
 
 # Introduction to Web Services and APIs
 An __API__ is the gateway you pass through to access a __Web Service__. It is a central point of entry which routes your request to the correct, quite possibly multiple, __Web Service(s)__ in order to fulfil your request.
@@ -148,7 +254,9 @@ __APIs__ are classified as follows based on how they are consumed:
     - __API Keys__: This is the most common level of authentication. These keys are used to identify you as an __API__ user or customer and to trace your use of the API. API keys are typically sent as a _request header_ or as a _query parameter_.
     - __OAuth__: Every time an app or platform has a Login With or Continue With option, that’s the starting point of an OAuth flow:
 
-11. __Pagination__: Sending lots of data back and forth between clients and servers comes with a price: bandwidth. To make sure that servers can cope with a lot of requests, APIs typically use __pagination__. In very simple terms, pagination is the act of splitting large amounts of data into multiple smaller pieces
+11. __Pagination__: Sending lots of data back and forth between clients and servers comes with a price: bandwidth. To make sure that servers can cope with a lot of requests, APIs typically use __pagination__. In very simple terms, pagination is the act of splitting large amounts of data into multiple smaller pieces.
+
+12. __API Key__: unique code for every user which lets you call an API. __API keys__ are used for both _autorization_ and _authentification_. __Authentification__ is used to identify the caller requesting API access and __authorization__ checks whether the user making the call has permission to do so.
 
 
 
@@ -240,6 +348,34 @@ When a specified event occurs, a __webhook__ makes an __HTTP request__ to a desi
 
 # Webhook Maturity
 __Webhooks__ are the second most commonly used technology, right behind __REST APIs__. __Webhooks__ are also used by many of today's leading software companies including Twilio, Square, and MailChimp. 
+
+# API Testing
+__API Testing__ is performed to test wheather a particular API meets pre-deined parametsrs or not. It includes testing APIs in isolation to ascertain if they meet the:
+* functionality, 
+* reliability, 
+* latency, 
+* performance, 
+* security, and other essesbtial parameters.
+
+__API testing__ commonly includes testing APIs with __JSON__ or __XML__ payload sent over HTTP, HTTPS, and MQ. These are widely used data formats and networking/messaging protocols.
+
+# Types of API Testing
+__API testing__ is not a process that is carried out right away. It is divided into several categories which aim to test the API effectively so that the API can work in isolation, with integration, and produce the desired results to edge cases.
+1. __Unit Testing:__ involves testing the individual operations of the API by lopgically divisdig them into units. __Unit testing__ helps to identify imperfections in the early stages. It typically inclues testing each part of the code seperately.
+2. __Functional Testing:__ includes testing of all the functions in the codebase. It is often uses unit tests as tyhe building blocks.
+3. __Load Testing:__ generally validates the functionality and performance of API under load. __Load Testing__ ensures whether an API will work as expected if multiple users are accessing the API concurrently.
+4. __Runtime Error Detection__: can be performed manually or through automated testing. This testing includes monitoring an API by actually running the API entirely. It helps us to detect errors and exceptions and also prevent resource leaks.
+5. __Security Testing__: this testing handles all the security aspects of an API, including external threats, validation, access control, and data encryption.
+6. __Penetration Testing:__ includes testing an API to find vulnerabilities in the system or codebase that attackers can exploit. It also includes testing functions that could be misused and test security assests that could be bypassed.
+7. __Fuzz Testing:__ in this testing, we provide substantial random data as the input to test the reliability of an API. This random data is known as __fuzz__. Fuzz Testing ensures the API functionality in the worst-case scenario.
+
+# API Optimizations
+It's imperative to optimize your API to provide a better user experience. Here are five ways to optimize your API performance and make it standout:
+1. __Use rate-limiting strategy:__ there might be a case where the user executes a loop, causing many API requests that can slow doen your API performance. In order to avioid such scenarios, use __rate-limitng__ factors and limit the specific number or requests in the given time period.
+2. __Cache Requests:__ you can implement cache endpoints for the frequently used requests. This will reduce the number of round trips of client requets to the server and improve API performance and latency.
+3. __Use PATCH over PUT:__ the __PATCH__ requests method only updates the necessary part of the resource whereas __PUT__ updates the entire resource.
+4. __Compress Data:__ massive data transactions make the API slow. Consider using compression teschniques like __GZip__ to compress the data sent through the API. It will make the transfer faster and improve the overall performance of your API.
+5. __Using Appropriate Hosting:__ if you expect your API to see high traffic surges, make sure you use a good hosting company that provides you with enough CPUs and databse instances to make your APIs fast. It will solve your network-related issues.
 # References
 1. [Learning Advanced API Concepts](https://realpython.com/python-api/#learning-advanced-api-concepts)
 2. https://towardsdatascience.com/a-layman-guide-for-data-scientists-to-create-apis-in-minutes-31e6f451cd2f
