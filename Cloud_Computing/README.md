@@ -29,6 +29,12 @@
     - [Private Cloud]()
     - [Hybrid Cloud]()
 
+- [Cloud Native Architecture](#Cloud-Native-Architecture)
+    - [Traits of Cloud Natives](#Traits-of-Cloud-Natives)
+    - [How does Positive Progress look like?](#How-does-Positive-Progress-look-like?)
+
+- [References](#References)
+
 # Economies of Scale
 __Economies of Scale__: Ability to do things more efficiently or at a lower-cost per unit when operating at a large scale.
 
@@ -387,3 +393,33 @@ You can keep any systems running and accessible that use out-of-date hardware or
 You have flexibility with what you run locally versus in the cloud | It can be more complicated to set up and manage
 You can take advantage of economies of scale from public cloud providers for services and resources where it's cheaper, and then supplement with your own equipment when it's not |  -
 You can use your own equipment to meet security, compliance, or legacy scenarios where you need to completely control the environment. | -
+
+# Cloud Native Architecture
+__Cloud native__ technologies empower organizations to build and run scalable applications in modern, dynamic environments such as _public_, _private_ and _hybrid_ clouds.
+
+__Or__,
+
+__Cloud-native__ is an approach to building and running applications that exploits the advantages of the cloud computing delivery model. _Cloud-native_ is about how applications are created and deployed, not where.
+# Traits of Cloud Natives
+Specifically, __cloud native applications__ are built around several small, self-contained services (referred to as ‘_Microservices_’) that are deployed on cloud infrastructure using __containers__. In summary, ‘cloud-native’ applications have the following __characteristics__:
+* Can be deployed to any type of cloud
+* Take full advantage of cloud computing environments and scale up on demand, very fast.
+* Generally are composed of several ‘Microservices’, each providing a single business feature and communicate with each other via well-defined set of APIs. These services, when combined, provide the application, its functionality.
+* Have an underlying infrastructure that supports continuous integration and continuous deployment (CI/CD), which helps developers to constantly add new features / functionality.
+* Make use of containers (such as Docker) to host the above services. Each container maintains resource isolation. It is these containers that provide a fast and easy way to provide additional services on demand.
+* Some way of managing the containers that host these services, the most popular being [Kubernetes](https://kubernetes.io/).
+
+# How does Positive Progress look like?
+* _More speed_: Faster load time, regular deployments.
+* _More scale_: Low API response time, easily scale in and out, linear dev productivity.
+* _More stability_: drop in impact minutes , fast MTTR, low change failure rate
+* _More secure_:fully patched software, regularly changed credentials, small amounts of unplanned work.
+
+"__Cloud-native__" Applies to More than Just Apps
+1. Cloud-native infrastructure
+2. Cloud-native data
+3. Cloud-native security
+4. Cloud-native integration 
+
+# References
+1. [Quora](https://www.quora.com/What-does-it-mean-for-a-technology-to-be-cloud-native)
