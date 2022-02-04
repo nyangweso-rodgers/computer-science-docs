@@ -16,25 +16,40 @@ date_vars as (
 sales_agents_monthly_revenue_targets as (
                             SELECT distinct agent_login, start_date, 
                             sum(monthly_target) as monthly_target
-                            FROM `kyosk-prod.inv_prod_reports.uploaded_sales_agents_daily_and_monthly_targets`,date_vars
+                            FROM `kyosk-prod.inventory_v2.uploaded_sales_agents_daily_and_monthly_targets`,date_vars
                             where start_date between start_month and end_month
                             group by 1,2
                             ),
 ops_item_report as (
                       select distinct
-                      date(completedDate , "Africa/Nairobi") as completedDateKenya,
-                      --agentLogin,
-                      case when agentLogin = '34270825' then '28630155' else agentLogin end as agentLogin,
-                      agentName,
-                      serviceZoneName,
-                      orderCode,
-                      dukaCode,
-                      catalogName,
-                      catalogSku,
-                      sum(deliveredCatalogQty * unitSellingPriceIncl) as actual_revenue,
-                      from `inv_prod_reports.ops_item_report` oir 
-                      where status = 'Completed'
-                      and date(completedDate , "Africa/Nairobi") >= '2022-01-01'
+                      completed_date_kenya as completedDateKenya,
+                      case 
+                          when agent_login = '34270825' then '28630155' 
+                          when agent_login = '254711396184' then 'akinyimercy636@gmail.com' 
+                          when agent_login = '254743807659' then 'meubrian46@gmail.com'
+                          when agent_login = '254715555418' then 'gikarujeffercy@gmail.com'
+                          when agent_login = 'evalinemakori2@gmail.com' or agent_login = 'evalinemakori0@gmail.com' then 'kemuntoevaline307@gmail.com'
+                          when agent_login = 'adamseustace0@gmail.com' then 'adamseustace390@gmail.com'
+                          when agent_login = 'vincentotieno567@gmail.com' then 'vincentotieno2800@gmail.com'
+                          when agent_login = 'absolomkaranja@gmail.com' then '29715909'
+                          when agent_login = 'mishlihabi@gmail.com' then 'lihabimitchelle@gmail.com'
+                          when agent_login = 'danielligami17@gmail.com' then 'danielligami85@gmail.com'
+                          when agent_login = 'kmulandi123@gmail.com' then 'jmulandi123@gmail.com'
+  when agent_login = 'jangara27.19@gmail.com' then 'belindajangara82@gmail.com'
+  when agent_login = '254711725288' then '35618339'
+  when agent_login = 'reginahwanjiru761@gmail.com' then 'wanjiruregina761@gmail.com'  when agent_login = '33490100' then 'wanjiruregina761@gmail.com' 
+                          else agent_login end as agentLogin, 
+                      agent_name as agentName,
+                      service_zone_name as serviceZoneName,
+                      order_code as orderCode,
+                      kyosk_code as dukaCode,
+                      catalog_name as catalogName,
+                      catalog_sku as catalogSku,
+                      sum(delivered_catalog_amount) as actual_revenue,
+                      from `kyosk-prod.inventory_v2.fed_scheduled_ops_item_report_v2_completed_date` oir 
+                      where status = 'Completed' and agent_login is not null
+                      and completed_date_kenya >= '2022-01-01'
+  					  and agent_login not in ('ayumba.onguko@kyosk.app')
                       group by 1,2,3,4,5,6,7,8
                       ),
                       
@@ -57,8 +72,7 @@ unique_skus_per_duka as (
 agent_average_sku_per_duka as (
                             select distinct agentLogin, 
                             sum(catalog_sku_count) as total_sku_count,
-                            round(sum(catalog_sku_count)/ count(distinct dukaCode),1) as avg_catalog_sku_per_duka_1,
-                            round(avg(catalog_sku_count),1) as avg_catalog_sku_per_duka
+                            round(sum(catalog_sku_count)/ count(distinct dukaCode),0) as avg_catalog_sku_per_duka
                             from unique_skus_per_duka 
                             group by 1
                             ),
@@ -127,5 +141,4 @@ bonus_model as (
                   from final_bonus_statistics
                   )
 
-select *, unlocked_revenue_bonus + unlocked_avg_sku_per_duka_bonus + unlocked_duka_count_bonus + unlocked_unique_sku_bonus as total_unlocked_bonus 
-from bonus_model
+select *, unlocked_revenue_bonus + unlocked_avg_sku_per_duka_bonus + unlocked_duka_count_bonus + unlocked_unique_sku_bonus as total_unlocked_bonus  from bonus_model
