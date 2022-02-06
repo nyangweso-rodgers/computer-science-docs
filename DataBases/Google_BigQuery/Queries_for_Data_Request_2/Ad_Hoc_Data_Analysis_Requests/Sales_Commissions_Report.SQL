@@ -98,7 +98,7 @@ bonus_statistics as (
                       ),
 final_bonus_statistics as (
                             select *, 
-                            coalesce(round(sum(actual_revenue) / sum(revenue_target),1),0) as achieved_revenue_target 
+                            coalesce(round(safe_divide(sum(actual_revenue), sum(revenue_target)),1),0) as achieved_revenue_target 
                             from bonus_statistics
                             group by 1,2,3,4,5,6,7,8,9,10,11,12
                             ),
