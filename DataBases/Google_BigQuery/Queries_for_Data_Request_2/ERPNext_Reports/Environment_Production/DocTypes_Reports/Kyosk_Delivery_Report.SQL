@@ -1,0 +1,31 @@
+select 
+    dn.posting_date,
+    dn.posting_time,
+    dn.lr_date,
+    dn.customer,
+    dn.customer_name,
+    dn.territory,
+    c.district,
+    c.route_code,
+    c.sale_district_code,
+    dn.docstatus,
+    dn.workflow_state,
+    dn.kyosk_order_type,
+    dn.driver,
+    dn.vehicle_no,
+    dn.driver_name,
+    dn.name,
+    dni.against_sales_order,
+    dni.item_code,
+    dni.item_name,
+    dni.uom,
+    dni.item_group,
+    dni.original_quantity,
+    dni.qty,
+    dni.returned_qty,
+    dni.price_list_rate,
+    dni.discount_amount,
+    dni.amount
+from `tabDelivery Note` dn
+left join `tabCustomer` c on dn.customer = c.name
+left join `tabDelivery Note Item` dni on dn.name = dni.parent

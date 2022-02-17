@@ -1,0 +1,28 @@
+select 
+    c.kyosk_identity_code,
+    c.name,
+    c.customer_name,
+    date(c.creation) as creation_date,
+    c.creation as creation_datetime,
+    date(c.modified) as modified_date,
+    c.modified as modifed_datetime,
+    c.created_by_name,
+    c.last_modified_by_name,
+    c.duka_latitude,
+    c.duka_longitude,
+    c.first_name,
+    c.last_name,
+    c.mobile_no,
+    c.owner_phone_number,
+    c.territory,
+    c.district,
+    c.route_code,
+    c.sale_district_code,
+    c.has_smart_phone,
+    c.disabled,
+    c.agent,
+    c.agent_name,
+    c.agent_email,
+    c.agent_phone_number
+from `tabCustomer` c
+order by 4 desc

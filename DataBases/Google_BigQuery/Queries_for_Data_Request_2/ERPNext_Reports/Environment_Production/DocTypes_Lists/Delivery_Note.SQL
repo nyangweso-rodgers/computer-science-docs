@@ -1,0 +1,22 @@
+select 
+    dn.creation,
+    dn.modified,
+    dn.posting_date,
+    dn.posting_time,
+    dn.lr_date,
+    dn.territory,
+    dn.status,
+    dn.workflow_state,
+    dn.duka_latitude,
+    dn.duka_longitude,
+    dn.name,
+    dn.customer,
+    dn.customer_name,
+    dn.lr_no,
+    dn.driver,
+    dn.driver_name,
+    dn.vehicle_no,
+    dn.total_qty,
+    dn.total,
+    dn.discount_amount
+from `tabDelivery Note` dn

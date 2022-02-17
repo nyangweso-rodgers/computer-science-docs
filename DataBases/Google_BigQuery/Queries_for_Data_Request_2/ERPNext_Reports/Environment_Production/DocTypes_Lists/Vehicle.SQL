@@ -1,0 +1,21 @@
+select 
+    date(v.creation) as creation,
+    date(v.modified) as modified,
+    v.acquisition_date,
+    v.year_of_manufacture,
+    v.name,
+    v.license_plate,
+    v.vehicle_type,
+    v.make,
+    v.model,
+    v.color,
+    v.wheels,
+    v.doors,
+    v.fuel_type,
+    v.uom,
+    v.last_odometer,
+    v.vehicle_value,
+    v.vehicle_capacity,
+    v.vehicle_supplier,
+    v.vehicle_territory
+from `tabVehicle` v
