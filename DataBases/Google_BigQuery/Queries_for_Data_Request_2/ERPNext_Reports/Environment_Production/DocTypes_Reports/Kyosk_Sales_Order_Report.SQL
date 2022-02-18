@@ -16,5 +16,5 @@ select
         soi.amount
 from `tabSales Order` so
 left join `tabSales Order Item` soi on so.name = soi.parent
-where so.transaction_date = %(transaction_date)s
+where so.transaction_date between %(from_date)s and %(to_date)s
 and so.workflow_state not in ('INITIATED')
