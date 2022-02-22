@@ -13,6 +13,7 @@ sales_order as (
                        so.territory,
                        so.name, 
   					           so.workflow_state,
+                       so.kyosk_order_type,
                        soi.item_code,
                        soi.item_name,
                        soi.uom,
