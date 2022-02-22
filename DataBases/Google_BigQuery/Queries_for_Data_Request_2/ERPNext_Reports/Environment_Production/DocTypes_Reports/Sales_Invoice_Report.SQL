@@ -16,7 +16,7 @@ select
     sii.qty,
     sii.rate,
     sii.discount_amount,
-    sii.amount,
-    sii.delivered_qty
+    sii.amount
 from `tabSales Invoice` si
 left join `tabSales Invoice Item` sii on si.name = sii.parent
+where si.posting_date between %(from_date)s and %(to_date)s
