@@ -1,7 +1,7 @@
 with
 delivery_note as (
                   SELECT distinct dn.posting_date,
-                  date(dn.creation) as creation_date,
+                  scheduled_delivery_date,
                   dn.posting_time,
                   dn.lr_date,
                   dn.customer,
@@ -12,6 +12,7 @@ delivery_note as (
                   oi.against_sales_order,
                   dn.workflow_state,
                   oi.fulfilment_status,
+                  dn.kyosk_order_type,
                   dn.status,
                   dn.driver,
                   dn.driver_name,
@@ -28,9 +29,15 @@ delivery_note as (
                   FROM `kyosk-prod.erp_reports.delivery_note` dn
                   cross join unnest(original_items) oi
                   )
-select distinct name as delivery_note, posting_date,  creation_date, date_diff(creation_date, posting_date, day) date_var, kyosk_sales_order, workflow_state, sum(amount) as amount
+select distinct name as delivery_note, 
+        posting_date,  
+        scheduled_delivery_date, 
+        kyosk_sales_order, 
+        workflow_state, 
+        kyosk_order_type,
+        sum(amount) as amount
 from delivery_note
 --where FORMAT_DATE('%Y%m%d', posting_date) between @DS_START_DATE and @DS_END_DATE 
-where posting_date = '2022-02-21' 
+where posting_date = '2022-02-22' 
 
 group by 1,2,3,4,5,6 order by 7 desc
