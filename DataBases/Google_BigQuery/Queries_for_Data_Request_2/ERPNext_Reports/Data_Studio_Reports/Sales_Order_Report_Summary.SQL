@@ -26,8 +26,14 @@ sales_order as (
                 cross join unnest(items) soi
                 where index = 1
                 )
-select distinct transaction_date,delivery_date, name as sales_order, workflow_state, sum(amount) as amount  from sales_order so
+select distinct transaction_
+              date,delivery_date, 
+              name as sales_order, 
+              workflow_state, 
+              kyosk_order_type, 
+              sum(amount) as amount 
+               from sales_order so
 where workflow_state not in ('INITIATED')
 --AND FORMAT_DATE('%Y%m%d', transaction_date) between @DS_START_DATE and @DS_END_DATE 
 and transaction_date = '2022-02-21'
-group by 1,2,3,4 order by 5 desc
+group by 1,2,3,4,5 order by 8 desc
