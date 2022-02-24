@@ -35,22 +35,25 @@ ops_item_report as (
                           when agent_login = 'mishlihabi@gmail.com' then 'lihabimitchelle@gmail.com'
                           when agent_login = 'danielligami17@gmail.com' then 'danielligami85@gmail.com'
                           when agent_login = 'kmulandi123@gmail.com' then 'jmulandi123@gmail.com'
-  when agent_login = 'jangara27.19@gmail.com' then 'belindajangara82@gmail.com'
-  when agent_login = '254711725288' then '35618339'
-  when agent_login = 'reginahwanjiru761@gmail.com' then 'wanjiruregina761@gmail.com'  when agent_login = '33490100' then 'wanjiruregina761@gmail.com' 
-                          else agent_login end as agentLogin, 
-                      agent_name as agentName,
+                          when agent_login = 'jangara27.19@gmail.com' then 'belindajangara82@gmail.com'
+                          when agent_login = '254711725288' then '35618339'
+                          when agent_login = 'reginahwanjiru761@gmail.com' then 'wanjiruregina761@gmail.com'  when agent_login = '33490100' then 'wanjiruregina761@gmail.com' 
+                      else agent_login end as agentLogin, 
+                      
                       service_zone_name as serviceZoneName,
                       order_code as orderCode,
                       kyosk_code as dukaCode,
-                      catalog_name as catalogName,
-                      catalog_sku as catalogSku,
+                      case when 	catalog_name = ' BABA LAO NGANO 2KG' then 'BABA LAO MAIZE 2KG' else catalog_name end as catalogName,
+                      case when catalog_sku = 'INVHRO9-SU' then 'INVDA6E-CI' else catalog_sku end as catalogSku,
+                      string_agg(distinct agent_name, "/" order by agent_name) as agentName,
                       sum(delivered_catalog_amount) as actual_revenue,
+                      
                       from `kyosk-prod.inventory_v2.fed_scheduled_ops_item_report_v2_completed_date` oir 
-                      where status = 'Completed' and agent_login is not null
+                      where status = 'Completed' 
+                      and agent_login is not null
                       and completed_date_kenya >= '2022-01-01'
-  					  and agent_login not in ('ayumba.onguko@kyosk.app')
-                      group by 1,2,3,4,5,6,7,8
+  					          and agent_login not in ('ayumba.onguko@kyosk.app')
+                      group by 1,2,3,4,5,6,7
                       ),
                       
 ops_item_report_with_dates as ( select oir.* from ops_item_report oir,date_vars  where  completedDateKenya between start_month and end_month ),
