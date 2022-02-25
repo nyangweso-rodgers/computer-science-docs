@@ -1,6 +1,7 @@
 with
 delivery_note as (
-                  SELECT distinct dn.posting_date,
+                  SELECT 
+                  distinct dn.scheduled_delivery_date,
                   dn.posting_time,
                   dn.lr_date,
                   dn.customer,
@@ -26,6 +27,5 @@ delivery_note as (
                   FROM `kyosk-prod.erp_reports.delivery_note` dn
                   cross join unnest(original_items) oi
                   )
-select *
-from delivery_note
-where FORMAT_DATE('%Y%m%d', posting_date) between @DS_START_DATE and @DS_END_DATE 
+select * from delivery_note
+where FORMAT_DATE('%Y%m%d', scheduled_delivery_date) between @DS_START_DATE and @DS_END_DATE 
