@@ -1,12 +1,11 @@
 select 
         so.transaction_date as order_date,
         so.delivery_date,
-        so.delivery_window_start_time,
-        so.delivery_window_end_time,
         so.customer_name,
         so.territory,
         so.name as sales_order,
         so.workflow_state,
+        kyosk_order_type,
         soi.item_code,
         soi.item_name,
         soi.uom,
