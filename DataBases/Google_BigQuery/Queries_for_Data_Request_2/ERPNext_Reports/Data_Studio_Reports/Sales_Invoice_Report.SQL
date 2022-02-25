@@ -2,7 +2,6 @@ with
 sales_invoice as (
                    SELECT si.posting_date,
                    si.posting_time,
-                   si.due_date,
                    si.creation,
                    si.territory,
                    si.name,
