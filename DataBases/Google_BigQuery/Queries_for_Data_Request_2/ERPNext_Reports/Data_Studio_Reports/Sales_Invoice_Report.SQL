@@ -1,7 +1,13 @@
 with
+sales_invoice_with_index as (
+                            SELECT *, 
+                            row_number()over(partition by name order by modified desc) as index 
+                            FROM `kyosk-prod.erp_reports.sales_invoice`
+                            ),
 sales_invoice as (
                    SELECT si.posting_date,
                    si.posting_time,
+                   si.due_date,
                    si.creation,
                    si.territory,
                    si.name,
@@ -20,8 +26,9 @@ sales_invoice as (
                    i.discount_amount,
                    i.amount,
                    i.net_amount
-                   FROM `kyosk-prod.erp_reports.sales_invoice` si
+                   FROM sales_invoice_with_index si
                    cross join unnest(items) i
+                   where index = 1
                    )
 select * from sales_invoice 
 where FORMAT_DATE('%Y%m%d', posting_date) between @DS_START_DATE and @DS_END_DATE

@@ -1,4 +1,15 @@
 WITH
+delivery_note_with_index as (
+                            SELECT *, 
+                            row_number()over(partition by name order by modified desc) as index 
+                            FROM `kyosk-prod.erp_reports.delivery_note`
+                            ),
+sales_order_with_index as (
+                            SELECT *, 
+                            row_number()over(partition by name order by modified desc) as index 
+                            FROM `kyosk-prod.erp_reports.sales_order`
+                            ),
+
 delivery_note as (
                     select distinct dn.scheduled_delivery_date,
                     format_time('%R', dn.posting_time) as posting_time,
@@ -10,8 +21,9 @@ delivery_note as (
                     dn.lr_no,
                     driver_name,
                     sum(oi.amount) as amount
-                    FROM `kyosk-prod.erp_reports.delivery_note` dn
+                    FROM delivery_note_with_index dn
                     cross join unnest(original_items) oi
+                    where index = 1
                     group by 1,2,3,4,5,6,7,8,9
                     ),
 sales_order as (
@@ -19,8 +31,9 @@ sales_order as (
                   format_time('%R', delivery_window_start_time)  as delivery_window_start_time,
                   format_time('%R', delivery_window_end_time)  as delivery_window_end_time,
                   sum(i.amount) as amount
-                  from `kyosk-prod.erp_reports.sales_order` so
+                  from sales_order_with_index so
                   cross join unnest(items) i
+                  where index = 1
                   group by 1,2,3
                   ),
       

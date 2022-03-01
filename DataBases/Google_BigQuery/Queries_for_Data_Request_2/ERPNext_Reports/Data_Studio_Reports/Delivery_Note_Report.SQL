@@ -1,4 +1,9 @@
 with
+delivery_note_with_index as (
+                            SELECT *, 
+                            row_number()over(partition by name order by modified desc) as index 
+                            FROM `kyosk-prod.erp_reports.delivery_note`
+                            ),
 delivery_note as (
                   SELECT 
                   distinct dn.scheduled_delivery_date,
@@ -24,8 +29,12 @@ delivery_note as (
                   oi.rate,
                   oi.discount_amount,
                   oi.amount
-                  FROM `kyosk-prod.erp_reports.delivery_note` dn
+                  FROM delivery_note_with_index dn
                   cross join unnest(original_items) oi
+                  where index = 1
                   )
 select * from delivery_note
 where FORMAT_DATE('%Y%m%d', scheduled_delivery_date) between @DS_START_DATE and @DS_END_DATE 
+--where scheduled_delivery_date = '2022-03-01'
+--and name = 'MAT-DN-2022-54775'
+order by name
