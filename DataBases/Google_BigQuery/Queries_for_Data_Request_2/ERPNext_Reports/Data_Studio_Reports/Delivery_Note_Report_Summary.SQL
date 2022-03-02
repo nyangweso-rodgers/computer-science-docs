@@ -1,4 +1,9 @@
 with
+delivery_note_with_index as (
+                            SELECT *, 
+                            row_number()over(partition by name order by modified desc) as index 
+                            FROM `kyosk-prod.erp_reports.delivery_note`
+                            ),
 delivery_note as (
                   SELECT distinct dn.posting_date,
                   scheduled_delivery_date,
@@ -16,28 +21,31 @@ delivery_note as (
                   dn.status,
                   dn.driver,
                   dn.driver_name,
-                  dn.vehicle_no,
                   oi.item_code,
                   oi.item_name,
                   oi.uom,
                   oi.item_group,
                   oi.qty,
-                  oi.returned_qty,
                   oi.rate,
                   oi.discount_amount,
                   oi.amount
-                  FROM `kyosk-prod.erp_reports.delivery_note` dn
+                  FROM delivery_note_with_index dn
                   cross join unnest(original_items) oi
+                  where index = 1
                   )
-select distinct name as delivery_note, 
+select distinct scheduled_delivery_date,
         posting_date,  
-        scheduled_delivery_date, 
+        territory,
+        name as delivery_note, 
         kyosk_sales_order, 
         workflow_state, 
-        kyosk_order_type,
-        sum(amount) as amount
+        driver,
+        driver_name,
+        sum(amount) as amount,
+        extract(hour from posting_time) as posting_hour
 from delivery_note
 --where FORMAT_DATE('%Y%m%d', posting_date) between @DS_START_DATE and @DS_END_DATE 
-where posting_date = '2022-02-22' 
+where posting_date = '2022-03-01' 
 
-group by 1,2,3,4,5,6 order by 7 desc
+group by 1,2,3,4,5,6,7,8,10
+order by kyosk_sales_order, delivery_note
