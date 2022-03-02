@@ -1,10 +1,13 @@
 with
+sales_invoice_with_index as (
+                            SELECT *, 
+                            row_number()over(partition by name order by modified desc) as index 
+                            FROM `kyosk-prod.erp_reports.sales_invoice`
+                            ),
 sales_invoice as (
                    SELECT si.posting_date,
                    date(si.creation) as creation_date,
                    si.posting_time,
-                   si.due_date,
-                   si.creation,
                    si.territory,
                    si.name,
                    i.sales_order,
@@ -18,13 +21,23 @@ sales_invoice as (
                    i.item_group,
                    i.uom,
                    i.qty,
-                   i.delivered_qty,
-                   i.price_list_rate,
+                   i.rate,
                    i.amount
-                   FROM `kyosk-prod.erp_reports.sales_invoice` si
+                   FROM sales_invoice_with_index si
                    cross join unnest(items) i
+                   where index = 1
                    )
-select distinct posting_date, creation_date, due_date, territory, name as sales_invoice,delivery_note, sales_order, status, sum(amount) as amount from sales_invoice 
---where FORMAT_DATE('%Y%m%d', posting_date) between @DS_START_DATE and @DS_END_DATE
-where posting_date = '2022-02-21' 
-group by 1,2,3,4,5,6,7,8 order by 9 desc
+SELECT distinct posting_date,
+       
+       creation_date,
+       territory,
+       name as sales_invoice,
+       delivery_note,
+       sales_order,
+       status,
+       sum(amount) as amount_sales_invoice,
+       extract(hour from posting_time) as posting_hour,
+from sales_invoice
+where posting_date = '2022-03-01'
+group by 1,2,3,4,5,6,7,9
+order by sales_invoice, delivery_note, sales_order
