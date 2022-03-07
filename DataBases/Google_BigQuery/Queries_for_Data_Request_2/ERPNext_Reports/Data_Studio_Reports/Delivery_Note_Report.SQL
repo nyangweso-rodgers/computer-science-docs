@@ -7,8 +7,9 @@ delivery_note_with_index as (
 delivery_note as (
                   SELECT 
                   distinct dn.scheduled_delivery_date,
-  				  dn.posting_date,
-                  dn.posting_time,
+  				        dn.posting_date ,
+                  posting_time,
+                  extract(hour from dn.posting_time) as posting_hour,
                   dn.lr_date,
                   dn.customer,
                   customer_name,
@@ -34,3 +35,4 @@ delivery_note as (
                   )
 select * from delivery_note
 where FORMAT_DATE('%Y%m%d', scheduled_delivery_date) between @DS_START_DATE and @DS_END_DATE
+--where scheduled_delivery_date = '2022-03-07'
