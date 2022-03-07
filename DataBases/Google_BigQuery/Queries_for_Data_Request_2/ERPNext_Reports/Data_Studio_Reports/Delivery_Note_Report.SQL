@@ -18,6 +18,7 @@ delivery_note as (
                   oi.against_sales_order,
                   dn.workflow_state,
                   oi.fulfilment_status,
+  				  oi.kyosk_reason,
   				  dn.lr_no,
                   dn.driver,
                   dn.driver_name,
