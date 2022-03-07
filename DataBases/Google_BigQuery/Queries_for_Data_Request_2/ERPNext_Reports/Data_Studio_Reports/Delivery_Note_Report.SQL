@@ -7,6 +7,7 @@ delivery_note_with_index as (
 delivery_note as (
                   SELECT 
                   distinct dn.scheduled_delivery_date,
+  				  dn.posting_date,
                   dn.posting_time,
                   dn.lr_date,
                   dn.customer,
@@ -16,16 +17,14 @@ delivery_note as (
                   oi.against_sales_order,
                   dn.workflow_state,
                   oi.fulfilment_status,
-                  dn.status,
+  				  dn.lr_no,
                   dn.driver,
                   dn.driver_name,
-                  dn.vehicle_no,
                   oi.item_code,
                   oi.item_name,
                   oi.uom,
                   oi.item_group,
                   oi.qty,
-                  oi.returned_qty,
                   oi.rate,
                   oi.discount_amount,
                   oi.amount
@@ -34,7 +33,4 @@ delivery_note as (
                   where index = 1
                   )
 select * from delivery_note
-where FORMAT_DATE('%Y%m%d', scheduled_delivery_date) between @DS_START_DATE and @DS_END_DATE 
---where scheduled_delivery_date = '2022-03-01'
---and name = 'MAT-DN-2022-54775'
-order by name
+where FORMAT_DATE('%Y%m%d', scheduled_delivery_date) between @DS_START_DATE and @DS_END_DATE
