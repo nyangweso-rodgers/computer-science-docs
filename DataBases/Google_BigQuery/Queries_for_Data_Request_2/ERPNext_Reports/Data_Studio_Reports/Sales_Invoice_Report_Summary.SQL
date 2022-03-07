@@ -28,7 +28,6 @@ sales_invoice as (
                    where index = 1
                    )
 SELECT distinct posting_date,
-       
        creation_date,
        territory,
        name as sales_invoice,
