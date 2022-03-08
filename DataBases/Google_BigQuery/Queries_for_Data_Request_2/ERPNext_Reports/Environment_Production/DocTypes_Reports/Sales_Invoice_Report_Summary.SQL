@@ -8,6 +8,8 @@ select
     sii.delivery_note,
     sii.sales_order,
     si.status,
+    sum(sii.qty) as qty,
+    sum(sii.discount_amount) as discount_amount,
     sum(sii.amount) as amount
     
 from `tabSales Invoice` si
