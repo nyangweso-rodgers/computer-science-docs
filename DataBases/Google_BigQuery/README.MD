@@ -1,4 +1,6 @@
 # Google's BigQuery
+
+## Table of Contents
 __BigQuery__ is a serverless data analytics platform i.e., it automatically allocates  resources based on demand.
 # BigQuery Pricing
 1. __Analysis pricing__ is the cost to _process queries_, including SQL queries, user-defined functions, scripts, and certain data manipulation language (DML) and data definition language (DDL) statements that scan tables.
@@ -13,5 +15,5 @@ __BigQuery__ is a serverless data analytics platform i.e., it automatically allo
     - __Active storage__ includes any table or table partition that has been modified in the last 90 days.
     - __Long-term storage__ includes any table or table partition that has not been modified for 90 consecutive days. The price of storage for that table automatically drops by approximately 50%. There is no difference in performance, durability, or availability between active and long-term storage.
 
-## References
+# References
 1. [BigQuery Pricing](https://cloud.google.com/bigquery/pricing)
