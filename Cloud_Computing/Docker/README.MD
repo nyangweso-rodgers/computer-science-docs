@@ -4,6 +4,7 @@
 - [About Docker](#About-Docker)
 - [How Docker Works](#How-Docker-Works)
 - [What Docker Does](#What-Docker-Does)
+- [Useful Docker Commands](#Useful-Docker-Commands)
 - [References](#References)
 
 # About Docker
@@ -31,5 +32,27 @@ __Docker__ packages an application and all its __dependencies__ in a __virtual c
     * Geared toward developers
     * Seamless experience
     * Swarm and standalone
+
+# Useful Docker Commands
+* list all docker images
+    ```docker
+        docker image ls
+    ```
+* delete a docker image
+    ```docker
+        docker image rm <image>
+    ```
+* force delete a docker image if it;s still in use
+    ```docker
+        docker image rm -f <image>
+    ```
+* show docker disk usage
+    ```docker
+        docker system df
+    ```
+* free up disk space: caution: read docs first, so you don't lose data
+    ```docker
+        docker system prune
+    ```
 
 # References
