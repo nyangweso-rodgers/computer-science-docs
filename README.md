@@ -24,18 +24,11 @@
 
 - [Concurrency vs Parallelism](#Concurrency-vs-Parallelism)
     - [Situations for Concurrency](##Situations-for-Concurrency)
-- [HTTP(S)](#7.-HyperText-Transfer-Protocol)
 - [Big - O - Notation](#8.-The-Big-O-Notation)
 - [Recursion](#9.-Recursion)
     - [Countdown Function](##9.1-Example1:-Building-a-Countdown-Function)
     - [Power Function](##9.2-Example2:-Building-the-Power-Function)
     - [Factorial Function](##9.3-Example3:-Building-the-Factorial-Function)
-
-- [Webhooks](#Webhooks)
-    - APIs vs. Webhooks
-    - How Webhooks Work
-    - When to use Webhhoks
-    - Webhook Maturity
 -----------------------------------------------------------------------
 
 # Introduction to Computer Science
@@ -44,108 +37,19 @@ __Computer Science__ is the study of how computers work, mostly the theoratical 
 
 # Computer Programming Overview 
 # Definition of Terms
-1. __Operating System__: set of programs that controls and supports hardware and provide various services which are used for better performance of computer. The __operating system__ acts as a link between __software__ and __hardware__. It controls and record of the execution of all other programs that are present in the computer including application programs and other system software. 
 
-    The major __functions of O.S__ are:
-    - it assigns processors to task
-    - manages memory and other storage areas
-    - acts as a command interpreter
-    - file management
-    - input-output management
-    - establish data security and integrity
-    - maintain account of processor time for billing purposes
-    - provides data and time services
-    - error detecting aids
-    - scheduling
+2. __Secure Shell (SSH)__: open-source protocol used to secure network communication which is less expensive and complex than the hardware based __VPN__ solutions. i.e., it offers _authentication_, _encryption_ and _data integrity_ for securing network communicationsy. 
 
-    __Evolution of O.S (Types of Operating System)__:
-    - __Distributed System__: In a __distributed operating system__, the processors cannot share a memory or a clock, each processor has its own local memory. The processor communicates with one another through various communication lines, such as high-speed buses. These systems are referred to as "Loosely Coupled" systems.
-    - __Parallel System__. There is a trend multiprocessor system, such system have more than one processor in close communication, sharing the computer bus, the clock, and sometimes memory and peripheral devices. These systems are referred to as "Tightly Coupled" system. Then the system is called a __parallel system__. In the __parallel system__, a number of processors are executing there job in parallel.
-    - __Time Sharing__ or __multitasking__ is a logical extension of __multiprogramming__. Multiple jobs are executed by the CPU switching between them. The CPU scheduler selects a job from the ready queue and switches the CPU to that job. When the time slot expires, the CPU switches from this job to another. In this method, the CPU time is shared by different processes. So, it is said to be "__Time-Sharing System__". Generally, time slots are defined by the operating system.
-    - __Multiprogramming__ - technique to execute the number of programs simultaneously by a single processor.  In __multiprogramming__, a number of processes reside in main memory at a time. The OS(Operating System) picks and begins to execute one of the jobs in main memory. 
-    - __Batch processing__: In a __Batch Operating System__, similar jobs are grouped together into __batches__ with the help of some operators and these batches are executed one by one.
-    - __Serial Processing__:
-
-   __Types of Operating System__:
-   * __Windows__: Microsoft developed the Windows operating system. It was developed so as to overcome the limitation of the MS-DOS operating system.
-   * __Mac__: MAC is an OS that focuses on the graphical user interface and was developed by __Apple, Inc__, for their Macintosh systems
-   * __Linux__: Linux is UNIX like a source software and can use an operating system that provides full memory protection and multi-tasking operations. It is an open d by anyone.
-   
-
-   _Remark:_
-   - __Linux__ and __Mac__ are built based off of __Unix__. Unix came before windows, mac, etc…. In __unix based systems__ you have whats called __kernel modules__ where in windows they’re called __kernel drivers__.
-   - __Windows__ is all closed source where linux is fully open and mac is partially open.
-   - __Linux__ is free and the other two cost money.
-   - __Windows__ and __Mac__ are best for the general population where __linux__ is best suited for developers(Mac is good for this because it’s required for IOS programming).
-
-   ### Comparison of Windows, Mac & Linux OS
-   The basis of comparison | Windows | Mac | Linux
-   |:----:|:----:|:-----:|:----:|
-   Basic difference and history | Windows first released in 1985. It was supposed to be a graphical user interface on top of MS-DOS. All features of MS-DOS were later integrated with Windows 95 release. It was a huge success in and led to the Windows transition. | This operating system from Apple stands older than Windows. It was first released in 1984. It began as a graphical user interface right from its inception. In 2005 the design and structure of MAC OS were changed to Intel x86 based architecture.| It was initially developed at Finnish University. It was released in 1991 and designed for GNU developers. GNU developers later integrated it into Linux. It is open to consumers, and everyone can use it as per their specifications.
-   File Structure | Windows follows a directory structure to store the different kinds of files of the user. It has logical drives and cabinet drawers. It also has folders. Some common folders like documents, pictures, music, videos, and downloads. All these files can be stored in these folders, and also new folders can be created. It also has files which can be a spreadsheet or an application program. It can have extensions as .txt, .jpg etc. In addition to this, Windows also provides a recycle bin where all deleted files can be stored. Recycle bin can be configured to increase its size. | The file structure of MAC is commonly known as MAC OS X. If you go to dig into your MAC’s hard disk through the finder, you will see many directories. The root directory of MAC may encounter when they visit their own MAC book. You can explore the file system and directory structure by going to directories like /Application, /Developer, /sbin, /tmp, etc. | Linux has a completely different file structure form Windows and MAC. It was developed with a different code base. It stores data in the form of a tree. There is a single file tree, and all your drives are mounted over this tree.
-   Registry | Windows registry is a master database that is used to store all settings on your computer. It is responsible for storing all user information with its passwords, and device relate information. The registry also has an editor which allows you to view all keys and values or even drivers if necessary. | MAC stores all application settings in a series of .plist files, which have the various preferences folder in MAC. This .plist file contains all properties in either plain text or binary format. These are stored at: /Library/Preferences folder | Linux also does not have a specific registry of its own. All application setting is stored on a program basis under the different users in the same hierarchy format of the files being stored. There is no centralized database for storing these details, and so periodic cleaning is also not required.
-   | Interchangeable Interfaces | Windows interface was not interchangeable until Windows 8. Windows XP had some improvements but not par. Start menu, taskbar, system tray, and Windows Explorer. | MAC has a facility to bridge virtual network interfaces. This can be done by going to system preferences and managing the interfaces. | Linux is easy to switch interfaces. You can switch the environment without having to carry all installations. There are utilities like GNOME and KDE which help in catering to these needs. They help in focusing on different aspects.
-   | Command terminal | A terminal or command prompt is a black box ideally used to execute commands. It is also called the Windows Command Processor. It is used to execute commands and different batch files. It can also be used for administrative functions and troubleshoot and solve all windows issues. | MAC provides a console as a terminal application. It has a console, command line, prompt and terminal. A Command-line is used to type your commands. Prompt will provide you with some information and also enable you to run commands. A terminal is an actual interface that will provide the modern graphical user interface as well. You can find the terminal at Applications -> Utilities. | Linux also provides a terminal. You can find terminal at: Applications -> System or Applications -> Utilities. In addition to this, there is also a shell prompt. The most common shell used in bash. It defines how the terminal will behave and look when it is run. 
-
+  By Implementing __SSH__, we get some of the capabilities like:
+    - secure command-shell
+    - secure file transfer
+    - remote access to a variety of __TCP/IP__ applications via a secure tunnel
+    
 2. __LocalHost__: refers to “_this computer_” or even more accurately “_the computer I’m working on_.” 
-3. __Payload__: When data is sent over the Internet, each unit transmitted includes both _header information_ and the _actual data_ being sent. The __header__ identifies the _source_ and _destination_ of the packet, while the actual data is referred to as the __payload__. Because header information, or overhead data, is only used in the transmission process, it is stripped from the packet when it reaches its destination. Therefore, the __payload__ is the only data received by the destination system.
-4. __Cookies__: By example. __cookies__ are something that bring you back to your Twitter account after you have signed in with _Remember me checkbox_ checked. By definition, _small chunk of information (4KB) that browser stores on behalf of Web server_.
-    ### 4.1 Mechanism Behind Cookies
-    * server asks the browser to store this using a _Set-Cookie_ header.
-    * browser and server pass this info to and fro as part of request and response headers
-    * stores a name value pair and attributes like Expires, Domain, Path.
-    * Cookie in the header when communicating from Browser to server.
-    * Set-Cookie in the header when communicating from server to browser.
-    * These HTTP Cookies are used to store the name value pair that identify you. So, the next time you visit, your session is restored.
-    * It is used by numerous websites to track your online activities.
 
-    ### 4.2 Types of Cookies
-    1. Session Cookies
-    2. Persistent/Permanent Cookies
-    3. Third Party Cookies
 
-    ### 4.3 Cookies vs. Session
-    __Session__ is a period with all the parameters that suggest you are active on the website. __Cookies__ help in recognising and managing the session.Cookies are primarily used to create session and related info for web application. They get deleted when the session expires. 
 
-    _Note_: not all cookies are related wit session, some remain persistent
-
-5. __Caching__: is a common practice in different layers of technology to _improve application performance_. A __cache__ is a high speed data store which stores a part or the complete dataset so that future requests to the data are served faster. The data in a cache is stored on a fast access hardware like __RAM__. Caching allows us to _efficiently reuse previously retrieved data_. 
-
-    __Caching__ is leveraged at different layers of technology like:
-    * Operating systems
-    * CDN(Content Delivery Network)
-    * DNS(Domain Name Systems)
-    * Web Applications(APIs)
-    * Databases e.t.c.
-
-    __Caching__ information includes:
-    * database query results
-    * computationally intensive caclculations
-    * API requests/responses
-    * data files like HTML, images or
-    * any application data in general e.t.c
-
-    In __distributed applications__ there are various caching __strategies__:
-    * write-through
-    * write-around
-    * write-back
-
-    ### 5.1 write-through cache
-    in this policy, data is written to both the cache and the underlying data source. The order in which it is written is not important. The main idea is that the I/O operation is considered complete when the data is written to both the cache and the DB.
-
-    ### 5.2 write-around cache
-    in this policy, data is directly written to the underlying data source without disturbing the cache.
-
-    ### 5.3 write-back cache
-    in this policy, data is written only to the cache and the I/O operation is considered complete. Typically, data is written  to the underlying data source as well, but it is done asynchronously using a worker process.
-
-    ### 5.4 Benefits of caching
-    * improves application performance
-    * reduced load on servers
-    * reduced load on databases
-    * eliminates database hotspots
-    * increases Read Throughput(IOPS)
-    * reduces bandwidth consumption
+    
 
 6. __IP Addresses__: 
 The __IP address__ is a fascinating product of modern computer technology designed to allow one connected computer (or “smart” device) to communicate with another device over the Internet. Because, in the same way you to need a mailing address to recieve a letter in the mail from a friend, a remote computer needs your __IP address__ to communicate with your computer.
@@ -250,19 +154,7 @@ The __IP address__ is a fascinating product of modern computer technology design
     - We must run multiple instances of the application on multiple machines in order to satisfy scalability and availability requirements
     - We not able to take advantage of emerging technologies (frameworks, programming languages, etc)
 
-14. __Unit Testing__: __Unit Testing__ is done by developers - once the __Unit Testing__ status is passed they will share the build with the QA team for further testing. __UNIT TESTING__ is a level of software testing where individual units/ components of a software are tested. The purpose is to _validate that each unit of the software performs as designed_. A __unit__ is the _smallest testable part of any software_. It usually has one or a few inputs and usually a single output. In procedural programming, a unit may be an individual program, function, procedure, etc.
 
-    __Benefits of Unit Testing__:
-    * Improves the quality of code
-    * Restructuring and changes in the code are made easier by the developer and makes the integration easier
-    * Bugs in the software are identified and resolved in the early stage in the software development lifecycle
-    * As the bugs are identified and resolved at the earliest, time and costs are reduced
-
-15. __Regression Testing__: Let’s assume that there is an application which maintains the details of all the students in school. This application has four buttons __Add__, __Save__, __Delete__ and __Refresh__. All the buttons functionalities are working as expected.
-
-    Recently a new button ‘__Update__’ is added in the application. This ‘__Update__’ button functionality is tested and confirmed that it’s working as expected. But at the same time, it becomes very important to know that the introduction of this new button should not impact the other existing buttons functionality.
-
-    Along with the ‘__Update__’ button, all the other buttons functionality are tested in order to find any new issues in the existing code. This process is known as __regression testing__.
 
 16. __Software Development Methodologies__
     - __Waterfall Development__: You figure out everything you need to do and document them (requirements). Like a _waterfall_, there's no way to go back up unless you start over again. You move on to the next phase when current phase is completed.
@@ -313,31 +205,6 @@ _Web scraping_ is __IO-bound__. Because the task has little effect on the CPU si
 3. __Multiple Systems__
     - Several systems, each accessing a common resource
     - _Example_: Multiple processes accessing a common database table.
-
-# 7. HyperText Transfer Protocol
-Fundamentally, HTTPS is the same protocol as HTTP but with the added implication that the communications are secure.
-
-HTTPS doesn’t rewrite any of the HTTP fundamentals on which it’s built. Instead, HTTPS consists of regular HTTP sent over an encrypted connection. Typically, this encrypted connection is provided by either TLS or SSL, which are cryptographic protocols that encrypt the information before it’s sent over a network.
-
-_Note:_ _TLS and SSL are extremely similar protocols, though SSL is on its way out, with TLS to take its place. It’s enough to know that TLS is the newer, better version of SSL._
-
-Again, HTTPS is just HTTP over TLS or SSL. TLS is designed to provide privacy from eavesdroppers. It can also provide authentication of both the client and the server.
-## 7.1 HTTP Request? 
-HTTP requests contain the following elements:
-* The __method__ describes what action the client wants to perform. The method for static content is typically __GET__, though there are others available, like __POST__, __HEAD__, and __DELETE__.
-* The __path__ indicates to the server what web page you would like to request. For example, /python-https.
-* __The version__ is one of several HTTP versions, like 1.0, 1.1, or 2.0. The most common is probably 1.1.
-* __The headers__ help describe additional information for the server.
-* __The body__ provides the server with information from the client. Though this field is not required, it’s typical for some methods to have a body, like a POST.
-
-These are the tools your browser uses to communicate with a server. The server responds with an HTTP response. The HTTP response contains the following elements:
-## 7.2 HTTP Response
-* __The version__ identifies the HTTP version, which will typically be the same as the request’s version.
-* __The status code__ indicates whether a request was completed successfully. There are quite a few status codes.
-* __The status message__ provides a human-readable message that helps describe the status code.
-* __The headers__ allow the server to respond with additional metadata about the request. These are the same concept as request headers.
-* __The body__ carries the content. Technically, this is optional, but typically it contains a useful resource.
-
 
 
 
@@ -528,23 +395,9 @@ def factorial(num):
 ```
 Note that this makes a lot of sense since we can always rewrite n! as n(n-1)!
 
-# Webhooks
-## APIs vs. Webhook
-__Webhooks__provide similar functionality as __APIs__ do but they work differently. With a standard __REST API__, you send a __request__ and get a __response__. However, no __request__ is required for a __Webhook__. Instead, the __response__ is sent whenever a specified event occurs.
-
-## How Webhooks Work
-When a specified event occurs, a __webhook__ makes an __HTTP request__ to a designated __URL__. This allows you to push data to your application the moment a particular event happens.
-
-## When to use Webhhoks
-* __Webhooks__ are commonly used when real-time data is required, but the data changes relatively infrequently. Instead of sending repeated API requests to get live data, a __webhook__ can be triggered every time there is an update. This will ensure you have accurate data without having to make frequent __API requests__, which can be costly or use a lot of bandwidth.
-* __Webhooks__ are also used to created notifications that are triggered by specific  events, making them very common for e-commerce, communication, social media and other platforms.
-
-## Webhook Maturity
-__Webhooks__ are the second most commonly used technology, right behind __REST APIs__. __Webhooks__ are also used by many of today's leading software companies including Twilio, Square, and MailChimp. 
 
 # References
-1. [Evolution of Operating Systems](https://www.notesjam.com/2017/09/evolution-of-operating-system.html)
-2. [Comparison between Windows, Mac and Linx OS](https://www.educba.com/linux-vs-mac-vs-windows/)
+
 1. [LocalHost](https://whatismyipaddress.com/localhost)
 2. [Payload](https://techterms.com/definition/payload)
 3. [IP Address](https://whatismyipaddress.com/ip-address)
