@@ -18,8 +18,13 @@ delivery_note as (
                   oi.against_sales_order,
                   dn.workflow_state,
                   oi.fulfilment_status,
-  				        oi.kyosk_reason,
-  				        dn.lr_no,
+                  case 
+                    when oi.kyosk_reason = 'Late delivery ' then 'Late delivery' 
+                    when oi.kyosk_reason = 'Late Delivery ' then 'Late delivery'
+                    when oi.kyosk_reason = 'Let delivery ' then 'Late delivery'
+                    when oi.kyosk_reason = 'late delivery' then 'Late delivery'
+                  else oi.kyosk_reason end as kyosk_reason,
+                  dn.lr_no,
                   dn.driver,
                   dn.driver_name,
                   oi.name as original_delivery_note_item_name,
