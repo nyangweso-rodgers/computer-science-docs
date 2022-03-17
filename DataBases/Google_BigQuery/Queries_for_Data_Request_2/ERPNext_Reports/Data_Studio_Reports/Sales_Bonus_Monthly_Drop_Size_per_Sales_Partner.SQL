@@ -63,7 +63,10 @@ monthly_sales_partner_drop_size as (
                                     round(avg(avg_amount_per_sales_order)) as avg_amount_per_sales_order,
                                     from monthly_customer_drop_size
                                     group by 1,2
-                                    )
-select mspds.*,mwdpa.days_worked   from monthly_sales_partner_drop_size mspds 
-left join monthly_working_days_per_agent mwdpa on mspds.sales_partner = mwdpa.sales_partner and mspds.transaction_month = mwdpa.transaction_month
-where FORMAT_DATE('%Y%m%d', mspds.transaction_month) between @DS_START_DATE and @DS_END_DATE 
+                                    ),
+sales_partner_drop_size_mashup as (
+                            select mspds.*,mwdpa.days_worked   from monthly_sales_partner_drop_size mspds 
+                            left join monthly_working_days_per_agent mwdpa on mspds.sales_partner = mwdpa.sales_partner and mspds.transaction_month = mwdpa.transaction_month
+                            where FORMAT_DATE('%Y%m%d', mspds.transaction_month) between @DS_START_DATE and @DS_END_DATE 
+                            )
+select * from monthly_customer_drop_size where FORMAT_DATE('%Y%m%d', transaction_month) between @DS_START_DATE and @DS_END_DATE 
