@@ -60,7 +60,12 @@ monthly_sales_agent_drop_size as (
                                   round(avg(avg_amount_per_sales_order)) as avg_amount_per_sales_order,
                                   from monthly_customer_drop_size
                                   group by 1,2
-                                  )
-select mwdpa.*, msads.*except(agent_login, completed_month)  from monthly_working_days_per_agent mwdpa
-left join monthly_sales_agent_drop_size msads on  mwdpa.agent_login  = msads.agent_login and mwdpa.completed_month  = msads.completed_month
-where FORMAT_DATE('%Y%m%d', mwdpa.completed_month) between @DS_START_DATE and @DS_END_DATE 
+                                  ),
+agent_drop_size_mashup as (
+                            select mwdpa.*,
+                            msads.*except(agent_login, completed_month)  
+                            from monthly_working_days_per_agent mwdpa
+                            left join monthly_sales_agent_drop_size msads on  mwdpa.agent_login  = msads.agent_login and mwdpa.completed_month  = msads.completed_month
+                            where FORMAT_DATE('%Y%m%d', mwdpa.completed_month) between @DS_START_DATE and @DS_END_DATE 
+                            )
+select * from agent_drop_size_mashup
