@@ -34,6 +34,13 @@ sales_order as (
                 and kyosk_order_type = 'Sales'
                 and workflow_state = 'COMPLETED' and fulfilment_status = 'COMPLETED'
                 ),
+monthly_working_days_per_agent as (
+                                    select date_trunc(transaction_date, month) as transaction_month,
+                                    sales_partner,
+                                    count(distinct transaction_date) as days_worked
+                                    from sales_order
+                                    group by 1,2
+                                    ),
 monthly_customer_drop_size as (
                                 select date_trunc(transaction_date, month) as transaction_month,
                                 customer,
@@ -43,10 +50,10 @@ monthly_customer_drop_size as (
                                 sum(amount) as sales_order_amount,
                                 count(distinct transaction_date) as count_of_transaction_dates,
                                 round(sum(amount) / count(distinct name)) as avg_amount_per_sales_order,
-                                round(sum(amount) / count(distinct transaction_date)) as avg_amount_per_transaction_date
                                 from sales_order
                                 group by 1,2,3,4
                                 ),
+
 monthly_sales_partner_drop_size as (
                                     select distinct transaction_month,
                                     sales_partner,
@@ -54,8 +61,9 @@ monthly_sales_partner_drop_size as (
                                     count(distinct customer) as count_of_customers,
                                     sum(sales_order_amount) as sales_order_amount,
                                     round(avg(avg_amount_per_sales_order)) as avg_amount_per_sales_order,
-                                    round(avg(avg_amount_per_transaction_date)) as avg_amount_per_transaction_date
                                     from monthly_customer_drop_size
                                     group by 1,2
                                     )
-select *  from monthly_sales_partner_drop_size where FORMAT_DATE('%Y%m%d', transaction_month) between @DS_START_DATE and @DS_END_DATE 
+select mspds.*,mwdpa.days_worked   from monthly_sales_partner_drop_size mspds 
+left join monthly_working_days_per_agent mwdpa on mspds.sales_partner = mwdpa.sales_partner and mspds.transaction_month = mwdpa.transaction_month
+where FORMAT_DATE('%Y%m%d', mspds.transaction_month) between @DS_START_DATE and @DS_END_DATE 
