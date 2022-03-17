@@ -60,5 +60,6 @@ monthly_sales_agent_drop_size as (
                                   from monthly_customer_drop_size
                                   group by 1,2
                                   )
-select mwdpa.*, msads.*except(agent_login)  from monthly_working_days_per_agent mwdpa
+select mwdpa.*, msads.*except(agent_login, completed_month)  from monthly_working_days_per_agent mwdpa
 left join monthly_sales_agent_drop_size msads on  mwdpa.agent_login  = msads.agent_login and mwdpa.completed_month  = msads.completed_month
+where FORMAT_DATE('%Y%m%d', mwdpa.completed_month) between @DS_START_DATE and @DS_END_DATE 
