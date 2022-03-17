@@ -1,0 +1,23 @@
+=Query({
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1giAdq3RXVgozttBE_8l5qDQkO9JyHbt3XWcbttEVbWg/edit#gid=0","Input!B2:W"); 
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Od5vsU8iBKxpBXCnt1lkqAZ6wggye2WofCU6sszpo1c/edit#gid=0","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Z8J3rQBHkGwwh56cVzt_n1OJ5l_JMBaHaKpzyadxVDs/edit#gid=0","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1HkkPzXztyUczUZzGlWg7cW8QWV1XafLdlt4wgpJup90/edit#gid=0","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1oWpD3l5xXkx3EiO4_g2BQqVcDafBFmnnPclIx23NltM/edit#gid=60387883","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1mild8arj3HXdzyIe2OoTvQtkhFVBeXyt6cHzl3zuB7s/edit#gid=60387883","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1PxoJkq5QU3khp9MkhaRbctybS1xiCeKL2FSeUdjow4k/edit#gid=60387883","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1UVPyMlY2-LbNifmB3i5QPaDu8zUigeQY_hBaDNSXv60/edit#gid=60387883","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1iHzsSH6rWjD_wSn8udSeUI4Y-_Uxwrvu83gu5B10AH0/edit#gid=60387883","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/112jzh1avYzfJzefaGAYexk-PRTYkOwkhxQC1jw0B0j8/edit#gid=60387883","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1aO97-vJ1UR8iu_LAaeinbGO0eBDs9LknkSR_QJiUYHs/edit#gid=60387883","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1P8MTsTvclVUzguq9A0T-wLbDzqvKnUkGXBGwFqoHd7A/edit#gid=0","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/19yuo0jU_dsuX5sYY1leHOvt93P1NPX0_wEjurHTaURw/edit#gid=0","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1mpi1pNcb3kGB4Vke4DYDjjsc7ZQAo0lA0INujLGT3Bk/edit#gid=60387883","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/14eSUhA4pwWsmErevvLALK0OVXUWxalaSUNAO_G8U8Q8/edit#gid=0","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1gEPopwB9QvVUaQmW6Q5HlLlkH7qXkcFjVab4n2GHFQQ/edit#gid=60387883","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/120DCbpgmQBK462xsmRKK8WHewgEcN9-HbqkUO0SKJX0/edit#gid=60387883","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/19LEw83Wplt6qtWzaiNd9RdHNSpN7WWn9Jcy-4UzGC_8/edit#gid=60387883","Input!B2:W");
+    IMPORTRANGE("https://docs.google.com/spreadsheets/d/1_N3-d38Mo4p8b7DMgoi0q6aglsDmvLKmwV2U5plItzg/edit#gid=0","Input!B2:W")
+    },
+    "Select * Where Col1 is not null"
+    )
