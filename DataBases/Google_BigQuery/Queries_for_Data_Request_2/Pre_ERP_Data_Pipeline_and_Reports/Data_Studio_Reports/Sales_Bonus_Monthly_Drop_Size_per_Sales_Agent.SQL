@@ -36,7 +36,8 @@ monthly_working_days_per_agent as (
                                     agent_login,
                                     string_agg(distinct agent_name, "/" order by agent_name) as agent_name,
                                     string_agg(distinct service_zone_name, "/" order by  service_zone_name) as service_zone_name,
-                                    count(distinct completed_date_kenya) as days_worked
+                                    count(distinct completed_date_kenya) as days_worked,
+                                    count(distinct order_code) as count_of_orders
                                     from completed_ops_item_report
                                     group by 1,2
                                     ),
