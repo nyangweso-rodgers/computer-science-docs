@@ -45,12 +45,14 @@ monthly_customer_drop_size as (
                                 select date_trunc(completed_date_kenya, month) as completed_month,
                                 kyosk_code,
                                 agent_login,
+                                service_zone_name,
+                                string_agg(distinct agent_name, "/" order by agent_name) as agent_name,
                                 count(distinct order_code) as count_of_orders,
                                 count(distinct completed_date_kenya) as count_of_days_served,
                                 sum(amount) as amount,
                                 sum(amount) / count(distinct order_code) as avg_amount_per_sales_order
                                 from completed_ops_item_report
-                                group by 1,2,3
+                                group by 1,2,3,4
                                 ),
 monthly_sales_agent_drop_size as (
                                   select distinct completed_month,
@@ -68,4 +70,4 @@ agent_drop_size_mashup as (
                             left join monthly_sales_agent_drop_size msads on  mwdpa.agent_login  = msads.agent_login and mwdpa.completed_month  = msads.completed_month
                             where FORMAT_DATE('%Y%m%d', mwdpa.completed_month) between @DS_START_DATE and @DS_END_DATE 
                             )
-select * from agent_drop_size_mashup
+select * from monthly_customer_drop_size where FORMAT_DATE('%Y%m%d', completed_month) between @DS_START_DATE and @DS_END_DATE 
