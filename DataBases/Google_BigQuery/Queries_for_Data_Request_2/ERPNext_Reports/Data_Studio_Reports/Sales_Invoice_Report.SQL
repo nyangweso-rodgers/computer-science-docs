@@ -7,8 +7,6 @@ sales_invoice_with_index as (
 sales_invoice as (
                    SELECT si.posting_date,
                    si.posting_time,
-                   si.due_date,
-                   si.creation,
                    si.territory,
                    si.name,
                    sii.sales_order,
@@ -24,6 +22,7 @@ sales_invoice as (
                    sii.qty,
                    sii.price_list_rate,
                    sii.rate,
+                   sii.net_rate,
                    sii.discount_amount,
                    sii.amount,
                    FROM sales_invoice_with_index si
