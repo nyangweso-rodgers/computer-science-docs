@@ -1,7 +1,12 @@
 # Data Engineering
 
 ## Table of Contents
--[Dimensional Modeling in Data Warehousing](#Dimensional-Modeling-in-Data-Warehousing)
+- [Arrays and UNNEST Function IN SQL](#Arrays-and-UNNEST-Function-in-SQL)
+    - [Properties of Arrays](#Properties-of-Arrays)
+    - [Creating a Sample Query with Arrays](#Creating-a-Sample-Query-with-Arrays)
+    - [How Do You Unnest an Array in SQL?](#How-Do-You-Unnest-an-Array-in-SQL?)
+
+- [Dimensional Modeling in Data Warehousing](#Dimensional-Modeling-in-Data-Warehousing)
     - [Elements of Dimensional Data Modeling](#Elements-of-Dimensional-Data-Modeling)
     - [Types of Dimensions in Data Warehouse](#Types-of-Dimensions-in-Data-Warehouse)
     - [Steps of Dimensional Modelling](#Steps-of-Dimensional-Modelling)
@@ -9,6 +14,43 @@
 
 - [References](#References)
 
+# Arrays and UNNEST Function in SQL
+Like integers, numbers, and dates, an __Array__ is a data type in __BigQuery__. 
+# Properties of Arrays
+* The elements inside each array must all have the same data type. If an array contains all numbers, then we can only store numbers. If it contains strings, then all elements (including numbers) will be treated as strings.
+* An array may have zero, one, or more elements inside. An array can be empty.
+* The order matters inside an array.
+* An array cannot have another array inside. No array-ception this time around.
+
+# Creating a Sample Query with Arrays
+```sql
+        with
+        colors as (
+                    select 'FFV' as category, ['Bananas', 'Onions', 'Potatoes', 'Tomatoes'] as product_name
+                    union all (select 'FMCG' as category, ['Whear Flour', 'Maize Flour'] as product_name)
+                    union all (select 'Promotions' as Category, ['Potatoes & Cooking Oil'] as product_name)
+                    )
+
+        select category, product_name from colors
+```
+_Remarks_: 
+* We have two columns: __category__ and __product_name__. The first column is just a normal string, but the second column is an array of strings, containing the products.
+* With __arrays__, since we do not have to repeat some information, this results in _reduced storage costs_ for __BigQuery__. We can simply ungroup the arrays at the time that we need to access the data for analysis.
+* While __arrays__ are compact and are good for storage, they are not directly usable in many forms of analysis and database operations. For example, if you attempt to order a table using an array column, you will get an error. You are also not allowed to use an array as a JOIN condition.
+
+# How Do You Unnest an Array in SQL?
+```sql
+    with
+    products as (
+                select 'FFV' as category, ['Bananas', 'Onions', 'Potatoes', 'Tomatoes'] as product_name
+                union all (select 'FMCG' as category, ['Whear Flour', 'Maize Flour'] as product_name)
+                union all (select 'Promotions' as Category, ['Potatoes & Cooking Oil'] as product_name)
+                )
+
+    select category, product_name 
+    from products, 
+    unnest(product_name) as product_name
+```
 # Dimensional Modeling in Data Warehousing
 A __Dimensional Model__ is a database structure that is optimized for online queries and __Data Warehousing__ tools. It is comprised of "__fact__" and "__dimension__" tables. A "__fact__" is a _numeric value that a business wishes to count or sum_. A "__dimension__" is essentially an entry point for getting at the facts.
 
