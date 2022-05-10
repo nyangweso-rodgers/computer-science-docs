@@ -1,7 +1,17 @@
 # Getting started with Computer Science
 ## Table of Contents
-- [Introduction to Computer Science]()
-    - [Computer Science vs. Software Engineering](#Computer-Science-vs-Software-Engineering)
+- [Computer Science vs. Software Engineering](#Computer-Science-vs-Software-Engineering)
+- [Definition of Terms in Computer Science](#Definition-of-Terms-in-Computer-Science)
+    - browser
+    - [Object Oriented Programming in Computer Science](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Object_Oriented_Programming)
+- [How Web Works](#How-Web-Works)
+
+
+
+
+
+
+    
     - [Computer Programming - Overview](#Computer-Programming-Overview)
         - [Operating System]()
         - LocalHost
@@ -17,13 +27,6 @@
         - Microservices
         - Software Development Methodologies
 
-- [Object Oriented Programming (OOP)](#Object-Oriented-Programming)
-    - [Object Oriented Programming in Python]()
-    - [Object Oriented Programming in Java]()
-    - [Inheritance and Polymorphism](#Inheritance-and-Polymorphism)
-
-- [Concurrency vs Parallelism](#Concurrency-vs-Parallelism)
-    - [Situations for Concurrency](##Situations-for-Concurrency)
 - [Big - O - Notation](#8.-The-Big-O-Notation)
 - [Recursion](#9.-Recursion)
     - [Countdown Function](##9.1-Example1:-Building-a-Countdown-Function)
@@ -31,21 +34,29 @@
     - [Factorial Function](##9.3-Example3:-Building-the-Factorial-Function)
 -----------------------------------------------------------------------
 
-# Introduction to Computer Science
 # Computer Science vs Software Engineering
 __Computer Science__ is the study of how computers work, mostly the theoratical and mathematical perspective. __Software Engineering__ is the study of how software systems are built, including topics such as Project Management, Quality Assurance, and Software Testing.
 
-# Computer Programming Overview 
-# Definition of Terms
-
-2. __Secure Shell (SSH)__: open-source protocol used to secure network communication which is less expensive and complex than the hardware based __VPN__ solutions. i.e., it offers _authentication_, _encryption_ and _data integrity_ for securing network communicationsy. 
-
-  By Implementing __SSH__, we get some of the capabilities like:
+# Definition of Terms in Computer Science
+1. __browser__: medium that allows you to make a request and lets a server serve you. It’s software installed and running on your computer that lets you search the Internet. It takes your input, creates and sends a request, gets the response and serves you.
+2. __LocalHost__: refers to “_this computer_” or even more accurately “_the computer I’m working on_.” 
+3. __Secure Shell (SSH)__: open-source _protocol_ used to secure network communication which is less expensive and complex than the hardware based __VPN__ solutions. i.e., it offers _authentication_, _encryption_ and _data integrity_ for securing network communicationsy. By Implementing __SSH__, we get some of the capabilities like:
     - secure command-shell
     - secure file transfer
     - remote access to a variety of __TCP/IP__ applications via a secure tunnel
+4. __algorithm__ is a step by step procedure to resolve a problem. It's an effective method expressed a finite set of well-defined instructions.
+5. __Computer Program__ is a sequence of instructions written using a Computer Programming Language to perform a specified task by the computer. A __computer program__ is also called a __computer software__, which can range from  two lines to millions of lines of instructions.
+6. __Source Code__ is a code written in a particular programming language.
+
+
+# How Web Works
+_How does your browser know which server to send the request to?_: it needs to find its address. So, it queries the __DNS__ (Domain Name Server) to find the __IP__.
+
+
+
+
     
-2. __LocalHost__: refers to “_this computer_” or even more accurately “_the computer I’m working on_.” 
+
 
 
 
@@ -110,10 +121,8 @@ The __IP address__ is a fascinating product of modern computer technology design
     ```
 
 
-7. __Computer Program__ is a sequence of instructions written using a Computer Programming Language to perform a specified task by the computer. A __computer program__ is also called a __computer software__, which can range from  two lines to millions of lines of instructions.
 
-8. An __algorithm__ is a step by step procedure to resolve a problem. It's an effective method expressed a finte set of well-defined instructions.
-9. __Source Code__ is a code written in a particular programming language.
+
 10. __Bytecode__ is a program that has been _compiled_ from a _source code_ into low-level code designed for a software __interpreter. It may be executed by a virtual machine (e.g., Java Virtual Machine) or further compiled into machine code, which is recognized by the processor. 
     - _Remark:_ __Bytecode__ is similar to __assembly language__ in that it is not a high-level language, but it is still somewhat readable, unlike __machine language__. Both may be considered "intermediate languages" that fall between source code and machine code. The primary difference between the two is that __bytecode__ is generated for a virtual machine (software), while __assembly language__ is created for a CPU (hardware).
 11. __Translators__ are responsible for converting the __source code__ to a machine language (__binary__). __Translators__ can be any of:
@@ -164,47 +173,7 @@ The __IP address__ is a fascinating product of modern computer technology design
         - Extreme Programming
         - Kanban
 
-17. __Object Oriented Programming__
-__OOP__ is a programming technique that centers around thinking of code as __objects(entities)__ with _identities_, _attributes_, and _behaviours_. i.e., an ___object__ has a _name_, aa defined set of _attributes/characteristics_, and _behaviours_ or _actions_ the __object__ can perform.
 
-In classical coding, __objects__ are instances of __classes__ and a ___class__ is the _blueprint that contains all attributes and behaviours of an object_.
-
-__Example__:
-an __object__ can be a dog. And, naturally, a dog has a _name_, _colour_ of its fur, and _breed_. These are __attributes__ of the dog. It's also a living creature, so it can _run_, _bark_, _sleep_, e.t.c., We can call these the __behaviours__ or __actiona__ that can be performed by a dog.
-
-In programming, __attributes__ are used by _assigning variables in the class_ while __behaviours__ are _functions/methods (block of code used to perform a particular task) written in the same class_.
-
-# Inheritance and Polymorphism
-__Inheritance__ allows objects to derive _attributes_ and _functionality_ from other objects, creating a hierarchy moving from more general objects to more specific. For example, a Car and a Boat are both specific types of Vehicles. Objects can inherit their behavior from a single parent object or multiple parent objects, and are referred to as __child objects__ when they do.
-
-__Polymorphism__ allows two or more objects to behave like one another, which allows them to be used interchangeably. For example, if a method or function knows how to paint a Vehicle object, then it can also paint a Car or Boat object, since they inherit their data and behavior from the Vehicle.
-
-
-# Concurrency vs Parallelism
-__Concurrency__ is when multiple instructions execute at the same time(concurrently). __Concurrency__ is the ability to run multiple tasks on the CPU at the same time. Tasks can start, run, and complete in overlapping time periods. In the case of a single CPU, multiple tasks are run with the help of context switching, where the state of a process is stored so that it can be called and executed later.
-
-__Parallelism__, meanwhile, is the ability to run multiple tasks at the same time across multiple CPU cores.
-
-Though they can increase the speed of your application, concurrency and parallelism should not be used everywhere. The use case depends on whether the task is __CPU-bound__ or __IO-bound__.
-
-Tasks that are limited by the CPU are CPU-bound. For example, mathematical computations are CPU-bound since computational power increases as the number of computer processors increases. __Parallelism__ is for __CPU-bound__ tasks. In theory, If a task is divided into n-subtasks, each of these n-tasks can run in parallel to effectively reduce the time to 1/n of the original non-parallel task. __Concurrency__ is preferred for __IO-bound__ tasks, as you can do something else while the IO resources are being fetched.
-
-The best example of __CPU-bound__ tasks is in _data science_. Data Scientists deal with huge chunks of data. For data preprocessing, they can split the data into multiple batches and run them in parallel, effectively decreasing the total time to process. Increasing the number of cores results in faster processing.
-
-_Web scraping_ is __IO-bound__. Because the task has little effect on the CPU since most of the time is spent on reading from and writing to the network. Other common __IO-bound__ tasks include _database calls_ and _reading_ and _writing files to disk_. Web applications, like _Django_ and _Flask_, are __IO-bound__ applications.
-
-## Situations for Concurrency
-1. __Multiple Threads__
-    - multiple threads executing within a single process
-    - Example_: Multi-threaded .NET application accessing a shared collection
-
-2. __Multiple Processes__
-    - Several processes executing on a single computer system
-    - _Example_: Multiple applications accessing a common file
-
-3. __Multiple Systems__
-    - Several systems, each accessing a common resource
-    - _Example_: Multiple processes accessing a common database table.
 
 
 
