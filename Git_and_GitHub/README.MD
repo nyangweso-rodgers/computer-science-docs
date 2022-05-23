@@ -65,7 +65,8 @@ $ git branch "branch_name" | creates a branch |
 $ git checkout "branch_name" | for existing branch - specifying which branch you want to checkout |
 $ git push -u[origin][branch] | when we create a new branch, the brach is not pushed automatically to GitHub |
 $ git checkout -b "add titles" | switch to branch, if it does not exist, it will be created. |
- $ git push -u origin | 
+$ git push -u origin | 
+$ git log --oneline | shows ouput as one commit per item |
 
 # Understanding GitHub
 __GitHub__ is a web-based hosting service for __Git__
