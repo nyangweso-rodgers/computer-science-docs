@@ -1,6 +1,10 @@
 # Data Engineering
 
 ## Table of Contents
+- [Introduction to Databases](#Introduction-to-Databases)
+    - [Definition of Terms in Databases](#Definition-of-Terms-in-Databases)
+    - []()
+
 - [Arrays and UNNEST Function IN SQL](#Arrays-and-UNNEST-Function-in-SQL)
     - [Properties of Arrays](#Properties-of-Arrays)
     - [Creating a Sample Query with Arrays](#Creating-a-Sample-Query-with-Arrays)
@@ -13,6 +17,21 @@
     - [Rules for Dimensional Modeling](#Rules-for-Dimensional-Modeling)
 
 - [References](#References)
+
+# Introduction to Databases
+__Database__: application that allow one to store and access data. _a database is a collection of data that is organized in a manner that facilitates ease of access, as well as efficient management and tracking._. a database is made up of __tables__ that store relevant information.
+
+# Definition of Terms in Databases
+1. __Database Table__ : a table stores and displays data in a structtured format consisting of columns and rows. web applications use them to provide dynamic functions to users e.g., displaying products, content management, and user management.
+2. __Primary Key__: field in the table that uniquely identifies the table records. _Features if a Primary Key include_:
+    * it must contain a unique value for each row
+    * it cannot contain NULL values
+3. __Database Management System__ (__DBMS__) : software to create, define and manage database. e.g., _Microsoft_, _Oracle_, _IBM_, _Apache_, _SQLServer_, _DB2_, _Cassandra_, _Firebind, _MongoDB_, _FileMaker_,  _MySQL_, _PostgreSQL_.
+4. __Structured Query Language (SQL)__: __SQL__ is used to access and manipulate a database. __SQL__ can:
+   * insert, update, or delete records in a database
+   * create new databases, tables, stored procedures views
+   * retrieve data from a database, e.t.c.
+5. __SQL Views__: In SQL, a __view__ is a _virtual table based on the result-set of an SQL statement_. A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
 
 # Arrays and UNNEST Function in SQL
 Like integers, numbers, and dates, an __Array__ is a data type in __BigQuery__. 
