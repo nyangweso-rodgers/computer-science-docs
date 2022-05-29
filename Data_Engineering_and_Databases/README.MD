@@ -140,15 +140,7 @@ The accuracy in creating a __Dimensional modeling__ determines the success of yo
 * The dimensional model also helps to boost query performance. It is more denormalized therefore it is optimized for querying.
 * Dimensional models can comfortably accommodate change. Dimension tables can have more columns added to them without affecting existing business intelligence applications using these tables.
 
-
-
-
-
-
-
-
-
-
 # References
 1. [Quora - Dimensional Modeling in Data Warehousing](https://www.quora.com/What-is-dimension-modeling-in-data-warehousing)
 2. [What is Dimensional Modeling in Data Warehouse? Learn Types](https://www.guru99.com/dimensional-model-data-warehouse.html)
+3. [From Postgres to Snowflake](https://towardsdatascience.com/from-postgres-to-snowflake-f4b403548066)
