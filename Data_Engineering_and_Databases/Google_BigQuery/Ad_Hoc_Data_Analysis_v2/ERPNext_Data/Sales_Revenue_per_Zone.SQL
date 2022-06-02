@@ -26,21 +26,24 @@ warehouse_locations as (
                         select 'Voi'  , -3.39025  ,38.57225
                         ),
 dukas_and_warehouse_mashup as (
-                                select distinct sowi.posting_date,
-                                customer,
-                                customer_name,
-                                sowi.territory, 
+                                select distinct dn.posting_date,
+                                dn.customer,
+                                dn.customer_name,
+                                dn.territory, 
                                 cast(duka_latitude as float64) as duka_latitude, 
                                 cast(duka_longitude as float64) as duka_longitude, 
                                 warehouse_latitude, 
                                 warehouse_longitude,
+                                against_sales_order as sales_order,
+                                dn.name as delivery_note,
+                                dn.sales_partner,
                                 sum(dni.amount) as amount
-                                from delivery_note_with_index sowi
+                                from delivery_note_with_index dn
                                 cross join unnest(items) dni
-                                left join warehouse_locations wl on sowi.territory = wl.territory 
+                                left join warehouse_locations wl on dn.territory = wl.territory 
                                 where index = 1
                                 and workflow_state in ('PAID')
-                                group by 1,2,3,4,5,6,7,8
+                                group by 1,2,3,4,5,6,7,8,9,10,11
                                 ),
 model as (
           select *, 
