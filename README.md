@@ -10,11 +10,21 @@
     - Source Code
     - Translators
     - Bytecode
+    - [Common Bugs]()
+    - [Software Development Methodologies]()
+    - [Test Driven Development]()
+    - [Scrum]()
+    - [Software Testing]()
+    - [Cyber Security]()
+    - [DevOps]()
+
+
 - [Operating Systems & Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
     - [Operating Systems](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
     - [Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line/Command_Line)
 
 - [IP Addresses](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/IP_Addresses)
+
 - [Algorithms & Data Structures in Computer Science](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Algorithms_and_Data_Structures_in_Computer_Science)
     - [Data Structures & Algorithms with Python]()
     - [Data Structures & Algorithms with JavaScript]()
@@ -29,8 +39,11 @@
 - [Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Servers)
      - [Web Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Servers/Web_Servers)
 - [How Web Works](#How-Web-Works)
+
 - [Microservices](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Microservices)
+
 - [Cloud Computing](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Cloud_Computing)
+
 - [Data Engineering & Databases](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases)
     - [Apache Kafka](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/Apache_Kafka)
     - [ERPNext](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/ERPNext)
@@ -40,8 +53,11 @@
     - [PostgreSQL](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/PostgreSQL)
     - [SQL Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/SQL_Servers)
     - [Snowflake](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/Snowflake)
+    
 - [Git & GitHub](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Git_and_GitHub)
+
 - [Cyber Security](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Cyber_Security)
+
 - [References](#References)
 
 # Computer Science vs Software Engineering
@@ -79,5 +95,42 @@ __Computer Science__ is the study of how computers work, mostly the theoratical 
         - Scrum
         - Extreme Programming
         - Kanban
+11. __Test Driven Development (TDD)__: means that you write tests before you write the code, which is why you cannot retroactively apply TDD to an existing project. __Steps in TDD__ involves:
+    * Write a test that tests a specific part of the user story or feature you are developing
+    * Run the test. It should fail right now, because you haven't written any code yet. If your test doesn't fail your existing code already behaves correctly or more likely your test doesn't test anything.
+    * Make the simplest possible change to your code that ensures the test succeeds. It's important that you do not make changes that go beyond your test, even if you know that you're going to change that later. This ensures that you do not introduce behavior that is untested because in TDD your tests are a major part of your documentation. It is also important that you do not touch anything that is unrelated to the test your trying to satisfy.
+    * Run your test again. It should now succeed. But if it fails go back to 1. Make sure that your test is actually correct before you try to find the problem in your code.
+    * When your test is satisfied refactor your code. Since in step 3 you did not touch anything unrelated to the test you may have introduced code smells. But because all of your existing code is now fully covered by tests (one of the reasons why TDD would be used in the first place) you can now safely reorganize it, and as long as your tests still succeed you're doing it right.
+12. __Scrum__: is a _lightweight framework that helps people, teams and organizations generate value through adaptive solutions for complex problems._ i.e., __Scrum__ requires a __Scrum Master__ to foster an environment where:
+    * A __Product Owner__ orders the work for a complex problem into a __Product Backlog__.
+    * The __Scrum Team__ turns a selection of the work into an Increment of value during a Sprint.
+    * The __Scrum Team__ and its stakeholders inspect the results and adjust for the next Sprint.
+    * Repeat
+
+    _Remarks_:
+    * __Scrum__ employs an iterative, incremental approach to optimize predictability and to control risk. Scrum engages groups of people who collectively have all the skills and expertise to do the work and share or acquire such skills as needed.
+    * __Scrum Values__:These 5 values give direction to the __Scrum Team__ with regard to their work, actions, and behavior.
+        - __Commitment__: _The Scrum Team commits to achieving its goals and to supporting each other._
+        - __Focus__: _Their primary focus is on the work of the Sprint to make the best possible progress toward these goals_
+        - __Openness__: _The Scrum Team and its stakeholders are open about the work and the challenges._ 
+        - __Respect__: _Scrum Team members respect each other to be capable, independent people, and are respected as such by the people with whom they work_
+        - __Courage__: _The Scrum Team members have the courage to do the right thing, to work on tough problems._
+    * __Scrum Team__ consists of:
+        - __Scrum Master__: is _accountable for establishing Scrum as defined in the Scrum Guide_. They do this by helping everyone understand Scrum theory and practice, both within the Scrum Team and the organization. 
+        - __Product Owner__: _accountable for maximizing the value of the product resulting from the work of the Scrum Team_ 
+        - __Developers__: _are the people in the __Scrum Team__ that are committed to creating any aspect of a usable Increment each Sprint._
+13. __Software Testing__: there are two type of Software Testing:
+    * __Unit Testing__: is done by developers - once the __Unit Testing__ status is passed they will share the build with the __QA team__ for further testing. __UNIT TESTING__ is a level of software testing where individual units/ components of a software are tested. The purpose is to _validate that each unit of the software performs as designed_. A __unit__ is the _smallest testable part of any software_. It usually has one or a few inputs and usually a single output. In procedural programming, a unit may be an individual program, function, procedure, etc.
+
+        __Benefits of Unit Testing__:
+        * Improves the quality of code
+        * Restructuring and changes in the code are made easier by the developer and makes the integration easier
+        * Bugs in the software are identified and resolved in the early stage in the software development lifecycle
+        * As the bugs are identified and resolved at the earliest, time and costs are reduced
+
+    * __Regression Testing__: Let’s assume that there is an application which maintains the details of all the students in school. This application has four buttons __Add__, __Save__, __Delete__ and __Refresh__. All the buttons functionalities are working as expected. Recently a new button ‘__Update__’ is added in the application. This ‘__Update__’ button functionality is tested and confirmed that it’s working as expected. But at the same time, it becomes very important to know that the introduction of this new button should not impact the other existing buttons functionality. Along with the ‘__Update__’ button, all the other buttons functionality are tested in order to find any new issues in the existing code. This process is known as __regression testing__.
+14. __Cyber Security__ is the ability to protect or defend the use of an enterprse's internet-connected systems and data from attack.
+15. __DevOps__ Cultural thing and a new way of working.
 
 # References
+1. [Scrum Guide](https://scrumguides.org/scrum-guide.html)
