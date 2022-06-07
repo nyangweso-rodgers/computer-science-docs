@@ -10,18 +10,39 @@
     - Source Code
     - Translators
     - Bytecode
+- [Operating Systems & Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
+    - [Operating Systems](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
+    - [Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line/Command_Line)
+
 - [IP Addresses](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/IP_Addresses)
 - [Algorithms & Data Structures in Computer Science](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Algorithms_and_Data_Structures_in_Computer_Science)
+    - [Data Structures & Algorithms with Python]()
+    - [Data Structures & Algorithms with JavaScript]()
+    - [Data Structures & Algorithms with Java]()
 - [Big O Notation](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Big_O_Notation)
 - [Recursion in Computer Science](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Recursion_in_Computer_Science)
+    - [Recursion in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Recursion_in_JavaScript)
+    - [Recursion in Python]()
 - [Object Oriented Programming in Computer Science](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Object_Oriented_Programming)
-    - [Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Servers)
-        - [Web Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Servers/Web_Servers  )
+    - [OOP in Python]()
+    - [OPP in JavaScropt]
+- [Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Servers)
+     - [Web Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Servers/Web_Servers)
 - [How Web Works](#How-Web-Works)
 - [Microservices](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Microservices)
 - [Cloud Computing](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Cloud_Computing)
 - [Data Engineering & Databases](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases)
+    - [Apache Kafka](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/Apache_Kafka)
+    - [ERPNext](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/ERPNext)
+    - [Google BigQuery](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/Google_BigQuery)
+    - [MariaDB](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/MariaDB)
+    - [MySQL](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/MySQL)
+    - [PostgreSQL](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/PostgreSQL)
+    - [SQL Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/SQL_Servers)
+    - [Snowflake](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/Snowflake)
 - [Git & GitHub](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Git_and_GitHub)
+- [Cyber Security](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Cyber_Security)
+- [References](#References)
 
 # Computer Science vs Software Engineering
 __Computer Science__ is the study of how computers work, mostly the theoratical and mathematical perspective. __Software Engineering__ is the study of how software systems are built, including topics such as Project Management, Quality Assurance, and Software Testing.
