@@ -16,54 +16,15 @@
   - NoSQL Databases
 - [Differenece between SQL and NoSQL Databases](#Difference-between-SQL-and-NoSQL)
 - [References](#References)
-# Introduction to Databases
-__Database__: application that allow one to store and access data. _a database is a collection of data that is organized in a manner that facilitates ease of access, as well as efficient management and tracking._. a database is made up of __tables__ that store relevant information.
 
 
-_Remark:_ __WHY DO WE NEED DATABASES?__: it must 
-  - _grow_,
-  - _change over time_, 
-  - _shared fast_, 
-  - _searchble_, 
-  - _reliable_, 
-  - _interdependent_, 
-  - _consistent_, 
-  - _protected_ and 
-  - _secure_.
-# Definitions of Terms
-1. __Data Tier__: part of a web application that is responsible for performing your data operations. i.e., _Create_, _Read_, _Update_ and _Delete_ (__CRUD__).
 
-2. __Database Tables__ : a table stores and displays data in a structtured format consisting of columns and rows. web applications use them to provide dynamic functions to users e.g., displaying products, content management, and user management.
 
-3. __Primary Keys__: a primary key is a field in the table that uniquely identifies the table records. _Features if a Primary Key include:
-    * it must contain a unique value for each row
-    * it cannot contain NULL values
 
-4. __Database Management System__ (__DBMS__) : software to create, define and manage database. e.g., _Microsoft_, _Oracle_, _IBM_, _Apache_, _SQLServer_, _DB2_, _Cassandra_, _Firebind, _MongoDB_, _FileMaker_,  _MySQL_, _PostgreSQL_ .
 
-5. __Structured Query Language (SQL)__: __SQL__ is used to access and manipulate a database. __SQL__ can:
-   * insert, update, or delete records in a database
-   * create new databases, tables, stored procedures views
-   * retrieve data from a database, e.t.c.
 
-   _REMARK_: __SQL__ is an __ANSI__ (__American National Standards Institute__) standard, but there are different versions of SQL langauge. Most SQL database programs have their own proritory extensions in addition to the SQL standard, but all of them support the major commands.
 
-   Databases that uses __SQL__:
-    * SQLServer
-    * MySQL - this is an open source
-    * Oracle
-    * PostgreSQL
-    * SQLite
-    * DB2
-    * BigData							
-    
-   Tools to write SQL:
-    * SQL Server Management Studio (SSMS)
-    * SQL Developer
-    * SQL Workbench
-    * TOAD
-
-  6. __SQL Views__: In SQL, a __view__ is a _virtual table based on the result-set of an SQL statement_. A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+ 
 
   7. __Database Schema__: A __schema__ is a logical database object holder. A __database schema__ of a database system is its structure described in a formal language supported by the database management system. The formal definition of a __database schema__ is a _set of formulas (sentences) called integrity constraints imposed on a database_. These integrity constraints ensure compatibility between parts of the schema.
 
