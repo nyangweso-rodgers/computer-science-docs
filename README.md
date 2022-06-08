@@ -2,14 +2,14 @@
 ## Table of Contents
 - [Computer Science vs. Software Engineering](#Computer-Science-vs-Software-Engineering)
 - [Definition of Terms in Computer Science](#Definition-of-Terms-in-Computer-Science)
-    - browser
-    - LocalHost
-    - Secure Shell (SSH)
-    - Algorithm
-    - Computer Program
-    - Source Code
-    - Translators
-    - Bytecode
+    - [Browser]()
+    - [LocalHost]()
+    - [Secure Shell (SSH)]()
+    - [Algorithm]()
+    - [Computer Program]()
+    - [Source Code]()
+    - [Translators]()
+    - [Bytecode]()
     - [Common Bugs]()
     - [Software Development Methodologies]()
     - [Test Driven Development]()
@@ -18,29 +18,45 @@
     - [Cyber Security]()
     - [DevOps]()
 
-
 - [Operating Systems & Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
     - [Operating Systems](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
     - [Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line/Command_Line)
 
 - [IP Addresses](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/IP_Addresses)
 
-- [Algorithms & Data Structures in Computer Science](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Algorithms_and_Data_Structures_in_Computer_Science)
+- [Algorithms & Data Structures](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Algorithms_and_Data_Structures_in_Computer_Science)
     - [Data Structures & Algorithms with Python]()
     - [Data Structures & Algorithms with JavaScript]()
-    - [Data Structures & Algorithms with Java]()
+    - [Data Structures & Algorithms with Java]()4
+
 - [Big O Notation](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Big_O_Notation)
 - [Recursion in Computer Science](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Recursion_in_Computer_Science)
     - [Recursion in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Recursion_in_JavaScript)
     - [Recursion in Python]()
-- [Object Oriented Programming in Computer Science](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Object_Oriented_Programming)
-    - [OOP in Python]()
-    - [OPP in JavaScropt]
+
+- [Object Oriented Programming](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Object_Oriented_Programming)
+    - [OOP with Python]()
+    - [OPP with JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Object_Oriented_Programming_in_JavaScript)
+
 - [Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Servers)
      - [Web Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Servers/Web_Servers)
-- [How Web Works](#How-Web-Works)
 
 - [Microservices](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Microservices)
+
+- [APIs & Web Services]()
+    - [How the Web Works]()
+    - [Servers]()
+        - [Web Servers]()
+    - [HTTPS]()
+    - [Web Servers]()
+    - [REST APIs]()
+    - [SOAP APIs]()
+    - [GraphQL]()
+    - [Curl]()
+    - [Webhooks]()
+    - [APIs with Python]()
+    - [APIs with JavaScript]()
+
 
 - [Cloud Computing](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Cloud_Computing)
     - [GCP]()
@@ -57,11 +73,12 @@
     - [PostgreSQL](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/PostgreSQL)
     - [SQL Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/SQL_Servers)
     - [Snowflake](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/Snowflake)
+
+- [Virtual Envrionments]()   
+    - [Python Virtual Environment]()
+    - [JavaScript Virtual Environment]()
     
 - [Git & GitHub](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Git_and_GitHub)
-
-- [Cyber Security](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Cyber_Security)
-
 - [References](#References)
 
 # Computer Science vs Software Engineering
