@@ -14,6 +14,8 @@ __Kafka__ is:
 * a data integration framework for streaming ETL.
 * a data processing framework for continuous stateless or stateful stream processing.
 
+__Kafka Streams__ is a client library that processes data entering __Kafka__ for developers.
+
 # When to use Apache Kafka?
 * Kafka consumes and processes high volumes of IoT and mobile data in real-time. Processing massive volumes of data in real-time is one of the critical capabilities of Kafka.
 * Kafka correlates IoT data with transactional data from the MES and ERP systems. Data integration in real-time at scale is relevant for analytics and the usage of transactional systems like an ERP or MES system. Kafka Connect and non-Kafka middleware complement the core of event streaming for this task.
