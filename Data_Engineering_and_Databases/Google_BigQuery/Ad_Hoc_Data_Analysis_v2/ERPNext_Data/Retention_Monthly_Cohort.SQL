@@ -3,16 +3,15 @@ delivery_note_with_index as (
                             SELECT *, 
                             row_number()over(partition by name order by modified desc) as index 
                             FROM `kyosk-prod.erp_reports.delivery_note`
+                            where territory not in ('Kyosk HQ')
+                            and workflow_state = 'PAID'
                             ),
 delivery_note_with_items as (
                               select distinct dn.posting_date,
                               dn.customer,
-                              sum(dni.amount) as revenue
                               from delivery_note_with_index dn
                               cross join unnest(items) dni
                               where index = 1
-                              and dn.workflow_state in ('PAID')
-                              group by 1,2
                               ),
 joining_month as (
                   select date_trunc(min(posting_date), month) as cohort_month,
