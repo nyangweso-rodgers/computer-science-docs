@@ -11,8 +11,13 @@
     - [ST_MaxDistance](#ST_MaxDistance)
     - [ST_Intersection](#ST_Intersection)
     - [ST_Equals](#ST_Equals)
-6. [References](References)
+
+6. [Time Functions](https://cloud.google.com/bigquery/docs/reference/standard-sql/time_functions)
+    - [Format Elements](https://cloud.google.com/bigquery/docs/reference/standard-sql/format-elements#format_elements_date_time)
+    
+7. [References](References)
     - [Connecting BigQuery with Colab](https://colab.research.google.com/notebooks/bigquery.ipynb)
+    - [Is BigQuery Expensive?](https://www.quora.com/Is-Googles-BigQuery-expensive)
 
 
 # Introdution to BigQuery
