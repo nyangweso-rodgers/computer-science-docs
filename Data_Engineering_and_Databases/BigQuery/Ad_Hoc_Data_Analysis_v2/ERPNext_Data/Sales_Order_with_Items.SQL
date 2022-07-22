@@ -2,7 +2,9 @@ with
 sales_order_with_index as (
                             SELECT *, 
                             row_number()over(partition by name order by modified desc) as index 
-                            FROM `kyosk-prod.erp_reports.sales_order`
+                            FROM `kyosk-prod.erp_reports.sales_order` 
+                            where territory not in ('Kyosk HQ')
+                            and workflow_state not in ('INITIATED', 'USER_CANCELLED')
                             ),
 sales_order_with_items as (
                             select distinct so.transaction_date,
@@ -27,9 +29,6 @@ sales_order_with_items as (
                             from sales_order_with_index so
                             cross join unnest(items) soi
                             where index = 1
-                            and workflow_state not in ('INITIATED', 'USER_CANCELLED')
-                            and so.territory not in ('Kyosk HQ')
-                            --and so.transaction_date = '2022-06-13'
                             order by transaction_date, sales_order,item_name, uom
                             )
 select * from sales_order_with_items 
