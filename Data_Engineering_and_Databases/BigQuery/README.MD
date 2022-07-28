@@ -3,21 +3,23 @@
 ## Table of Contents
 1. [Introduction to BigQuery](#Introdution-to-BigQuery)
 2. [BigQuery Pricing](#BigQuery-Pricing)
-3. [Generating Date Arrays](#Generating-Date-Arrays)
-4. [Using EXTRACT](#Using-EXTRACT)
-5. [BigQuery GIS](#BigQuery-GIS)
+3. [Arrays in BigQuery](#Arrays-in-BigQuery)
+    - [Properties of Arrays](#Properties-of-Arrays)
+    - [How Do You Unnest an Array in SQL?](#How-Do-You-Unnest-an-Array-in-SQL?)
+4. [BigQuery GIS](#BigQuery-GIS)
     - [ST_GeoPoint](#ST_GeoPoint)
     - [ST_DISTANCE](#ST_DISTANCE)
     - [ST_MaxDistance](#ST_MaxDistance)
     - [ST_Intersection](#ST_Intersection)
     - [ST_Equals](#ST_Equals)
 
-6. [Time Functions](https://cloud.google.com/bigquery/docs/reference/standard-sql/time_functions)
+5. [Time Functions](https://cloud.google.com/bigquery/docs/reference/standard-sql/time_functions)
     - [Format Elements](https://cloud.google.com/bigquery/docs/reference/standard-sql/format-elements#format_elements_date_time)
     
-7. [References](References)
+6. [References](References)
     - [Connecting BigQuery with Colab](https://colab.research.google.com/notebooks/bigquery.ipynb)
     - [Is BigQuery Expensive?](https://www.quora.com/Is-Googles-BigQuery-expensive)
+    - [Getting Started with BigQuery free tier?](https://blog.openbridge.com/unique-offer-powerful-data-warehouse-bigquery-for-free-9e9e98997a28)
 
 
 # Introdution to BigQuery
@@ -34,8 +36,30 @@ __BigQuery__ is a serverless data analytics platform i.e., it automatically allo
 2. __Storage pricing__ is the cost to store data that you load into BigQuery. You pay for _active storage_ and _long-term storage_.
     - __Active storage__ includes any table or table partition that has been modified in the last 90 days.
     - __Long-term storage__ includes any table or table partition that has not been modified for 90 consecutive days. The price of storage for that table automatically drops by approximately 50%. There is no difference in performance, durability, or availability between active and long-term storage.
-# Generating Date Arrays
+
+# Arrays in BigQuery
+# Properties of Arrays
+* The elements inside each array must all have the same data type. If an array contains all numbers, then we can only store numbers. If it contains strings, then all elements (including numbers) will be treated as strings.
+* An array may have zero, one, or more elements inside. An array can be empty.
+* The order matters inside an array.
+* An array cannot have another array inside. No array-ception this time around.
+
+_Remarks_:
+* _With __arrays__, since we do not have to repeat some information, this results in reduced storage costs for __BigQuery__. We can simply ungroup the arrays at the time that we need to access the data for analysis._
+* _While __arrays__ are compact and are good for storage, they are not directly usable in many forms of analysis and database operations. For example, if you attempt to order a table using an array column, you will get an error. You are also not allowed to use an array as a JOIN condition._
+
 ```sql
+    -- Creating a Sample Query with Arrays
+        with
+        colors as (
+                    select 'FFV' as category, ['Bananas', 'Onions', 'Potatoes', 'Tomatoes'] as product_name
+                    union all (select 'FMCG' as category, ['Whear Flour', 'Maize Flour'] as product_name)
+                    union all (select 'Promotions' as Category, ['Potatoes & Cooking Oil'] as product_name)
+                    )
+        select category, product_name from colors
+```
+```sql
+    -- generating date arrays
     with
     dates as (SELECT * FROM UNNEST(GENERATE_DATE_ARRAY('2021-01-01', date_add(current_date(), interval 31 day), INTERVAL 1 day)) AS date),
     -- Excludes Sunday
@@ -43,42 +67,20 @@ __BigQuery__ is a serverless data analytics platform i.e., it automatically allo
     
     select * from daily_sales_days
  ```
-
-# Using EXTRACT
-Returns the value corresponding to the specified date part.
+# How Do You Unnest an Array in SQL?
 ```sql
     with
-    dates as (SELECT * FROM UNNEST(GENERATE_DATE_ARRAY('2021-01-01', date_add(current_date(), interval 31 day), INTERVAL 1 day)) AS date),
-    date_parts as (
-                    select d.*, 
-                    extract(year from date) as year , -- Extract Year
-                    extract(month from date) as month , -- Extract Month
-                    extract(day from date) as day, -- Extract Day
-                    EXTRACT(WEEK(SUNDAY) FROM date) AS week, -- Extract week number -- Week starts on sunday
-                    extract(quarter from date) as quarter, -- Extract Quarter
-                    extract(dayofweek from date) as day_of_week -- Day of Week
-                    from dates d
-                    )
-    select * from date_parts
-```
-# DATE_ADD(), DATE_SUB(), DATE_DIFF() & LAST_DAY
-```sql
-with 
-dates as (select * from UNNEST(GENERATE_DATE_ARRAY('2021-01-01', date_add(current_date(), interval 31 day), interval 1 day)) as date),
-date_variables as (
-                  select date as current_date, 
-                  date_sub(date, interval 1 day) as previous_day,  -- Getting Previous Dates from the current date
-                  date_add(date, interval 1 day) as next_day,  -- Getting Subsequent Dates from the current date
-                  date_diff(date_add(date, interval 1 day), date_sub(date, interval 1 day),   day) as days_diff_between_next_and_previous_day,
-                  last_day(date, month) as last_day_of_the_month, -- Last Day of the Month 
-                  last_day(date, year) as last_day_of_the_year, -- Last Day of the Year
-                  last_day(date, week(SUNDAY)) as last_day_of_the_week_sunday, -- Last Day of the week for a week starting on a Sunday
-                  last_day(date, week(MONDAY)) as last_day_of_the_week_monday-- Last Day of the week for a week starting on a Monday
-                  from dates
-                  )
+    products as (
+                select 'FFV' as category, ['Bananas', 'Onions', 'Potatoes', 'Tomatoes'] as product_name
+                union all (select 'FMCG' as category, ['Whear Flour', 'Maize Flour'] as product_name)
+                union all (select 'Promotions' as Category, ['Potatoes & Cooking Oil'] as product_name)
+                )
 
-select * from date_variables
+    select category, product_name 
+    from products, 
+    unnest(product_name) as product_name
 ```
+
 # BigQuery GIS
 __Geospatial Analytics__ highlights historical changes and current shifts by collecting, displaying, and manipulating __Imagery__ and __Geographic Information System__ (GIS) Data related to a specific location. Each geography function begins with a signature ST_. These functions help create BigQuery GEOGRAPHY values. 5 Key BigQuery GIS Functions are:
 * ST_GeoPoint
