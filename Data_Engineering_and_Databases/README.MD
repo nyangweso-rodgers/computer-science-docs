@@ -3,13 +3,13 @@
 ## Table of Contents
 - [Introduction to Databases](#Introduction-to-Databases)
     - [Definition of Terms in Databases](#Definition-of-Terms-in-Databases)
-    - []()
-
-- [Arrays and UNNEST Function IN SQL](#Arrays-and-UNNEST-Function-in-SQL)
-    - [Properties of Arrays](#Properties-of-Arrays)
-    - [Creating a Sample Query with Arrays](#Creating-a-Sample-Query-with-Arrays)
-    - [How Do You Unnest an Array in SQL?](#How-Do-You-Unnest-an-Array-in-SQL?)
-
+- [Data Warehouse]()
+    - [How To Choose a Data Warehouse](#How-To-Choose-a-Data-Warehouse)
+    - [Data Warehouse Contenders](#Data-Warehouse-Contenders)
+        - [Amazon Redshift]()
+        - [Amazon Redshift Spectrum]()
+        - [Amazon Athena]()
+        - [Google BigQuery](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/BigQuery)
 - [Dimensional Modeling in Data Warehousing](#Dimensional-Modeling-in-Data-Warehousing)
     - [Elements of Dimensional Data Modeling](#Elements-of-Dimensional-Data-Modeling)
     - [Types of Dimensions in Data Warehouse](#Types-of-Dimensions-in-Data-Warehouse)
@@ -17,6 +17,7 @@
     - [Rules for Dimensional Modeling](#Rules-for-Dimensional-Modeling)
 
 - [References](#References)
+    - [How To Choose A Cloud Data Warehouse Solution That Fits Your Needs](https://blog.openbridge.com/how-to-choose-a-data-warehouse-solution-that-fits-your-needs-598f596c20c6)
 
 # Introduction to Databases
 __Database__: application that allow one to store and access data. _a database is a collection of data that is organized in a manner that facilitates ease of access, as well as efficient management and tracking._. a database is made up of __tables__ that store relevant information.
@@ -33,43 +34,9 @@ __Database__: application that allow one to store and access data. _a database i
    * retrieve data from a database, e.t.c.
 5. __SQL Views__: In SQL, a __view__ is a _virtual table based on the result-set of an SQL statement_. A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
 
-# Arrays and UNNEST Function in SQL
-Like integers, numbers, and dates, an __Array__ is a data type in __BigQuery__. 
-# Properties of Arrays
-* The elements inside each array must all have the same data type. If an array contains all numbers, then we can only store numbers. If it contains strings, then all elements (including numbers) will be treated as strings.
-* An array may have zero, one, or more elements inside. An array can be empty.
-* The order matters inside an array.
-* An array cannot have another array inside. No array-ception this time around.
-
-# Creating a Sample Query with Arrays
-```sql
-        with
-        colors as (
-                    select 'FFV' as category, ['Bananas', 'Onions', 'Potatoes', 'Tomatoes'] as product_name
-                    union all (select 'FMCG' as category, ['Whear Flour', 'Maize Flour'] as product_name)
-                    union all (select 'Promotions' as Category, ['Potatoes & Cooking Oil'] as product_name)
-                    )
-
-        select category, product_name from colors
-```
-_Remarks_: 
-* We have two columns: __category__ and __product_name__. The first column is just a normal string, but the second column is an array of strings, containing the products.
-* With __arrays__, since we do not have to repeat some information, this results in _reduced storage costs_ for __BigQuery__. We can simply ungroup the arrays at the time that we need to access the data for analysis.
-* While __arrays__ are compact and are good for storage, they are not directly usable in many forms of analysis and database operations. For example, if you attempt to order a table using an array column, you will get an error. You are also not allowed to use an array as a JOIN condition.
-
-# How Do You Unnest an Array in SQL?
-```sql
-    with
-    products as (
-                select 'FFV' as category, ['Bananas', 'Onions', 'Potatoes', 'Tomatoes'] as product_name
-                union all (select 'FMCG' as category, ['Whear Flour', 'Maize Flour'] as product_name)
-                union all (select 'Promotions' as Category, ['Potatoes & Cooking Oil'] as product_name)
-                )
-
-    select category, product_name 
-    from products, 
-    unnest(product_name) as product_name
-```
+# Data Warehouse
+# How To Choose a Data Warehouse
+# Data Warehouse Contenders
 # Dimensional Modeling in Data Warehousing
 A __Dimensional Model__ is a database structure that is optimized for online queries and __Data Warehousing__ tools. It is comprised of "__fact__" and "__dimension__" tables. A "__fact__" is a _numeric value that a business wishes to count or sum_. A "__dimension__" is essentially an entry point for getting at the facts.
 
