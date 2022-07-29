@@ -1,5 +1,8 @@
 # Web Services and APIs
 # Table of Contents
+- [Servers](#Servers)
+    - [Types of Servers](#Types-of-Servers)
+
 - [Introduction to Web Services and API](#Introduction-to-Web-Services-and-API)
 - [Web Services](#Web-Services)
     - [Advantages of Web Services](#Advantages-of-Web-Services)
@@ -12,10 +15,31 @@
     - [Classification of APIs](#Classification-of-APIs)
     - [Definition of Terms used in APIs](#Definition-of-Terms-used-in-APIs)
     - [List of various APIs](#List-of-various-APIs)
+- [Most Popular APIs]()
+    - [REST](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/APIs_and_Web_Services/REST)
+    - [SOAP](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/APIs_and_Web_Services/SOAP)
+    - [GraphQL](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/APIs_and_Web_Services/GraphQL)
+    - [gRPC](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/APIs_and_Web_Services/gRPC)
+    - [Websockets](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/APIs_and_Web_Services/Websockets)
+    - [Webhooks](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/APIs_and_Web_Services/Webhooks)
+
+    
 - [API Testing](#API-Testing)
     - [Types of API Testing](#Types-of-API-Testing)
+
 - [API Optimizations](#API-Optimizations)
 - [References](#References)
+    - [A Guide to the Most Popular APIs: REST, SOAP, GraphQL, gRPC, and WebSockets](https://blog.postman.com/guide-to-apis-rest-soap-graphql-grpc-websockets/)
+
+# Servers
+The __server__ can perform a wide range of functionalities including _data processing_, _storage_, and _serving it back to the client_. A __server__ can also _direct the client's request to the appropriate location_.
+# Types of Servers
+Based on _functionality_, servers are divided into different types:
+1. __Origin__: actual __server__ that contains data and serves on client's request.
+2. __Proxy__: have the ability to further pass your request to other servers. i.e., __intermediate servers__. The responsibility of a __proxy server__ is to contact actual (origin) sever on your behalf. Your __IP Address__ is hidden whenever your request goes through the __proxy server__.
+3. __Web__: accepts requests via __HTTP__ and sends the World Wide Web information your browser.
+4. __DNS (Domain Name System)__: As computer devices are interacted using __IP addresses__, the __DNS server__ provides the __IP address__ of the requested __URL__.
+5. __Mail__: responsible for sending and receiving emails. When an email is sent, it first goes through the mail server. The mail server then sends it to the other mail server or the specific user.
 # Introduction to Web Services and APIs
 An __API__ is the gateway you pass through to access a __Web Service__. It is a central point of entry which routes your request to the correct, quite possibly multiple, __Web Service(s)__ in order to fulfil your request.
 # Advantages of Web Services
