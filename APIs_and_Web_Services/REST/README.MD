@@ -1,21 +1,24 @@
-# REST
+# REST (Representational State Transfer)
 ## Table of Contents
-- [REST Overview](#REST-Overview)
-- [API Priciples](#API-Principles)
-- [Advantages of REST](#Advantages-of-REST)
+1. [REST Overview](#REST-Overview)
+2. [Advantages of REST](#Advantages-of-REST)
+3. [Cons of REST](#Cons-of-REST)
+4. [5 Principles of REST APIs](#API-Principles)
 - [When to Use REST APIs](#When-to-Use-REST-APIs)
+- [References]()
+    - [How not to blow your REST interview](https://medium.com/future-vision/the-principles-of-rest-6b00deac91b3)
 
 # REST Overview
-__Representational State Transfer (REST)__ is an architectural style that has gained a lot of popularity in recent years due to its _simplicity_ and _scalability_. Before __REST__ gained popularity, __SOAP__ was the de-facto way of accessing resources and communicating over the web.
+* __REST__ is an architectural style that has gained a lot of popularity in recent years due to its _simplicity_ and _scalability_. Before __REST__ gained popularity, __SOAP__ was the de-facto way of accessing resources and communicating over the web.
 
-a __RESTful API (RESTful web service)__ is based on __Representational State Transfer (REST)__ technology, which is an architectural style and approach to communication often used in web service development. __RESTful API__ is mostly used for HTTP web APIs where there is no need for any additional or package to be installed.
+* a __RESTful API (RESTful web service)__ is based on __Representational State Transfer (REST)__ technology, which is an architectural style and approach to communication often used in web service development. __RESTful API__ is mostly used for HTTP web APIs where there is no need for any additional or package to be installed.
 
-__REST APIs__ operate on a simple request/response system. You can send a request using these __HTTP__ methods:
-* GET
-* POST
-* PUT
-* PATCH
-* DELETE
+*__REST APIs__ operate on a simple request/response system. You can send a request using these __HTTP__ methods:
+    * GET
+    * POST
+    * PUT
+    * PATCH
+    * DELETE
 
 # Advantages of REST
 * _REST is Easy to Understand and Implement:_ __REST__ is meant to work over __HTTP__ (actually HTTP was influenced by REST). Therefore it makes use of HTTP verbs such as GET, POST, and PUT.
@@ -28,6 +31,17 @@ __REST APIs__ operate on a simple request/response system. You can send a reques
 
 * _REST is Flexibile:_ i.e., it's easy to modify and it's also able to answer many clients who can ask for different data types (XML, JSON, and so on). The client can specify the type using the Accept header and the __REST API__ can return different responses depending on that. __REST__ has the ability to handle multiple types of requests and return different types of data (such as JSON and XML)
 
+# Cons of REST
+* Where REST APIs fall short is that their rich metadata creates big payloads that can sometimes cause more trouble than they’re worth. You can get over- and under-fetching problems that require further API requests, bogging down the process.
+# The 5 Principles of REST
+1. __Contract first approach / Uniform Resource Identifiers (URI/URL)__: i.e., __uniform interface__: The specification of the API is a contract between the app and the server. the app needs to know that it can hit the same URI to get a particular piece of data, every-time! It also needs to know that it’ll get the data in the format that it expects, and that format will not change. This is the Contract and the URI.
+2. __Statelessness__: The server should have no knowledge of prior requests. The client needs to provide all the information necessary for the server to provide a response.
+3. __Client-Server model__: The app doesn’t need to bother about how the server stores data, the particular database used, the tech stack, etc. The point of intersection between the server and the app is the database schema. The database schema contains a description of the data stored and the layout in which it is stored. The schema should be hosted on the developer portal as part of the API documentation.
+4. __Caching__: Caching is the temporary storage of information outside of the server. In between the client and the server, there are many points of presence where the cache can be stored:
+    *  The cache can be stored near the server like an __API gateway cache__ on AWS. 
+    * The cache can be stored somewhere in the middle between the client and the server using a 3rd party solution or using a hierarchy of proxy servers that just holds cache data, and are called __caching proxy servers__. This is usually a shared cache so this cache can be shared by many clients. 
+    * Lastly, the cache can be stored on the client/in the app/on the device. It is not shared and is only available to the client. This is called a __private cache__.
+5. __Layered architecture__: The app calls the API gateway which hosts the endpoint. The gateway routes the request to a compute node (EC2 in case of AWS) or a serverless function (Lambda in AWS). This is layered architecture. Each layer only knows about the layer next to it, and no more. This promotes separation-of-concerns. Each layer is responsible for a specific role. It knows how to do its job, and passes information to and from its immediate neighboring layer to get the job done. 
 # When to Use REST APIs
 __REST APIs__ are a good fit for projects that need to be
 * Flexible
