@@ -4,7 +4,9 @@
 - [Introduction to Operating Systems](#Introduction-to-Operating-Systems)
 - [Evolution of O.S](#Evolution-of-O.S)
 - [Types of Operating System](#Types-of-Operating-System)
-- [Types of Operating System](#Types-of-Operating-System)
+   - [Windows]()
+   - [Mac]()
+   - [Linux](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line/Linux)
 - [Comparison of Windows, Mac & Linux OS](#Comparison-of-Windows,-Mac-&-Linux-OS)
 - [References](#References)
 
@@ -38,7 +40,6 @@ The major __functions of O.S__ are:
 # Types of Operating System
 1. __Windows__: Microsoft developed the Windows operating system. It was developed so as to overcome the limitation of the MS-DOS operating system.
 2. __Mac__: MAC is an OS that focuses on the graphical user interface and was developed by __Apple, Inc__, for their Macintosh systems
-3. __Linux__: Linux is __UNIX__ like a source software and can use an operating system that provides full memory protection and multi-tasking operations. It is an open d by anyone.
 
 _Remark:_
 * __Linux__ and __Mac__ are built based off of __Unix__. Unix came before windows, mac, etc…. In __unix based systems__ you have whats called __kernel modules__ where in windows they’re called __kernel drivers__.
