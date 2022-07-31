@@ -1,35 +1,34 @@
 # Computer Science
 ## Table of Contents
-- [Computer Science vs. Software Engineering](#Computer-Science-vs-Software-Engineering)
-- [Definition of Terms in Computer Science](#Definition-of-Terms-in-Computer-Science)
-    - [Browser]()
-    - [LocalHost]()
-    - [Secure Shell (SSH)]()
-    - [Algorithm]()
-    - [Computer Program]()
-    - [Source Code]()
-    - [Translators]()
-    - [Bytecode]()
-    - [Common Bugs]()
-    - [Software Development Methodologies]()
-    - [Test Driven Development]()
-    - [Scrum]()
-    - [Software Testing]()
-    - [Cyber Security]()
-    - [DevOps]()
+1. [Computer Science vs. Software Engineering](#Computer-Science-vs-Software-Engineering)
+2. [Definition of Terms in Computer Science](#Definition-of-Terms-in-Computer-Science)
+    - LocalHost
+    - Secure Shell (SSH)
+    - Algorithm
+    - Computer Program
+    - Source Code
+    - Translators
+    - Bytecode
+    - Common Bugs
+    - Software Development Methodologies
+    - Test Driven Development
+    - Scrum
+    - Software Testing
+    - Cyber Security
+    - DevOps
 
-- [Operating Systems & Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
+3. [Operating Systems & Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
     - [Operating Systems](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
     - [Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line/Command_Line)
 
-- [IP Addresses](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/IP_Addresses)
+4. [IP Addresses](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/IP_Addresses)
 
-- [Algorithms & Data Structures](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Algorithms_and_Data_Structures_in_Computer_Science)
+5. [Algorithms & Data Structures](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Algorithms_and_Data_Structures_in_Computer_Science)
     - [Data Structures & Algorithms with Python]()
     - [Data Structures & Algorithms with JavaScript]()
     - [Data Structures & Algorithms with Java]()4
 
-- [Big O Notation](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Big_O_Notation)
+6. [Big O Notation](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Big_O_Notation)
 - [Recursion in Computer Science](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Recursion_in_Computer_Science)
     - [Recursion in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Recursion_in_JavaScript)
     - [Recursion in Python]()
@@ -43,6 +42,11 @@
 
 - [Microservices](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Microservices)
 
+- [Data Serialization Languages](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Serialization_Languages)
+    - [JSON](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Serialization_Languages/JSON)
+    - [XML](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Serialization_Languages/XML)
+    - [YAML](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Serialization_Languages/YAML)
+    
 - [APIs & Web Services]()
     - [How the Web Works]()
     - [Servers]()
@@ -85,13 +89,12 @@
 __Computer Science__ is the study of how computers work, mostly the theoratical and mathematical perspective. __Software Engineering__ is the study of how software systems are built, including topics such as Project Management, Quality Assurance, and Software Testing.
 
 # Definition of Terms in Computer Science
-1. __browser__: medium that allows you to make a request and lets a server serve you. It’s software installed and running on your computer that lets you search the Internet. It takes your input, creates and sends a request, gets the response and serves you.
 2. __LocalHost__: refers to “_this computer_” or even more accurately “_the computer I’m working on_.” 
 3. __Secure Shell (SSH)__: open-source _protocol_ used to secure network communication which is less expensive and complex than the hardware based __VPN__ solutions. i.e., it offers _authentication_, _encryption_ and _data integrity_ for securing network communicationsy. By Implementing __SSH__, we get some of the capabilities like:
     - secure command-shell
     - secure file transfer
     - remote access to a variety of __TCP/IP__ applications via a secure tunnel
-4. __algorithm__ is a step by step procedure to resolve a problem. It's an effective method expressed a finite set of well-defined instructions.
+4. __Algorithm__ is a step by step procedure to resolve a problem. It's an effective method expressed a finite set of well-defined instructions.
 5. __Computer Program__ is a sequence of instructions written using a Computer Programming Language to perform a specified task by the computer. A __computer program__ is also called a __computer software__, which can range from  two lines to millions of lines of instructions.
 
 6. __Source Code__ is a code written in a particular programming language.
