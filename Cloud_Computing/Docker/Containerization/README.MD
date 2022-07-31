@@ -3,6 +3,8 @@
 - [Introduction to Containers](#Introduction-to-Containers)
 - [Why use Containers?](#Why-use-Containers?)
 - [Risks of Containers](#Risks-of-Containers)
+- [Differences between Containers and Virtual Machines](#Differences-between-Containers-and-Virtual-Machines)
+- [Definition of Terms](#Definitions-of-Terms)
 
 # Introduction to Containers
 From a logical point of view, a __container__ can be considered as a single unit of working software, with all its configurations and dependencies, packed. In this way, it can run quickly and reliably from one computer to another.
@@ -31,6 +33,8 @@ Comtainers are a security risks. i.e.,
 * Vulnerable dependency packages
 * Container implementation risks
 * Orchestration tooling access control
+
+# Differences between Containers and Virtual Machines
 
 # Definitions of Terms
 1. __Orchestration__: The fundamental task of a __Container Orchestartion__ is to automatically manage the state of your container to meet incoming work load. It covers things like: 
