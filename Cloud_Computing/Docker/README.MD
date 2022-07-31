@@ -2,10 +2,11 @@
 
 ## Table of Contents
 1. [About Docker](#About-Docker)
-- [How Docker Works](#How-Docker-Works)
-- [What Docker Does](#What-Docker-Does)
-- [Useful Docker Commands](#Useful-Docker-Commands)
-- [References](#References)
+2. [How Docker Works](#How-Docker-Works)
+3. [What Docker Does](#What-Docker-Does)
+4. [Docker Architecture](#Docker-Architecture)
+5. [Useful Docker Commands](#Useful-Docker-Commands)
+6. [References](#References)
     - [Introduction to Docker Part-1](https://atharvbobade.hashnode.dev/introduction-to-docker-part-1)
     - [Introduction to Docker Part-2](https://atharvbobade.hashnode.dev/introduction-to-docker-part-2)
 
