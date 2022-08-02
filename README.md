@@ -9,14 +9,13 @@
     - Source Code
     - Translators
     - Bytecode
+    - [Load Balancing](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Load_Balancer)
     - Common Bugs
     - Software Development Methodologies
     - Test Driven Development
     - Scrum
     - Software Testing
     - Cyber Security
-    - DevOps
-
 3. [Operating Systems & Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
     - [Operating Systems](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
     - [Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line/Command_Line)
@@ -63,6 +62,9 @@
 
 
 - [Cloud Computing](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Cloud_Computing)
+    - [Virtual Machines (VM)]()
+    - [Containers]()
+    - [Docker](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Cloud_Computing/Docker)
     - [GCP]()
         - [BigQuery](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/Google_BigQuery)
     - [Microsoft Azure]()
@@ -84,6 +86,7 @@
     
 - [Git & GitHub](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Git_and_GitHub)
 - [References](#References)
+    - [Scrum Guide](https://scrumguides.org/scrum-guide.html)
 
 # Computer Science vs Software Engineering
 __Computer Science__ is the study of how computers work, mostly the theoratical and mathematical perspective. __Software Engineering__ is the study of how software systems are built, including topics such as Project Management, Quality Assurance, and Software Testing.
@@ -154,7 +157,4 @@ __Computer Science__ is the study of how computers work, mostly the theoratical 
 
     * __Regression Testing__: Let’s assume that there is an application which maintains the details of all the students in school. This application has four buttons __Add__, __Save__, __Delete__ and __Refresh__. All the buttons functionalities are working as expected. Recently a new button ‘__Update__’ is added in the application. This ‘__Update__’ button functionality is tested and confirmed that it’s working as expected. But at the same time, it becomes very important to know that the introduction of this new button should not impact the other existing buttons functionality. Along with the ‘__Update__’ button, all the other buttons functionality are tested in order to find any new issues in the existing code. This process is known as __regression testing__.
 14. __Cyber Security__ is the ability to protect or defend the use of an enterprse's internet-connected systems and data from attack.
-15. __DevOps__ Cultural thing and a new way of working.
 
-# References
-1. [Scrum Guide](https://scrumguides.org/scrum-guide.html)
