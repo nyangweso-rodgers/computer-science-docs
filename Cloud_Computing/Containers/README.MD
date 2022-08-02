@@ -24,6 +24,7 @@
     * _Containers have been popularized with the excitment around Docker containers._
     * _Since __containers__ are lightweight and fast, it’s quicker to create new instances to meet the demand._
 
+* The open-source project, __Docker__, is one of the leading platforms for managing containers. __Docker containers__ provide an efficient, lightweight approach to application deployment because they allow different components of the application to be deployed independently into different containers. Multiple containers can be run on a single machine, and containers can be moved between machines. The portability of the container makes it easy for applications to be deployed in multiple environments, either on-premises or in the cloud, often with no changes to the application.
 # Containers vs Virtual Machines 
 * __VMs__ runs on top of an emulating software called the __hypervisor__ which sit between the hardware and the virtual machine. The __hypervisor__ is the key to enable __virtualization__. It manages the sharing of physical resources into virtual machines. Each virtual machine runs its own guest operating system.
 
