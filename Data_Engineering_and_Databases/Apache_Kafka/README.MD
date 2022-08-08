@@ -1,12 +1,15 @@
 # Apache Kafka
 
 ## Table of Contents
-- [Introduction to Apache Kafka](#Introduction-to-Apache-Kafka)
+- [Introduction to Event Streaming](#Event-Sreaming)
+- [Overview of Apache Kafka](#Overview-of-Apache-Kafka)
 - [When to use Apache Kafka?](#When-to-use-Apache-Kafka?)
 - [When not to use Apache Kafka](#When-not-to-use-Apache-Kafka?)
 - [References](#References)
 
-# Introduction to Apache Kafka
+# Event Sreaming
+__Event streaming__ ( ES ) captures data in real-time and takes care of storing, processing, manipulating and routing it. 
+# Overview of Apache Kafka
 __Kafka__ is:
 * a scalable real-time messaging platform to process millions of messages per second.
 * an event streaming platform for massive volumes of big data analytics and small volumes of transactional data processing.
