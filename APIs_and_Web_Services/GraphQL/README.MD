@@ -25,3 +25,10 @@ __GraphQL__ used a type system to describe data and is organized around three ma
 
 # Cons of GraphQL
 * Performance can suffer with GraphQL if you have too many nested fields in any one request. It also doesn’t reuse standard HTTP caching semantics, so it actually requires custom efforts to achieve proper caching. All of this makes GraphQL difficult to pick up without lots of training and experience. It certainly is an acquired skill, breaking away from the long track record and industry knowledge around REST APIs.
+
+# GraphQL Security Best Practices
+* __Use query cost analysis__: This is the best method of rate limiting for GraphQL. Cost analysis protects your GraphQL server from DoS attacks by computing the data consumption per user and applying limits.
+* __Use depth limiting__: GraphQL uses a single endpoint to access data, and its structure uses nested fields. This is very convenient, but its also a security risk.Attackers can use nested fields to create malicious loops that can crash a server. Depth limiting prevents this.
+* __Use pagination__: Pagination limits the number of resources a client can access in a single request. This reduces latency when fetching large amounts of data and prevents the server from being overloaded.
+* __Set query timeouts__: Timeouts can be used to protect against large queries. If the query is executing after the set time, it will fail automatically.
+* __Prevent batch requests__: GraphQL supports query batching, where multiple requests can be made in a single call using GraphQL Aliases. Multiple batch requests can overload a server. Batch querying can be prevented by implementing proper rate-limiting and timeouts.
