@@ -32,4 +32,4 @@ sales_order_with_items as (
                             order by transaction_date, sales_order,item_name, uom
                             )
 select * from sales_order_with_items 
-where FORMAT_DATE('%Y%m%d', transaction_date) between @DS_START_DATE and @DS_END_DATE
+--where FORMAT_DATE('%Y%m%d', transaction_date) between @DS_START_DATE and @DS_END_DATE

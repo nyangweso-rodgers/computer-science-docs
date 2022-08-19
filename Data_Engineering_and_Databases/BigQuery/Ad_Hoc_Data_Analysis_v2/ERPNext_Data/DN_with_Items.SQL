@@ -38,4 +38,5 @@ delivery_note_with_items as (
                               --and dn.scheduled_delivery_date = '2022-03-21'
                               order by sales_order, delivery_note, item_code, uom
                               )
-select * from delivery_note_with_items where FORMAT_DATE('%Y%m%d', scheduled_delivery_date) between @DS_START_DATE and @DS_END_DATE
+select * from delivery_note_with_items 
+--where FORMAT_DATE('%Y%m%d', scheduled_delivery_date) between @DS_START_DATE and @DS_END_DATE
