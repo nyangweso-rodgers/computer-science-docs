@@ -7,6 +7,9 @@
     - [Types of Servers](#Types-of-Servers)
 
 - [System Design Concepts](#System-Design-Concepts)
+    - SSL/TLS
+    - DNS
+    
 - [Vertical vs. Horizontal Scaling](#Vertical-vs.-Horizontal-Scaling)
     - [Disadvantages to Vertical Scaling](#Disadvantages-to-Vertical-Scaling)
 - [References]()
@@ -42,6 +45,10 @@ Based on _functionality_, servers are divided into different types:
     * __Root Server__: _Root servers are at the top of the DNS hierarchy. They redirect Resolver Servers to another type of server called TLD servers._
     * __TLD (Top Level Domain) Server__: _servers store information about domains ending with .com, .net, .org, and other ‘top level’ domains. The TLD sends a response to the resolver that redirects to another type of server to find information about the searched domain._
     * __Authoritative Name Server__: _The final stage is an Authoritative Name Server, which is responsible for knowing everything about the domain, including the IP address. It sends the IP address information back to the resolver, then the client._
+
+    __Types of DNS Records__ include:
+    * An __"A" DNS record__ is a type of DNS record that allows a computer to find the IP address of another computer. This is the most common type of DNS record and is used to map a domain name to an IP address.
+    * A __CNAME__ record is a type of DNS record that allows you to specify a canonical name for an alias. A __canonical name__ is the official name of a domain or subdomain. You can use __CNAME__ only if the API and the primary domain run under the same IP address.
 3. __Load Balancer__: 
 5. Caches
 6. Network Protocols
