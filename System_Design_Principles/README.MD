@@ -9,6 +9,8 @@
 - [System Design Concepts](#System-Design-Concepts)
     - SSL/TLS
     - DNS
+    - Load Balancer
+    - Firewall
     
 - [Vertical vs. Horizontal Scaling](#Vertical-vs.-Horizontal-Scaling)
     - [Disadvantages to Vertical Scaling](#Disadvantages-to-Vertical-Scaling)
@@ -49,7 +51,11 @@ Based on _functionality_, servers are divided into different types:
     __Types of DNS Records__ include:
     * An __"A" DNS record__ is a type of DNS record that allows a computer to find the IP address of another computer. This is the most common type of DNS record and is used to map a domain name to an IP address.
     * A __CNAME__ record is a type of DNS record that allows you to specify a canonical name for an alias. A __canonical name__ is the official name of a domain or subdomain. You can use __CNAME__ only if the API and the primary domain run under the same IP address.
-3. __Load Balancer__: 
+
+3. __Load Balancer__: A __load balancer__ sits in front of various servers and acts as a traffic cop to direct traffic to the right server. It makes sure that no server is overloaded, and provides high availability and reliability by ensuring all requests are served. If a server goes down, it starts redirecting the requests to different servers that are online.
+
+4. ___Firewall__: Web servers use a firewall to protect the system against breaches and attacks. For example , if a bad source starts flooding the web server with a large number of concurrent requests, the firewall will detect the problem and block requests from that __IP address__ to keep them from reaching the web server.
+
 5. Caches
 6. Network Protocols
 4. CDNs 
