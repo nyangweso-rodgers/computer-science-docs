@@ -2,6 +2,10 @@
 
 ## Table of Contents
 - [Introduction to System Design](#Introduction-to-System-Design)
+
+- [Overview of Servers](#Overview-of-Servers)
+    - [Types of Servers](#Types-of-Servers)
+
 - [System Design Concepts](#System-Design-Concepts)
 - [Vertical vs. Horizontal Scaling](#Vertical-vs.-Horizontal-Scaling)
     - [Disadvantages to Vertical Scaling](#Disadvantages-to-Vertical-Scaling)
@@ -9,6 +13,16 @@
     - 
 
 # Introduction to System Design
+
+# Overview of Servers
+* The __server__ can perform a wide range of functionalities including _data processing_, _storage_, and _serving it back to the client_. A __server__ can also _direct the client's request to the appropriate location_.
+# Types of Servers
+Based on _functionality_, servers are divided into different types:
+1. __Origin__: actual __server__ that contains data and serves on client's request.
+2. __Proxy__: have the ability to further pass your request to other servers. i.e., __intermediate servers__. The responsibility of a __proxy server__ is to contact actual (origin) sever on your behalf. Your __IP Address__ is hidden whenever your request goes through the __proxy server__.
+3. __Web__: accepts requests via __HTTP__ and sends the World Wide Web information your browser.
+4. __DNS (Domain Name System)__: As computer devices are interacted using __IP addresses__, the __DNS server__ provides the __IP address__ of the requested __URL__.
+5. __Mail__: responsible for sending and receiving emails. When an email is sent, it first goes through the mail server. The mail server then sends it to the other mail server or the specific user.
 
 # System Design Concepts
 1. __SSL/TLS__: (__Secure Socket Layer / Transport Layer Security__): are cryptographic protocols that ensure an encrypted connection between client and server. Websites that work over the basic HTTP protocol have an unencrypted and insecure connection. __HTTPS__ connection is the norm on today’s internet, and the added ‘S’ indicates the website has an SSL/TLS certificate. When a browser connects to a server, it checks for an SSL certificate in a process called ‘the SSL handshake.’ After the browser verifies the certificate, the encrypted connection begins. Without __SSL/TLS certificates__, data transferred from your site to the server is at risk of interception attacks, usually known as MITM attacks (man in the middle).
