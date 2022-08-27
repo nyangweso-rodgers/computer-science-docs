@@ -31,7 +31,7 @@ An __API__ is the gateway you pass through to access a __Web Service__. It is a 
 # Types of Web Services
 There are two types of __Web Services__:
 1. __Simple Object Access Protocol (SOAP)__: sends messages using __XML__. An __XML__ document is sent with the data in a certain format
-2. __Representational State Transfer (RESTful)__: uses __HTTP__ web protocol to access resources like documents, pictures or videos
+2. __Representational State Transfer (RESTful)__: is based on __Representational State Transfer (REST)__ technology, which is an architectural style and approach to communication often used in web service development. __RESTful API__ is mostly used for HTTP web APIs where there is no need for any additional or package to be installed.
 3. XML-RPC (Remote Procedure Call)
 4. UDDI (Universal Description, Discovery, and Integration)
 
