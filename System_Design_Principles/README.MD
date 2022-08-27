@@ -11,6 +11,7 @@
     - DNS
     - Load Balancer
     - Firewall
+    - Caching
     
 - [Vertical vs. Horizontal Scaling](#Vertical-vs.-Horizontal-Scaling)
     - [Disadvantages to Vertical Scaling](#Disadvantages-to-Vertical-Scaling)
@@ -56,7 +57,11 @@ Based on _functionality_, servers are divided into different types:
 
 4. ___Firewall__: Web servers use a firewall to protect the system against breaches and attacks. For example , if a bad source starts flooding the web server with a large number of concurrent requests, the firewall will detect the problem and block requests from that __IP address__ to keep them from reaching the web server.
 
-5. Caches
+5. __Caching__: is the temporary storage of information outside of the server. In between the __client__ and the __server__, there are many points of presence where the cache can be stored:
+    *  The cache can be stored near the server like an __API gateway cache__ on AWS. 
+    * The cache can be stored somewhere in the middle between the client and the server using a 3rd party solution or using a hierarchy of proxy servers that just holds cache data, and are called __caching proxy servers__. This is usually a shared cache so this cache can be shared by many clients. 
+    * Lastly, the cache can be stored on the client/in the app/on the device. It is not shared and is only available to the client. This is called a __private cache__.
+
 6. Network Protocols
 4. CDNs 
 
