@@ -20,6 +20,7 @@
     - Caching
     - Transfer Control Protocol (TCP)
     - Cookies
+    - Websocket
     
 - [Vertical vs. Horizontal Scaling](#Vertical-vs.-Horizontal-Scaling)
     - [Disadvantages to Vertical Scaling](#Disadvantages-to-Vertical-Scaling)
@@ -154,7 +155,7 @@ A __web server__ is designed — and often optimized — to serve __webpages__. 
         - _Use anti-malware_: Using anti-malware solutions or reliable security plugins will protect your system from cookie stealing software
         - _Digital hygiene_: Digital hygiene refers to general tips that keep online connections secure. These include logging out of accounts to end the session once you are done, avoiding public wifi connections when possible, and regularly clearing out your browser's cookie data.
 
-
+11. __Websocket__: is a communications protocol that provides dynamic communication over a single __TCP connection__. __WebSockets__ acts as a thin transport layer that sits on top of your TCP/IP technology stack. With the API, you can send messages to a server and receive event-driven responses without needing to poll the server for a reply.
 # Vertical vs. Horizontal Scaling
 * __Vertical scaling__ involves adding more resources to a machine. E.g., suppose you have a traditional database server which is starting to get overloaded. The way to get this solved is to simply increase the resources (CPU, RAM, SSD) on the server.
 
