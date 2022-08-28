@@ -23,13 +23,7 @@
 
 5. [API Optimizations](#API-Optimizations)
 
-6. [Most Popular APIs]()
-    - [REST](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/APIs_and_Web_Services/REST)
-    - [SOAP](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/APIs_and_Web_Services/SOAP)
-    - [GraphQL](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/APIs_and_Web_Services/GraphQL)
-    - [gRPC](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/APIs_and_Web_Services/gRPC)
-    - [Websockets](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/APIs_and_Web_Services/Websockets)
-    - [Webhooks](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/APIs_and_Web_Services/Webhooks)
+6. [Lists of Popular APIs]()
 
 7. [References]()
     - [A Guide to the Most Popular APIs: REST, SOAP, GraphQL, gRPC, and WebSockets](https://blog.postman.com/guide-to-apis-rest-soap-graphql-grpc-websockets/)
@@ -124,3 +118,13 @@ It's imperative to optimize your API to provide a better user experience. Here a
 3. __Use PATCH over PUT:__ the __PATCH__ requests method only updates the necessary part of the resource whereas __PUT__ updates the entire resource.
 4. __Compress Data:__ massive data transactions make the API slow. Consider using compression teschniques like __GZip__ to compress the data sent through the API. It will make the transfer faster and improve the overall performance of your API.
 5. __Using Appropriate Hosting:__ if you expect your API to see high traffic surges, make sure you use a good hosting company that provides you with enough CPUs and databse instances to make your APIs fast. It will solve your network-related issues.
+
+# Lists of Popular APIs
+| Index |Name| Description | Documentation |
+|:-----------: |:-------:| :-----------:| :---------:|
+1 | [GitHub’s REST API](https://docs.github.com/en/rest)
+2 | [Random User Generator API](https://randomuser.me/) | generate random user data for application testing
+3 | [TheDogAPI](https://thedogapi.com/) | you can fetch the different dog breeds and some images, but if you register, you can also cast votes on your favorite dogs.
+4 | [PlaceGOAT API](https://placegoat.com/) | This is a very silly API that returns _images of goats_ in different sizes that you can use as placeholder images in your website.
+5 | [api-football](https://www.api-football.com/documentation-v3#section/Sample-Scripts/Php)
+6 | https://www.api-football.com/documentation-v3
