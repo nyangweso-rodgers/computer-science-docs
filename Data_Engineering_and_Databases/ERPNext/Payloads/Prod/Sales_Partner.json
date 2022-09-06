@@ -1,0 +1,48 @@
+{
+    "name": "Doreen Barasa",
+    "owner": "Administrator",
+    "creation": "2022-02-10 00:54:34.473077",
+    "modified": "2022-09-06 09:00:14.389748",
+    "modified_by": "zoneservice@kyosk.app",
+    "idx": 0,
+    "docstatus": 0,
+    "partner_name": "Doreen Barasa",
+    "agent_first_name": "Doreen",
+    "agent_last_name": "Barasa",
+    "partner_type": "Agent",
+    "supplier": "KYOSK DIGITAL SERVICES LTD",
+    "territory": "Eastlands",
+    "commission_rate": 0,
+    "agent_id_type": "NATIONAL ID",
+    "email_address": "doreenbarasa04@gmail.com",
+    "telephone_number": "254795075152",
+    "show_in_website": 0,
+    "route": "partners/doreen-barasa",
+    "doctype": "Sales Partner",
+    "targets": [],
+    "sales_partner_market": [],
+    "assignment_history_sales_partner": [
+        {
+            "name": "f051613d11",
+            "owner": "Administrator",
+            "creation": "2022-02-10 00:54:34.473077",
+            "modified": "2022-09-06 09:00:14.389748",
+            "modified_by": "zoneservice@kyosk.app",
+            "parent": "Doreen Barasa",
+            "parentfield": "assignment_history_sales_partner",
+            "parenttype": "Sales Partner",
+            "idx": 1,
+            "docstatus": 0,
+            "market": "Eastlands",
+            "sales_district": "PIPELINE NDANI",
+            "valid_from": "2022-02-06",
+            "assigned_by": "william.gitonga@kyosk.app",
+            "doctype": "Assignment History Sales Partner"
+        }
+    ],
+    "__onload": {
+        "addr_list": [],
+        "contact_list": []
+    },
+    "__last_sync_on": "2022-09-06T09:16:55.731Z"
+}
