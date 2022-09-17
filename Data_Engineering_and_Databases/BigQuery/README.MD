@@ -20,6 +20,7 @@
     - [Connecting BigQuery with Colab](https://colab.research.google.com/notebooks/bigquery.ipynb)
     - [Is BigQuery Expensive?](https://www.quora.com/Is-Googles-BigQuery-expensive)
     - [Getting Started with BigQuery free tier?](https://blog.openbridge.com/unique-offer-powerful-data-warehouse-bigquery-for-free-9e9e98997a28)
+    - [Connect & Transfer Data From Google Sheets to BigQuery](https://www.optimizesmart.com/connect-and-transfer-data-from-google-sheets-to-bigquery/)
 
 
 # Introdution to BigQuery
