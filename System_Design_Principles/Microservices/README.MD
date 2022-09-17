@@ -1,5 +1,4 @@
 #  Microservices
-
 ## Table of Contents
 - [Introduction to Microservices](#Introduction-to-Microservices)
 - [Characteristics of Microservices](#Characteristics-of-Microservices)
