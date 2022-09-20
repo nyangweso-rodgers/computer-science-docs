@@ -10,7 +10,7 @@
         - Cloud Functions
     - [Storage Services](#Storage-Services)
         - CloudSQL
-        - BigQuery
+        - BigQuery(https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Cloud_Computing/GCP/BigQuery)
         - Cloud Datastore
         - Bigtable
         - Cloud storage
@@ -19,7 +19,6 @@
     - [Machine Learning]()
 
 - [References](#References)
-    - [Streaming data from Cloud Storage into BigQuery using Cloud Functions](https://cloud.google.com/architecture/streaming-data-from-cloud-storage-into-bigquery-using-cloud-functions)
     - [Google Cloud Functions — A Brief Tutorial](https://medium.com/geekculture/google-cloud-functions-a-brief-tutorial-de07d8945b01)
     - [Building ETL Pipeline with Python and Google Cloud Functions](https://towardsdatascience.com/part-2-building-a-simple-etl-pipeline-with-python-and-google-cloud-functions-mysql-to-bigquery-4e1987f9f89b)
 
