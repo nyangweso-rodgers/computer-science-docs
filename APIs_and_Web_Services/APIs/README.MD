@@ -128,3 +128,4 @@ It's imperative to optimize your API to provide a better user experience. Here a
 4 | [PlaceGOAT API](https://placegoat.com/) | This is a very silly API that returns _images of goats_ in different sizes that you can use as placeholder images in your website.
 5 | [api-football](https://www.api-football.com/documentation-v3#section/Sample-Scripts/Php)
 6 | https://www.api-football.com/documentation-v3
+7 | [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
