@@ -10,10 +10,20 @@
     - [Secure Web Services](#Secure-Web-Services)
 
 # Overview of Web Services
-A __web service__ is an __XML-based__ application communication system that translates data via __HTTP__ over the internet.
+* A __web service__ is an __XML-based__ application communication system that translates data via __HTTP__ over the internet. __Web services__ are language agnostic and can deliver services across multiple platforms and programming languages.
+
+* Web services are often associated with SOA(Service Orientated Architecture), where a software’s features are split into different services and then made available on a network.
 
 # Web Services vs APIs
-An __API__ is the gateway you pass through to access a __Web Service__. It is a central point of entry which routes your request to the correct, quite possibly multiple, __Web Service(s)__ in order to fulfil your request.
+* An __API__ is the gateway you pass through to access a __Web Service__. It is a central point of entry which routes your request to the correct, quite possibly multiple, __Web Service(s)__ in order to fulfil your request.
+
+* Unlike __APIs__, Web Services are not Protocol agnostic and use SOAP as a primary protocol. They are also restricted to XML. Because of this, their architecture is much heavier, and APIs that primarily use JSON is lightweight in comparison.
+
+* Due to the more rigid restrictions of SOAP, Web Services are more secure. They have stricter protocol requirements than APIs, which are more accessible and can easily expose data if security is not implemented thoroughly.
+
+* APIs can work on or offline, and Web Services require a network.
+
+* _Remark_: _It's important to remember that all web services are APIs, but not all APIs are web services. Both, however, enable the transfer of data between software apps._
 
 # Advantages of Web Services
 * __Reusability of code__: allow organisations to use web services provided by Third-parties
