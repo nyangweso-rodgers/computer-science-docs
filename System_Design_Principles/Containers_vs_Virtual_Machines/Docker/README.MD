@@ -8,7 +8,10 @@
     - [A Complete Beginner's Guide to Docker](https://blog.suhailkakar.com/a-complete-beginners-guide-to-docker)
     - [How to Dockerize a Flask Application](https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/)
 
-#
+# What is Docker?
+* __Docker__ is a software containerization platform which allows developers to package their applications into __containers__, which can then be run on any machine that has Dockers installed. This makes it easier for developers to move their applications between different environments, such as __development__, __testing__, and __production__. Docker has become so popular that when the word container is mentioned, it is automatically assumed docker will be used to manage it.
+
+* Container technology is not new, however __Docker__ has made it more popular and easier to use. Docker is a platform that can be installed on any machine, and it provides a standard way to package and run applications.
 
 # Why Docker?
 * __Docker__ is an open source tool that uses __containers__ to create, deploy, and manage distributed applications. 
@@ -16,6 +19,10 @@
 
 _Remarks_:
 * _A misconception among many people is that __Docker__ created the concept of __containers__ but that is wrong Docker only brought it to critically acclaimed status as stated before. Containers existed very well before Docker._
+
+* _Docker is also popular because it is free and open source. This means that the source code is available for anyone to use and modify. This makes it a popular choice for developers who want to customize their applications._
+
+* _Docker has many different tools and technologies such as docker hub, docker engine, docker desktop etc. But when we’re talking about Kubernetes and Docker, there is only one tool that we’re interested in; and that’s known as __Docker Swarm__._
 
 
 # Definitions
@@ -49,3 +56,11 @@ _Remarks_:
 10. __Docker Compose__: It's a tool for defining and running multi-container Docker applications, called __services__. You use a YAML file to configure the services, that can be created/started/stopped with a single command. It works well in development, testing, and production.
 
 11. __Docker Registry__: It's a stateless server-side application to store Docker images where the images can be pulled/pushed (as GitHub for repositories). It can be public or private. __Docker Hub__ is a public Docker registry.
+
+# What is Docker Swarm?
+* __Docker Swarm__ is a _group of either physical or virtual machines that are running the Docker application which have been configured to join together in a cluster_. __Docker swarm__ is a container orchestration tool, meaning that it allows the user to manage multiple containers deployed across multiple host machines.
+
+* One of the major benefits of docker swarm is the high level of availability offered for applications. In a docker swarm, there are typically several worker nodes and at least one manager node that is responsible for handling the worker nodes’ resources efficiently and ensuring that the cluster operates efficiently.
+
+* __Docker Swam__ is also relatively easy to install, and is easily understandable for those starting out with container orchestration. It is lightweight and easy to use. Also, Docker Swarm takes less time to understand than more complex orchestration tools.
+
