@@ -18,7 +18,9 @@
     - [Use Branches for:](#Use-Branches-for:)
 
 
-- [References](#References)
+- [References]()
+    - [How to Create a Local Branch in Git](https://www.freecodecamp.org/news/how-to-create-a-local-git-branch/)
+
 
 
 
@@ -113,5 +115,3 @@ __Wiki__ is a knowledge based site where people can collaborate on documentation
 
 # GitHub Pages
 __GitHub pages__ are hosting sites which host static pages like personal websites, blog or company webpage. No server-side code.
-
-# References
