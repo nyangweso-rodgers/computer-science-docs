@@ -14,7 +14,7 @@
     - [Redis vs Kafka vs ReabbitMQ](https://medium.com/@codeeverywhere/redis-vs-kafka-vs-rabbitmq-43eeec82bafb)
 
 # Overview Of Broker Service
-__Broker Service__: When using asynchronous communication for Microservices, it is common to use a message broker. A __broker__ ensures communication between different microservices is reliable and stable, that the messages are managed and monitored within the system and that messages don’t get lost. There are a few message brokers you can choose from, varying in scale and data capabilities. e.g., 
+__Broker Service__: When using asynchronous communication for __Microservices__, it is common to use a __message broker__. A __broker__ ensures communication between different microservices is reliable and stable, that the messages are managed and monitored within the system and that messages don’t get lost. There are a few message brokers you can choose from, varying in scale and data capabilities. e.g., 
     - RabbitMQ
     - Kafka
     - Redis
