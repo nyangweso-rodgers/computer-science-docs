@@ -80,6 +80,17 @@ __Webhooks__ provide similar functionality as __APIs__ do but they work differen
 
 8. __Pagination__: Sending lots of data back and forth between clients and servers comes with a price: bandwidth. To make sure that servers can cope with a lot of requests, APIs typically use __pagination__. In very simple terms, pagination is the act of splitting large amounts of data into multiple smaller pieces.
 
+9. __Access Token__: used for __authentication__. Applications use an access token to authenticate themselves so that they can make an API call. Access tokens are just random strings.
+
+10. __API Gateway__: type of software that provides a way for clients to interact with a set of back-end services. A typical API gateway will provide a set of APIs that clients can use to access the various back-end services.
+    ### How does API Gateway work
+    - API Gateway acts as a proxy, intercepting requests from the application and forwarding them to the appropriate backend service.
+
+    ### Benefits of API Gateway
+    - _Increased Security_: API gateways can provide an additional layer of security for your backend services by validating incoming requests and enforcing authentication and authorization policies.
+    - _Improved performance_: API gateways can cache commonly requested data and distribute load across multiple backend servers to improve performance.
+    - _Easier management_: API gateways can provide a single point of control for managing your backend services, making them easier to deploy.
+
 # APIs Response Status Codes
 | Status code |Meaning| Description 
 |:-----------: |:-------:| :-----------:| 
