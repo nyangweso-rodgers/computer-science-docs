@@ -4,6 +4,10 @@
 - [References]()
     - [Introduction to Kubernetes — Tutorial](https://blog.getambassador.io/an-introduction-to-kubernetes-tutorial-370789e09505)
     - [What Problem Is Kubernetes Actually Trying To Solve?](https://dev.to/thenjdevopsguy/what-problem-is-kubernetes-actually-trying-to-solve-3g1n)
+    - [Kubernetes Core Concepts - Deployments](https://blog.learncodeonline.in/kubernetes-core-concepts-deployments)
+    - [Kubernetes 101 - Introduction](https://dev.to/dailydevtips1/kubernetes-101-introduction-5d9)
+    - [Introduction to Kubernetes](https://medium.com/@SaadJafar/introduction-to-kubernetes-a408bc848f95)
+    - [What is Kubernetes?](https://medium.com/@hassanakram61/what-is-kubernetes-8051484938dd)
 
 # What is K8s?
 * __Kubernetes__ is an open-source platform for automating the __deployment__, __management__, __networking__, and __scaling__ of __containerized applications__ across a fleet of machines within a cluster environment. It creates an abstraction layer on a group of host machines (known as nodes), where software teams can deploy their applications while it manages the orchestration (automated configuration, coordination, and management).

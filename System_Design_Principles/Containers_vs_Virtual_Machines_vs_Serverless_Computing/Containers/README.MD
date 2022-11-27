@@ -9,6 +9,7 @@
 - [References]()
     - [Learning Containers From The Bottom Up](https://t.co/gZt4N8OL0E)
     - [Getting Edgy: Clusters, Nodes, Pods, and Containers — Oh My!](https://blog.getambassador.io/getting-edgy-clusters-nodes-pods-and-containers-oh-my-f363fe4cf0c0)
+    - [What is a Container? Containers are not Virtual Machines!](https://medium.com/@armishmmunir244/docker-vs-virtual-machines-aff2bce0dc4)
 
 # What is Containerization?
 * __Containerization__ technologies (Docker is just one of them) use a standard, to isolate the application with all:

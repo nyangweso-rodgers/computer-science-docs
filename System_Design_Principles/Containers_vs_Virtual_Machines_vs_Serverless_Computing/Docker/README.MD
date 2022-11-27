@@ -7,6 +7,7 @@
     - [What is Docker? Learn How to Use Containers – Explained with Examples](https://www.freecodecamp.org/news/what-is-docker-learn-how-to-use-containers-with-examples/)
     - [A Complete Beginner's Guide to Docker](https://blog.suhailkakar.com/a-complete-beginners-guide-to-docker)
     - [How to Dockerize a Flask Application](https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/)
+    - [How to Build Docker Image : Comprehensive Beginners Guide](https://devopscube.com/build-docker-image/)
 
 # What is Docker?
 * __Docker__ is a software containerization platform which allows developers to package their applications into __containers__, which can then be run on any machine that has Dockers installed. This makes it easier for developers to move their applications between different environments, such as __development__, __testing__, and __production__. Docker has become so popular that when the word container is mentioned, it is automatically assumed docker will be used to manage it.

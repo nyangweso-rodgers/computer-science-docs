@@ -13,7 +13,6 @@
 - [Kubernetes]()
     - []()
 
-
 - [References]()
     - [Virtualization vs Containerization](https://zohaibbashir.medium.com/virtual-machines-vs-docker-6101b2d762cd)
     - [Dockers vs Kubernetes: Choosing Your Container Orchestrator](https://medium.com/@i191731/dockers-vs-kubernetes-choosing-your-container-orchestrator-cab4a17b5faa)
