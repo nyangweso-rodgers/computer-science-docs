@@ -1,11 +1,35 @@
 # Firebase
 
 ## Table Of Contents
+- [Introduction To Firebase](#Introduction-To-Firebase)
+- [Why Firebase?](#Why-Firebase?)
+- [Features Of Firebase](#Features-Of-Firebase)
 - [References]()
     - [Firebase](https://firebase.google.com/docs/guides)
+    - [Firebase Documentation](https://firebase.google.com/docs)
+    - [Analyzing Firebase data with BigQuery](https://www.youtube.com/watch?v=jlfREntil-Q&list=PLl-K7zZEsYLmt8sbyRuTUObBschmC-Wdd&index=2)
+    - [How to Create Apps with Firebase](https://www.freecodecamp.org/news/create-apps-with-firebase/)
 
-# Overview Of Firebase
-* __Firebase__ is a Backend as a Service offering Google Cloud-based app development platform. It is a Real-Time Database in which applications connect with each other using WebSockets. Under this method, all of the data synchronizes automatically through a single WebSocket depending on how fast the internet connection can transmit it. It also provides the functionality to store binary files directly from the client onto the Cloud platform. Developers can use Firebase to integrate OAuth from Google, Facebook, Twitter, and GitHub to incorporate authentication for users of an application. It provides an option to host static files which it serves from Global CDN with HTTP/2.
+# Introduction To Firebase
+* __Firebase__ is Google's mobile application development platform that helps you build improve, and grow your app. __Firebase__ includes services like:
+    - Analytics
+    - Authentication
+    - Databases
+    - Configuration
+    - File Storage
+    - Hosting
+    - Test lab
+    - Crash Reporting, e.t.c.,
+
+* __Firebase__ is totally different from _Traditional App Development_ which typically involved writing both Frontend and backend software. With __Firebase__ products, the traditional backend is bypassed, putting the work into the client
+
+# Why Firebase?
+Here are 5 pros of __firebase__ which are important to consider:
+* Faster time to the Market app
+* Reduce Development time and effort
+* Real-Time Database Scalability
+* Google Analytics Intergration
+* Flexible Cost
 
 # Features Of Firebase
 * __Integration with Dynamic Links__: These links help in providing enhanced functionality within apps by taking users to specific content.
