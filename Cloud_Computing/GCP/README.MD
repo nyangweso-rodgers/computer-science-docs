@@ -22,6 +22,7 @@
     - [Google Cloud Functions — A Brief Tutorial](https://medium.com/geekculture/google-cloud-functions-a-brief-tutorial-de07d8945b01)
     - [Building ETL Pipeline with Python and Google Cloud Functions](https://towardsdatascience.com/part-2-building-a-simple-etl-pipeline-with-python-and-google-cloud-functions-mysql-to-bigquery-4e1987f9f89b)
     - [Where should I run my stuff? Choosing a Google Cloud compute option](https://cloud.google.com/blog/topics/developers-practitioners/where-should-i-run-my-stuff-choosing-google-cloud-compute-option?utm_source=linkedin&utm_medium=unpaidsoc&utm_campaign=fy22q4-googlecloud-blog-ease_of_use-in_feed-no-brand-global&utm_content=-&utm_term=-)
+    - [Cloud Wisdom Weekly: 5 ways to reduce costs with containers](https://cloud.google.com/blog/topics/startups/5-ways-to-reduce-costs-with-containers-on-google-cloud?utm_source=linkedin&utm_medium=unpaidsoc&utm_campaign=fy22q3-googlecloud-blog-digital_natives_startups-in_feed-no-brand-global&utm_content=september-traffic-boost&utm_term=-)
 
 # Introduction to GCP
 # GCP Services
