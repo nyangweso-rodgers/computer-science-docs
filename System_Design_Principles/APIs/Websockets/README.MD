@@ -8,7 +8,7 @@
 # Introduction to Websockets
 * A __WebSocket__ is a persistent bi-directional communication channel between _client_ and _server_. Unlike __HTTP connections__, __WebSockets__ can communicate to and fro simultaneously. 
 
-* Although distinct from __HTTP__, __WebSocket__ connections are initiated by an HTTP request (The HTTP ‘handshake’). After this, communication runs over the __TCP__ layer (Transmission Control Protocol). Once a __WebSocket__ connection is established, it remains open until one of either the client or server terminates it.
+* Although distinct from __HTTP__, __WebSocket__ connections are initiated by an HTTP request (The HTTP ‘handshake’). After this, communication runs over the __TCP__ layer (__Transmission Control Protocol__). Once a __WebSocket__ connection is established, it remains open until one of either the client or server terminates it.
 
 # Features Of Websockets
 * Because of the bi-directional connection, __WebSockets__ allow users to send and receive data in real-time, removing the need to refresh pages manually. 
