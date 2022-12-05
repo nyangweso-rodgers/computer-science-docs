@@ -9,6 +9,7 @@
     - [Firebase Documentation](https://firebase.google.com/docs)
     - [Analyzing Firebase data with BigQuery](https://www.youtube.com/watch?v=jlfREntil-Q&list=PLl-K7zZEsYLmt8sbyRuTUObBschmC-Wdd&index=2)
     - [How to Create Apps with Firebase](https://www.freecodecamp.org/news/create-apps-with-firebase/)
+    - [Extension Market Place by Firebase](https://extensions.dev/extensions)
 
 # Introduction To Firebase
 * __Firebase__ is Google's mobile application development platform that helps you build improve, and grow your app. __Firebase__ includes services like:
