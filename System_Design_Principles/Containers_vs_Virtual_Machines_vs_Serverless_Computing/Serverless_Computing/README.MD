@@ -5,8 +5,8 @@
 
 - [Containers vs Serverless](#Containers-vs-Serverless)
 
-- [References]()
-    - []()
+- [Further Reading]()
+    - [What is Serverless & How Does it Work?](https://kodekloud.com/blog/what-is-serverless/)
 
 # What is serverless computing?
 * __Serverless computing__ lets you _run application code without creating, configuring, or maintaining a server_. The core idea is that your application is broken into separate functions that run when triggered by some action. This is ideal for automated tasks - for example, you can build a serverless process that automatically sends an email confirmation after a customer makes an online purchase.
