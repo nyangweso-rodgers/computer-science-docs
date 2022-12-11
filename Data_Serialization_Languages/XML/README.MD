@@ -1,3 +1,0 @@
-# XML
-
-## Table of Contents
