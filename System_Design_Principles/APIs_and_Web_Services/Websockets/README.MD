@@ -17,3 +17,6 @@
 
 # Use Cases Of Websockets
 * They are commonly used in chat apps, gaming apps, and any others that benefit from real-time updates. 
+
+# Cons Of Websockets
+* __WebSockets__ have one distinct major failing — while it might have support for HTTP-like functionality, it is not HTTP whatsoever. This has implications, especially when considering optimizing in HTTP such as caching, proxying, etc., that haven’t quite become apparent.
