@@ -1,32 +1,10 @@
 # Computer Science
 ## Table of Contents
 1. [Overview Of Computer Science](#Overview-Of-Computer-Science)
-2. [Software Development](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Software_Development)
-    - [Principles Of Software Development]()
-        - Software Release
-        - Test Driven Development
-        - Software Testing
-    - [Software Development Methodologies]()
-    - [Software Deployment Strategies]()
-2. [Definition of Terms in Computer Science](#Definition-of-Terms-in-Computer-Science)
-    - LocalHost
-    - Secure Shell (SSH)
-    - Algorithm
-    - Computer Program
-    - Source Code
-    - Translators
-    - Bytecode
-    - [Load Balancing](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Load_Balancer)
-    - Common Bugs
-    - Test Driven Development
-    - Scrum
-    - Software Testing
-    - Cyber Security
-3. [Operating Systems & Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
-    - [Operating Systems](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
-    - [Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line/Command_Line)
 
-4. [IP Addresses](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/IP_Addresses)
+2. [Software Development Concepts](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Software_Development)
+
+3. [Operating Systems & Command Line](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Operating_Systems_and_Command_Line)
 
 5. [Algorithms & Data Structures](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Algorithms_and_Data_Structures_in_Computer_Science)
     - [Data Structures & Algorithms with Python]()
@@ -38,74 +16,31 @@
     - [Recursion in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Recursion_in_JavaScript)
     - [Recursion in Python]()
 
-- [Object Oriented Programming](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Object_Oriented_Programming)
-    - [OOP with Python]()
-    - [OPP with JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Object_Oriented_Programming_in_JavaScript)
-
-- [Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Servers)
-     - [Web Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Servers/Web_Servers)
-
-- [Microservices](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Microservices)
-
-- [Data Serialization Languages](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Serialization_Languages)
-    - [JSON](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Serialization_Languages/JSON)
-    - [XML](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Serialization_Languages/XML)
-    - [YAML](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Serialization_Languages/YAML)
-    
-- [APIs & Web Services]()
-    - [How the Web Works]()
-    - [Servers]()
-        - [Web Servers]()
-    - [HTTPS]()
-    - [Web Servers]()
-    - [REST APIs]()
-    - [SOAP APIs]()
-    - [GraphQL]()
-    - [Curl]()
-    - [Webhooks]()
-    - [APIs with Python]()
-    - [APIs with JavaScript]()
-
-
 - [Cloud Computing](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Cloud_Computing)
-    - [Virtual Machines (VM)]()
-    - [Containers]()
-    - [Docker](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Cloud_Computing/Docker)
     - [GCP]()
         - [BigQuery](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/Google_BigQuery)
     - [Microsoft Azure]()
     - [AWS]()
 
-- [Data Engineering & Databases](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases)
-    - [Apache Kafka](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/Apache_Kafka)
-    - [ERPNext](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/ERPNext)
-    - [Google BigQuery](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/Google_BigQuery)
-    - [MariaDB](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/MariaDB)
-    - [MySQL](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/MySQL)
-    - [PostgreSQL](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/PostgreSQL)
-    - [SQL Servers](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/SQL_Servers)
-    - [Snowflake](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Data_Engineering_and_Databases/Snowflake)
+- [System Design Concepts](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/System_Design_Principles)
+    - [APIs & Web Services](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/System_Design_Principles/APIs_and_Web_Services)
+        - [RESTful APIs](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/System_Design_Principles/APIs_and_Web_Services/APIs/RESTful-APIs)
+        - [WebHooks](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/System_Design_Principles/APIs_and_Web_Services/WebHooks)
 
-- [Virtual Envrionments]()   
-    - [Python Virtual Environment]()
-    - [JavaScript Virtual Environment]()
-    
-- [Systme Design](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/System_Design_Principles)
-    - [System Design Concepts]()
 
 - [Git & GitHub](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Git_and_GitHub)
-- [References](#References)
-    - [Scrum Guide](https://scrumguides.org/scrum-guide.html)
 
 # Overview Of Computer Science
-__Computer Science__ is the study of how computers work, mostly the theoratical and mathematical perspective. 
+* __Computer Science__ is the study of how computers work, mostly the theoratical and mathematical perspective. 
 
 # Definition of Terms in Computer Science
-2. __LocalHost__: refers to “_this computer_” or even more accurately “_the computer I’m working on_.” 
-3. __Secure Shell (SSH)__: open-source _protocol_ used to secure network communication which is less expensive and complex than the hardware based __VPN__ solutions. i.e., it offers _authentication_, _encryption_ and _data integrity_ for securing network communicationsy. By Implementing __SSH__, we get some of the capabilities like:
+1. __LocalHost__: refers to “_this computer_” or even more accurately “_the computer I’m working on_.” 
+
+2. __Secure Shell (SSH)__: open-source _protocol_ used to secure network communication which is less expensive and complex than the hardware based __VPN__ solutions. i.e., it offers _authentication_, _encryption_ and _data integrity_ for securing network communicationsy. By Implementing __SSH__, we get some of the capabilities like:
     - secure command-shell
     - secure file transfer
     - remote access to a variety of __TCP/IP__ applications via a secure tunnel
+
 4. __Algorithm__ is a step by step procedure to resolve a problem. It's an effective method expressed a finite set of well-defined instructions.
 5. __Computer Program__ is a sequence of instructions written using a Computer Programming Language to perform a specified task by the computer. A __computer program__ is also called a __computer software__, which can range from  two lines to millions of lines of instructions.
 
