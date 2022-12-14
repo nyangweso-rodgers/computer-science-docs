@@ -6,7 +6,10 @@
 - [How Webhooks Work](#How-Webhooks-Work)
 - [When to use Webhhoks](#When-to-use-Webhhoks)
 - [Cons Of WebHooks](#Cons-Of-WebHooks)
+- [How Can We Secure Webhooks?](#How-Can-We-Secure-Webhooks?)
+
 - [Further Reading]()
+    - [Webhooks Explained](https://www.baeldung.com/cs/webhooks-polling-real-time-information)
 
 
 # Introduction to WebHooks
@@ -36,3 +39,8 @@ When a specified event occurs, a __webhook__ makes an __HTTP request__ to a desi
 
 # Cons Of WebHooks
 * __WebHooks__ can be __resource intensive__ to both the client and the server. If the client needs to notify many servers that an event has occurred, and a server needs to listen to a great deal of clients notifying of this change, you can very quickly run into a situation where your network grows uncontrollably. While HTTP does scale quite well, this is a definite negative to consider.
+
+# How Can We Secure Webhooks?
+* __Webhooks__ send data to the __webhook URL__ in the _client application_. Further, the __webhook URL__ is available to the public, which means that other than the __webhook server__, malicious users can also send fake data to the client application. To increase the security of the connection, we can:
+    * Force HTTPS connection between the server and the client.
+    * The server can only hash the message with a secret key held by the client and the server. This way, once the client receives the payload and the hash output, it can verify if the server actually sends the payload or not. To verify, the client uses the same hash function again with the same private key and checks if the output matches the one sent by the server.
