@@ -1,3 +1,0 @@
-## VS Code Extension
-1. REST Client (https://marketplace.visualstudio.com/items?itemName=humao.rest-client) 
->> allows developers to send HTTP request and view the response message in VSCode directly.
