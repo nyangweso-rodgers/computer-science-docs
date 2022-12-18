@@ -2,6 +2,7 @@
 
 ## Table of Contents
 1. [GraphQL Overview](#GraphQL-Overview)
+    - [How do GraphQL and REST APIs fetch data differently?](#How-do-GraphQL-and-REST-APIs-fetch-data-differently?)
 2. [GraphQL Query Document](#GraphQL-Query-Document)
 3. [GraphQL Type System](#GraphQL-Type-System)
 4. [Pros of GraphQL](#Pros-of-GraphQL)
@@ -14,8 +15,12 @@
 
 * You start by creating a schema that describes all the possible queries and the specific types that they return. This can be challenging, but once completed, the API can accept specific requests and return a result that matches exactly what the user is looking for.
 
+# How do GraphQL and REST APIs fetch data differently?
+* With a __REST API__, a client requests a resource using an API endpoint where that particular resource is located on the server. Each resource has a unique endpoint. This means needing multiple resources requires multiple requests.
+
+* On the other hand, __GraphQL__ functions using a single endpoint, and clients can request multiple resources in one call. __GraphQL__ uses a strongly typed schema definition language that represents objects using nodes. The __GraphQL__ server responds with a nested set of objects.
 # GraphQL Query Document
-In __GraphQL__ a __query document__ is a _string sent to a server to process and request data_. __Query Document__ are read-only operations, and cannot be manipulated. The query tells the server what it needs to do. The __fields__ are what the server used to identify what data to return.
+* In __GraphQL__ a __query document__ is a _string sent to a server to process and request data_. __Query Document__ are read-only operations, and cannot be manipulated. The query tells the server what it needs to do. The __fields__ are what the server used to identify what data to return.
 
 # GraphQL Type System
 __GraphQL__ used a type system to describe data and is organized around three main buiding blocks:
