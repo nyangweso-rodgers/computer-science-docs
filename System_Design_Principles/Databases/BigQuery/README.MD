@@ -12,3 +12,8 @@
     - [Loading data directly into a warehouse via your messaging engine? Here’s how this handy new feature works in Google Cloud.](https://seroter.com/2022/07/27/loading-data-directly-into-a-warehouse-via-your-messaging-engine-heres-how-this-handy-new-feature-works-in-google-cloud/)
 
 # Overview Of BigQuery
+
+# BigQuery Slot
+* A __BigQuery__ slot is a _virtual CPU_ used by __BigQuery__ to execute SQL queries. BigQuery automatically calculates how many slots each query requires, depending on query size and complexity.
+
+* If too many complex queries run at the same time, query demands will exceed the slots you committed to.
