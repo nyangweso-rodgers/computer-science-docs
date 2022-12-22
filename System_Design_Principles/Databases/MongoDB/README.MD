@@ -4,11 +4,14 @@
 - [Overview Of MongoDB](#Overview-Of-MongoDB)
     - [MongoDB Concepts](#MongoDB-Concepts)
 
-- [References]()
+- [Further Reading]()
     - []()
 
 # Overview Of MongoDB
-__MongoDB__ is a leading NoSQL document-based database.
+* __MongoDB__ is a leading NoSQL document-based database.
+
+# What is MongoDB Atlas?
+* __MongoDB Atlas__ is a fully-managed cloud database that handles all the complexity of deploying, managing, and healing your deployments on the cloud service provider of your choice (AWS , Azure, and GCP)
 
 # MongoDB Concepts
 1. __MongoDB Server__ is a server-side component which can host multiple databases.
