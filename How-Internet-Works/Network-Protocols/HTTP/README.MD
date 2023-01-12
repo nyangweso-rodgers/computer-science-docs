@@ -6,6 +6,19 @@
 
 
 # Introduction to HTTP(s)
+* __HTTP__ is a system for transmitting and receiving information on the __World Wide Web__. It was created in the early 1990s. __HTTP__ defines how messages are formatted and transmitted and what actions Web servers and browsers should take in response to various commands.
+
+* __HTTP__ is a __stateless protocol__ i.e., the connection is terminated once the request has been fulfilled.
+
+* Here is the structure of the sample HTTP GET request:
+    1. Request line (URL)
+    2. Request headers
+    3. Request data (query string)
+
+* Struccture of a sample HTTP GET Response:
+    1. Status line
+    2. Response headers
+    3. Response data (page HTML code in this case)
 
 
 # Flow Of HTTP Session
