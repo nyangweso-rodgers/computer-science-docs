@@ -19,7 +19,10 @@
 
 7. __TCP/IP__: Transmission Control Protocol/Internet Protocol. The most widely used communications protocol. A “protocol” is simply a standard set of rules for doing something. TCP/IP is used as a standard for transmitting data over networks.
 
-8. __Port Number__: A 16-bit integer that identifies a specific port on a server and is always associated with an IP address. It serves as a way to identify a specific process on a server that network requests could be forwarded to.
+8. __Port Number__: A 16-bit integer that identifies a specific port on a server and is always associated with an IP address. It serves as a way to identify a specific process on a server that network requests could be forwarded to. Some common __port__ examples include:
+    - __Port 25__: SMTP (e-mail routing)
+    - __Port 80__: HTTP (web requests)
+    - __Port 143__: IMAP (email management)
 
 9. __Host__: A computer connected to a network — it can be a client, server or any other type of device. Each host has a unique IP address. For a website like www.google.com, a host could be the web server that serves the pages for the website. There’s often some mix up between a host and server but note they are two different things. Servers are a type of host — they are a specific machine. On the other hand, a host could refer to an entire organization that provides a hosting service to maintain multiple web servers. You can run a server from a host in that sense.
 
