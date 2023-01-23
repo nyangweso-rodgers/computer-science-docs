@@ -12,9 +12,6 @@
     - [Data Structures & Algorithms with Java]()4
 
 6. [Big O Notation](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Big_O_Notation)
-- [Recursion in Computer Science](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Recursion_in_Computer_Science)
-    - [Recursion in JavaScript](https://github.com/nyangweso-rodgers/JavaScript_Projects/tree/main/Recursion_in_JavaScript)
-    - [Recursion in Python]()
 
 - [Cloud Computing](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Cloud_Computing)
     - [GCP]()
@@ -34,13 +31,6 @@
 * __Computer Science__ is the study of how computers work, mostly the theoratical and mathematical perspective. 
 
 # Definition of Terms in Computer Science
-1. __LocalHost__: refers to “_this computer_” or even more accurately “_the computer I’m working on_.” 
-
-2. __Secure Shell (SSH)__: open-source _protocol_ used to secure network communication which is less expensive and complex than the hardware based __VPN__ solutions. i.e., it offers _authentication_, _encryption_ and _data integrity_ for securing network communicationsy. By Implementing __SSH__, we get some of the capabilities like:
-    - secure command-shell
-    - secure file transfer
-    - remote access to a variety of __TCP/IP__ applications via a secure tunnel
-
 4. __Algorithm__ is a step by step procedure to resolve a problem. It's an effective method expressed a finite set of well-defined instructions.
 5. __Computer Program__ is a sequence of instructions written using a Computer Programming Language to perform a specified task by the computer. A __computer program__ is also called a __computer software__, which can range from  two lines to millions of lines of instructions.
 
@@ -60,5 +50,3 @@
         - ZeroDivisionError
         - StackOverflowError
         - IndexOutofBoundError
-
-10. __Cyber Security__ is the ability to protect or defend the use of an enterprse's internet-connected systems and data from attack.
