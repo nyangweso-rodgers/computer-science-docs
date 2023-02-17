@@ -1,6 +1,8 @@
 # Bash Programming Language
 
 ## Table Of Contents
+- [Further Reading]()
+    - [Shell Scripting for Beginners – How to Write Bash Scripts in Linux](https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/)
 
 
 # Introduction to Bash
@@ -31,3 +33,9 @@
 * __Bash scripts__ are scripts that are _written in the Bash programming language_. These scripts are typically used to automate tasks in a Linux or macOS environment. Bash scripts can be run directly from the command line or scheduled to run at specific times.
 
 * __PowerShell scripts__ are scripts that are _written in the PowerShell programming language_. These scripts are typically used to automate tasks in a Windows environment. PowerShell scripts can be run from the PowerShell command line or scheduled to run at specific times using the Windows Task Scheduler.
+
+# What is a Bash Script?
+* A bash script is a series of commands written in a file. These are read and executed by the bash program. The program executes line by line.
+
+# Execution Rights
+* Scripts have execution rights for the user executing them. An execution right is represented by __x__.
