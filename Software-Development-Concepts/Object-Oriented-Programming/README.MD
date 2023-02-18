@@ -44,3 +44,12 @@
     * __Concurrency__ is preferred for __IO-bound__ tasks, as you can do something else while the IO resources are being fetched.
     * The best example of __CPU-bound__ tasks is in _data science_. Data Scientists deal with huge chunks of data. For data preprocessing, they can split the data into multiple batches and run them in parallel, effectively decreasing the total time to process. Increasing the number of cores results in faster processing.
     * _Web scraping_ is __IO-bound__. Because the task has little effect on the CPU since most of the time is spent on reading from and writing to the network. Other common __IO-bound__ tasks include _database calls_ and _reading_ and _writing files to disk_. Web applications, like _Django_ and _Flask_, are __IO-bound__ applications.
+
+# How OOP Differ from Functional Programming and Possible Trade-Offs
+1. __Approcah to Problem Solving__: In OOP, problems are broken down into objects that model real-world entities & their behaviors. In FP, problems are solved by defining functions that take inputs & return outputs. OOP is centered around objects & their interactions, while FP is centered around functions & their composition.
+
+2. __State Management__: In OOP, objects have a state that can change over time, & their behavior depends on this state. In FP, functions are pure, meaning that they don't change state & their output depends solely on their inputs. OOP relies on mutable state, while FP emphasizes immutability.
+
+3. __Modularity__: In OOP, modularity is achieved through the use of classes & objects that encapsulate data & behavior. In FP, modularity is achieved through the use of functions & higher-order functions that can be combined to solve problems.
+
+4. __Debugging__: OOP can be more difficult to debug because the state of objects can change over time, making it harder to understand what's happening in the program. FP can be easier to debug because functions are pure, & their behavior is easy to understand based solely on their inputs.
