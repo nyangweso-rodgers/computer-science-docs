@@ -3,6 +3,7 @@
 ## Table Of Contents
 - [Further Reading]()
     - [Shell Scripting for Beginners – How to Write Bash Scripts in Linux](https://www.freecodecamp.org/news/shell-scripting-crash-course-how-to-write-bash-scripts-in-linux/)
+    - [Shell Script Examples](https://www.log2base2.com/shell-script-examples/conditional/positive-or-negative-shell-script.html)
 
 
 # Introduction to Bash
@@ -17,7 +18,16 @@
 * __Bash__ is an _interpreted language_, i.e.,  _it is executed line-by-line by the shell interpreter_, rather than being compiled into an executable file. 
 
 * Bash scripts are usually saved with the file extension ".sh" and can be run by typing the name of the script file at the command prompt.
+# How to run shell script in Linux
+1. Method 1
+    ```sh
+        sh filename.sh
+    ```
 
+2. Method 2
+    ```sh
+        ./filename.sh
+    ```
 # Executing Bash Scripts in Windows without Linux
 * Microsoft has included the __Windows Subsystem for Linux__ (WSL) in Windows 10, which allows users to run Linux applications, including the Bash shell, directly in Windows. To use __WSL__, you need to enable it and install a Linux distribution from the Microsoft Store. Once installed, you can launch a Bash shell and run Bash scripts just as you would on a Linux system.
 
