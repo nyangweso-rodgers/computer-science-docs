@@ -1,3 +1,0 @@
-# MariaDB for ERPNext
-
-# References
