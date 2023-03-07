@@ -3,6 +3,7 @@
 
 ## Table Of Contents
 - [Further Reading]()
+    - [Download IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows)
     - [Getting started - ItelliJ IDEA 2022.3](https://www.jetbrains.com/help/idea/getting-started.html)
 
 # IntelliJ IDEA Community Edition
@@ -26,3 +27,6 @@
 
 # Shortcuts
 * __Ctrl + Alt + S__: Open ID Settings
+
+# Extensions
+* [Database Navigator](https://plugins.jetbrains.com/plugin/1800-database-navigator)
