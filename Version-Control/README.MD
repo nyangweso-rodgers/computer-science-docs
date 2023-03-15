@@ -2,9 +2,8 @@
 
 ## Table Of Contents
 - [Introduction to Version Control]()
-
-- [Git & GitHub]()
-
+- [Git]()
+- [GitHub]()
 - [Bitbucket]()
 
 # Introduction to Version Control
