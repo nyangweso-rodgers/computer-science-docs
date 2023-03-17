@@ -1,0 +1,10 @@
+// this line specifies which version of the Protocol Buffers specification to use.
+// specifies that the file uses the Protocol Buffers version 3 syntax.
+// Protocol Buffers version 3 (or "proto3") is the latest version of the Protocol Buffers specification, which was introduced in 2016.
+syntax = "proto3";
+
+message users {
+    string name = 1;
+    string email = 2;
+    int32 age = 3;
+}
