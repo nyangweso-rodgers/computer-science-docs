@@ -45,6 +45,24 @@
 # Push feature branch to remote
 * It’s a good idea to push the feature branch up to the central repository. This serves as a convenient backup, when collaborating with other developers, this would give them access to view commits to the new branch.
 
+* Here's an example command that you can use to push a new feature branch named "__new-feature__" to a remote repository named "__origin__":
+  ```sh
+      git push origin new-feature
+  ```
+* This command assumes that "__origin__" is the name of the remote repository that you want to push your changes to. If you're working with a different remote repository, you should replace "origin" with the actual name of the remote repository.
+  
+* Also, make sure that you have already set up a remote repository and have the correct permissions to push changes to it. If you haven't set up a remote repository yet, you can do so using the below command.
+
+  ```sh
+    git remote add
+  ```
+
+* To set up a tracking relationship between a local branch and a remote branch, so that Git knows which remote branch to push changes to by default, you can use the following command:
+
+  ```sh
+      git push -u
+  ```
+
   ```sh
       git push -u new-feature
   ```
@@ -70,3 +88,27 @@
     git pull origin new-feature
     git push
 ```
+
+# Delete a Feature Branch
+* To delete a feature branch both locally and remotely, you can follow these steps:
+  1. Switch to another branch: Before deleting the branch, make sure you're on a different branch. You cannot delete a branch that you are currently on.
+
+      ```sh
+        # checkout of the feature branch
+        git checkout new-feature
+      ```
+  2. Delete the local branch: To delete a local branch, use the git branch command with the -d option followed by the name of the branch you want to delete.
+
+      ```sh
+      git branch -d new-feature
+      ```
+  3. Delete the remote branch: To delete a remote branch, use the git push command with the --delete option followed by the name of the remote branch.
+
+      ```sh
+        git push origin --delete new-feature
+      ```
+  4. Verify the branch has been deleted: To verify that the branch has been deleted both locally and remotely, you can use the git branch command with the -a option to list all the branches, including remote branches.
+
+      ```sh
+        git branch -a
+      ```
