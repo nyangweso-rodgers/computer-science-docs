@@ -21,14 +21,7 @@
     3. __Staged__ - the modified file is marked to be part of the next commit snapshot. All the changes are still local.
 
 # Git Commands
-# 1. Logging
-* What did I just do?
-  
-  ```sh
-        git log # shows the history of the snapshot
-        git log --oneline # more succinct output
-        git log --graph # with a visual graph of branches
-  ```
+
 
 # 2. View your "undo" history
 * Because sometimes __git log__ doesn't cut it, especially for commands that don't show up in your commit history.
@@ -51,7 +44,7 @@
         git diff --staged # for staged changes
         git diff # for unstaged changes
     ```
-# 5. See the differences between two branches
+# 5. See the differences between two commits
 * shows the changes between any two commits
   
     ```sh
@@ -63,19 +56,6 @@
     ```sh
         git reset <commit-sha>
     ```
-
-# 2.2. I want to switch to another branch
-* __git checkout__ can be a bit confusing because it can work on the file and branch level.
-
-    ```sh
-        git switch branch-name   # new syntax (as of Git 2.23)
-        git checkout branch-name # old syntax
-    ```
-
-# 2.3. I want to go back to the branch I was on
-```sh
-    git switch -
-```
 
 # 3. Modifications Commands
 # 3.1 I dug myself into a rabbit hole, let's start over
