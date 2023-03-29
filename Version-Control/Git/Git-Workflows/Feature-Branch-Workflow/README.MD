@@ -21,16 +21,22 @@
 * Switch the Repo to the main/master branch
 * Next, fetch the latest changes from the remote repository
 * Finally, pull the latest changes from the remote __master__ branch and update your local master branch
-```sh
-    # switch the repo to main branch
-    git checkout master
-    # fetch the latest changes from the remote repository
-    # This command will fetch the latest changes from the remote origin repository, but will not modify your local master branch.
-    git fetch origin
-    git reset --hard origin/main # or
-    git pull origin master
-```
+  
+  ```sh
+      # switch the repo to main branch
+      git checkout master # old syntax
+      # fetch the latest changes from the remote repository
+      # This command will fetch the latest changes from the remote origin repository, but will not modify your local master branch.
+      git fetch origin
+      git reset --hard origin/main # or
+      git pull origin master
+  ```
+* OR:
+  ```sh
+      git switch master  # new syntax (as of Git 2.23)
+  ```
 * This switches the repo to the main branch, pulls the latest commits and resets the repo's local copy of main to match the latest version.
+  
 * __NOTE__: 
   * The __git reset --hard origin/main__ and __git pull origin master__ commands are both used to update your local branch with the latest changes from the remote repository. However, they do so in different ways.
   * The __git reset --hard origin/main__ command resets your local branch to match the exact state of the __origin/main__ branch, discarding any local changes that you may have made. _This means that any local commits that have not been pushed to the remote repository will be lost_.
@@ -61,22 +67,37 @@
       git push origin new-feature
   ```
 * This command assumes that "__origin__" is the name of the remote repository that you want to push your changes to. If you're working with a different remote repository, you should replace "origin" with the actual name of the remote repository.
+
+* Git will push the local `__new-feature__` to the remote named `__origin__`. However, this command does not automatically set up a tracking branch.
   
 * Also, make sure that you have already set up a remote repository and have the correct permissions to push changes to it. If you haven't set up a remote repository yet, you can do so using the below command.
 
   ```sh
     git remote add
   ```
-
+# Set Up Tracking Relationship Between Local Branch and Remote Branch
 * To set up a tracking relationship between a local branch and a remote branch, so that Git knows which remote branch to push changes to by default, you can use the following command:
 
   ```sh
-      git push -u
-  ```
-
-  ```sh
+      # new-feature branch
+      git branch --set-upstream-to=origin/new-feature new-feature
+      # or
+      git push -u origin new-feature
+      # or
       git push -u new-feature
+
   ```
+* This will set up a tracking relationship between the local `__new-feature__` branch and the remote `__origin/new-feature__` branch, which means that when you run `__git pull__` or `__git push__` while on the `__new-feature__` branch, Git will automatically fetch or push changes to the corresponding remote branch.
+
+* The `__git push -u__` command is a shorthand for `__git push --set-upstream__`.
+  
+* When you run `__git push -u origin new-feature__`, Git will push the local `__new-feature__` branch to the `__origin__` remote and set it up to track the remote branch with the same name.
+  
+* When you run `__git push -u new-feature__` , Git will try to push the local `__new-feature__` branch to remote branch with the same name, but it will use the default remote repo configured for the current branch. If the current branch has a configured upstream branch, then Git will push to that upstream branch. Otherwise, Git will display an error message.
+  
+* _Remark_: _it is a best practice to use `__git push -u origin new-feature__` instead of `__git push -u new-feature__`. The reason for this is that the first command explicitly specifies the remote repository and branch to push to and set up tracking for, which is more clear and less error-prone. It ensures that the changes are pushed to the correct remote repository and branch, even if the default remote or branch is different than what you intended_.
+
+
 * This command pushes __new-feature__ to the central repository (__origin__), and the __-u__ flag adds it as a remote tracking branch.
 * After setting up the tracking branch, __git push__ can be invoked without any parameters to automatically push the new-feature branch to the central repository. 
 * To get feedback on the new feature branch, create a pull request in a repository management solution like GitHub.
@@ -123,3 +144,25 @@
       ```sh
         git branch -a
       ```
+
+# Cleaning Git Branches
+# Clening Git Branches: Oh my god how do I have so many branches?
+```sh
+    git branch --no-color --merged | command grep -vE "^(\+|\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d
+```
+* This will delete all merged branches that you have locally except for master, developer or dev. If you have different names for your main and dev branches, you can change the grep __regex__ accordingly.
+* This is a long command to remember, however you can set it to an alias like so:
+
+    ```sh
+        alias gbda='git branch --no-color --merged | command grep -vE "^(\+|\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
+    ```
+
+# Remote Repository Settings
+# 1. Delete branches on merge
+* Once things are merged, you should not care about the branch anymore since the history should be reflected on your master/dev branch. This significantly cleans up the number of branches you have to manage. It also makes __git fetch --all --prune__ much more effective in keeping your local repository clean.
+
+# 2. Prevent pushes directly to master
+* Without this, it's a very understandable mistake to accidentally forget you're on master and do a __git push__, potentially braking your production build. Not good.
+
+# 3. Require at least one approval before merging
+* Depending on the size of your team, you may want to require even more than one approval before merging. The bare minimum should be one though, even if you're on a team of 2 people. You don't have to spend hours nit picking every single line, but in general your code should have two sets of eyes on it.
