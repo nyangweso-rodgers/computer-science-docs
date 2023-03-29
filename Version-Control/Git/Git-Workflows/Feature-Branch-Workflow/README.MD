@@ -17,7 +17,7 @@
 * The __Feature Branch Workflow__ assumes a __central repository__, and main represents the __official project history__. 
 * Instead of committing directly on their local main branch, developers create a new branch every time they start work on a new feature.
 
-# Start with the main branch
+# Step 1: Start with the main branch
 * Switch the Repo to the main/master branch
 * Next, fetch the latest changes from the remote repository
 * Finally, pull the latest changes from the remote __master__ branch and update your local master branch
@@ -42,7 +42,7 @@
   * The __git reset --hard origin/main__ command resets your local branch to match the exact state of the __origin/main__ branch, discarding any local changes that you may have made. _This means that any local commits that have not been pushed to the remote repository will be lost_.
   * On the other hand, the __git pull origin master__ command combines the __git fetch__ and __git merge__ commands into one convenient step. It fetches the latest changes from the remote master branch and then merges those changes into your local master branch. This preserves any local changes that you may have made, and attempts to merge them with the changes from the remote branch.
 
-# Create a new-branch
+# Step 2: Create a new-branch
 * Use a separate branch for each feature or issue you work on. After creating a branch, check it out locally so that any changes you make will be on that branch.
 
   ```sh
@@ -50,7 +50,7 @@
   ```
 * This checks out a branch called new-feature based on __main__, and the __-b__ flag tells Git to create the branch if it doesn’t already exist.
 
-# Update, add, commit, and push changes
+# Step 3: Update, add, commit, and push changes
 * On this branch, edit, stage, and commit changes in the usual fashion, building up the feature with as many commits as necessary. Work on the feature and make commits like you would any time you use Git. 
 
   ```sh
@@ -59,7 +59,7 @@
       git commit 
   ```
 
-# Push feature branch to remote
+# Step 4: Push feature branch to remote
 * It’s a good idea to push the feature branch up to the central repository. This serves as a convenient backup, when collaborating with other developers, this would give them access to view commits to the new branch.
 
 * Here's an example command that you can use to push a new feature branch named "__new-feature__" to a remote repository named "__origin__":
@@ -75,7 +75,7 @@
   ```sh
     git remote add
   ```
-# Set Up Tracking Relationship Between Local Branch and Remote Branch
+# Step 5: Set Up Tracking Relationship Between Local Branch and Remote Branch
 * To set up a tracking relationship between a local branch and a remote branch, so that Git knows which remote branch to push changes to by default, you can use the following command:
 
   ```sh
@@ -102,18 +102,18 @@
 * After setting up the tracking branch, __git push__ can be invoked without any parameters to automatically push the new-feature branch to the central repository. 
 * To get feedback on the new feature branch, create a pull request in a repository management solution like GitHub.
 
-# Resolve feedback
+# Step 6: Resolve feedback
 * Now teammates comment and approve the pushed commits. Resolve their comments locally, commit, and push the suggested changes to Bitbucket/GitHub.
 * Your updates appear in the pull request.
 
-# Merge your pull request
+# Step 7: Merge your pull request
 * Before you merge, you may have to resolve merge conflicts if others have made changes to the repo. When your pull request is approved and conflict-free, you can add your code to the __main__ branch. Merge from the pull request in Bitbucket/GitHub.
 
-# Pull requests
+# Step 8: Pull requests
 * Aside from isolating feature development, branches make it possible to discuss changes via pull requests.
 * Once someone completes a feature, they don’t immediately merge it into __main__. Instead, they push the feature branch to the central server and file a __pull request__ asking to merge their additions into __main__. This gives other developers an opportunity to review the changes before they become a part of the main codebase.
 
-# Merge the feature-branch to main
+# Step 9: Merge the feature-branch to main
 ```sh
     git checkout main
     git pull
@@ -121,7 +121,7 @@
     git push
 ```
 
-# Delete a Feature Branch
+# Step 10: Delete a Feature Branch
 * To delete a feature branch both locally and remotely, you can follow these steps:
   1. Switch to another branch: Before deleting the branch, make sure you're on a different branch. You cannot delete a branch that you are currently on.
 
@@ -145,7 +145,7 @@
         git branch -a
       ```
 
-# Cleaning Git Branches
+# Step 11: Cleaning Git Branches
 # Clening Git Branches: Oh my god how do I have so many branches?
 ```sh
     git branch --no-color --merged | command grep -vE "^(\+|\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d
