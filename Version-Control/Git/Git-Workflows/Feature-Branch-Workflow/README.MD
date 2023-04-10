@@ -139,10 +139,15 @@
       ```sh
         git push origin --delete new-feature
       ```
-  4. Verify the branch has been deleted: To verify that the branch has been deleted both locally and remotely, you can use the git branch command with the -a option to list all the branches, including remote branches.
+  4. Verify the branch has been deleted: To verify that the branch has been deleted both locally and remotely, you can use the `git branch` command with the `-a` option to list all the branches, including remote branches.
 
       ```sh
+        # lists all branches both locally and remotely
         git branch -a
+
+        # or
+        # lists remote branches
+        git branch -r
       ```
 
 # Step 11: Cleaning Git Branches
