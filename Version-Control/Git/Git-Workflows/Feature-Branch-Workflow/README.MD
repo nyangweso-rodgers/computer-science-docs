@@ -200,6 +200,14 @@
       git push -u origin new-branch-name
   ```
 * This will both push the renamed local branch to the remote branch with the new name and set the upstream branch for the local branch to the remote branch with the same name.
+* To check the lists of remote branches, you can use `git branch -r` command. This will show you a list of all remote branches that your local repository is aware of.
+* If you see two branches listed for the same feature, one with the old name and one with the new name, you can delete the old branch from the remote repository using the following command:
+
+  ```sh
+      git push origin :old-branch-name
+  ```
+* This command will push nothing to the remote branch with the name old-branch-name, effectively deleting it.
+* After deleting the old branch, you can verify that there is only one branch with the new name on the remote repository by running `git branch -r` again.
 
 
 # Step 13: Cleaning Git Branches
