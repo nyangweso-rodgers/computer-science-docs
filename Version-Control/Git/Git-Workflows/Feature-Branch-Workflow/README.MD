@@ -84,7 +84,7 @@
     git remote add
   ```
 # Step 5: Set Up Tracking Relationship Between Local Branch and Remote Branch
-* To set up a tracking relationship between a local branch and a remote branch, so that Git knows which remote branch to push changes to by default, you can use the following command:
+* To set up a tracking relationship between a `local branch` and a `remote branch`, so that Git knows which remote branch to push changes to by default, you can use the following command:
 
   ```sh
       # new-feature branch
@@ -95,19 +95,19 @@
       git push -u new-feature
 
   ```
-* This will set up a tracking relationship between the local `__new-feature__` branch and the remote `__origin/new-feature__` branch, which means that when you run `__git pull__` or `__git push__` while on the `__new-feature__` branch, Git will automatically fetch or push changes to the corresponding remote branch.
+* This will set up a tracking relationship between the local `new-feature` branch and the remote `origin/new-feature` branch, which means that when you run `git pull` or `git push` while on the `new-feature` branch, Git will automatically fetch or push changes to the corresponding remote branch.
 
-* The `__git push -u__` command is a shorthand for `__git push --set-upstream__`.
+* The `git push -u` command is a shorthand for `git push --set-upstream`.
   
-* When you run `__git push -u origin new-feature__`, Git will push the local `__new-feature__` branch to the `__origin__` remote and set it up to track the remote branch with the same name.
+* When you run `git push -u origin new-feature`, Git will push the local `new-feature` branch to the `origin` remote and set it up to track the remote branch with the same name.
   
-* When you run `__git push -u new-feature__` , Git will try to push the local `__new-feature__` branch to remote branch with the same name, but it will use the default remote repo configured for the current branch. If the current branch has a configured upstream branch, then Git will push to that upstream branch. Otherwise, Git will display an error message.
+* When you run `git push -u new-feature` , Git will try to push the local `new-feature` branch to remote branch with the same name, but it will use the default remote repo configured for the current branch. If the current branch has a configured upstream branch, then Git will push to that upstream branch. Otherwise, Git will display an error message.
   
-* _Remark_: _it is a best practice to use `__git push -u origin new-feature__` instead of `__git push -u new-feature__`. The reason for this is that the first command explicitly specifies the remote repository and branch to push to and set up tracking for, which is more clear and less error-prone. It ensures that the changes are pushed to the correct remote repository and branch, even if the default remote or branch is different than what you intended_.
+* _Remark_: _it is a best practice to use `git push -u origin new-feature` instead of `git push -u new-feature`. The reason for this is that the first command explicitly specifies the remote repository and branch to push to and set up tracking for, which is more clear and less error-prone. It ensures that the changes are pushed to the correct remote repository and branch, even if the default remote or branch is different than what you intended_.
 
 
-* This command pushes __new-feature__ to the central repository (__origin__), and the __-u__ flag adds it as a remote tracking branch.
-* After setting up the tracking branch, __git push__ can be invoked without any parameters to automatically push the new-feature branch to the central repository. 
+* This command pushes `new-feature` to the central repository (`origin`), and the `-u` flag adds it as a remote tracking branch.
+* After setting up the tracking branch, `git push` can be invoked without any parameters to automatically push the new-feature branch to the central repository. 
 * To get feedback on the new feature branch, create a pull request in a repository management solution like GitHub.
 
 # Step 6: Resolve feedback
@@ -115,11 +115,11 @@
 * Your updates appear in the pull request.
 
 # Step 7: Merge your pull request
-* Before you merge, you may have to resolve merge conflicts if others have made changes to the repo. When your pull request is approved and conflict-free, you can add your code to the __main__ branch. Merge from the pull request in Bitbucket/GitHub.
+* Before you merge, you may have to resolve merge conflicts if others have made changes to the repo. When your pull request is approved and conflict-free, you can add your code to the `main` branch. Merge from the pull request in Bitbucket/GitHub.
 
 # Step 8: Pull requests
 * Aside from isolating feature development, branches make it possible to discuss changes via pull requests.
-* Once someone completes a feature, they don’t immediately merge it into __main__. Instead, they push the feature branch to the central server and file a __pull request__ asking to merge their additions into __main__. This gives other developers an opportunity to review the changes before they become a part of the main codebase.
+* Once someone completes a feature, they don’t immediately merge it into `main`. Instead, they push the feature branch to the central server and file a `pull request` asking to merge their additions into `main`. This gives other developers an opportunity to review the changes before they become a part of the main codebase.
 
 # Step 9: Merge the feature-branch to main
 ```sh
