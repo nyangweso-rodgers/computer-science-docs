@@ -1,6 +1,9 @@
 # Git Feature Branch Workflow
 
 ## Table Of Contents
+- [Overview Of Feature Branch](#Overview-Of-Feature-Branch)
+
+
 - [Further Reading]()
   - [Atlassian - Git Feature Branch Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
 
@@ -149,12 +152,39 @@
         # lists remote branches
         git branch -r
       ```
+# Step 11: Updating Local & Remote Feature Branch to Match the origin/master
+* First, make sure you are on the feature branch by running the following command:
 
-# Step 11: Cleaning Git Branches
-# Clening Git Branches: Oh my god how do I have so many branches?
-```sh
-    git branch --no-color --merged | command grep -vE "^(\+|\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d
-```
+  ```sh
+      git checkout feature-branch
+  ```
+* Next, fetch the latest changes from the remote main branch by running the following command:
+
+  ```sh
+      git fetch origin main
+  ```
+* Merge the changes from the remote main branch into your local feature branch by running the following command:
+
+  ```sh
+      git merge origin/main
+  ```
+* If there are any merge conflicts, resolve them and commit the changes
+  ```sh
+    git commit -m "Merge remote-tracking branch 'origin/main' into feature_branch"
+  ```
+* Finally, push the changes to the remore feature branch by running the following branch
+
+  ```sh
+      git push origin feature-branch
+  ```
+* This will update both your local and remote feature branch to match the origin/main branch in Git.
+
+
+# Step 12: Cleaning Git Branches
+* __Cleaning Git Branches__: Oh my god how do I have so many branches?
+  ```sh
+      git branch --no-color --merged | command grep -vE "^(\+|\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d
+  ```
 * This will delete all merged branches that you have locally except for master, developer or dev. If you have different names for your main and dev branches, you can change the grep __regex__ accordingly.
 * This is a long command to remember, however you can set it to an alias like so:
 
@@ -162,12 +192,12 @@
         alias gbda='git branch --no-color --merged | command grep -vE "^(\+|\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
     ```
 
-# Remote Repository Settings
-# 1. Delete branches on merge
-* Once things are merged, you should not care about the branch anymore since the history should be reflected on your master/dev branch. This significantly cleans up the number of branches you have to manage. It also makes __git fetch --all --prune__ much more effective in keeping your local repository clean.
+# Step 13: Remote Repository Settings
+* __Delete branches on merge__:
+  * Once things are merged, you should not care about the branch anymore since the history should be reflected on your master/dev branch. This significantly cleans up the number of branches you have to manage. It also makes __git fetch --all --prune__ much more effective in keeping your local repository clean.
 
-# 2. Prevent pushes directly to master
-* Without this, it's a very understandable mistake to accidentally forget you're on master and do a __git push__, potentially braking your production build. Not good.
+* __Prevent pushes directly to master__:
+  * Without this, it's a very understandable mistake to accidentally forget you're on master and do a __git push__, potentially braking your production build. Not good.
 
-# 3. Require at least one approval before merging
-* Depending on the size of your team, you may want to require even more than one approval before merging. The bare minimum should be one though, even if you're on a team of 2 people. You don't have to spend hours nit picking every single line, but in general your code should have two sets of eyes on it.
+* __Require at least one approval before merging__:
+  * Depending on the size of your team, you may want to require even more than one approval before merging. The bare minimum should be one though, even if you're on a team of 2 people. You don't have to spend hours nit picking every single line, but in general your code should have two sets of eyes on it.
