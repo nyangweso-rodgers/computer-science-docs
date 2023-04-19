@@ -41,12 +41,14 @@
   ```sh
       git switch master  # new syntax (as of Git 2.23)
   ```
-* This switches the repo to the main branch, pulls the latest commits and resets the repo's local copy of main to match the latest version.
+* This switches the repo to the `main` branch, pulls the latest commits and resets the repo's local copy of `main` to match the latest version.
   
 * __NOTE__: 
   * The `git reset --hard origin/main` and `git pull origin master` commands are both used to update your local branch with the latest changes from the remote repository. However, they do so in different ways.
-  * The __git reset --hard origin/main__ command resets your local branch to match the exact state of the __origin/main__ branch, discarding any local changes that you may have made. _This means that any local commits that have not been pushed to the remote repository will be lost_.
-  * On the other hand, the __git pull origin master__ command combines the __git fetch__ and __git merge__ commands into one convenient step. It fetches the latest changes from the remote master branch and then merges those changes into your local master branch. This preserves any local changes that you may have made, and attempts to merge them with the changes from the remote branch.
+  
+  * The `git reset --hard origin/main` command resets your local branch to match the exact state of the `origin/main` branch, discarding any local changes that you may have made. _This means that any local commits that have not been pushed to the remote repository will be lost_.
+  
+  * On the other hand, the `git pull origin master` command combines the `git fetch` and `git merge` commands into one convenient step. It fetches the latest changes from the remote master branch and then merges those changes into your local master branch. This preserves any local changes that you may have made, and attempts to merge them with the changes from the remote branch.
 
 # Step 2: Create a new feature branch
 * Use a separate branch for each feature or issue you work on. After creating a branch, check it out locally so that any changes you make will be on that branch.
@@ -182,8 +184,25 @@
   ```
 * This will update both your local and remote feature branch to match the origin/main branch in Git.
 
+# Step 12: Renaming Feature Branches Locally & Remotely
+* Rename the `local branch` from `old-branch-name` to `new-branch-name`
+  ```sh
+      git branch -m old-branch-name new-branch-name
+  ```
+* Push the renamed local branch to the remote branch with the same name:
 
-# Step 12: Cleaning Git Branches
+  ```sh
+      git push origin new-branch-name
+  ```
+* Alternatively, you can combine the two steps into one by using the `-u` flag with the `git push` command, which will automatically set the upstream branch to the newly renamed branch. Here's the command:
+
+  ```sh
+      git push -u origin new-branch-name
+  ```
+* This will both push the renamed local branch to the remote branch with the new name and set the upstream branch for the local branch to the remote branch with the same name.
+
+
+# Step 13: Cleaning Git Branches
 * __Cleaning Git Branches__: Oh my god how do I have so many branches?
   ```sh
       git branch --no-color --merged | command grep -vE "^(\+|\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d
@@ -195,7 +214,7 @@
         alias gbda='git branch --no-color --merged | command grep -vE "^(\+|\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
     ```
 
-# Step 13: Remote Repository Settings
+# Step 14: Remote Repository Settings
 * __Delete branches on merge__:
   * Once things are merged, you should not care about the branch anymore since the history should be reflected on your master/dev branch. This significantly cleans up the number of branches you have to manage. It also makes __git fetch --all --prune__ much more effective in keeping your local repository clean.
 
