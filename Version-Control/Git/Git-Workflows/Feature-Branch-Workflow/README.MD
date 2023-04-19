@@ -2,6 +2,9 @@
 
 ## Table Of Contents
 - [Overview Of Feature Branch](#Overview-Of-Feature-Branch)
+- [Merits of Feature Branch](#Merits-of-Feature-Branch)
+- [How it Works](#How-it-works)
+    1. [Step 1: Start with the main branch](#Step-1:-Start-with-the-main-branch)
 
 
 - [Further Reading]()
@@ -21,9 +24,9 @@
 * Instead of committing directly on their local main branch, developers create a new branch every time they start work on a new feature.
 
 # Step 1: Start with the main branch
-* Switch the Repo to the main/master branch
+* Switch the Repo to the `main/master` branch
 * Next, fetch the latest changes from the remote repository
-* Finally, pull the latest changes from the remote __master__ branch and update your local master branch
+* Finally, pull the latest changes from the remote `master` branch and update your local master branch
   
   ```sh
       # switch the repo to main branch
@@ -41,17 +44,17 @@
 * This switches the repo to the main branch, pulls the latest commits and resets the repo's local copy of main to match the latest version.
   
 * __NOTE__: 
-  * The __git reset --hard origin/main__ and __git pull origin master__ commands are both used to update your local branch with the latest changes from the remote repository. However, they do so in different ways.
+  * The `git reset --hard origin/main` and `git pull origin master` commands are both used to update your local branch with the latest changes from the remote repository. However, they do so in different ways.
   * The __git reset --hard origin/main__ command resets your local branch to match the exact state of the __origin/main__ branch, discarding any local changes that you may have made. _This means that any local commits that have not been pushed to the remote repository will be lost_.
   * On the other hand, the __git pull origin master__ command combines the __git fetch__ and __git merge__ commands into one convenient step. It fetches the latest changes from the remote master branch and then merges those changes into your local master branch. This preserves any local changes that you may have made, and attempts to merge them with the changes from the remote branch.
 
-# Step 2: Create a new-branch
+# Step 2: Create a new feature branch
 * Use a separate branch for each feature or issue you work on. After creating a branch, check it out locally so that any changes you make will be on that branch.
 
   ```sh
       git checkout -b new-feature
   ```
-* This checks out a branch called new-feature based on __main__, and the __-b__ flag tells Git to create the branch if it doesn’t already exist.
+* This checks out a branch called `new-feature` based on `main`, and the `-b` flag tells Git to create the branch if it doesn’t already exist.
 
 # Step 3: Update, add, commit, and push changes
 * On this branch, edit, stage, and commit changes in the usual fashion, building up the feature with as many commits as necessary. Work on the feature and make commits like you would any time you use Git. 
