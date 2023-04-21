@@ -121,7 +121,7 @@
 * Aside from isolating feature development, branches make it possible to discuss changes via pull requests.
 * Once someone completes a feature, they don’t immediately merge it into `main`. Instead, they push the feature branch to the central server and file a `pull request` asking to merge their additions into `main`. This gives other developers an opportunity to review the changes before they become a part of the main codebase.
 
-# Step 9 
+# Step 9: Perform `git merge`
 ## Step 9.1: Merge the `new-feature` Branch to `main` Branch
 * To merge  `new-feature` branch into the `main` branch, you should first switch to the `main` branch using the following command:
 
@@ -173,8 +173,8 @@
 * __Note__: _any changes you made during the merge process that were not committed will be lost when you abort the merge. So, make sure to save any changes you want to keep before aborting the merge._
 
 
-# Step 10: Delete a Feature Branch
-* To delete a feature branch both locally and remotely, you can follow these steps:
+# Step 10: Delete `new-feature` Branch
+* To `delete` a `new-feature` branch both locally and remotely, you can follow these steps:
   1. Switch to another branch: Before deleting the branch, make sure you're on a different branch. You cannot delete a branch that you are currently on.
 
       ```sh
