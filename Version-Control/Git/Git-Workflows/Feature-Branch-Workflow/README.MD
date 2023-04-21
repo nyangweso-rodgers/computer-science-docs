@@ -117,30 +117,74 @@
 # Step 7: Merge your pull request
 * Before you merge, you may have to resolve merge conflicts if others have made changes to the repo. When your pull request is approved and conflict-free, you can add your code to the `main` branch. Merge from the pull request in Bitbucket/GitHub.
 
-# Step 8: Pull requests
+# Step 8: Pull Requests (PR)
 * Aside from isolating feature development, branches make it possible to discuss changes via pull requests.
 * Once someone completes a feature, they don’t immediately merge it into `main`. Instead, they push the feature branch to the central server and file a `pull request` asking to merge their additions into `main`. This gives other developers an opportunity to review the changes before they become a part of the main codebase.
 
-# Step 9: Merge the feature-branch to main
-```sh
-    git checkout main
-    git pull
-    git pull origin new-feature
-    git push
-```
+# Step 9 
+## Step 9.1: Merge the `new-feature` Branch to `main` Branch
+* To merge  `new-feature` branch into the `main` branch, you should first switch to the `main` branch using the following command:
+
+  ```sh
+      # swicth to main branch
+      git checkout main
+  ```
+* Ensure you have the latest updates from the remote `main` branch.
+
+  ```sh
+      # pull the latest updates from the remote main branch
+      git pull
+  ```
+
+* Use `git merge` to merge `new-feature` branch into the `main` branch:
+
+  ```sh
+      # merge new-feature to main
+      git merge new-feature
+  ```
+* Resolve any conflicts that may arise during the merge process. If there are any conflicts, Git will prompt you to resolve them before proceeding.
+* Once the merge is complete, push the changes to the remote `main` branch:
+
+  ```sh
+      # push the local merged changes to remote
+      git push origin main
+  ```
+* Delete the `new-feature` branch locally:
+
+  ```sh
+      # delete new-feature branch locally
+      git branch -d new-feature
+  ```
+
+* Finally, delete the `new-feature` branch remotely:
+
+  ```sh
+      # delete the new-feature branch remotely
+      git push origin :new-feature
+  ```
+
+## Step 9.2: Resolving Conflicts
+* When you are in the middle of a merge and there are conflicts to resolve, you can exit the merge process without completing the merge by using the command `git merge --abort`. This will undo the merge and return the repository to the state it was in before the merge began.
+
+  ```sh
+      # exit the merge 
+      git nerge --abort
+  ```
+* __Note__: _any changes you made during the merge process that were not committed will be lost when you abort the merge. So, make sure to save any changes you want to keep before aborting the merge._
+
 
 # Step 10: Delete a Feature Branch
 * To delete a feature branch both locally and remotely, you can follow these steps:
   1. Switch to another branch: Before deleting the branch, make sure you're on a different branch. You cannot delete a branch that you are currently on.
 
       ```sh
-        # checkout of the feature branch
-        git checkout new-feature
+          # checkout of the feature branch
+          git checkout new-feature
       ```
   2. Delete the local branch: To delete a local branch, use the git branch command with the -d option followed by the name of the branch you want to delete.
 
       ```sh
-      git branch -d new-feature
+          git branch -d new-feature
       ```
   3. Delete the remote branch: To delete a remote branch, use the git push command with the --delete option followed by the name of the remote branch.
 
