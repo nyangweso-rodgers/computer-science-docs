@@ -164,14 +164,7 @@
   ```
 
 ## Step 9.2: Resolving Conflicts
-* When you are in the middle of a merge and there are conflicts to resolve, you can exit the merge process without completing the merge by using the command `git merge --abort`. This will undo the merge and return the repository to the state it was in before the merge began.
-
-  ```sh
-      # exit the merge 
-      git nerge --abort
-  ```
-* __Note__: _any changes you made during the merge process that were not committed will be lost when you abort the merge. So, make sure to save any changes you want to keep before aborting the merge._
-
+* Check on [nyangweso-rodgers - Merge Conflicts Repo](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Version-Control/Git/Git-Workflows/Feature-Branch-Workflow/Merge-Conflicts) on how to resolve merge conflicts.
 
 # Step 10: Delete `new-feature` Branch
 * To `delete` a `new-feature` branch both locally and remotely, you can follow these steps:
