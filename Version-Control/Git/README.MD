@@ -19,3 +19,23 @@
     1. __Committed__ - the data is stored in stored in the local database.
     2. __Modified__ - the file has been modified but it has not been committed to the database yet.
     3. __Staged__ - the modified file is marked to be part of the next commit snapshot. All the changes are still local.
+
+# Git Architecture
+
+# Check Git Components
+* Inside the project which contains a Git repository, we can check the Git components:
+    ```git
+        ls -F1 .git/
+    ```
+* __Output__:
+  * COMMIT_EDITMSG
+  * config
+  * description
+  * HEAD
+  * hooks/
+  * index
+  * info/
+  * logs/
+  * objects/
+  * packed-refs
+  * refs/
