@@ -167,24 +167,24 @@
 * Check on [nyangweso-rodgers - Merge Conflicts Repo](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/Version-Control/Git/Git-Workflows/Feature-Branch-Workflow/Merge-Conflicts) on how to resolve merge conflicts.
 
 # Step 10: Delete `new-feature` Branch
-* To `delete` a `new-feature` branch both locally and remotely, you can follow these steps:
-  1. Switch to another branch: Before deleting the branch, make sure you're on a different branch. You cannot delete a branch that you are currently on.
+* To `delete` a `new-feature` branch both locally and remotely:
+  1. Switch to the `main` branch:
 
       ```sh
-          # checkout of the feature branch
-          git checkout new-feature
+          # checkout of the main branch
+          git checkout main
       ```
-  2. Delete the local branch: To delete a local branch, use the git branch command with the -d option followed by the name of the branch you want to delete.
+  2. Delete the local branch:
 
       ```sh
           git branch -d new-feature
       ```
-  3. Delete the remote branch: To delete a remote branch, use the git push command with the --delete option followed by the name of the remote branch.
+  3. Delete the remote branch:
 
       ```sh
         git push origin --delete new-feature
       ```
-  4. Verify the branch has been deleted: To verify that the branch has been deleted both locally and remotely, you can use the `git branch` command with the `-a` option to list all the branches, including remote branches.
+  4. Verify that the  `new-feature` branch has been deleted both locally and remotely, you can use the `git branch` command with the `-a` option to list all the branches, including remote branches.
 
       ```sh
         # lists all branches both locally and remotely
