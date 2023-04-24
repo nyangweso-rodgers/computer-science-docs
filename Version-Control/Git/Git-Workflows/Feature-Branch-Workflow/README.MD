@@ -23,10 +23,10 @@
 * The __Feature Branch Workflow__ assumes a __central repository__, and main represents the __official project history__. 
 * Instead of committing directly on their local main branch, developers create a new branch every time they start work on a new feature.
 
-# Step 1: Start with the main branch
+# Step 1: Start with the `main` branch
 * Switch the Repo to the `main/master` branch
 * Next, fetch the latest changes from the remote repository
-* Finally, pull the latest changes from the remote `master` branch and update your local master branch
+* Finally, `pull` the latest changes from the remote `master` branch and update your local master branch
   
   ```sh
       # switch the repo to main branch
@@ -50,7 +50,7 @@
   
   * On the other hand, the `git pull origin master` command combines the `git fetch` and `git merge` commands into one convenient step. It fetches the latest changes from the remote master branch and then merges those changes into your local master branch. This preserves any local changes that you may have made, and attempts to merge them with the changes from the remote branch.
 
-# Step 2: Create a new feature branch
+# Step 2: Create a `new-feature` branch
 * Use a separate branch for each feature or issue you work on. After creating a branch, check it out locally so that any changes you make will be on that branch.
 
   ```sh
@@ -58,8 +58,8 @@
   ```
 * This checks out a branch called `new-feature` based on `main`, and the `-b` flag tells Git to create the branch if it doesn’t already exist.
 
-# Step 3: Update, add, commit, and push changes
-* On this branch, edit, stage, and commit changes in the usual fashion, building up the feature with as many commits as necessary. Work on the feature and make commits like you would any time you use Git. 
+# Step 3: Update, Add, Commit, and Push Changes
+* On this branch, edit, stage, and commit changes in the usual fashion, building up the feature with as many commits as necessary.
 
   ```sh
       git status
@@ -67,7 +67,7 @@
       git commit 
   ```
 
-# Step 4: Push feature branch to remote
+# Step 4: Push `new-feature` branch to remote
 * It’s a good idea to push the feature branch up to the central repository. This serves as a convenient backup, when collaborating with other developers, this would give them access to view commits to the new branch.
 
 * Here's an example command that you can use to push a new feature branch named "__new-feature__" to a remote repository named "__origin__":
@@ -194,18 +194,18 @@
         # lists remote branches
         git branch -r
       ```
-# Step 11: Updating Local & Remote Feature Branch to Match the origin/master
-* First, make sure you are on the feature branch by running the following command:
+# Step 11: Updating Local & Remote `new-feature` Branch to Match the `origin/master`
+* First, make sure you are on the `new-feature` branch:
 
   ```sh
-      git checkout feature-branch
+      git checkout new-feature
   ```
-* Next, fetch the latest changes from the remote main branch by running the following command:
+* Next, fetch the latest changes from the remote `main` branch:
 
   ```sh
       git fetch origin main
   ```
-* Merge the changes from the remote main branch into your local feature branch by running the following command:
+* Merge the changes from the remote `main` branch into your local `new-feature` branch:
 
   ```sh
       git merge origin/main
@@ -214,12 +214,11 @@
   ```sh
     git commit -m "Merge remote-tracking branch 'origin/main' into feature_branch"
   ```
-* Finally, push the changes to the remore feature branch by running the following branch
+* Finally, push the changes to the remote `new-feature` branch:
 
   ```sh
       git push origin feature-branch
   ```
-* This will update both your local and remote feature branch to match the origin/main branch in Git.
 
 # Step 12: Renaming Feature Branches Locally & Remotely
 * Rename the `local branch` from `old-branch-name` to `new-branch-name`
