@@ -68,21 +68,22 @@
   ```
 
 # Step 4: Push `new-feature` branch to remote
-* It’s a good idea to push the feature branch up to the central repository. This serves as a convenient backup, when collaborating with other developers, this would give them access to view commits to the new branch.
+* Make sure that you have already set up a remote repository and have the correct permissions to push changes to it. If you haven't set up a remote repository yet, you can do so using the below command.
 
-* Here's an example command that you can use to push a new feature branch named "__new-feature__" to a remote repository named "__origin__":
   ```sh
+      git remote add
+  ```
+
+* It’s a good idea to push the `new-feature` branch up to the central repository. This serves as a convenient backup, when collaborating with other developers, this would give them access to view commits to the new branch.
+
+  ```sh
+      # push the new-feature branch to remote repository named origin
+      # this assumes the origin is the name of the remote repository
       git push origin new-feature
   ```
-* This command assumes that "__origin__" is the name of the remote repository that you want to push your changes to. If you're working with a different remote repository, you should replace "origin" with the actual name of the remote repository.
 
-* Git will push the local `__new-feature__` to the remote named `__origin__`. However, this command does not automatically set up a tracking branch.
-  
-* Also, make sure that you have already set up a remote repository and have the correct permissions to push changes to it. If you haven't set up a remote repository yet, you can do so using the below command.
+* Git will push the local `new-feature` to the remote named `origin`. However, this command does not automatically set up a tracking branch.
 
-  ```sh
-    git remote add
-  ```
 # Step 5: Set Up Tracking Relationship Between Local Branch and Remote Branch
 * To set up a tracking relationship between a `local branch` and a `remote branch`, so that Git knows which remote branch to push changes to by default, you can use the following command:
 
@@ -93,7 +94,6 @@
       git push -u origin new-feature
       # or
       git push -u new-feature
-
   ```
 * This will set up a tracking relationship between the local `new-feature` branch and the remote `origin/new-feature` branch, which means that when you run `git pull` or `git push` while on the `new-feature` branch, Git will automatically fetch or push changes to the corresponding remote branch.
 
@@ -126,7 +126,7 @@
 * To merge  `new-feature` branch into the `main` branch, you should first switch to the `main` branch using the following command:
 
   ```sh
-      # swicth to main branch
+      # switch to main branch
       git checkout main
   ```
 * Ensure you have the latest updates from the remote `main` branch.

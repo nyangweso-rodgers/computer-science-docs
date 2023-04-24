@@ -1,7 +1,8 @@
 # Merge Conflicts
 
-
 ## Table Of Contents
+- [What is a Merge Conflict in Git?](#What-is-a-Merge-Conflict-in-Git?)
+- [What to Do When Merge Conflicts Occur](#What-to-Do-When-Merge-Conflicts-Occur)
 - [Further Reading]()
   - [freeCodeCamp - How to Fix Merge Conflicts in Git](https://www.freecodecamp.org/news/how-to-fix-merge-conflicts-in-git/)
 
