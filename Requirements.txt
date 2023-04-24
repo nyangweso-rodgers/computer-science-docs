@@ -1,6 +1,0 @@
-# VS Code Extensions
-1. [RapidAPI Client](https://marketplace.visualstudio.com/items?itemName=RapidAPI.vscode-rapidapi-client)
-2. [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
-3. [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
-4. [Peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)
-5. [CSS Peek](https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek)
