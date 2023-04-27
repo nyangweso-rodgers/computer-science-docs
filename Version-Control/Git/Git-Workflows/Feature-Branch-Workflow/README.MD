@@ -85,30 +85,14 @@
 * Git will push the local `new-feature` to the remote named `origin`. However, this command does not automatically set up a tracking branch.
 
 # Step 5: Set Up Tracking Relationship Between Local Branch and Remote Branch
-* To set up a tracking relationship between a `local branch` and a `remote branch`, so that Git knows which remote branch to push changes to by default, you can use the following command:
+* To set up a tracking relationship between a `local branch` and a `remote branch`, so that Git knows which remote branch to push changes to by default. which means that when you run `git pull` or `git push` while on the `new-feature` branch, Git will automatically fetch or push changes to the corresponding remote branch.
 
   ```sh
-      # new-feature branch
-      git branch --set-upstream-to=origin/new-feature new-feature
-      # or
+      # push the new-feature branch to origin and set it up to track the remote branch with the name 
       git push -u origin new-feature
-      # or
-      git push -u new-feature
   ```
-* This will set up a tracking relationship between the local `new-feature` branch and the remote `origin/new-feature` branch, which means that when you run `git pull` or `git push` while on the `new-feature` branch, Git will automatically fetch or push changes to the corresponding remote branch.
-
-* The `git push -u` command is a shorthand for `git push --set-upstream`.
-  
-* When you run `git push -u origin new-feature`, Git will push the local `new-feature` branch to the `origin` remote and set it up to track the remote branch with the same name.
-  
-* When you run `git push -u new-feature` , Git will try to push the local `new-feature` branch to remote branch with the same name, but it will use the default remote repo configured for the current branch. If the current branch has a configured upstream branch, then Git will push to that upstream branch. Otherwise, Git will display an error message.
-  
-* _Remark_: _it is a best practice to use `git push -u origin new-feature` instead of `git push -u new-feature`. The reason for this is that the first command explicitly specifies the remote repository and branch to push to and set up tracking for, which is more clear and less error-prone. It ensures that the changes are pushed to the correct remote repository and branch, even if the default remote or branch is different than what you intended_.
-
-
 * This command pushes `new-feature` to the central repository (`origin`), and the `-u` flag adds it as a remote tracking branch.
 * After setting up the tracking branch, `git push` can be invoked without any parameters to automatically push the new-feature branch to the central repository. 
-* To get feedback on the new feature branch, create a pull request in a repository management solution like GitHub.
 
 # Step 6: Resolve feedback
 * Now teammates comment and approve the pushed commits. Resolve their comments locally, commit, and push the suggested changes to Bitbucket/GitHub.
