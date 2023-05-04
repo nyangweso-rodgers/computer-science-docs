@@ -12,7 +12,10 @@
 
 
 # Overview Of Feature Branch
-* The core idea behind the __Feature Branch Workflow__ is that all feature development should take place in a dedicated branch instead of the __main branch__. 
+* The core idea behind the __Feature Branch Workflow__ is that all feature development should take place in a dedicated branch instead of the __main branch__. Use branches for:
+  * Features
+  * Bugs
+  * Experiments
 
 # Merits of Feature Branch
 * This encapsulation makes it easy for multiple developers to work on a particular feature without disturbing the main codebase.
@@ -57,6 +60,12 @@
       git checkout -b new-feature
   ```
 * This checks out a branch called `new-feature` based on `main`, and the `-b` flag tells Git to create the branch if it doesn’t already exist.
+* If you want to go back to a previous branch use `git switch -` command
+
+  ```sh
+      # go back to a previous branch
+      git switch -
+  ```
 
 # Step 3: Update, Add, Commit, and Push Changes
 * On this branch, edit, stage, and commit changes in the usual fashion, building up the feature with as many commits as necessary.
@@ -251,3 +260,19 @@
 
 * __Require at least one approval before merging__:
   * Depending on the size of your team, you may want to require even more than one approval before merging. The bare minimum should be one though, even if you're on a team of 2 people. You don't have to spend hours nit picking every single line, but in general your code should have two sets of eyes on it.
+
+# Step 15: Compare `new-feature` and `old-feature` Branches
+* To see which commits are in `new-feature` but not in `old-feature`, you can use the `git log` command with the double dot syntax:
+
+  ```sh
+      # compare commits between old-feature and new-feature
+      git log old-feature..new-feature
+  ```
+
+* Of course, you could also use this to compare your local and remote states by writing something like `git log main..origin/main`.
+
+* If instead of the commits you'd prefer to see the actual changes that make up those differences, you can use the `git diff` command:
+
+  ```sh
+      git diff old-feature..new-feature
+  ```
