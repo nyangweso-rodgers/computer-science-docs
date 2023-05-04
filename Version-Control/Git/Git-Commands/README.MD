@@ -1,7 +1,62 @@
 # Git Commands
 
 ## Table Of Contents
+- [Further Reading]()
+  - [freeCodeCamp - Undo Git Add – How to Remove Added Files in Git](https://www.freecodecamp.org/news/undo-git-add-how-to-remove-added-files-in-git/)
 
+# How to Add Files to Git
+* You can add files to the staging area using `git add` command.
+
+    ```sh
+        # stage all file in the current working directory
+        git add .
+
+        # stage a single file
+        git add index.html
+
+        # stage multiple files in the current working directory
+        git add index.html index.css index.js
+    ```
+
+* You can confirm the staged files using `git status` command.
+
+# How to Remove Added Files in Git
+* You can either use `git reset` or `git rm --cached` command with the following differences.
+* `git reset` is used to remove files from the staging area but keep the changes in 'your working directory'
+
+    ```sh
+        # to remove a single file
+        git reset index.html
+
+        # to remove multiple files from the staging area
+        git reset
+    ```
+* `git rm` is used to permanently delete  a file from the repository.
+* By adding `--cached` flag, you "unstage" the file. The cached option specifies that the removal should happen only on the staging index. Working directory files will be left alone.
+
+    ```sh
+        # stop tracking a file in version control
+        git rm --cached
+    ```
+* Because of this, it's recommended to use this command with caution and to make sure you are intentionally removing files you no longer need to track in Git.
+
+# How to View your current state + any merge conflicts
+* check the  for the status of a file to help you navigate through a complicated rebase or merge, use `git status`
+
+    ```sh
+        # check status of a file
+        git status
+    ```
+
+# How to Reset a file back to the previous state
+
+```sh
+    # new syntax (as of Git 2.23)
+    git restore index.html    
+    
+    # old syntax 
+    git checkout --index.html 
+```
 # 1. Logging Commands
 * What did I just do?
   
@@ -13,24 +68,11 @@
 
 # 2. Navigation Commands
 
-# 2.2. I want to go back to the branch I was on
-```sh
-    git switch -
-```
-
 # 2. View your "undo" history
 * Because sometimes __git log__ doesn't cut it, especially for commands that don't show up in your commit history.
 * __reflog__ is basically your safety net after running "scary" commands like __git rebase__. You'll be able to see not only the commits you made, but each of the actions that led you there.
     ```sh
         git reflog
-    ```
-
-# 3. View your current state + any merge conflicts
-* check the status of a file
-* It can also help you navigate through a complicated rebase or merge.
-
-    ```sh
-        git status
     ```
 
 # 4. See the differences in your staged (or unstaged) changes
@@ -59,12 +101,6 @@
     ```sh
         git reset --hard HEAD
     ```
-
-# 3.2 I want to reset a file back to how it was
-```sh
-    git restore <filename>     # new syntax (as of Git 2.23)
-    git checkout -- <filename> # old syntax
-```
 
 # 3.3 I want to undo the last commit and rewrite history
 ```sh
@@ -120,11 +156,6 @@
 # 3.10 I want to bring in a specific file from a different branch
 ```sh
     git checkout <branch-name> <file-name>
-```
-
-# 3.11 I want to stop tracking a file in version control
-```sh
-    git rm --cached <file-name>
 ```
 
 # 3.12 I need to switch branches but my current state is broken
