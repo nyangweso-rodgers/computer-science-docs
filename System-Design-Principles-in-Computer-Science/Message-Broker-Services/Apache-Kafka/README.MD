@@ -5,14 +5,29 @@
 
 - [Definition Of Terms](#Definition-Of-Terms)
 
-- [References]()
-    - []()
-
 # Introduction to Apache Kafka
 * __Apache Kafka__ is a distributed streaming software that delivers live data feeds. __Kafka__ was originally developed at LinkedIn in 2011, which is a __distributed__, __horizontally-scalable__, __fault-tolerant__, __commit log__.
 
 # How Kafka Works
-* __Kafka__ works in a unique way that involves __publishers__, __consumers__, and __topics__. Publishers produce data(e.g. web servers), consumers use data from publishers, and topics are an immutable log of events(made by publishers). Consumers can subscribe to topics to access their data.
+* __Kafka__ works in a unique way that involves __publishers__, __consumers__, and __topics__:
+  * _Publishers_ produce data(e.g. web servers), 
+  * _consumers_ use data from _publishers_.  _Consumers_ can _subscribe_ to topics to access their data. 
+  * _topics_ are an immutable log of events(made by publishers). _Topics_ are like Database table or a folder. Every _message_ goes to a particular _topic_. _Topics_ are made up of multiple _partitions_. _Partitions_ mean redundancy & make the topic horizontally scalable. Messages are appended to a particular _partition_ by the _producer_
+
+# Kafka Producer
+* _Producers_ create new _messages_, batch them and send them to a _Kafka topic_.
+
+# Kafka Consumer
+* _Consumer_ reads _messages_ from a broker.
+
+# Kafka Broker
+* A single Kafka server is called a _Broker_. A _Broker_ can handle thousands of partitions & millions of messages/per second. Broker = bridge. 
+* It receives messages from producers & handles fetch requests from consumers. A _broker_ is part of a _Kafka Cluster_
+
+# Kafka Cluster
+* A _Kafka Cluster_ consists of several _brokers_.
+* One _broker_ is the cluster controller and is elected automatically.
+* A _Kafka cluster_ lets you replicate messages in a given partition.
 # Kafka Based APIs
 * __Kafka-based APIs__ are suitable for software that requires real-time data streaming, processing, and monitoring.  They are also great at handling high volumes of data. Kafka architecture uses five APIs:
     1. __Producer API__: publishes streams of a record to Kafka topics.
@@ -36,11 +51,23 @@ __Kafka__ follows the principle of a __dumb broker__ and __smart consumer__. Thi
 
 __Kafka__ stores all of its records to disk and does not keep anything in RAM. 
 
-# When to use Apache Kafka?
-* Kafka consumes and processes high volumes of IoT and mobile data in real-time. Processing massive volumes of data in real-time is one of the critical capabilities of Kafka.
-* Kafka correlates IoT data with transactional data from the MES and ERP systems. Data integration in real-time at scale is relevant for analytics and the usage of transactional systems like an ERP or MES system. Kafka Connect and non-Kafka middleware complement the core of event streaming for this task.
-* Kafka is the scalable real-time backend for mobility services and gaming/betting platforms
+
 
 # When not to use Apache Kafka?
 * Kafka is NOT hard real-time. The definition of the term “real-time” is difficult. It is often a marketing term. Real-time programs must guarantee a response within specified time constraints.
 * If your application requires sub-millisecond latency, Kafka is not the right technology. For instance, high-frequency trading is usually implemented with purpose-built proprietary commercial solutions.
+
+# Main Use Cases for Kafka
+1. _Website Activity Tracking_: 
+  * This was the original use case for Kafka by LinkedIn. 
+  * Events happening in the website like page views, conversions etc. are sent via a Gateway and piped to Kafka Topics.
+  * Kafka is used as an initial buffer as the Data amounts are usually big and Kafka guarantees no message loss due to its replication mechanisms.
+
+2. __Database Replication__: 
+   * Database Commit log is piped to a Kafka topic.
+
+3. __Stream Processing__: 
+   * Instead of piping Data to a certain storage downstream we mount a Stream Processing Framework on top of Kafka Topics.
+   * The Data is filtered, enriched and then piped to the downstream systems to be further used according to the use case.
+
+4. __Mesaging__: 
