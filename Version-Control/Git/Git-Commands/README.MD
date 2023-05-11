@@ -81,12 +81,7 @@
         git diff --staged # for staged changes
         git diff # for unstaged changes
     ```
-# 5. See the differences between two commits
-* shows the changes between any two commits
-  
-    ```sh
-        git diff commit1 commit2
-    ```
+
 # 2. Navigation Commands
 # 2.1. I want to see what I did before
 * This will uncommit and unstage those changes but leave those files in the working directory.
@@ -127,11 +122,6 @@
     ```
 
 * __WARNING__: _Force pushing should be done with __great care__. In general, on shared branches you should avoid doing any force pushes. Limit force pushing to your own branches, before opening a pull request, so that you don't inadvertently mess up your teammates' git history._
-
-# 3.6 I want to add a few more changes to the last commit
-```sh
-    git commit --amend
-```
 
 # 3.7 I want to rewrite a bunch of commits locally
 * This will open up an interactive prompt where you can select which commits to keep, squash, or delete. You can also change commit messages here. This is very useful when cleaning up typo or linting commits, for example.
