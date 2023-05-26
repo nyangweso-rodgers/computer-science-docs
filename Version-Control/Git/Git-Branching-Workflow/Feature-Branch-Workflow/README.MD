@@ -170,46 +170,53 @@
   2. Delete the local branch:
 
       ```sh
+          # delete the local branch
           git branch -d new-feature
       ```
   3. Delete the remote branch:
 
       ```sh
-        git push origin --delete new-feature
+          # delete the remote branch
+          git push origin --delete new-feature
       ```
   4. Verify that the  `new-feature` branch has been deleted both locally and remotely, you can use the `git branch` command with the `-a` option to list all the branches, including remote branches.
 
       ```sh
-        # lists all branches both locally and remotely
-        git branch -a
+          # lists all branches both locally and remotely
+          git branch -a
 
-        # or
-        # lists remote branches
-        git branch -r
+          # or
+          # lists remote branches
+          git branch -r
       ```
 # Step 11: Updating Local & Remote `new-feature` Branch to Match the `origin/master`
 * First, make sure you are on the `new-feature` branch:
 
   ```sh
+      # checkout new-feature
       git checkout new-feature
   ```
 * Next, fetch the latest changes from the remote `main` branch:
 
   ```sh
+      # fetch latest changes from remote origin/master
       git fetch origin main
   ```
 * Merge the changes from the remote `main` branch into your local `new-feature` branch:
 
   ```sh
+      # merge latest changes from origin/master
       git merge origin/main
   ```
 * If there are any merge conflicts, resolve them and commit the changes
   ```sh
-    git commit -m "Merge remote-tracking branch 'origin/main' into feature_branch"
+      # commit the changes
+      git commit -m "Merge remote-tracking branch 'origin/main' into feature_branch"
   ```
 * Finally, push the changes to the remote `new-feature` branch:
 
   ```sh
+      # push the changes 
       git push origin feature-branch
   ```
 
