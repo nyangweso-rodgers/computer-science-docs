@@ -7,7 +7,7 @@
     - [Getting started - ItelliJ IDEA 2022.3](https://www.jetbrains.com/help/idea/getting-started.html)
 
 # IntelliJ IDEA Community Edition
-* __IntelliJ IDEA__ is a popular IDE that provides a wide range of tools and features for developing Java applications. The Community Edition is a free and open source version that provides most of the features found in the paid version.
+* __IntelliJ IDEA__ is a popular __IDE__ that provides a wide range of tools and features for developing Java applications. The Community Edition is a free and open source version that provides most of the features found in the paid version.
 
 # .iml File Extension
 * The __.iml__ file extension is used by __IntelliJ IDEA__ to store project-specific settings and metadata in __XML format__. The .iml file is an IntelliJ IDEA module file, which contains information about the module structure, dependencies, source roots, and other configuration settings for the module.
@@ -30,3 +30,15 @@
 
 # Extensions
 * [Database Navigator](https://plugins.jetbrains.com/plugin/1800-database-navigator)
+
+# Configuring GitHub in IntelliJ IDEA Community Edition
+* __Step 1__: open IntelliJ  and, on the welcome screen, click on `configure` at the bottom right corner of the screen.
+* __Step 2__: click the `preference` option.
+* __Step 3__: open the version control section by clicking on the triangle at its left.
+* __Step 4__: click on `GitHub` at the center of the window.
+* __Step 5__: click on `Add Account` at the center of the window.
+* __Step 6__: instert your credentials and click on `Log In` button.
+
+# IntelliJ IDEA Shortcuts
+* _How to increase fonts_ - `Double shift` and search `Increase Fonts`
+* _How to decrease fonts_ - `Double shift` and search `Decrease Fonts`
