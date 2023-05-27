@@ -77,12 +77,6 @@
   ```
 
 # Step 4: Push `new-feature` branch to remote
-* Make sure that you have already set up a remote repository and have the correct permissions to push changes to it. If you haven't set up a remote repository yet, you can do so using the below command.
-
-  ```sh
-      git remote add
-  ```
-
 * It’s a good idea to push the `new-feature` branch up to the central repository. This serves as a convenient backup, when collaborating with other developers, this would give them access to view commits to the new branch.
 
   ```sh
