@@ -1,13 +1,8 @@
 # GraphQL
 
 ## Table of Contents
-1. [GraphQL Overview](#GraphQL-Overview)
-    - [How do GraphQL and REST APIs fetch data differently?](#How-do-GraphQL-and-REST-APIs-fetch-data-differently?)
-2. [GraphQL Query Document](#GraphQL-Query-Document)
-3. [GraphQL Type System](#GraphQL-Type-System)
-4. [Pros of GraphQL](#Pros-of-GraphQL)
-5. [Cons of GraphQL](#Cons-of-GraphQL)
-
+- [Further Reading]()
+    - [freeCodeCamp - The GraphQL API Handbook – How to Build, Test, Consume and Document GraphQL APIs](https://www.freecodecamp.org/news/building-consuming-and-documenting-a-graphql-api/)
 # GraphQL Overview
 * __GraphQL__. Created by Facebook, is a very flexible query language for APIs, where the clients decide exactly what they want to fetch from the server instead of the server deciding what to send. A __query language__ allows you to query data from the data store. 
 
