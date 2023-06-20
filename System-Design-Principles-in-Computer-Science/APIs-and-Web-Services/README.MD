@@ -1,18 +1,8 @@
 # APIs & Web Services
 
 ## Table Of Contents
-- [What is an Event-Driven Architecture?](#What-is-an-Event-Driven-Architecture?)
-
-- [5 Protocols For Event-Driven API Architectures](#5-Protocols-For-Event-Driven-API-Architectures)
-    - [WebSockets](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/System_Design_Principles/APIs_and_Web_Services/Websockets)
-    - [WebHooks](https://github.com/nyangweso-rodgers/Computer_Science_Concepts/tree/master/System_Design_Principles/APIs_and_Web_Services/WebHooks)
-    - [REST Hooks]()
-    - [Pub-Sub]()
-    - [Server Sent Events]()
-    
 - [Further Reading]()
-    - [5 Protocols For Event-Driven API Architectures](https://nordicapis.com/5-protocols-for-event-driven-api-architectures/)
-
+    1. [freeCodeCamp - Public APIs Developers Can Use in Their Projects](https://www.freecodecamp.org/news/public-apis-for-developers/)
 # What is an Event-Driven Architecture?
 * __Event-driven architectures__ establish an event that can be consumed and reacted to. But what is an __event__? An __event__ is essentially _any significant change from one state to another, such as the change from having no messages in your inbox to have a new message in your inbox_.
 # 5 Protocols For Event-Driven API Architectures
@@ -46,3 +36,12 @@ Index | API | Description
 15 | [PlaceGOAT API](https://placegoat.com/) | This is a very silly API that returns _images of goats_ in different sizes that you can use as placeholder images in your website.
 16 | [TheDogAPI](https://thedogapi.com/) | you can fetch the different dog breeds and some images, but if you register, you can also cast votes on your favorite dogs.
 17 | [GitHub’s REST API](https://docs.github.com/en/rest)
+18 | [New York Times API](https://developer.nytimes.com/apis) | provides access to news articles and media content for developers. You can use them to retrieve articles, images, videos, and other media types and are commonly used to build news aggregators and search engines. The New York Times API is frequently used to create personalized news feeds and applications that analyze news content for trends.
+19 | [Google Books API](https://developers.google.com/books) | These provide access to data and information about books such as their titles, authors, genres, ISBNs, publication dates, cover images, and descriptions.
+20 | [Open Library API](https://openlibrary.org/developers/api) | These provide access to data and information about books such as their titles, authors, genres, ISBNs, publication dates, cover images, and descriptions.
+21 | [YouTube Data ApI](https://developers.google.com/youtube/v3) | This API helps developers do many things, like finding videos, getting information about them, handling user accounts, adding or changing videos, getting comments and analytics, and more.
+22 | [Rest Countries API](https://restcountries.com/) | This API provides information about countries and territories around the world, including their names, capital cities, currencies, languages, and more.
+23 | [Unplash API](https://unsplash.com/developers) | This API gives you access to and displays collections of images or other media.
+24 | [Flickr API](https://www.flickr.com/services/api/) | This API gives you access to and displays collections of images or other media.
+25 | [Getty Images API](https://developers.gettyimages.com/) | This API gives you access to and displays collections of images or other media.
+26 | [Pexels API](https://www.pexels.com/api/)  | This API gives you access to and displays collections of images or other media.
