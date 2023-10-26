@@ -4,7 +4,6 @@
 - [Introduction to Version Control]()
 - [Git]()
 - [GitHub]()
-- [Bitbucket]()
 
 # Introduction to Version Control
 
