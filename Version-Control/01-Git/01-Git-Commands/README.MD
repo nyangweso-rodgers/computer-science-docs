@@ -57,6 +57,7 @@
 - Because of this, it's recommended to use this command with caution and to make sure you are intentionally removing files you no longer need to track in Git.
 
 ## 2. Logging Commands
+
 ### 2.1 `git log`
 
 - logs the activities occurred with the files tracked in git.
@@ -94,7 +95,6 @@
     # old syntax
     git checkout --index.html
 ```
-
 
 # 2. Navigation Commands
 
@@ -238,3 +238,28 @@
 ```sh
     git fetch --all --prune
 ```
+
+## Commits
+
+### 1. Adding a few more changes to the `last-commit`
+
+```sh
+    git commit --amend
+```
+
+### 1. See Differences Between `first-commit` and `last-commit`
+
+```sh
+    # shows the changes between any two commits
+    git diff first-commit last-commit
+```
+
+### 1. Tagging commits
+
+- To mark a specific commit as a **release** or a **milestone**, we can use the `git tag`
+
+  ```sh
+      git tag v1.0
+  ```
+
+- This command creates a tag called `v1.0` for the current commit. We can later push the tags to the remote repository using the `git push --tags` command.
