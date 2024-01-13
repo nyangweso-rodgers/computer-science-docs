@@ -2,8 +2,6 @@
 
 ## Table Of Contents
 
-- [Further Reading]()
-  - [freeCodeCamp - Undo Git Add – How to Remove Added Files in Git](https://www.freecodecamp.org/news/undo-git-add-how-to-remove-added-files-in-git/)
 
 # Git Commands
 
@@ -170,13 +168,6 @@
       git rebase -i <commit hash> # where the commit hash is the one *before* all the changes you want to make
   ```
 
-# 3.8 This rebase is a mess, let's scrap it
-
-- You can do this mid rebase. I often find that a rebase is way more trouble than it's worth, especially when rebasing two branches with a lot of similar changes. Until the rebase is complete, you can always abort it.
-
-  ```sh
-      git rebase --abort
-  ```
 
 # 3.9 I want to bring in a commit from a different branch
 
@@ -263,3 +254,7 @@
   ```
 
 - This command creates a tag called `v1.0` for the current commit. We can later push the tags to the remote repository using the `git push --tags` command.
+
+# Resources
+
+1. [freeCodeCamp - Undo Git Add – How to Remove Added Files in Git](https://www.freecodecamp.org/news/undo-git-add-how-to-remove-added-files-in-git/)
