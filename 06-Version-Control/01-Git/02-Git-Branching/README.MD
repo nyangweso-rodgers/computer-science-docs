@@ -1,6 +1,10 @@
-# Git Workflows
+# Git Branching Workflows
 
 ## Table Of Contents
+
+1. [Overview of Feature Branch](#Overview-Of-Feature-Branch)
+2. [Working With Branches (Features Branch)](#Working-With-Branches-(Features Branch))
+3. [Resources](#Resources)
 
 # Overview Of Feature Branch
 
