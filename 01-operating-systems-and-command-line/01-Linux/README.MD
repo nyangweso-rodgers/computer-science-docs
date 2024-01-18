@@ -46,7 +46,7 @@
 ### Step 1: Enable WSL and Virtual Machine features:
 
 - Open PowerShell or Command Prompt as administrator.
-- Run the command: `dism /online /enable-optional-feature -FeatureName Microsoft-Windows-Subsystem-Linux`
+- Run the command: `dism /online /enable-optional-feature -FeatureName Microsoft-Windows-Subsystem-Linux` or `dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
 - Restart your computer.
 
 ### Step 2: Install your chosen Linux distribution:
@@ -68,7 +68,59 @@
 
 - Follow the on-screen instructions within the terminal to create a username and password for your Linux environment.
 
+# Linux Commands
+
+1. `pwd` - Print the current working directory.
+2. `whoami`: Display your username.
+3. `man <command>`: Access the manual for a specific command.
+4. `echo "Hello, WSL!"`: Print a message to the terminal.
+5. `ls` - List files and directoriesv. View the contents of your current directory.
+6. `cd` - Change directories.
+7. `mkdir` - Create a new directory
+8. `cat` - View file contents
+9. Install software:
+   - Use `sudo apt install` followed by package name.
+   - E.g.,
+     ```sh
+      sudo apt install chrome
+     ```
+10. Update package:
+    - Use `sudo apt update`
+    - E.g.,
+      ```sh
+        sudo apt update
+      ```
+11. Upgrade installed packages.
+    - Use, `sudo apt upgrade`
+12. `clear` - Clear the terminal screen.
+
+# Linux File System
+
+- Here are some key aspects of the Linux file system:
+  1. **Root Directory (/)**: this is the top-level directory in the file system hierarchy. Everything in the Linux file system is organized under this directory.
+  2. **Common Directories**: Some important directories in the Linux file system include:
+     - `/bin`: Essential command binaries (e.g., `ls`, `cp`, `mv`).
+     - `/boot`: Boot loader files and the Linux kernel.
+     - `/dev`: Device files representing hardware devices.
+     - `/etc`: System configuration files.
+     - `/home`: Home directories for users.
+     - `/lib`: Shared libraries.
+     - `/lib64`: Shared libraries on 64-bit systems.
+     - `/mnt`: Temporary mount points for external storage.
+     - `/opt`: Optional software packages.
+     - `/proc`: Virtual file system containing information about processes.
+     - `/usr`: User-related programs and data.
+     - `/var`: Variable data, such as logs and spool files.
+     - `/root`: Home directory for the root user.
+     - `/run`: Run-time variable data (often used for temporary files).
+     - `/sbin`: System binaries (critical system administration binaries).
+     - `/srv`: Service-specific data.
+     - `/sys`: Virtual file system exposing kernel information.
+     - `/tmp`: Temporary files.
+     - `/snap`: Snap packages (containerized software packages).
+- Additionally, it's worth noting that directories like `/sys` and `/proc` are virtual filesystems providing information about the kernel and processes, respectively.
 # Resources
 
 1. [Microsoft Learn - Windows Subsystem for Linux Documentation](https://learn.microsoft.com/en-us/windows/wsl/)
 2. [Ubuntu WSL](https://canonical-ubuntu-wsl.readthedocs-hosted.com/en/latest/)
+3. [How to Install WSL 2 on Windows 10 (Updated)](https://www.omgubuntu.co.uk/how-to-install-wsl2-on-windows-10)
