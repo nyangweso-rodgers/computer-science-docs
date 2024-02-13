@@ -19,7 +19,7 @@
   - it must contain a unique value for each row
   - it cannot contain `NULL` values
 
-## 3. Database Management System\*\* (DBMS)
+## 3. Database Management System (DBMS)
 
 - software to create, define and manage database. e.g.,
   - Microsoft,
@@ -52,6 +52,46 @@
       - let’s say that our account balance is $200. Two transactions for a $100 withdrawal start at the same time. The transactions run in isolation which guarantees that when they both complete, we’ll have a balance of $0 instead of $100.
   - **Durability**
     - **Durability** guarantees that once the transaction completes and changes are written to the database, they are persisted. This ensures that data within the system will persist even in the case of system failures like crashes or power outages.
+
+## NoSQL Databases
+
+### Types of NoSQL Databases
+
+#### 1. `key - value`
+
+- `key-value` are the least complex of the **NoSQL** databases. All data that is stored with a **key** and an associated **value** blob. **key-value** stores are represented as a **hashmap**, which makes them powerful for basic Create - Read - Update - Delete operations. however, these databases often are not meant for complex queries that are attempting to connect multiple pieces of data. Instead, they are suited only to situatiosn in which you always access data by using only a single key. some popular Key-Value databases are:
+  - Redis
+  - Hamster DM
+  - DynamoDB
+  - Berkely DB
+  - Document
+  - columnar
+  - Graph
+
+#### 2. Document
+
+- **Document**: build off the **key-value** model by making the value visible and can be queried. Each piece of data is considered a document and often is stored in **JSON** or **XML** format. **document** databases can index and query the contents of the document, which offers key and value range lookups and search ability or analytical queries by using paradigms, such as **MapReduce**.
+- **Document** databases are currently the most popular of the **NoSQL** databeses in use today. Some popular Document Databases include:
+  - Cloudent
+  - **MongoDB**: stores data in the form of **BSON** structure-based documents. These documents are stored in a collection. **MongoDB** allows a highly flexible and scalable document structure. Also, **MongoDB** databases are faster as compared to SQL databases due to efficient indexing and storage technoques. _Features_ include:
+    - Flexible data model in form of documents
+    - Agile and highly scalable database
+    - Faster than traditional databases
+    - Expressive query language
+  - CouchDB
+
+#### 3. Columnar
+
+- **Columnar**: focus on columns and groups of columns when storing data. when compared to row-oriented databases, **columnar** databases can better compress data and save storage space. some popular columnar databases include:
+  - dashDB
+  - Cassandra
+
+#### 4. Graph
+
+- **Graph**: store information in entities (or nodes) and relationships (or edges). **graph** databases are useful when your dataset resembles a graph-like data structure. traversing all of the relationships is quick and efficient, but these databases tend not to scale well. some popular Graph databases include:
+  - Neo4j
+  - OrientDB
+  - FlockDB
 
 # Resources
 
