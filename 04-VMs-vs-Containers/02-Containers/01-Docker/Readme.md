@@ -5,6 +5,54 @@
 # Introduction to Docker
 
 - **Docker** is the most popular technology to run containers.
+- **Docker** is a software containerization platform which allows developers to package their applications into **containers**, which can then be run on any machine that has **Dockers** installed. This makes it easier for developers to move their applications between different environments, such as **development**, **testing**, and **production**.
+- **Docker** has become so popular that when the word **container** is mentioned, it is automatically assumed docker will be used to manage it.
+
+# Why Docker?
+
+- **Docker** is an open source tool that uses **containers** to create, deploy, and manage distributed applications.
+- Many organizations now opt to use **Docker** over **VMs** because of the performance benefits that it offers.
+- **Remarks**:
+
+  - A misconception among many people is that **Docker** created the concept of **containers** but that is wrong, **Docker** only brought it to critically acclaimed status. **Containers** existed very well before **Docker**.
+
+  - **Docker** has many different tools and technologies such as [docker hub](), [docker engine](), [docker desktop]() etc. But when we’re talking about Kubernetes and Docker, there is only one tool that we’re interested in; and that’s known as [Docker Swarm]().
+
+# Docker Concepts
+
+- The **Dockerfile** is the base for an **image**, and an **image** is used to create a **container**. A **container** is running as a process on the host machine. Yet, it has its own file system and is separated from the other processes.
+
+## Docker Concept #1: `Dockerfile`
+
+- The first step in using **Docker** is writing a `Dockerfile`. It is an essential blueprint for constructing **Docker images**. It is a text file, is usually named `“Dockerfile”` without any extension, and contains a series of instructions.
+- Each line in this file represents a new instruction, forming a stack of layers. Each layer is cache-able. When you build an image twice, it will use the cache. When you change a line in the file, it rebuilds all instructions after and including the change.
+- **Steps** to creating a `Dockerfile`:
+  - We use a plain text to create a Dockerfile.
+  - Using a **Command Line**:
+    - Step 1: create a new file in your current working directory called `Dockerfile`
+      ```sh
+        touch Dockerfile
+      ```
+    - open the file in VS Code
+      ```sh
+        code Dockerfile
+      ```
+- A `Dockerfile` holds all the instructions to **build**, **start** and **run** your application. Every command that you otherwise need to execute manually is written in a single file. It starts by using a base image.
+
+## Docker Concept #2: Docker Image
+
+- Building a `Dockerfile` outputs a **Docker image**. You can start an image to launch a container.
+- The Docker image encapsulates your application code and all its dependencies. This includes the runtime and system libraries. It is a self-contained unit that ensures consistency and portability across various environments. For example, your development machine and your production server.\
+
+## Docker Concept #3: Docker Container
+
+- This is a dynamic, running instance of a **Docker image**. An executed image spawns a container with the command in the `Dockerfile`.
+- **Remarks**:
+
+  - one image can give life to many containers.
+  - If Linux is your OS, the **Docker container** will run as a process on the host machine. If you have a Windows or macOS machine, docker will run in a VM.
+  - The container will use the same kernel, either the kernel of Linux or the VM on Windows or macOS.
+  - The container itself is not a virtual machine. The container cannot see other processes of the host and has its own file system. This is why it seems as it is a virtual machine. But in reality, it shares the kernel of the host machine (or the kernel of the VM).
 
 # Popuar Docker Commands
 
@@ -17,6 +65,7 @@
     docker build -t <dockerhub_user_id>/<image_name>:<version>
   ```
 - Example:
+- If you want to give your image a name, you need to use the `--tag` (shorthand syntax: `-t`) flag while building the image. You will need this if you are working with a registry like [Docker Hub]().
 
 ## Command #2: Push Docker Image to Docker Hub
 
@@ -67,3 +116,10 @@
 - Example
 
 # Resources
+
+1. [The Ultimate Docker Cheat Sheet](https://devopscycle.com/blog/the-ultimate-docker-cheat-sheet/?mkt_tok=NzkwLVNTQi0zNzUAAAGQiPdekjcDh3HVPGYJIzKB936CcoVM7WS2-TQr3Wh-9d0C3MLx8CwcrTfclpj6x8ue3hxOgCkcdRFkS-q9Yez85eZwMUXWRpiVsJsFJlFiW04)
+2. [A Complete Beginner's Guide to Docker](https://blog.suhailkakar.com/a-complete-beginners-guide-to-docker)
+3. [How to Dockerize a Flask Application](https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/)
+4. [How to Build Docker Image : Comprehensive Beginners Guide](https://devopscube.com/build-docker-image/)
+5. [Learn How to Deploy 12 Apps to AWS, Azure, & Google Cloud](https://www.freecodecamp.org/news/learn-how-to-deploy-12-apps-to-aws-azure-google-cloud/)
+6. [What Is Docker and How Does It Work? – Docker Explained](https://www.hostinger.in/tutorials/what-is-docker)
