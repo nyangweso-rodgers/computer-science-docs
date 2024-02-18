@@ -120,7 +120,7 @@
 - One of the major benefits of docker swarm is the high level of availability offered for applications. In a docker swarm, there are typically several worker nodes and at least one manager node that is responsible for handling the worker nodes’ resources efficiently and ensuring that the cluster operates efficiently.
 
 - **Docker Swam** is also relatively easy to install, and is easily understandable for those starting out with container orchestration. It is lightweight and easy to use. Also, Docker Swarm takes less time to understand than more complex orchestration tools.
-
+  
 # Resources
 
 1. [The Ultimate Docker Cheat Sheet](https://devopscycle.com/blog/the-ultimate-docker-cheat-sheet/?mkt_tok=NzkwLVNTQi0zNzUAAAGQiPdekjcDh3HVPGYJIzKB936CcoVM7WS2-TQr3Wh-9d0C3MLx8CwcrTfclpj6x8ue3hxOgCkcdRFkS-q9Yez85eZwMUXWRpiVsJsFJlFiW04)
