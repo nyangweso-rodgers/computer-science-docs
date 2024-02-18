@@ -78,16 +78,31 @@
   - `EXPOSE` is a way to keep track of which ports are in use, but it does not map or open any ports.
   - `CMD` ​ specifies the instruction that is to be executed when a Docker container starts
 
-- Step 2: We now have a full set of instructions to build a docker image,
+- Step 2: We now have a full set of instructions to build a **docker image**:
   - To build a Docker image, use the below command
     ```sh
         docker build [OPTIONS] PATH | URL | -
     ```
   - In this case, it will be:
     ```sh
-        docker build -t <username>/nodedemo . # change dockerhub username
+        docker build -t <username>/01-dockerize-node.js-app . # change dockerhub username
+    ```
+  - After building the Docker image, you can run the **container** using the `docker run` command. Remember that you can specify the port mappings, volumes, and other options as needed based on your application configuration.
+    ```sh
+      docker run -p 8080:8080 your-dockerhub-username/01-dockerize-node.js-app
     ```
   - After the completion of this process, a docker image will be created. To see all your docker images, run the following command in your terminal
     ```sh
         docker images
+    ```
+- Step 3: **Docker Containers**:
+  - Now that we have your docker images, we can use them as a base image to create other images or we can use it to run containers.
+  - Usually, we use this image to push it to a container registry that might be docker hub or any cloud provider.
+    ```sh
+      docker push nyangwesorodgers/01-dockerize-node.js-app
+    ```
+- Note:
+  - If you got an access denied error, then you need to login into your docker hub account, to do that run
+    ```sh
+      docker login
     ```

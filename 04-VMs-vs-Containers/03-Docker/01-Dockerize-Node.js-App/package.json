@@ -2,9 +2,9 @@
   "name": "01-dockerize-node.js-app",
   "version": "1.0.0",
   "description": "- Create a simple Node.js App that sends and gets requests.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
