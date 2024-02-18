@@ -37,3 +37,5 @@
 - It cannot run applications as fast as a bare-metal rates.
 - The container ecosystem is split But the core Docker platform is open source, some container products don’t work with other ones.
 - **Graphical applications** do not operate well.
+
+# Resources
