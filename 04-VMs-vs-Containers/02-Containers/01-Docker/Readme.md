@@ -54,9 +54,33 @@
   - The container will use the same kernel, either the kernel of Linux or the VM on Windows or macOS.
   - The container itself is not a virtual machine. The container cannot see other processes of the host and has its own file system. This is why it seems as it is a virtual machine. But in reality, it shares the kernel of the host machine (or the kernel of the VM).
 
+## Docker Concept #4: Docker Registry
+
+- A **Docker registry** is a repository for the storage and distribution of **Docker images**. **Docker registry** allows users to "pull" or "push" **Docker images**.
+- [Docker Hub](https://hub.docker.com/) is the official docker registry.
+
+## Docker Concept #5: Docker Hub
+
+- [Docker Hub](https://hub.docker.com/) is a centralized repository for storing and sharing **Docker images**. All the components required to run an application are included in a **docker image**, which serves as the container's architectural blueprint.
+
+## Docker Concept #6: Docker Compose
+
+- **Docker Compose** makes it possible for an application to run multiple containers.
+
+# Installing Docker
+
+- Install Docker engine for windows, linux or mac OS from the [official Docker website](https://www.docker.com/)
+
 # Popuar Docker Commands
 
 - Docker commands should be executed in the root folder where `Dockerfile` is located.
+
+## Command #1: Check If Docker is Installed
+
+- Syntax:
+  ```sh
+    docker version
+  ```
 
 ## Command #1: Create Docker Image from `Dockerfile`
 
@@ -114,6 +138,34 @@
     docker stop <container_id>
   ```
 - Example
+
+## Command #8: Check Container Logs
+
+- While a container is running, we can check what is being logged in the container log:
+- Syntax:
+  ```sh
+    docker logs <container_name>
+  ```
+
+## Command #9: Delete a Container
+
+- To delete a container, it must not be running
+- Syntax:
+  ```sh
+    docker stop <container_name>
+  ```
+- Once the container is stopped, we can then delete it:
+  ```sh
+    docker rm <container_name>
+  ```
+
+## Command #10: Delete an Image
+
+- To delete an image, you have to ensure no container is using that image; if a container is using the image, we'd have to delete the container before we would be able to delete the image
+- Syntax:
+  ```sh
+    docker rmi <image name:image tag>
+  ```
 
 # Resources
 
