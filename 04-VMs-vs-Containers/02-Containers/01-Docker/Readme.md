@@ -18,6 +18,16 @@
 
   - **Docker** has many different tools and technologies such as [docker hub](), [docker engine](), [docker desktop]() etc. But when we’re talking about Kubernetes and Docker, there is only one tool that we’re interested in; and that’s known as [Docker Swarm]().
 
+# Use Cases of Docker
+
+- Three most essential use cases of Docker:
+
+  1. Run a database locally using docker
+  2. run your application locally and in production using Docker, and
+  3. run automated tests using a dockerized database,
+
+- Using Docker, you can start many types of databases in seconds. By searching, [hub.docker.com](https://hub.docker.com/) you can find ready-to-use containers for many databases.
+
 # Docker Concepts
 
 - The **Dockerfile** is the base for an **image**, and an **image** is used to create a **container**. A **container** is running as a process on the host machine. Yet, it has its own file system and is separated from the other processes.
