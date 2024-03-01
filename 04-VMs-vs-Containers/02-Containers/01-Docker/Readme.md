@@ -4,8 +4,7 @@
 
 # Introduction to Docker
 
-- **Docker** is the most popular technology to run containers.
-- **Docker** is a software containerization platform which allows developers to package their applications into **containers**, which can then be run on any machine that has **Dockers** installed. This makes it easier for developers to move their applications between different environments, such as **development**, **testing**, and **production**.
+- **Docker** is the most popular technology to run containers. It is a software containerization platform which allows developers to package their applications into **containers**, which can then be run on any machine that has **Dockers** installed. This makes it easier for developers to move their applications between different environments, such as **development**, **testing**, and **production**.
 - **Docker** has become so popular that when the word **container** is mentioned, it is automatically assumed docker will be used to manage it.
 
 # Why Docker?
@@ -32,12 +31,17 @@
 
 - The **Dockerfile** is the base for an **image**, and an **image** is used to create a **container**. A **container** is running as a process on the host machine. Yet, it has its own file system and is separated from the other processes.
 
-## Docker Concept #1: `Dockerfile`
+## Two Important Docker Concepts
 
+- At its core, **Docker** has two concepts that are useful to understand: the `Dockerfile` and **Docker Images**.
+
+### Docker Concept #1: `Dockerfile`
+
+- A `Dockerfile` contains the set of instructions for building a **Docker Image**.
 - The first step in using **Docker** is writing a `Dockerfile`. It is an essential blueprint for constructing **Docker images**. It is a text file, is usually named `“Dockerfile”` without any extension, and contains a series of instructions.
 - Each line in this file represents a new instruction, forming a stack of layers. Each layer is cache-able. When you build an image twice, it will use the cache. When you change a line in the file, it rebuilds all instructions after and including the change.
 - **Steps** to creating a `Dockerfile`:
-  - We use a plain text to create a Dockerfile.
+  - We use a plain text to create a `Dockerfile`.
   - Using a **Command Line**:
     - Step 1: create a new file in your current working directory called `Dockerfile`
       ```sh
@@ -49,12 +53,15 @@
       ```
 - A `Dockerfile` holds all the instructions to **build**, **start** and **run** your application. Every command that you otherwise need to execute manually is written in a single file. It starts by using a base image.
 
-## Docker Concept #2: Docker Image
+### Docker Concept #2: Docker Image
 
-- Building a `Dockerfile` outputs a **Docker image**. You can start an image to launch a container.
-- The Docker image encapsulates your application code and all its dependencies. This includes the runtime and system libraries. It is a self-contained unit that ensures consistency and portability across various environments. For example, your development machine and your production server.
+- A **Docker Image** serves as a template for creating **Docker Containers**. It contains all the necessary code, runtime, system tools, libraries, and settings required to run a software application.
+- So, a `Dockerfile` is used to build a **Docker Image** which is then used as the template for creating one or more **Docker containers**.
+- Once created, **Docker images** are immutable, meaning they cannot be changed. If you need to make changes to an application, you need to modify the `Dockerfile` and create a new image. This immutability ensures consistency and reproducibility in application deployment.
 
-## Docker Concept #3: Docker Container
+## Other Docker Concepts
+
+### Docker Concept #3: Docker Container
 
 - This is a dynamic, running instance of a **Docker image**. An executed image spawns a container with the command in the `Dockerfile`.
 - **Remarks**:
@@ -228,3 +235,4 @@
 1. [The Ultimate Docker Cheat Sheet](https://devopscycle.com/blog/the-ultimate-docker-cheat-sheet/?mkt_tok=NzkwLVNTQi0zNzUAAAGQiPdekjcDh3HVPGYJIzKB936CcoVM7WS2-TQr3Wh-9d0C3MLx8CwcrTfclpj6x8ue3hxOgCkcdRFkS-q9Yez85eZwMUXWRpiVsJsFJlFiW04)
 2. [How to Build Docker Image : Comprehensive Beginners Guide](https://devopscube.com/build-docker-image/)
 3. [What Is Docker and How Does It Work? – Docker Explained](https://www.hostinger.in/tutorials/what-is-docker)
+4. [freecodecamp - How Docker Containers Work – Explained for Beginners](https://www.freecodecamp.org/news/how-docker-containers-work/)
