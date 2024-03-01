@@ -17,6 +17,8 @@
 
 # Cons Of VMs
 
+- **VMs** consume more resources: VMs have a higher resource overhead due to the need to run a full OS instance for each VM. This can lead to larger memory and storage consumption. This in turn can have a negative effect on performance and startup times of the virtual machine.
+- Portability: VMs are typically less portable due to differences in underlying OS environments. Moving VMs between different hypervisors or cloud providers can be more complex.
 - It can only use the **resources allocated to it** by the system. If more than one VMs are running it can slow the system down to a halt.
 - It has a slow boot up time.
 - It is not very efficient. It cannot access the hardware directly.
