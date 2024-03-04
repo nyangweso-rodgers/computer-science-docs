@@ -298,9 +298,34 @@
     docker rmi python
   ```
 
+# Bonus
+
+## Docker Image Best Practices
+
+- To ensure optimal performance, scalability, and security, it’s essential to follow best practices when creating and managing **Docker images**.
+
+### Choose the Right Base Image
+
+- Consider using official images from trusted sources like Docker Hub, as they are regularly updated and maintained by the community.
+- Choose a minimalistic base image to reduce the attack surface and optimize the image size. Alpine Linux is a popular choice for its lightweight nature.
+  ```Dockerfile
+    FROM Alpine:latest
+  ```
+
+### Use `.dockerignore`
+
+- Similar to `.gitignore`, a `.dockerignore` file allows you to specify files and directories to exclude from the build context.
+- By preventing unnecessary files from being added to the image, you can further reduce its size. Common exclusions include `node_modules`, `.git`, and temporary files.
+  ```dockerignore
+    node_modules
+    .git
+    *.log
+  ```
+
 # Resources
 
 1. [The Ultimate Docker Cheat Sheet](https://devopscycle.com/blog/the-ultimate-docker-cheat-sheet/?mkt_tok=NzkwLVNTQi0zNzUAAAGQiPdekjcDh3HVPGYJIzKB936CcoVM7WS2-TQr3Wh-9d0C3MLx8CwcrTfclpj6x8ue3hxOgCkcdRFkS-q9Yez85eZwMUXWRpiVsJsFJlFiW04)
 2. [How to Build Docker Image : Comprehensive Beginners Guide](https://devopscube.com/build-docker-image/)
 3. [What Is Docker and How Does It Work? – Docker Explained](https://www.hostinger.in/tutorials/what-is-docker)
 4. [freecodecamp - How Docker Containers Work – Explained for Beginners](https://www.freecodecamp.org/news/how-docker-containers-work/)
+5. [Optimize Your Deployments: Docker Image Best Practices](https://www.javacodegeeks.com/2024/01/optimize-your-deployments-docker-image-best-practices.html?ref=dailydev)
