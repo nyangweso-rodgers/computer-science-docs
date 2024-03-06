@@ -172,7 +172,9 @@
     docker version
   ```
 
-## Command #2: Lists Docker Images
+## Commands for Working with Docker Images
+
+### Command #2: Lists Docker Images
 
 - To list all the docker images on your system, run:
   ```sh
@@ -181,11 +183,11 @@
   ```
 - or,
   ```sh
-    # list all docker images
+    #list all docker images
     docker images ls
   ```
 
-## Command #3: Create Docker Image from `Dockerfile`
+### Command #3: Create Docker Image from `Dockerfile`
 
 - Syntax:
   ```sh
@@ -193,11 +195,12 @@
   ```
 - Example:
   ```sh
-    # create a docker image
+    #create a docker image
+    docker build -t test-image
   ```
 - If you want to give your image a name, you need to use the `--tag` (shorthand syntax: `-t`) flag while building the image. You will need this if you are working with a registry like [Docker Hub](https://hub.docker.com/).
 
-## Command #4: Review the Image Metadata
+### Command #4: Review the Image Metadata
 
 - Before running a container, you can review the image metadata using:
   ```sh
@@ -213,7 +216,7 @@
   - image size,
   - hardware architecture, e.t.c.,
 
-## Command #5: Push Docker Image to [Docker Hub](https://hub.docker.com/)
+### Command #5: Push Docker Image to [Docker Hub](https://hub.docker.com/)
 
 - Syntax:
   ```sh
@@ -226,7 +229,23 @@
       docker login docker.io
     ```
 
-## Command #6: Run a Docker Container from an Image
+### Command #12: Delete an Image
+
+- To delete an image, you have to ensure no container is using that image; if a container is using the image, we'd have to delete the container before we would be able to delete the image
+- Syntax:
+  ```sh
+    # delete an image using image name
+    docker rmi <IMAGE_NAME or IMAGE_ID>
+  ```
+- Example:
+  ```sh
+    # delete python image
+    docker rmi python
+  ```
+
+## Commands for Working with Docker Containers
+
+### Command #6: Run a Docker Container from an Image
 
 - Syntax:
   ```sh
@@ -234,7 +253,7 @@
   ```
 - Example:
 
-## Command #7: Lists All Docker Containers (Running/Stopped)
+### Command #7: Lists All Docker Containers (Running/Stopped)
 
 - To check the status and details of running containers on your system, you can use the `docker ps` command.
   ```sh
@@ -248,7 +267,7 @@
     docker ps -a
   ```
 
-## Command #8: Start a Container
+### Command #8: Start a Container
 
 - Syntax:
   ```sh
@@ -256,7 +275,7 @@
   ```
 - Example
 
-## Command #9: Stop Running Container
+### Command #9: Stop Running Container
 
 - Syntax
   ```sh
@@ -264,7 +283,7 @@
   ```
 - Example
 
-## Command #10: Check Container Logs
+### Command #10: Check Container Logs
 
 - While a container is running, we can check what is being logged in the container log:
 - Syntax:
@@ -272,7 +291,7 @@
     docker logs <CONTAINER_NAME or CONTAINER_ID>
   ```
 
-## Command #11: Delete a Container
+### Command #11: Delete a Container
 
 - To delete a container, it must not be running
 - Syntax:
@@ -282,20 +301,6 @@
 - Once the container is stopped, we can then delete it:
   ```sh
     docker rm <container_name>
-  ```
-
-## Command #12: Delete an Image
-
-- To delete an image, you have to ensure no container is using that image; if a container is using the image, we'd have to delete the container before we would be able to delete the image
-- Syntax:
-  ```sh
-    # delete an image using image name
-    docker rmi <IMAGE_NAME or IMAGE_ID>
-  ```
-- Example:
-  ```sh
-    # delete python image
-    docker rmi python
   ```
 
 # Bonus
