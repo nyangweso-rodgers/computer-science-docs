@@ -31,6 +31,11 @@
 
 - Install Docker engine for windows, linux or mac OS from the [official Docker website](https://www.docker.com/)
 
+## Install Docker Desktop
+
+- **Docker Desktop** can be used to see which containers are running, manage containers, and perform other Docker-related tasks.
+- [Install Docker Desktop on Windows](https://docs.docker.com/desktop/install/windows-install/)
+
 # Docker Concepts
 
 - The **Dockerfile** is the base for an **image**, and an **image** is used to create a **container**. A **container** is running as a process on the host machine. Yet, it has its own file system and is separated from the other processes.
