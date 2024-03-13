@@ -498,6 +498,13 @@
     docker rm <container_name>
   ```
 
+## Execute Commands in a Running Container
+
+- `docker exec` Docker command used to execute commands in a running container
+  - `-it`: These are options passed to the docker exec command:
+    - `-i` or `--interactive`: This option allows you to interact with the container's standard input, allowing you to provide input to the executed command.
+    - `-t` or `--tty`: This option allocates a pseudo-TTY (terminal) for the command being executed, allowing you to see the command's output as if you were running it directly in a terminal.
+
 # Bonus
 
 ## Docker Image Best Practices
