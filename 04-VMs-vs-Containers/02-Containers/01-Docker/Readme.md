@@ -249,13 +249,28 @@
     POSTGRES_VERSION=alpine USER=foo docker-compose up
   ```
 
-### Step #4.7: Startup
+### Step #4.7: Start and Run Docker Containers
 
-- We can create and start the containers, the networks, and the volumes defined in the configuration with `up`:
-  ```sh
-    #start
-    docker-compose up
-  ```
+- Using `docker-compose up -d`:
+  - This command will not rebuild the Docker images if there are no changes to the `Dockerfile` or any of the files referenced in the build context. It uses the existing images if they exist, otherwise, it builds new images.
+  - Detached mode means that the containers will run in the background, and you'll get your terminal prompt back immediately.
+    ```sh
+      docker-compose up -d
+    ```
+- Using `docker-compose up`:
+
+  - This command starts your Docker containers defined in the docker-compose.yml file in attached mode (i.e., it keeps the containers running in the foreground and shows their output in the terminal).
+  - Similar to `docker-compose up -d`, this command does not rebuild the **Docker images** if there are no changes to the `Dockerfile` or any of the files referenced in the build context.
+    ```sh
+      docker-compose up
+    ```
+
+- Using `docker-compose up --build`:
+  - This command also starts your Docker containers defined in the `docker-compose.yml` file, but it rebuilds the images before starting the containers, regardless of whether there are any changes to the Dockerfile or build context files.
+  - It's useful when you want to ensure that your containers are using the latest version of the images, even if there haven't been any changes to the Dockerfile or build context since the last build.
+    ```sh
+      docker-compose up --build
+    ```
 - After the first time, however, we can simply use `start` to start the services:
   ```sh
     #start
