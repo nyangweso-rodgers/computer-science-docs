@@ -27,7 +27,45 @@
 
 # Working With Branches (Features Branch)
 
-## Step 1: Start with `main` branch
+## Step 1: Create and Initialize GitHub Repository
+
+- Create a new project folder by:
+  ```sh
+    mkdir my-app
+  ```
+- Navigate to the root directory of your project. Initialize the local directory as a Git repository. By default, the initial branch is called `main`.
+  ```sh
+    cd my-app
+    git init -b main
+  ```
+- Add the files in your new local repository. This stages them for the first commit.
+  ```sh
+    git add .
+  ```
+- Commit the files that you've staged in your local repository.
+  ```sh
+    git commit -m "Project setup"
+  ```
+
+## Step 2: Adding a local repository to GitHub using Git
+
+- Before you can add your local repository to GitHub using Git, you must authenticate to GitHub on the command line. For more information, see "[About authentication to GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#authenticating-with-the-command-line)."
+- Create a new repository on GitHub.com. To avoid errors, do not initialize the new repository with README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.
+- At the top of your repository on GitHub.com's Quick Setup page, copy the remote repository URL.
+- To add the URL for the remote repository where your local repository will be pushed, run the following command. Replace REMOTE-URL with the repository's full URL on GitHub.
+  ```sh
+    git remote add origin REMOTE-URL
+  ```
+- To verify that you set the remote URL correctly, run the following command.
+  ```sh
+    git remote -v
+  ```
+- To push the changes in your local repository to GitHub.com, run the following command.
+  ```sh
+    git push origin main
+  ```
+
+## Step 3: Start with `main` branch
 
 - Switch the Repo to the `main/master` branch
   ```sh
@@ -50,7 +88,7 @@
     - The `git reset --hard origin/main` command resets your local branch to match the exact state of the `origin/main` branch, discarding any local changes that you may have made. **This means that any local commits that have not been pushed to the remote repository will be lost**.
     - On the other hand, the `git pull origin master` command combines the `git fetch` and `git merge` commands into one convenient step. It fetches the latest changes from the remote master branch and then merges those changes into your local master branch. This preserves any local changes that you may have made, and attempts to merge them with the changes from the remote branch.
 
-## Step 2: List all the Branches in the repo
+## Step 4: List all the Branches in the repo
 
 - Run the following command to list all the Branches
   ```sh
@@ -66,7 +104,7 @@
   - Remote-tracking branches: These are local copies of remote branches, prefixed with `remotes/<remote-name>/`. They allow you to see the status of remote branches without fetching their full histories.
   - `HEAD`: This is a special pointer that indicates the current working branch. The `remotes/origin/HEAD` symbolic reference tracks the default branch on the remote.
 
-## Step 3: Create a `new-feature` branch
+## Step 5: Create a `new-feature` branch
 
 - Use a separate branch for each feature or issue you work on. After creating a branch, check it out locally so that any changes you make will be on that branch.
 
@@ -83,7 +121,7 @@
       git switch -
   ```
 
-## Step 4: Set Up Tracking Relationship Between Local Branch and Remote Branch
+## Step 6: Set Up Tracking Relationship Between Local Branch and Remote Branch
 
 - To set up a tracking relationship between a **local branch** and a **remote branch**, so that **Git** knows which remote branch to push changes to by default. which means that when you run `git pull` or `git push` while on the `new-feature` branch, Git will automatically fetch or push changes to the corresponding remote branch.
 
@@ -96,7 +134,7 @@
 
 - After setting up the tracking branch, `git push` can be invoked without any parameters to automatically push the new-feature branch to the central repository.
 
-## Step 5: Update, Add, Commit, and Push Changes
+## Step 7: Update, Add, Commit, and Push Changes
 
 - On this branch, edit, stage, and commit changes in the usual fashion, building up the feature with as many commits as necessary.
 
@@ -107,21 +145,21 @@
       git push
   ```
 
-## Step 6: Resolve feedback
+## Step 8: Resolve feedback
 
 - Now teammates comment and approve the pushed commits. Resolve their comments locally, commit, and push the suggested changes to Bitbucket/GitHub.
 - Your updates appear in the pull request.
 
-## Step 7: Merge your pull request
+## Step 9: Merge your pull request
 
 - Before you merge, you may have to resolve merge conflicts if others have made changes to the repo. When your pull request is approved and conflict-free, you can add your code to the `main` branch. Merge from the pull request in Bitbucket/GitHub.
 
-## Step 8: Pull Requests (PR)
+## Step 10: Pull Requests (PR)
 
 - Aside from isolating feature development, branches make it possible to discuss changes via pull requests.
 - Once someone completes a feature, they don’t immediately merge it into `main`. Instead, they push the feature branch to the central server and file a **pull request** asking to merge their additions into `main`. This gives other developers an opportunity to review the changes before they become a part of the main codebase.
 
-## Step 9: Perform `git merge`
+## Step 11: Perform `git merge`
 
 - To merge `new-feature` branch into the `main` branch, you should first switch to the `main` branch:
 
@@ -152,7 +190,7 @@
       git push origin main
   ```
 
-## Step 10: Compare `new-feature` and `old-feature` Branches
+## Step 12: Compare `new-feature` and `old-feature` Branches
 
 - To see which commits are in `new-feature` but not in `old-feature`, you can use the `git log` command with the double dot syntax:
 
@@ -169,7 +207,7 @@
       git diff old-feature..new-feature
   ```
 
-## Step 11: Delete `new-feature` Branch
+## Step 13: Delete `new-feature` Branch
 
 - To **delete** a `new-feature` branch both locally and remotely. Switch to the `main` branch:
 
@@ -205,7 +243,7 @@
           git branch -r
       ```
 
-## Step 11: Renaming `new-feature` Branch
+## Step 14: Renaming `new-feature` Branch
 
 - To rename the **local branch** from `old-branch-name` to `new-branch-name`
   ```sh
@@ -337,3 +375,4 @@
 1. [Atlassian - Git Feature Branch Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
 2. [the Atlassian docs - Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
 3. [freeCodeCamp - How to Fix Merge Conflicts in Git](https://www.freecodecamp.org/news/how-to-fix-merge-conflicts-in-git/)
+4. [Adding locally hosted code to GitHub](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
