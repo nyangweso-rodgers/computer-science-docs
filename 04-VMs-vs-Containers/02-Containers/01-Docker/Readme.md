@@ -249,52 +249,6 @@
     POSTGRES_VERSION=alpine USER=foo docker-compose up
   ```
 
-### Step #4.7: Start and Run Docker Containers
-
-- Using `docker-compose up -d`:
-  - This command will not rebuild the Docker images if there are no changes to the `Dockerfile` or any of the files referenced in the build context. It uses the existing images if they exist, otherwise, it builds new images.
-  - Detached mode means that the containers will run in the background, and you'll get your terminal prompt back immediately.
-    ```sh
-      docker-compose up -d
-    ```
-- Using `docker-compose up`:
-
-  - This command starts your Docker containers defined in the docker-compose.yml file in attached mode (i.e., it keeps the containers running in the foreground and shows their output in the terminal).
-  - Similar to `docker-compose up -d`, this command does not rebuild the **Docker images** if there are no changes to the `Dockerfile` or any of the files referenced in the build context.
-    ```sh
-      docker-compose up
-    ```
-
-- Using `docker-compose up --build`:
-  - This command also starts your Docker containers defined in the `docker-compose.yml` file, but it rebuilds the images before starting the containers, regardless of whether there are any changes to the Dockerfile or build context files.
-  - It's useful when you want to ensure that your containers are using the latest version of the images, even if there haven't been any changes to the Dockerfile or build context since the last build.
-    ```sh
-      docker-compose up --build
-    ```
-- After the first time, however, we can simply use `start` to start the services:
-  ```sh
-    #start
-    docker-compose start
-  ```
-- Compose can also run in the background as a daemon when launched with the `-d` option:
-  ```sh
-    #run docker-compose in the background.
-    docker-compose up -d
-  ```
-
-### Step #4.8: Shutdown
-
-- To safely stop the active services, we can use stop, which will preserve containers, volumes, and networks, along with every modification made to them:
-  ```sh
-    #stop active servuces
-    docker-compose stop
-  ```
-- To reset the status of our project, we can simply run `down`, which will destroy everything with the exception of external volumes:
-  ```sh
-    #reset
-    docker-compose down
-  ```
-
 ### Step #4.9: Example of `docker-compose.yml` File
 
 - Example:
@@ -357,30 +311,10 @@
 
 # Popuar Docker Commands
 
-- Docker commands should be executed in the root folder where `Dockerfile` is located.
-
-## Command #1: Check if Docker is Installed
-
-- Syntax:
-  ```sh
-    #check if Docker is installed
-    docker version
-  ```
-
 ## Commands for Working with Docker Images
 
-### Command #2: Lists Docker Images
+### Command #2: 
 
-- To list all the docker images on your system, run:
-  ```sh
-    #list all docker images
-    docker images
-  ```
-- or,
-  ```sh
-    #list all docker images
-    docker images ls
-  ```
 
 ### Command #3: Create Docker Image from `Dockerfile`
 
@@ -424,19 +358,8 @@
       docker login docker.io
     ```
 
-### Command #12: Delete an Image
 
-- To delete an image, you have to ensure no container is using that image; if a container is using the image, we'd have to delete the container before we would be able to delete the image
-- Syntax:
-  ```sh
-    # delete an image using image name
-    docker rmi <IMAGE_NAME or IMAGE_ID>
-  ```
-- Example:
-  ```sh
-    # delete python image
-    docker rmi python
-  ```
+
 
 ## Commands for Working with Docker Containers
 
@@ -448,20 +371,6 @@
   ```
 - Example:
 
-### Command #7: Lists All Docker Containers (Running/Stopped)
-
-- To check the status and details of running containers on your system, you can use the `docker ps` command.
-  ```sh
-    # list running containers
-    docker ps
-  ```
-- If you want to see all containers, including those that are stopped, you can add the `-a` flag:
-
-  ```sh
-    # lists all containers (stopped and running containers)
-    docker ps -a
-  ```
-
 ### Command #8: Start a Container
 
 - Syntax:
@@ -470,33 +379,10 @@
   ```
 - Example
 
-### Command #9: Stop Running Container
 
-- Syntax
-  ```sh
-    docker stop <container_id>
-  ```
-- Example
 
-### Command #10: Check Container Logs
 
-- While a container is running, we can check what is being logged in the container log:
-- Syntax:
-  ```sh
-    docker logs <CONTAINER_NAME or CONTAINER_ID>
-  ```
 
-### Command #11: Delete a Container
-
-- To delete a container, it must not be running
-- Syntax:
-  ```sh
-    docker stop <container_name>
-  ```
-- Once the container is stopped, we can then delete it:
-  ```sh
-    docker rm <container_name>
-  ```
 
 ## Execute Commands in a Running Container
 
