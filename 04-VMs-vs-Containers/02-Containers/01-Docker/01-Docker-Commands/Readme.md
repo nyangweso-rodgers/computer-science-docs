@@ -39,7 +39,7 @@
     docker-compose up --build
   ```
 
-## Remark
+## Remarks
 
 - After the first time, however, we can simply use `start` to start the services:
   ```sh
@@ -59,7 +59,7 @@
 
 ## `docker-compose down`
 
-- To reset the status of our project, we can simply run `down`, which will destroy everything with the exception of external volumes:
+- To reset the status of our project, we can simply run `down`, which will destroy everything with the **exception of external volumes**:
   ```sh
     #reset
     docker-compose down
@@ -75,6 +75,23 @@
 
     #or, list all docker images
     docker images ls
+  ```
+
+# Command #: Docker Image Metadata
+
+- Before running a container, you can review the image metadata using:
+  ```sh
+    docker inspect <image_name>
+  ```
+- `docker inspect <image_name>` return a `JSON` output.
+- `inspect` command provides useful information about the image such as:
+  - the layers information,
+  - image size,
+  - hardware architecture, e.t.c.,
+- Example:
+
+  ```sh
+    docker inspect postgres
   ```
 
 # Command #: Lists Docker Containers
@@ -98,12 +115,27 @@
   ```sh
     docker logs <CONTAINER_NAME or CONTAINER_ID>
   ```
+- Example:
+  ```sh
+    docker logs postgres
+  ```
+
+# Command #: Execute Commands in a Running Container
+
+- `docker exec` Docker command used to execute commands in a running container
+  - `-it`: These are options passed to the docker exec command:
+    - `-i` or `--interactive`: This option allows you to interact with the container's standard input, allowing you to provide input to the executed command.
+    - `-t` or `--tty`: This option allocates a pseudo-TTY (terminal) for the command being executed, allowing you to see the command's output as if you were running it directly in a terminal.
 
 # Command #: Stop Running Container
 
 - Syntax
   ```sh
     docker stop <container_id>
+  ```
+- Example:
+  ```sh
+    docker stop postgres
   ```
 
 # Command #: Delete a Container
@@ -131,5 +163,31 @@
     #delete python image
     docker rmi python
   ```
+
+# Command #: Docker Volumes
+
+- If you want to know Where is **Docker** storing your data when you use a `volume`, you can use the `docker volumne inspect` command:
+- **Syntax**:
+  ```sh
+    #understand where data is stored
+    docker volume inspect <volume_name>
+  ```
+- Example:
+  ```sh
+    docker volume inspect postgres_volume
+  ```
+
+# Command #: Push Docker Image to [Docker Hub](https://hub.docker.com/)
+
+- Syntax:
+  ```sh
+    docker push <dockerhub_user_id><image_name>:<version>
+  ```
+- Example:
+- Remark:
+  - you can log into [Docker Hub](https://hub.docker.com/) using the below command:
+    ```sh
+      docker login docker.io
+    ```
 
 # Resources
