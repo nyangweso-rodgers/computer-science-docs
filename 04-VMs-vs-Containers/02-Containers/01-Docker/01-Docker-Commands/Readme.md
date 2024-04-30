@@ -166,15 +166,31 @@
 
 # Command #: Docker Volumes
 
+- List all your volumes with `docker volume ls`:
+  ```sh
+    docker volume ls
+  ```
 - If you want to know Where is **Docker** storing your data when you use a `volume`, you can use the `docker volumne inspect` command:
 - **Syntax**:
   ```sh
     #understand where data is stored
     docker volume inspect <volume_name>
   ```
-- Example:
+- **Example**:
   ```sh
     docker volume inspect postgres_volume
+  ```
+- Delete a volume with `docker volume rm`:
+  ```sh
+    docker volume rm postgres_volume
+  ```
+- Volumes which are currently mounted to a container can’t be deleted unless you add the `-f` (force) flag:
+  ```sh
+    docker volume rm postgres_volume -f
+  ```
+- We can also clean up all unused volumes with `docker volume prune`. The command deletes volumes that aren’t mounted to at least one container.
+  ```sh
+    docker volume prune
   ```
 
 # Command #: Push Docker Image to [Docker Hub](https://hub.docker.com/)
