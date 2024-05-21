@@ -162,6 +162,11 @@
     #delete python image
     docker rmi python
   ```
+- **Remarks**:
+  - We can also clean up all unused **images** with `docker image prune`. The command deletes images that aren’t mounted to at least one container.
+  ```sh
+    docker image prune
+  ```
 
 # Command #: Docker Volumes
 
@@ -191,7 +196,5 @@
   ```sh
     docker volume prune
   ```
-
-
 
 # Resources
