@@ -173,7 +173,7 @@
         DB: mydb
         USER: "${USER}"
   ```
-- There are different methods to provide those values to Compose. For example, one method is setting them in a `.env` file in the same directory, structured like a `.properties` file, `key=value`:
+- There are different methods to provide those values to **Compose**. For example, one method is setting them in a `.env` file in the same directory, structured like a `.properties` file, `key=value`:
   ```env
     POSTGRES_VERSION=alpine
     USER=foo

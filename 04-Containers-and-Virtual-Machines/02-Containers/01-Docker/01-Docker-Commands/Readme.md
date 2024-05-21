@@ -8,7 +8,6 @@
 
 - check if Docker is installed by running:
   ```sh
-    #check if Docker is installed
     docker version
   ```
 
@@ -193,17 +192,6 @@
     docker volume prune
   ```
 
-# Command #: Push Docker Image to [Docker Hub](https://hub.docker.com/)
 
-- Syntax:
-  ```sh
-    docker push <dockerhub_user_id><image_name>:<version>
-  ```
-- Example:
-- Remark:
-  - you can log into [Docker Hub](https://hub.docker.com/) using the below command:
-    ```sh
-      docker login docker.io
-    ```
 
 # Resources
