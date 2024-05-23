@@ -40,6 +40,20 @@
 
 ## Remarks
 
+- There are two ways you can specify specific services to run with `docker-compose`:
+
+  1. Using service names
+     ```sh
+      docker-compose up -d --build <service_name1> <service_name2> ...
+     ```
+     - This command will only build and start the services you specify. Any dependent services will not be started unless explicitly included.
+  2. Using the `--no-deps` flag:
+     ```sh
+      docker-compose up -d --build --no-deps <service_name>
+     ```
+     - This approach combines the `--build` flag to rebuild the image before running and the `--no-deps` flag.
+     - `--no-deps` tells Docker Compose to not automatically start any services that the specified service depends on.
+
 - After the first time, however, we can simply use `start` to start the services:
   ```sh
     #start
