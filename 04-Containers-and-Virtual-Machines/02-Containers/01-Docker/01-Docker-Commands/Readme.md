@@ -151,6 +151,15 @@
     docker stop postgres
   ```
 
+# Command #: Remove Containers
+
+- Use `docker-compose rm -sf` command to remove stopped service containers defined in a `docker-compose.yml` file.
+
+  - The `-s` flag stands for `--stop`. When used, it stops the containers before removing them. This ensures that any running containers will be stopped before the removal process begins.
+  - The `f` flag stands for `--force`. It forces the removal of containers without asking for confirmation. Normally, `docker-compose rm` will prompt you to confirm the removal of each container, but with the `-f` flag, it will proceed without any prompts.
+
+- This command is useful for quickly cleaning up your Docker environment by stopping and removing containers defined in the Compose file.
+
 # Command #: Delete a Container
 
 - To delete a **container**, it must not be running
