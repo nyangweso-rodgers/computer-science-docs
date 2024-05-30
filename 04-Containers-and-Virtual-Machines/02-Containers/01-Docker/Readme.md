@@ -46,21 +46,24 @@
 
 ### Docker Concept #1: `Dockerfile`
 
-- A `Dockerfile` contains the set of instructions for building a **Docker Image**.
-- The first step in using **Docker** is writing a `Dockerfile`. It is an essential blueprint for constructing **Docker images**. It is a text file, is usually named `“Dockerfile”` without any extension, and contains a series of instructions.
+- A `Dockerfile` is a text file contains the set of instructions for building a **Docker Image**.
+- The first step in using **Docker** is writing a `Dockerfile`. It is an essential blueprint for constructing **Docker images**.
 - Each line in this file represents a new instruction, forming a stack of layers. Each layer is cache-able. When you build an image twice, it will use the cache. When you change a line in the file, it rebuilds all instructions after and including the change.
-- **Steps** to creating a `Dockerfile`:
-  - We use a plain text to create a `Dockerfile`.
-  - Using a **Command Line**:
-    - Step 1: create a new file in your current working directory called `Dockerfile`
-      ```sh
-        touch Dockerfile
-      ```
-    - open the file in VS Code
-      ```sh
-        code Dockerfile
-      ```
-- A `Dockerfile` holds all the instructions to **build**, **start** and **run** your application. Every command that you otherwise need to execute manually is written in a single file. It starts by using a base image.
+- We use a plain text to create a `Dockerfile`.Create a new file in your current working directory called `Dockerfile`. **Components** include:
+
+  1. `FROM:`- for a base image the command must be on top of the docker
+  2. `RUN:` To execute Command, it will create a layer in the image.
+  3. `MAINTAINER`: Author/owner/description
+  4. `COPY:` Copy files from the local system (docker VM) we need to provide a source, destination(We cant download file from the internet and any remote directory)
+  5. `ADD:` Similar to `copy` but, it provides a feature to download files from the internet, also we extract files at the docker image side.
+  6. `EXPOSE:` - To Expose ports such as port 80 for Nginx, etc.
+  7. `WORKDIR:` To set a working directory for a container.
+  8. `CMD:` Execute commands but during container creation
+  9. `ENTRYPOINT:` Similar to `CMD`, but has higher priority over `CMD`, first commands will be executed by `ENTRYPOINT` only.
+  10. `ENV:`- Environment Variables
+
+- Example:
+  - Define Python Docker Container with `Dockerfile`
 
 ### Docker Concept #2: Docker Image
 
