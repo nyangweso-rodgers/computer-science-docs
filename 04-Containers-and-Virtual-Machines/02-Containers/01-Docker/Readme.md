@@ -88,6 +88,23 @@
 - A **Docker registry** is a repository for the storage and distribution of **Docker images**. **Docker registry** allows users to "pull" or "push" **Docker images**.
 - [Docker Hub](https://hub.docker.com/) is the official docker registry.
 
+## Docker Concept 7: Ports (Publishing and Exposing Ports)
+
+- **Publishing** a port provides the ability to break through a little bit of networking isolation by setting up a forwarding rule. As an example, you can indicate that requests on your host’s port `8080` should be forwarded to the container’s port `80`.
+  - `HOST_PORT`: The port number on your host machine where you want to receive traffic
+  - `CONTAINER_PORT`: The port number within the container that's listening for connections
+- Examples:
+  - Using **Docker Compose**:
+    ```yml
+    services:
+      app:
+        image: my-image
+        ports:
+          - 8080:80
+    ```
+    - Here,
+      - We are using the `HOST_PORT:CONTAINER_PORT` mapping
+
 ## Docker Concept #7: Docker Hub
 
 - [Docker Hub](https://hub.docker.com/) is a centralized repository for storing and sharing **Docker images**. All the components required to run an application are included in a **docker image**, which serves as the container's architectural blueprint.
@@ -118,9 +135,10 @@
 
 # Resources
 
-1. [The Ultimate Docker Cheat Sheet](https://devopscycle.com/blog/the-ultimate-docker-cheat-sheet/?mkt_tok=NzkwLVNTQi0zNzUAAAGQiPdekjcDh3HVPGYJIzKB936CcoVM7WS2-TQr3Wh-9d0C3MLx8CwcrTfclpj6x8ue3hxOgCkcdRFkS-q9Yez85eZwMUXWRpiVsJsFJlFiW04)
-2. [How to Build Docker Image : Comprehensive Beginners Guide](https://devopscube.com/build-docker-image/)
-3. [What Is Docker and How Does It Work? – Docker Explained](https://www.hostinger.in/tutorials/what-is-docker)
-4. [freecodecamp - How Docker Containers Work – Explained for Beginners](https://www.freecodecamp.org/news/how-docker-containers-work/)
-5. [Optimize Your Deployments: Docker Image Best Practices](https://www.javacodegeeks.com/2024/01/optimize-your-deployments-docker-image-best-practices.html?ref=dailydev)
-6. [Introduction to Docker Compose](https://www.baeldung.com/ops/docker-compose)
+1. [docs.docker.com/guidesdocker-concepts - publishing-ports](https://docs.docker.com/guides/docker-concepts/running-containers/publishing-ports/)
+2. [The Ultimate Docker Cheat Sheet](https://devopscycle.com/blog/the-ultimate-docker-cheat-sheet/?mkt_tok=NzkwLVNTQi0zNzUAAAGQiPdekjcDh3HVPGYJIzKB936CcoVM7WS2-TQr3Wh-9d0C3MLx8CwcrTfclpj6x8ue3hxOgCkcdRFkS-q9Yez85eZwMUXWRpiVsJsFJlFiW04)
+3. [How to Build Docker Image : Comprehensive Beginners Guide](https://devopscube.com/build-docker-image/)
+4. [What Is Docker and How Does It Work? – Docker Explained](https://www.hostinger.in/tutorials/what-is-docker)
+5. [freecodecamp - How Docker Containers Work – Explained for Beginners](https://www.freecodecamp.org/news/how-docker-containers-work/)
+6. [Optimize Your Deployments: Docker Image Best Practices](https://www.javacodegeeks.com/2024/01/optimize-your-deployments-docker-image-best-practices.html?ref=dailydev)
+7. [Introduction to Docker Compose](https://www.baeldung.com/ops/docker-compose)
