@@ -15,9 +15,62 @@
 5. **Get comfortable with the terminal**: a lot of time, new developers have a hard tim adjsuting to a workflow that makes use of terminal. With **Linux**, you will have to run so many commands that terminal will become your second home.
 6. **Understand Computer hardware better**:
 
+# What is a Linux Shell
+
+- Whenever a user logs in to the system or opens a console window, the **kernel** runs a new **shell** instance. The **kernel** is the heart of any os. It is responsible for the control management, and execution of processes, and to ensure proper utilization of system resources.
+- A **shell** is a program that acts as an interface between a **user** and the **kernel**. It allows a user to give commands to the **kernel** and receive responses from it. Through a **shell**, we can execute programs and utilities on the **kernel**. Hence, at its core, a **shell** is a program used to execute other programs on our system.
+
+## Why do we need a Shell?
+
+- Being able to interact with the **kernel** makes **shells** a powerful tool. Without the ability to interact with the **kernel**, a user cannot access the utilities offered by their machine’s os.
+
+## What are the Different Types of Shells in Linux?
+
+### 1. The Bourne Shell (sh)
+
+- Developed at AT&T Bell Labs by Steve Bourne, the **Bourne shell** is regarded as the first **UNIX shell** ever. It is denoted as **sh**. It gained popularity due to its compact nature and high speeds of operation.
+- However, the Bourne shell has some major drawbacks.
+  - It doesn’t have in-built functionality to handle logical and arithmetic operations.
+  - Also, unlike most different types of shells in Linux, the Bourne shell cannot recall previously used commands.
+  - It also lacks comprehensive features to offer a proper interactive use.
+- The complete path-name for the **Bourne shell** is `/bin/sh and /sbin/sh`. By default, it uses the prompt `#` for the root user and `$` for the non-root users.
+
+### 2. The GNU Bourne-Again Shell (bash)
+
+- More popularly known as the **Bash shell**, the **GNU Bourne-Again shell** was designed to be compatible with the **Bourne shell**. It incorporates useful features from different types of shells in **Linux** such as **Korn shell** and **C shell**.
+- It allows us to automatically recall previously used commands and edit them with help of arrow keys, unlike the **Bourne shell**.
+- The complete path-name for the **GNU Bourne-Again shell** is `/bin/bash`. By default, it uses the prompt `bash-VersionNumber#` for the root user and `bash-VersionNumber$` for the non-root users.
+
+### 3. The C Shell (csh)
+
+- The **C shell** was created at the University of California by Bill Joy. It is denoted as **csh**. It was developed to include useful programming features like in-built support for arithmetic operations and a syntax similar to the C programming language.
+
+- Further, it incorporated command history which was missing in different types of shells in **Linux** like the _Bourne shell_. Another prominent feature of a C shell is “aliases”.
+
+- The complete path-name for the **C shell** is `/bin/csh`. By default, it uses the prompt hostname# for the root user and hostname% for the non-root users.
+
+### 4. The Korn Shell (ksh)
+
+- The **Korn shell** was developed at AT&T Bell Labs by David Korn, to improve the **Bourne shell**. It is denoted as **ksh**. The _Korn shell_ is essentially a superset of the **Bourne shell**.
+
+- Besides supporting everything that would be supported by the **Bourne shell**, it provides users with new functionalities. It allows in-built support for arithmetic operations while offereing interactive features which are similar to the C shell.
+
+- The **Korn shell** runs scripts made for the **Bourne shell**, while offering string, array and function manipulation similar to the C programming language. It also supports scripts which were written for the **C shell**. Further, it is faster than most different types of shells in **Linux**, including the **C shell**.
+
+- The complete path-name for the **Korn shell** is `/bin/ksh`. By default, it uses the prompt `#` for the root user and `$` for the non-root users.
+
+### 5. The Z Shell (zsh)
+
+- The **Z Shell** or `zsh` is a sh shell extension with tons of improvements for customization. If you want a modern shell that has all the features a much more, the `zsh` shell is what you’re looking for.
+- Some noteworthy features of the z shell include:
+  - Generate filenames based on given conditions
+  - Plugins and theming support
+  - Index of built-in functions
+  - Command completion
+
 # Windows Subsystem for Linux (WSL)
 
-- WSL lets you run a Linux environment directly on your Windows machine, without needing a separate virtual machine or dual-booting. It's like having two operating systems in one, seamlessly integrated!
+- **WSL** lets you run a **Linux** environment directly on your **Windows** machine, without needing a separate virtual machine or dual-booting. It's like having two operating systems in one, seamlessly integrated!
 
 ## Similarities between Linux and WSL
 
@@ -119,8 +172,10 @@
      - `/tmp`: Temporary files.
      - `/snap`: Snap packages (containerized software packages).
 - Additionally, it's worth noting that directories like `/sys` and `/proc` are virtual filesystems providing information about the kernel and processes, respectively.
+
 # Resources
 
 1. [Microsoft Learn - Windows Subsystem for Linux Documentation](https://learn.microsoft.com/en-us/windows/wsl/)
 2. [Ubuntu WSL](https://canonical-ubuntu-wsl.readthedocs-hosted.com/en/latest/)
 3. [How to Install WSL 2 on Windows 10 (Updated)](https://www.omgubuntu.co.uk/how-to-install-wsl2-on-windows-10)
+4. [digitalocean.com/community/tutorials/different-types-of-shells-in-linux?ref=dailydev](https://www.digitalocean.com/community/tutorials/different-types-of-shells-in-linux?ref=dailydev)
