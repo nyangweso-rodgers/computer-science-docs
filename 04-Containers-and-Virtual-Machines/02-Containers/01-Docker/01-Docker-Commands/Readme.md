@@ -220,4 +220,29 @@
     docker volume prune
   ```
 
+# Docker Exec Commands
+
+## How To Use docker exec to Run Commands in a Docker Container
+
+- When developing or deploying **containers** you’ll often need to look inside a running container to inspect its current state or debug a problem. To this end, **Docker** provides the `docker exec` command to run programs in already running containers.
+- To use the `docker exec` command, you will need a running **Docker container**.
+
+## Running an Interactive Shell in a Docker Container
+
+- If you need to start an interactive shell inside a **Docker Container**, perhaps to explore the filesystem or debug running processes, use `docker exec` with the `-i` and `-t` flags. The `-i` flag keeps input open to the container, and the `-t` flag creates a pseudo-terminal to which the shell can attach. These flags can be combined like this:
+  ```sh
+    docker exec -it container-name sh
+  ```
+- This will run the `sh` shell in the specified container, giving you a basic shell prompt. To exit back out of the container, type `exit` then press `ENTER`:
+- If your container image includes a more advanced shell such as `bash`, you could replace `sh` with `bash` above.
+
+## Running a Non-interactive Command in a Docker Container
+
+- If you need to run a command inside a running `Docker container`, but don’t need any interactivity, use the `docker exec` command without any flags:
+  ```sh
+    docker exec container-name tail /var/log/date.log
+  ```
+
 # Resources
+
+1. [https://www.digitalocean.com/community/tutorials/how-to-use-docker-exec-to-run-commands-in-a-docker-container?ref=dailydev](https://www.digitalocean.com/community/tutorials/how-to-use-docker-exec-to-run-commands-in-a-docker-container?ref=dailydev)
