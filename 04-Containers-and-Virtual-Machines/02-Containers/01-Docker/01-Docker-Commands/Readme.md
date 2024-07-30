@@ -220,6 +220,13 @@
     docker volume prune
   ```
 
+# Command #: Docker Prune
+
+- Remove unused data (Removes unused Docker data (images, containers, networks, volumes).):
+  ```sh
+    docker system prune
+  ```
+
 # Docker Exec Commands
 
 ## How To Use docker exec to Run Commands in a Docker Container
