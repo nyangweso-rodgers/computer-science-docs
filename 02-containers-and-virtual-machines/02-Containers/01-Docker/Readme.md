@@ -27,43 +27,60 @@
 
 - Using Docker, you can start many types of databases in seconds. By searching, [hub.docker.com](https://hub.docker.com/) you can find ready-to-use containers for many databases.
 
-# Installing Docker
-
-- Install Docker engine for windows, linux or mac OS from the [official Docker website](https://www.docker.com/)
-
-## Install Docker Desktop
-
-- **Docker Desktop** can be used to see which containers are running, manage containers, and perform other Docker-related tasks.
-- [Install Docker Desktop on Windows](https://docs.docker.com/desktop/install/windows-install/)
-
 # Docker Concepts
 
-- The **Dockerfile** is the base for an **image**, and an **image** is used to create a **container**. A **container** is running as a process on the host machine. Yet, it has its own file system and is separated from the other processes.
+## 1. Docker Host
 
-## Two Important Docker Concepts
+- A **Docker host** refers to the machine or system where **Docker** is installed and running. It is the environment where you can create and manage Docker containers, images, networks, and volumes.
+- A **Docker host** can be any physical or virtual machine that meets the minimum requirements for Docker installation, which include:
+  1. A 64-bit operating system (Linux, macOS, or Windows)
+  2. A compatible CPU architecture (x86-64 or ARM64)
+  3. Sufficient memory and disk space
+  4. A compatible Docker version
+- Once **Docker** is installed on a host, you can use the **Docker client** to manage Docker resources on that host. For example, you can use the Docker client to run commands to create and start containers, build and push images, and manage networks, and volumes.
 
-- At its core, **Docker** has two concepts that are useful to understand: the `Dockerfile` and **Docker Images**.
+## 2. Docker Registry
 
-### Docker Concept #1: `Dockerfile`
+- A **Docker registry** is a server-side application that stores and distributes **Docker images**. A **Docker registry** is a central repository where **Docker images** are stored and managed. It allows developers to upload, store, and share their Docker images with other developers and team members, making it easier to collaborate and deploy applications.
+- There are two types of **Docker registries**:
+  1. **Public registries** are open to anyone and are typically used to store open-source images.
+  2. **Private registries** are only accessible by authorized users and are commonly used by organizations to store proprietary images.
+- [Docker Hub]() is the most popular **public Docker registry**, while private registries can be hosted on-premises or in the cloud, using solutions such as
+  1. **Docker Trusted Registry**,
+  2. Amazon Elastic Container Registry (ECR),
+  3. Google Container Registry, or
+  4. Microsoft Azure Container Registry.
+
+## 3. Dockerfile
 
 - A `Dockerfile` is a text file contains the set of instructions for building a **Docker Image**.
 - The first step in using **Docker** is writing a `Dockerfile`. It is an essential blueprint for constructing **Docker images**.
 - Each line in this file represents a new instruction, forming a stack of layers. Each layer is cache-able. When you build an image twice, it will use the cache. When you change a line in the file, it rebuilds all instructions after and including the change.
-- We use a plain text to create a `Dockerfile`.Create a new file in your current working directory called `Dockerfile`. **Components** include:
-
+- `Dockerfile` instructions include:
   1. `FROM:`- for a base image the command must be on top of the docker
-  2. `RUN:` To execute Command, it will create a layer in the image.
-  3. `MAINTAINER`: Author/owner/description
-  4. `COPY:` Copy files from the local system (docker VM) we need to provide a source, destination(We cant download file from the internet and any remote directory)
-  5. `ADD:` Similar to `copy` but, it provides a feature to download files from the internet, also we extract files at the docker image side.
-  6. `EXPOSE:` - To Expose ports such as port 80 for Nginx, etc.
-  7. `WORKDIR:` To set a working directory for a container.
-  8. `CMD:` Execute commands but during container creation
-  9. `ENTRYPOINT:` Similar to `CMD`, but has higher priority over `CMD`, first commands will be executed by `ENTRYPOINT` only.
-  10. `ENV:`- Environment Variables
+  2. `COPY:` Copy files from the local system (docker VM) we need to provide a source, destination(We cant download file from the internet and any remote directory)
+  3. `WORKDIR:` To set a working directory for a container.
+  4. `ADD:` Similar to `copy` but, it provides a feature to download files from the internet, also we extract files at the docker image side.
+  5. `RUN`: used in `Dockerfile` to execute commands that build and configure the **Docker image**.
+  6. `CMD`: specifies the default command to run when a container is started from the **Docker image**.
+     - If no command is specified during the container startup (i.e., in the `docker run` command), this default is used. `CMD` can be overridden by supplying command-line arguments to `docker run`.
+  7. `ENTRYPOINT`: sets the default executable for the container.
+     - It is similar to `CMD` but is overridden by the command-line arguments passed to `docker run`. Instead, any command-line arguments are appended to the `ENTRYPOINT` command.
+     - **NOTE**: Use `ENTRYPOINT` when you need your **container** to always run the same base command, and you want to allow users to append additional commands at the end.
+  8. `ENV:`- Environment Variables
+  9. `EXPOSE:` - To Expose ports such as port 80 for Nginx, etc.
+  10. `MAINTAINER`: Author/owner/description
 
-- Example:
-  - Define Python Docker Container with `Dockerfile`
+# Installing Docker
+
+1. Step 1: Install Docker engine for windows, linux or mac OS from the [official Docker website](https://www.docker.com/)
+2. Step 2: Install Docker Desktop
+   - **Docker Desktop** can be used to see which containers are running, manage containers, and perform other Docker-related tasks.
+   - [Install Docker Desktop on Windows](https://docs.docker.com/desktop/install/windows-install/)
+
+# Docker Concepts
+
+## Two Important Docker Concepts
 
 ### Docker Concept #2: Docker Image
 
