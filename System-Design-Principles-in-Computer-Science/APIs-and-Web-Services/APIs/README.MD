@@ -2,34 +2,138 @@
 
 ## Table Of Contents
 
-# Introduction to APIs
+# What is an API?
 
-- An **API** is a _computing interface which defines interactions between multiple software intermediaries_. It defines:
+- An **API** is a set of rules and protocols for building and interacting with software applications. It defines the methods and data formats that applications use to communicate with external systems or services. APIs enable different software components to interact with each other, allowing developers to use functionalities of other applications without needing to understand their internal workings.
 
-  - the kinds of calls or requests that can be made,
-  - how to make them,
-  - the data formats that should be used,
-  - the conventions to follow, etc.
+# Types of APIs
 
-- **APIs** can come in many forms or shapes. They can be _operating system APIs_, used for actions like turning on your camera and audio for joining a Zoom call. Or they can be _web APIs_, used for web-focused actions such as liking images on your Instagram or fetching the latest tweets. No matter the type, all APIs function mostly the same way. You usually make a **request** for information or data, and the API returns a **response** with what you requested.
+## 1. REST (Representational State Transfer)
 
-# Characteristics of APIs
+- Uses standard HTTP methods.
+- Stateless architecture.
+- Resources identified by URLs.
+- Widely used due to simplicity and scalability.
 
-- _APIs form a bridge for interactions between services_ e.g., mainframe and databases and customer-facing services. **APIs** enable organizations to share information with external developers, business associates, and other teams within the organization.
+## 2. SOAP (Simple Object Access Protocol)
 
-- _APIs allow you to expose some functions of a program_. **APIs** providers can share positions of their code with developers but do not have to release everything for new applications and services to be developed. **APIs** from different providers can be combined by developers to create new applications.
+- Protocol for exchanging structured information.
+- Relies on XML.
+- Supports complex operations and higher security.
+- Used in enterprise-level applications.
+- Pros of **SOAP** include:
+  - The major advantage of **SOAP** is the fact that it is completely agnostic when it comes to the programming language and processing platform. The standardized format ensures that no matter what is receiving the message on the other end, the request can be executed.
+  - this type of API comes with native error handling already built-in, helping developers to be proactive and solve issues before they snowball.
+- Use Case include:
+  - Perhaps the strongest SOAP use case is with high-security data transmissions in situations where two parties have agreed to a specific legal contract. Here SOAP’s standardization works wonders because it allows for the contract’s terms to be formally codified and enforced throughout all of the API’s processing. You’ll see plenty of this in high-stakes industries like financial services, where the data being passed back and forth is highly sensitive.
+- Remark
+  - **SOAP** has become less popular in recent years because of the sheer volume of information it requires. The `XML` files are large and are often unnecessarily clunky – especially for simple systems. The number of people who specialize in SOAP servers is rapidly declining, and that makes it a difficult thing to maintain if you don’t already have the right talent on board. It feels like the format is lagging behind newer, more flexible communication methods that offer more robust, sustainable results.
 
-- _A high-quality API facilitates the development of applications by allowing different functionalites to be created independently while offering a complete set of capabilities for development._
+## 3. GraphQL
 
-# Classification of APIs
+- **GraphQL**. Created by Facebook, is a very flexible query language for APIs, where the clients decide exactly what they want to fetch from the server instead of the server deciding what to send. A **query language** allows you to query data from the data store.
+- **GraphQL** was developed in response to **REST APIs**, with the idea that you could execute precise syntax that retrieves only what is needed, lightening the payload and simplifying the process significantly.
+- How do **GraphQL** and **REST** APIs fetch data differently?
+  - With a **REST API**, a **client** requests a resource using an API endpoint where that particular resource is located on the server. Each resource has a unique endpoint. This means needing multiple resources requires multiple requests.
+  - On the other hand, **GraphQL** functions using a single endpoint, and **clients** can request multiple resources in one call. **GraphQL** uses a strongly typed schema definition language that represents objects using nodes. The **GraphQL** server responds with a nested set of objects.
+- **GraphQL Query Document**
+  - In **GraphQL** a **query document** is a _string sent to a server to process and request data_. **Query Document** are read-only operations, and cannot be manipulated. The query tells the server what it needs to do. The **fields** are what the server used to identify what data to return.
+- **GraphQL Type System**:
+  - **GraphQL** used a type system to describe data and is organized around three main buiding blocks:
+    1. **Schema**: defines a set of types
+    2. **Queries**: obtain information about a specific fields from objects
+    3. **Resolvers**: retrieve data
+- Pros of GraphQL
+  - The advantages of immersing yourself in GraphQL APIs are that the API queries are transparent and well documented, giving users all the information they need to use it effectively.
+  - In addition, the precise results, detailed error messages, and flexible permissions help round out a well-balanced but high-functioning API. This is especially true when it comes to data structuring, where GraphQL gives users significant flexibility.
+- Cons of GraphQL
+  - Performance can suffer with GraphQL if you have too many nested fields in any one request. It also doesn’t reuse standard HTTP caching semantics, so it actually requires custom efforts to achieve proper caching. All of this makes GraphQL difficult to pick up without lots of training and experience. It certainly is an acquired skill, breaking away from the long track record and industry knowledge around REST APIs.
+- You start by creating a schema that describes all the possible queries and the specific types that they return. This can be challenging, but once completed, the API can accept specific requests and return a result that matches exactly what the user is looking for.
+- Allows clients to request exactly the data they need.
+- Reduces over-fetching and under-fetching of data.
+- Supports more flexible queries compared to REST.
 
-**APIs** are classified as follows based on how they are consumed:
+## 4. gRPC
 
-1.  **External API**: Present the API provider or business an opportunity to share certain data sets, services, and capabilities with developers. This capability enables the use of business's assets to develop innovative, new applications and allows for existing applications and services to be modified.They help foster relationships between internal and external developers and drive the creation of new application and services that are not possible without the business publicly sharing some of it's data and service.
+- In **gRPC**, RPC stands for **Remote Procedure Call** and refers to something that can execute a function housed elsewhere but in a different context.
+- The ‘`g`’ appended at the beginning narrows things down to the most advanced version developed by Google back in 2015. A user on one side will select a remote procedure to execute, serialize the necessary parameters and then append any additional information into the message. This will then be sent to the server, which interacts with the other application, decoding the message and executing the operation. A result then comes back to the initial user.
 
-2.  **Partner API**: These **APIs** are open to select business partners of a company. They are specifically designed for partners to be able to access business functions in context to the business relationship e.g., online catalog, ordering, and recommendation. In this type of **API**, typically the companies want to control who has access to the data they are exposing and want to have a greater control over how the data is used.
+* Pros of **gRPC** include:
+  - This is a powerful form of API because of its simplicity. It’s straightforward, using `GET` to fetch information and `POST` for everything else. This means that functions are easy to add, and for lightweight payloads, you get great performance overall. The ability to define any type of function makes it infinitely configurable. Essentially you’re limited only by your imagination.
+* Cons of **gRPC** include:
+  - Where **gRPC** falls short is in the fact that it’s tightly coupled to the underlying system, which restricts its reusability in many cases. In addition, there is no abstraction layer sitting between the API and the actual system functions, which can raise security concerns.
+* Use Case include:
+  - Typical use cases include command APIs that send simple requests to remote systems and customer-specific APIs, which help manage internal microservices at scale with great speed. By simplifying otherwise complex remote calls, gRPC has also become a staple of the Docker-based application world, proving its value when you have massive numbers of remote calls to execute.
 
-3.  **Internal API**: Organizations use API internally or privately to develop new ways of operating and managing their businesses. These internal **APIs** can be developed to more efficiently process internal documents, manage process, share information, account for assests, and other business processes in order to drive increased productivity.
+# Basic Principles of API Design
+
+## 1. Consistency
+
+- Ensure that your API is consistent in its structure, naming conventions, and error handling. For instance:
+  - Use similar naming conventions for endpoints.
+  - Apply uniform formats for responses and errors.
+  - Standardize parameter names and data types.
+
+## 2. Statelessness
+
+- Each request from a client should contain all the information needed to process the request. This simplifies the server’s design and improves scalability. **Statelessness** means that the server does not store any client context between requests, which helps in distributing the load across multiple servers.
+
+## 3. Resource-Oriented Design
+
+- Treat everything in your API as a resource. Resources can be objects, data, or services, and each should have a unique identifier (typically a URL in RESTful APIs). Design endpoints to represent resources and use HTTP methods to perform actions on them.
+
+## 4. Use Standard HTTP Methods
+
+- Follow the HTTP methods convention to perform operations on resources:
+  1. GET for retrieving resources.
+  2. POST for creating resources.
+  3. PUT for updating resources.
+  4. DELETE for deleting resources. Using these standard methods makes your API intuitive and easier to use.
+
+## 5. Versioning
+
+- Include versioning in your API design to handle updates without breaking existing clients. Common versioning strategies include:
+  - URL versioning (`/v1/resource`).
+  - Header versioning (`Accept: application/vnd.yourapi.v1+json`).
+  - Parameter versioning (`/resource?version=1`).
+
+# Designing a Simple RESTful API
+
+## Step 1: Define the Resources
+
+- Identify the resources your API will expose. For a simple blog API, resources might include `posts`, `comments`, and `users`.
+
+## Step 2: Design the Endpoints
+
+- Map out the endpoints for each resource. For example:
+  - `GET /posts` - Retrieve all posts.
+  - `GET /posts/{id}` - Retrieve a specific post.
+  - `POST /posts` - Create a new post.
+  - `PUT /posts/{id}` - Update a specific post.
+  - `DELETE /posts/{id}` - Delete a specific post.
+
+## Step 3: Define the Data Models
+
+- Specify the data structure for each resource. For instance, a post might have:
+  ```json
+  {
+    "id": 1,
+    "title": "API Design",
+    "content": "Content of the post",
+    "author": "John Doe",
+    "created_at": "2024-06-03T12:00:00Z"
+  }
+  ```
+
+## Step 4: Implement the Endpoints
+
+- Use a framework like **Express** (Node.js), **Django** (Python), or **Spring Boot** (Java) to implement the endpoints. Ensure each endpoint performs the intended operation and returns the appropriate HTTP status codes. For example, a `GET /posts` endpoint might look like this in Express.js:
+  ```js
+  app.get("/posts", (req, res) => {
+    // Logic to retrieve all posts from the database
+    res.status(200).json(posts);
+  });
+  ```
 
 # APIs Concepts
 
@@ -48,60 +152,109 @@
 
 4. **? Operator**: This operator is used to specify the parameters we want to send to the **API** or our “online function.”
 
-5. **Rate limiting**: is a technique which restricts the number of requests that users can make in a given time frame. Some APIs may actually block your IP or API keys if you go over the defined rate limit too often.
-
-6. **Query Parameters**:
+5. **Query Parameters**:
 
    - Sometimes when you call an **API**, you get a ton of data that you don’t need or want. But in some cases, you might want to extract only certain information. That’s where **query parameters** come in!
    - To add a query parameter to a given **URL**, you have to add a question mark (?) before the first query parameter. If you want to have multiple query parameters in your request, then you can split them with an ampersand (&).
    - In the **API** world, **query parameters** are used as filters you can send with your **API request** to further narrow down the responses. Using **query parameters**, you can start fetching more specific data from an **API**, making the whole experience a bit more tailored to your needs.
 
-7. **Authentication**: Authentication approaches range from the simplistic and straightforward, like those using **API keys** or **Basic Authentication**, to much more complex and safer techniques, like **OAuth**. Typically, calling an **API** without credentials or with the wrong ones will return a 401 Unauthorized or 403 Forbidden status code.
+6. **Pagination**: Sending lots of data back and forth between clients and servers comes with a price: bandwidth. To make sure that servers can cope with a lot of requests, APIs typically use **pagination**. In very simple terms, pagination is the act of splitting large amounts of data into multiple smaller pieces.
 
-   - **API Keys**: This is the most common level of authentication. These keys are used to identify you as an **API** user or customer and to trace your use of the API. API keys are typically sent as a _request header_ or as a _query parameter_.
-   - **OAuth**: Every time an app or platform has a Login With or Continue With option, that’s the starting point of an OAuth flow
+7. **Access Token**: used for **authentication**. Applications use an access token to authenticate themselves so that they can make an API call. Access tokens are just random strings.
 
-8. **Pagination**: Sending lots of data back and forth between clients and servers comes with a price: bandwidth. To make sure that servers can cope with a lot of requests, APIs typically use **pagination**. In very simple terms, pagination is the act of splitting large amounts of data into multiple smaller pieces.
+# API Gateway
 
-9. **Access Token**: used for **authentication**. Applications use an access token to authenticate themselves so that they can make an API call. Access tokens are just random strings.
+- API Gateway is a type of software that provides a way for clients to interact with a set of back-end services. A typical API gateway will provide a set of APIs that clients can use to access the various back-end services.
+- API Gateway acts as a proxy, intercepting requests from the application and forwarding them to the appropriate backend service.
+- Benefits of API Gateway include:
+  1. Increased Security: API gateways can provide an additional layer of security for your backend services by validating incoming requests and enforcing authentication and authorization policies.
+  2. Improved performance: API gateways can cache commonly requested data and distribute load across multiple backend servers to improve performance.
+  3. Easier management: API gateways can provide a single point of control for managing your backend services, making them easier to deploy.
 
-10. **API Gateway**: type of software that provides a way for clients to interact with a set of back-end services. A typical API gateway will provide a set of APIs that clients can use to access the various back-end services.
+# API Design Bes Practices
 
-    ### How does API Gateway work
+## 1. Authentication and Authorization
 
-    - API Gateway acts as a proxy, intercepting requests from the application and forwarding them to the appropriate backend service.
+- Secure your API using authentication (who you are) and authorization (what you can do). Common methods include:
+  1. **OAuth**: A widely used open standard for access delegation, commonly used for token-based authentication.
+  2. **JWT** (JSON Web Tokens): Tokens that encode a payload with a signature to ensure data integrity.
+  3. **API Keys**: Simple tokens passed via HTTP headers or query parameters to authenticate requests.
 
-    ### Benefits of API Gateway
+## 2. Rate Limiting
 
-    - _Increased Security_: API gateways can provide an additional layer of security for your backend services by validating incoming requests and enforcing authentication and authorization policies.
-    - _Improved performance_: API gateways can cache commonly requested data and distribute load across multiple backend servers to improve performance.
-    - _Easier management_: API gateways can provide a single point of control for managing your backend services, making them easier to deploy.
+- Rate limiting helps protect your API from excessive use and ensures resources are available for all users.
+- there might be a case where the user executes a loop, causing many API requests that can slow doen your API performance. In order to avioid such scenarios, use **rate-limitng** factors and limit the specific number or requests in the given time period.
 
-# APIs Response Status Codes
+## 3. Error Handling
 
-| Status code |        Meaning        |                                  Description                                  |
-| :---------: | :-------------------: | :---------------------------------------------------------------------------: |
-|     200     |          OK           |                         Your request was successful!                          |
-|     201     |        Created        |            Your request was accepted and the resource was created.            |
-|     400     |      Bad Request      |           Your request is either wrong or missing some information.           |
-|     401     |     Unauthorized      |              Your request requires some additional permissions.               |
-|     404     |       Not Found       |                    The requested resource does not exist.                     |
-|     405     |  Method Not Allowed   |          The endpoint does not allow for that specific HTTP method.           |
-|     500     | Internal Server Error | Your request wasn’t expected and probably broke something on the server side. |
+- Provide clear and consistent error messages. Use standard HTTP status codes and include meaningful error messages and codes in the response body.
+- For example:
+  ```json
+  {
+    "error": {
+      "code": 404,
+      "message": "Resource not found"
+    }
+  }
+  ```
+- Common HTTP status codes include:
+  1. `200 OK` for successful requests.
+  2. `201 Created` for successful resource creation.
+  3. `400 Bad Request` for client-side errors.
+  4. `401 Unauthorized` for authentication errors.
+  5. `403 Forbidden` for authorization errors.
+  6. `404 Not Found` for non-existent resources.
+  7. `500 Internal Server Error` for server-side errors.
+
+## 4. Pagination and Filtering
+
+- For endpoints returning large datasets, implement pagination to manage the load and improve performance. Allow clients to filter and sort data as needed. For example:
+  - Pagination: `GET /posts?page=2&limit=10`
+  - Filtering: `GET /posts?author=JohnDoe`
+  - Sorting: `GET /posts?sort=created_at&order=desc`
+
+## 5. Documentation
+
+- Use tools like Swagger (OpenAPI) or Postman to create interactive and up-to-date documentation. Good documentation should include:
+  - Detailed descriptions of endpoints.
+  - Request and response examples.
+  - Error messages and codes.
+  - Authentication methods.
+  - Sample code snippets.
+
+## 6. Testing
+
+- **API Testing** is performed to test wheather a particular API meets pre-deined parametsrs or not. It includes testing APIs in isolation to ascertain if they meet the:
+  - functionality,
+  - reliability,
+  - latency,
+  - performance,
+  - security, and other essesbtial parameters.
+- Some of the api tests include:
+  1. **Unit Testing:** involves testing the individual operations of the API by logically dividig them into units. **Unit testing** helps to identify imperfections in the early stages. It typically inclues testing each part of the code seperately.
+  2. **Functional Testing:** includes testing of all the functions in the codebase. It is often uses unit tests as tyhe building blocks.
+  3. **Load Testing:** generally validates the functionality and performance of API under load. **Load Testing** ensures whether an API will work as expected if multiple users are accessing the API concurrently.
+  4. **Runtime Error Detection**: can be performed manually or through automated testing. This testing includes monitoring an API by actually running the API entirely. It helps us to detect errors and exceptions and also prevent resource leaks.
+  5. **Security Testing**: this testing handles all the security aspects of an API, including external threats, validation, access control, and data encryption.
+  6. **Penetration Testing:** includes testing an API to find vulnerabilities in the system or codebase that attackers can exploit. It also includes testing functions that could be misused and test security assests that could be bypassed.
+  7. **Fuzz Testing:** in this testing, we provide substantial random data as the input to test the reliability of an API. This random data is known as **fuzz**. Fuzz Testing ensures the API functionality in the worst-case scenario.
+
+* Thoroughly test your API to ensure it handles various scenarios gracefully. Use unit tests, integration tests, and automated testing tools to validate functionality and performance. Popular testing frameworks include:
+  1. **JUnit** for Java.
+  2. **PyTest** for Python.
+  3. **Mocha** for JavaScript. Automated testing can help catch issues early and ensure your API remains reliable as it evolves.
 
 # API Optimizations
 
 It's imperative to optimize your API to provide a better user experience. Here are five ways to optimize your API performance and make it standout:
 
-1. **Use rate-limiting strategy:** there might be a case where the user executes a loop, causing many API requests that can slow doen your API performance. In order to avioid such scenarios, use **rate-limitng** factors and limit the specific number or requests in the given time period.
+1. **Cache Requests:** you can implement cache endpoints for the frequently used requests. This will reduce the number of round trips of client requets to the server and improve API performance and latency.
 
-2. **Cache Requests:** you can implement cache endpoints for the frequently used requests. This will reduce the number of round trips of client requets to the server and improve API performance and latency.
+2. **Use PATCH over PUT:** the **PATCH** requests method only updates the necessary part of the resource whereas **PUT** updates the entire resource.
 
-3. **Use PATCH over PUT:** the **PATCH** requests method only updates the necessary part of the resource whereas **PUT** updates the entire resource.
+3. **Compress Data:** massive data transactions make the API slow. Consider using compression teschniques like **GZip** to compress the data sent through the API. It will make the transfer faster and improve the overall performance of your API.
 
-4. **Compress Data:** massive data transactions make the API slow. Consider using compression teschniques like **GZip** to compress the data sent through the API. It will make the transfer faster and improve the overall performance of your API.
-
-5. **Using Appropriate Hosting:** if you expect your API to see high traffic surges, make sure you use a good hosting company that provides you with enough CPUs and databse instances to make your APIs fast. It will solve your network-related issues.
+4. **Using Appropriate Hosting:** if you expect your API to see high traffic surges, make sure you use a good hosting company that provides you with enough CPUs and databse instances to make your APIs fast. It will solve your network-related issues.
 
 # API Lifecycle
 
@@ -176,3 +329,4 @@ It's imperative to optimize your API to provide a better user experience. Here a
 # Resources and Further Reading
 
 1. [dev - Best Practices for Naming API Endpoints](https://dev.to/msnmongare/best-practices-for-naming-api-endpoints-2n5o?ref=dailydev)
+2. [Medium - API Design: From Basics to Best Practices](https://blog.devgenius.io/api-design-from-basics-to-best-practices-49bbb29cf696)
