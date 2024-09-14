@@ -208,10 +208,74 @@
 
 ## 4. Pagination and Filtering
 
-- For endpoints returning large datasets, implement pagination to manage the load and improve performance. Allow clients to filter and sort data as needed. For example:
+- For endpoints returning large datasets, implement **pagination** to manage the load and improve performance. Allow clients to filter and sort data as needed.
+- For example:
   - Pagination: `GET /posts?page=2&limit=10`
   - Filtering: `GET /posts?author=JohnDoe`
   - Sorting: `GET /posts?sort=created_at&order=desc`
+- Here are six popular **pagination techniques**:
+  1. Offset-based Pagination:
+     - This technique uses an offset and a limit parameter to define the starting point and the number of records to return.
+     - Example:
+       ```sh
+        GET /orders?offset=0&limit=3
+       ```
+     - Pros:
+       - Simple to implement and understand.
+     - Cons:
+       - Can become inefficient for large offsets, as it requires scanning and skipping rows.
+  2. Cursor-based Pagination:
+     - This technique uses a cursor (a unique identifier) to mark the position in the dataset. Typically, the cursor is an encoded string that points to a specific record.
+     - Example:
+       ```sh
+        GET /orders?cursor=xxx
+       ```
+     - Pros:
+       - More efficient for large datasets, as it doesn't require scanning skipped records.
+     - Cons:
+       - Slightly more complex to implement and understand.
+  3. Page-based Pagination:
+     - This technique specifies the page number and the size of each page.
+     - Example
+       ```sh
+        GET /items?page=2&size=3
+       ```
+     - Pros
+       - Easy to implement and use.
+     - Cons
+       - Similar performance issues as offset-based pagination for large page numbers.
+  4. Keyset-based Pagination:
+     - This technique uses a key to filter the dataset, often the primary key or another indexed column.
+     - Example
+       ```sh
+        GET /items?after_id=102&limit=3
+       ```
+     - Pros:
+       - Efficient for large datasets and avoids performance issues with large offsets.
+     - Cons:
+       - Requires a unique and indexed key, and can be complex to implement
+  5. Time-based Pagination:
+     - This technique uses a timestamp or date to paginate through records.
+     - Example
+       ```sh
+        GET /items?start_time=xxx&end_time=yyy
+       ```
+     - Pros:
+       - Useful for datasets ordered by time, ensures no records are missed if new ones are added.
+     - Cons
+       - Requires a reliable and consistent timestamp.
+  6. Hybrid Pagination:
+     - This technique combines multiple pagination techniques to leverage their strengths.
+     - Example:
+       - Combining **cursor** and **time-based pagination** for efficient scrolling through time-ordered records.
+     - Example:
+       ```sh
+        GET /items?cursor=abc&start_time=xxx&end_time=yyy
+       ```
+     - Pros:
+       - Can offer the best performance and flexibility for complex datasets.
+     - Cons:
+       - More complex to implement and requires careful design.
 
 ## 5. Documentation
 
