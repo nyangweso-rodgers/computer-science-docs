@@ -50,26 +50,42 @@
 
 - Bash scripting is a powerful tool for automating tasks in Unix-like operating systems.
 - A **Bash script** is a text file containing a series of commands that the Bash shell can execute. **Bash** is the default command-line shell on most Linux distributions and macOS.
+- As Developers, we mostly use VS Code or other text editors to write code. But for Writing bash scripts its preferred to use terminal based editors like vim,neovim
 - To create a bash script, follow the following steps:
   1. Step 1: Open Your Terminal
-  2. Step 2: Create a New File
-     - Use a text editor to create a new file.
+  2. Step 2: Create a Folder and File
+     - Create a new folder:
        ```sh
-        touch myscript.sh
+        mkdir test-bash-directory
        ```
-  3. Step 3: Add the Shebang Line
+     - Let's get into the directory:
+       ```sh
+        cd test-bash-directory
+       ```
+     - create a new file:
+     ```sh
+      touch test-script.SH
+     ```
+  3. Add some content to the file:
+     - add some content to the file e.g.,
+       ```sh
+        echo "Test Bash script"
+       ```
+  4. Step 4: Add the Shebang Line
      - The shebang line tells the system which interpreter to use to execute the script. Add the following line at the top of your script:
        ```sh
         #!/bin/bash
+
+         echo "Test Bash script"
        ```
-  4. Step 4: Write Your Script
+  5. Step 4: Write Your Script
      - Below the shebang line, you can start writing your commands. Here’s a simple script that prints "Hello, World!" to the terminal:
        ```sh
         #!/bin/bash
         # This is a simple bash scripts
         echo "Hello, World!"
        ```
-  5. Step 5: Save and Close the File
+  6. Step 5: Save and Close the File
 
 # Making Your Script Executable
 
@@ -83,6 +99,24 @@
 - Now you can run your script by typing:
   ```sh
     ./myscript.sh
+  ```
+
+# Commands
+
+## 1. Get Current Working Directory
+
+- Sometimes, we might forget which directory we're working in.
+- To get the current working directory we can use the pwd command, which stands for "print working directory":
+  ```sh
+    pwd
+  ```
+- This will show you the full path to your current location.
+
+## 2. Print
+
+- Use `echo` command to print something to the screen
+  ```sh
+    echo "Hello world!"
   ```
 
 # Resources and Further Reading
