@@ -308,6 +308,47 @@
   2. **PyTest** for Python.
   3. **Mocha** for JavaScript. Automated testing can help catch issues early and ensure your API remains reliable as it evolves.
 
+## 7. Naming API Endpoints
+
+- Here are some guidelines and examples to help you name your API endpoints effectively:
+
+  1. **Use Nouns for Resource Names**. Endpoints should represent resources (nouns) rather than actions (verbs). For example, use `/users` instead of `/getUsers`
+  2. **Use Plural Names for Collections**. When referring to a collection of resources, use plural nouns (e.g., `/users`). For a single resource, use the singular form along with its identifier (e.g., `/users/{id}`)
+  3. **Use HTTP Methods to Define Actions**:
+     - **GET**. Retrieve a resource or a collection of resources (e.g., `GET /users`, `GET /users/{id}`)
+     - **POST**. Create a new resource (e.g., `POST /users`)
+     - **PUT** or **PATCH**. Update an existing resource (e.g., `PUT /users/{id}` or `PATCH /users/{id}`).
+     - **DELETE**. Remove a resource (e.g., `DELETE /users/{id}`)
+  4. **Hierarchical Structure**. Use a clear and logical hierarchy to represent relationships between resources (e.g., `/users/{id}/posts` to represent posts by a specific user)
+  5. **Use Consistent Naming Conventions**. Stick to a consistent naming convention, such as snake_case or kebab-case, and be consistent throughout your API (e.g., `/user_profiles` or `/user-profiles`)
+  6. **Avoid Special Characters and Spaces**. Use hyphens (`-`) to separate words instead of spaces or underscores in URL paths (e.g., `/user-profiles` rather than `/user_profiles`)
+  7. **Keep It Simple and Intuitive**. Names should be easy to understand and remember. Avoid complex or overly technical terminology.
+  8. **Version Your API**. Include versioning in your endpoint paths to allow for future changes without breaking existing clients (e.g., `/v1/users`)
+  9. **Describe Actions with Query Parameters**. Instead of using verbs in your endpoint paths, use query parameters for filtering, sorting, or searching (e.g., `GET /users?status=active`)
+
+- Examples (Well-named API Endpoints):
+  1. User Management
+     - GET /v1/users – Retrieve a list of users.
+     - GET /v1/users/{id} – Retrieve a specific user by ID
+     - POST /v1/users – Create a new user
+     - PUT /v1/users/{id} – Update a user's information
+     - DELETE /v1/users/{id} – Delete a user
+  2. Authentication
+     - POST /v1/auth/login – User login
+     - POST /v1/auth/register – User registration
+     - POST /v1/auth/logout – User logout
+  3. Resource Relationship
+     - GET /v1/users/{id}/posts – Retrieve posts created by a specific user
+     - POST /v1/users/{id}/posts – Create a new post for a specific user
+  4. Pagination and Filtering
+     - GET /v1/users?page=2&limit=10 – Paginate users with 10 per page
+     - GET /v1/posts?sort=desc&category=tech – Retrieve posts sorted by date in descending order and filtered by category
+  5. Complex Operations with Clear Naming
+     - POST /v1/orders/{id}/cancel – Cancel an order
+     - PUT /v1/users/{id}/password – Update a user's password.
+  6. Error Handling and Statuses
+     - GET /v1/orders?status=pending – Retrieve orders with a pending status
+
 # API Optimizations
 
 It's imperative to optimize your API to provide a better user experience. Here are five ways to optimize your API performance and make it standout:
@@ -350,45 +391,7 @@ It's imperative to optimize your API to provide a better user experience. Here a
 
 5. **Parameter tampering**: Parameter tampering aims to manipulate parameters sent in **API** requests, creating access to potentially sensitive information. Parameter tampering is done mainly through input forms submitted by clients on the web.
 
-# Best Practices for Naming API Endpoints
 
-- Here are some guidelines to help you name your API endpoints effectively:
-
-  1. **Use Nouns for Resource Names**. Endpoints should represent **resources** (**nouns**) rather than **actions** (**verbs**). For example, use `/users` instead of `/getUsers`.
-  2. **Use Plural Names for Collections**. When referring to a collection of resources, use plural nouns (e.g., `/users`). For a single resource, use the singular form along with its identifier (e.g., `/users/{id}`).
-  3. Use HTTP Methods to Define Actions.
-     - `GET.` Retrieve a resource or a collection of resources (e.g., `GET/users`, `GET/users/{id}`).
-     - `POST.` Create a new resource (e.g., `POST/users`).
-     - `PUT` or `PATCH`. Update an existing resource (e.g., `PUT /users/{id}` or `PATCH /users/{id}`).
-     - `DELETE`. Remove a resource (e.g., `DELETE /users/{id}`).
-  4. **Hierarchical Structure**. Use a clear and logical hierarchy to represent relationships between resources (e.g., `/users/{id}/posts` to represent posts by a specific user).
-  5. **Use Consistent Naming Conventions**. Stick to a consistent naming convention, such as snake_case or kebab-case, and be consistent throughout your API (e.g., `/user_profiles` or `/user-profiles`).
-  6. **Avoid Special Characters and Spaces**. Use hyphens (-) to separate words instead of spaces or underscores in URL paths (e.g., `/user-profiles` rather than `/user_profiles`).
-  7. **Version Your API**. Include versioning in your endpoint paths to allow for future changes without breaking existing clients (e.g., `/v1/users`).
-  8. **Describe Actions with Query Parameters**. Instead of using verbs in your endpoint paths, use query parameters for filtering, sorting, or searching (e.g., `GET /users?status=active`).
-
-- Examples of Well-Named API Endpoints:
-  1. User Management
-     - GET /v1/users – Retrieve a list of users.
-     - GET /v1/users/{id} – Retrieve a specific user by ID.
-     - POST /v1/users – Create a new user.
-     - PUT /v1/users/{id} – Update a user's information.
-     - DELETE /v1/users/{id} – Delete a user.
-  2. Authentication
-     - POST /v1/auth/login – User login.
-     - POST /v1/auth/register – User registration.
-     - POST /v1/auth/logout – User logout.
-  3. Resource Relationships.
-     - GET /v1/users/{id}/posts – Retrieve posts created by a specific user.
-     - POST /v1/users/{id}/posts – Create a new post for a specific user.
-  4. Pagination and Filtering.
-     - GET /v1/users?page=2&limit=10 – Paginate users with 10 per page
-     - GET /v1/posts?sort=desc&category=tech – Retrieve posts sorted by date in descending order and filtered by category
-  5. Complex Operations with Clear Naming
-     - POST /v1/orders/{id}/cancel – Cancel an order
-     - PUT /v1/users/{id}/password – Update a user's password
-  6. Error Handling and Statuses
-     - GET /v1/orders?status=pending – Retrieve orders with a pending status
 
 # Resources and Further Reading
 
