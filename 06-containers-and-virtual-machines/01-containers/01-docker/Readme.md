@@ -21,37 +21,67 @@
 
 - Three most essential use cases of Docker:
 
-  1. Run a database locally using docker
-  2. run your application locally and in production using Docker, and
-  3. run automated tests using a dockerized database,
+  1. Fast, consistent delivery of your application
+  2. Responsive deployment and scaling
+  3. Running more workload on the same hardware
 
-- Using Docker, you can start many types of databases in seconds. By searching, [hub.docker.com](https://hub.docker.com/) you can find ready-to-use containers for many databases.
+# The Underlying Technology
+
+- Docker is written in Go
+- It takes advantage of several features of the Linux kernel to deliver its functionality.
+- Docker Engine is similar to LXC
+- The Linux Techonlogy it uses are
+  - **LXC**: Linux Containers (LXC) enables running multiple independent Linux systems on a single computer. Acting as isolated spaces, LXC containers share host resources like memory and processing power, without needing their own full operating system copy, ensuring lightweight and fast startup. Portable across compatible Linux systems, they find utility in diverse tasks such as running separate applications, testing software, or deploying cloud services. With user-friendly management tools available, LXC simplifies container creation, monitoring, and management.
+  - Control Groups (cgroups): Control Groups (cgroups) is a Linux kernel feature that allows the allocation and management of resources like CPU, memory, and I/O to a set of processes. Docker leverages cgroups to limit the resources used by containers and ensure that one container does not monopolize the resources of the host system.
+  - Union File Systems (UnionFS): UnionFS is a file system service that allows the overlaying of multiple file systems in a single, unified view. Docker uses UnionFS to create a layered approach for images and containers, which enables better sharing of common files and faster container creation.
+  - Namespaces: Namespaces are another Linux kernel feature that provides process isolation. They allow Docker to create isolated workspaces called containers. Namespaces ensure that processes within a container cannot interfere with processes outside the container or on the host system. There are several types of namespaces, like PID, NET, MNT, and USER, each responsible for isolating a different aspect of a process.
 
 # Docker Concepts
 
-## 1. Docker Host
+## 1. Docker Architecture
 
-- A **Docker host** refers to the machine or system where **Docker** is installed and running. It is the environment where you can create and manage Docker containers, images, networks, and volumes.
-- A **Docker host** can be any physical or virtual machine that meets the minimum requirements for Docker installation, which include:
-  1. A 64-bit operating system (Linux, macOS, or Windows)
-  2. A compatible CPU architecture (x86-64 or ARM64)
-  3. Sufficient memory and disk space
-  4. A compatible Docker version
-- Once **Docker** is installed on a host, you can use the **Docker client** to manage Docker resources on that host. For example, you can use the Docker client to run commands to create and start containers, build and push images, and manage networks, and volumes.
+- Client - Server Architecture
+- Docker Client - Docker Daemon
 
-## 2. Docker Registry
+### 1.1 Docker daemon
+
+- Listen's for docker api requests and manages docker objects
+- Communicates with other daemon to manage docker services.
+
+### 1.2 Docker Client
+
+- simply `docker` sends docker commands to dockerd the docker daemon which carries them out.
+- docker uses docker API
+
+### 1.3 Docker Desktop
+
+- An application that enables to build and share containerized application and microservices.
+- Includes the **Docker daemon** (**docker**), the Docker client (docker`), Docker Compose, Docker Content trust, Kubernetes and Credential Helps.
+
+### 1.4 Docker Registries
 
 - A **Docker registry** is a server-side application that stores and distributes **Docker images**. A **Docker registry** is a central repository where **Docker images** are stored and managed. It allows developers to upload, store, and share their Docker images with other developers and team members, making it easier to collaborate and deploy applications.
+
 - There are two types of **Docker registries**:
+
   1. **Public registries** are open to anyone and are typically used to store open-source images.
   2. **Private registries** are only accessible by authorized users and are commonly used by organizations to store proprietary images.
-- [Docker Hub]() is the most popular **public Docker registry**, while private registries can be hosted on-premises or in the cloud, using solutions such as
+
+- [Docker Hub](https://hub.docker.com/) is the most popular **public Docker registry**, while private registries can be hosted on-premises or in the cloud, using solutions such as
   1. **Docker Trusted Registry**,
   2. Amazon Elastic Container Registry (ECR),
   3. Google Container Registry, or
   4. Microsoft Azure Container Registry.
 
-## 3. Dockerfile
+## 2. Docker Objects
+
+### 2.1 Docker Image
+
+- A **Docker Image** serves as a template for creating **Docker Containers**. It contains all the necessary code, runtime, system tools, libraries, and settings required to run a software application.
+- So, a `Dockerfile` is used to build a **Docker Image** which is then used as the template for creating one or more **Docker containers**.
+- Once created, **Docker images** are immutable, meaning they cannot be changed. If you need to make changes to an application, you need to modify the `Dockerfile` and create a new image. This immutability ensures consistency and reproducibility in application deployment.
+
+### 2.2 Dockerfile
 
 - A `Dockerfile` is a text file contains the set of instructions for building a **Docker Image**.
 - The first step in using **Docker** is writing a `Dockerfile`. It is an essential blueprint for constructing **Docker images**.
@@ -71,6 +101,25 @@
   9. `EXPOSE:` - To Expose ports such as port 80 for Nginx, etc.
   10. `MAINTAINER`: Author/owner/description
 
+### 2.3 Docker Container
+
+- This is a dynamic, running instance of a **Docker image**. An executed image spawns a container with the command in the `Dockerfile`.
+- **Remarks**:
+  - one image can give life to many containers.
+  - If Linux is your OS, the **Docker container** will run as a process on the host machine. If you have a Windows or macOS machine, docker will run in a VM.
+  - The container will use the same kernel, either the kernel of Linux or the VM on Windows or macOS.
+  - The container itself is not a virtual machine. The container cannot see other processes of the host and has its own file system. This is why it seems as it is a virtual machine. But in reality, it shares the kernel of the host machine (or the kernel of the VM).
+
+## 1. Docker Host
+
+- A **Docker host** refers to the machine or system where **Docker** is installed and running. It is the environment where you can create and manage Docker containers, images, networks, and volumes.
+- A **Docker host** can be any physical or virtual machine that meets the minimum requirements for Docker installation, which include:
+  1. A 64-bit operating system (Linux, macOS, or Windows)
+  2. A compatible CPU architecture (x86-64 or ARM64)
+  3. Sufficient memory and disk space
+  4. A compatible Docker version
+- Once **Docker** is installed on a host, you can use the **Docker client** to manage Docker resources on that host. For example, you can use the Docker client to run commands to create and start containers, build and push images, and manage networks, and volumes.
+
 # Installing Docker
 
 1. Step 1: Install Docker engine for windows, linux or mac OS from the [official Docker website](https://www.docker.com/)
@@ -79,31 +128,6 @@
    - [Install Docker Desktop on Windows](https://docs.docker.com/desktop/install/windows-install/)
 
 # Docker Concepts
-
-## Two Important Docker Concepts
-
-### Docker Concept #2: Docker Image
-
-- A **Docker Image** serves as a template for creating **Docker Containers**. It contains all the necessary code, runtime, system tools, libraries, and settings required to run a software application.
-- So, a `Dockerfile` is used to build a **Docker Image** which is then used as the template for creating one or more **Docker containers**.
-- Once created, **Docker images** are immutable, meaning they cannot be changed. If you need to make changes to an application, you need to modify the `Dockerfile` and create a new image. This immutability ensures consistency and reproducibility in application deployment.
-
-## Other Docker Concepts
-
-### Docker Concept #3: Docker Container
-
-- This is a dynamic, running instance of a **Docker image**. An executed image spawns a container with the command in the `Dockerfile`.
-- **Remarks**:
-
-  - one image can give life to many containers.
-  - If Linux is your OS, the **Docker container** will run as a process on the host machine. If you have a Windows or macOS machine, docker will run in a VM.
-  - The container will use the same kernel, either the kernel of Linux or the VM on Windows or macOS.
-  - The container itself is not a virtual machine. The container cannot see other processes of the host and has its own file system. This is why it seems as it is a virtual machine. But in reality, it shares the kernel of the host machine (or the kernel of the VM).
-
-## Docker Concept #6: Docker Registry
-
-- A **Docker registry** is a repository for the storage and distribution of **Docker images**. **Docker registry** allows users to "pull" or "push" **Docker images**.
-- [Docker Hub](https://hub.docker.com/) is the official docker registry.
 
 ## Docker Concept 7: Ports (Publishing and Exposing Ports)
 
