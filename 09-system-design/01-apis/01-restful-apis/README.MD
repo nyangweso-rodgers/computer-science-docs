@@ -8,12 +8,49 @@
 
 # Types of APIs
 
+- API Types include:
+  1. **Public APIs**: Open for use by external developers (e.g., Twitter API)
+  2. **Private APIs**: Used internally within an organization
+  3. **Partner APIs**: Shared with specific business partners
+  4. **Composite APIs**: Combine multiple data or service APIs
+
+# API Architectures
+
+- The following API architectures form the core of your API's structure and client interaction:
+  1. REST (Representational State Transfer)
+  2. SOAP (Simple Object Access Protocol):
+  3. GraphQL
+  4. gRPC
+  5. WebSockets
+  6. Webhook
+
 ## 1. REST (Representational State Transfer)
 
-- Uses standard HTTP methods.
-- Stateless architecture.
-- Resources identified by URLs.
-- Widely used due to simplicity and scalability.
+- **REST** is an architecture style to develop web services, which uses the **HTTP protocol** as a communication interface in order to transfer data through **HTTP methods**.
+- **REST** has gained a lot of popularity in recent years due to its
+
+  - simplicity, and
+  - scalability
+
+- **Advantages of REST** include:
+
+  - **REST** is Easy to Understand and Implement: **REST** is meant to work over **HTTP** (actually HTTP was influenced by REST). Therefore it makes use of HTTP verbs such as `GET`, `POST`, and `PUT`.
+  - **REST** Makes your Application More Scalable: There are 2 main reasons why **REST** can help make your application more scalable:
+    - **No State**: one of the core principles of **REST** is that it's **stateless** on the **server-side**. Therefore each request will be processed independently from the previous ones. In applications with a server-side state or sessions, a session is stored for possibly every logged-in user. This session data can easily get bloated and start to occupy a lot of resources on the server. On the other hand, **stateless** servers only keep resources (memory) occupied when they are handling a request and they free it as soon as the request is processed. Since the current trend in scalability is horizontal scaling (typically on the cloud), storing server-side sessions can also make it hard to scale your application because it creates some difficult problems.
+    - Faster Data Interchange Format: **RESTful APIs** typically use **JSON** as the data interchange format. **JSON** is much more compact and smaller in size compared to **XML**. It can also be parsed faster than **XML**.
+  - Caching is Easier with REST: Caching is a critical factor for the scalability and performance of a modern web application. A well-established cache mechanism (with the best hit-rates possible) can drastically decrease the average response time of your server. **REST** aims to make caching easier. Since the server is **stateless** and each request can be processed individually, **GET requests** should usually return the same response regardless of previous ones and the session. This makes the `GET` requests easily cacheable and browsers usually treat them as such. We can also make our **POST requests** cacheable using **Cache-Control** and **Expires headers**
+  - REST is Flexibile: i.e., it's easy to modify and it's also able to answer many clients who can ask for different data types (**XML**, **JSON**, and so on). The client can specify the type using the Accept header and the **REST API** can return different responses depending on that. **REST** has the ability to handle multiple types of requests and return different types of data (such as JSON and XML)
+
+- **Cons of REST** include:
+
+  - Where **REST APIs** fall short is that their rich metadata creates big payloads that can sometimes cause more trouble than they’re worth. You can get over- and under-fetching problems that require further API requests, bogging down the process.
+
+- **Principles of RESTful API** include:
+  1.  **Client-Server Model**: Separation of Concerns, i.e., the **Client** that sends the request it’s completely independent from the **Server** that returns the response.
+  2.  **Cache**: **Cache** is a computational storage structure focused on keeping stored data that is frequently accessed, improving performance and network efficiency. Therefore, through caching, it’s possible to reduce or even eliminate the need for the Client to send requests to the Server
+  3.  **Uniform Interface**: Means how **Client** and **Server** will share information by defining an interface that must be followed in every request. i.e.,, it’s a contract between the **Client** and the **Server** that determines the standards for their communication. the app needs to know that it can hit the same URI to get a particular piece of data, every-time! It also needs to know that it’ll get the data in the format that it expects, and that format will not change. This is the Contract and the URI.
+  4.  **Layered System/Architecture**: this relates to the fact that there can be more components and subsystems between a **Client** and a **Server**. i.e., the client can’t assume that it is communicating directly to the Server, and don’t know about the complexity to process the request and return the response. Each layer only knows about the layer next to it, and no more. This promotes separation-of-concerns. Each layer is responsible for a specific role. It knows how to do its job, and passes information to and from its immediate neighboring layer to get the job done
+  5.  **Statelessness**: The **server** should have no knowledge of prior requests. The **client** needs to provide all the information necessary for the server to provide a response.
 
 ## 2. SOAP (Simple Object Access Protocol)
 
@@ -96,6 +133,14 @@
   - URL versioning (`/v1/resource`).
   - Header versioning (`Accept: application/vnd.yourapi.v1+json`).
   - Parameter versioning (`/resource?version=1`).
+
+## 6. Implementation Frameworks
+
+- Choosing the proper framework can significantly impact your API development experience
+  1. Python: [Flask](https://flask.palletsprojects.com/en/stable/), [Django REST framework](https://www.django-rest-framework.org/), [FastAPI](https://fastapi.tiangolo.com/)
+  2. **JavaScript**​: [Express.js](https://expressjs.com/)
+  3. **Java**: [Spring Boot](https://spring.io/projects/spring-boot)
+  4. **.NET**: [ASP.NET Core](https://dotnet.microsoft.com/en-us/apps/aspnet)
 
 # Designing a Simple RESTful API
 
@@ -280,11 +325,16 @@
 ## 5. Documentation
 
 - Use tools like Swagger (OpenAPI) or Postman to create interactive and up-to-date documentation. Good documentation should include:
+
   - Detailed descriptions of endpoints.
   - Request and response examples.
   - Error messages and codes.
   - Authentication methods.
   - Sample code snippets.
+
+- Tools for API documentation include:
+  1. [Swagger/OpenAPI Specification](https://swagger.io/specification/): A standard for describing RESTful APIs
+  2. [Postman](https://www.postman.com/): A popular tool for API development and documentation
 
 ## 6. Testing
 
@@ -390,8 +440,6 @@ It's imperative to optimize your API to provide a better user experience. Here a
 4. **MITM (Man-in-the-middle attack)**: MITM attacks are when a hacker intercepts communication between two programs to obtain the information being transferred between them. This risk is much greater if the data in transit is not encrypted, which is why using HTTPS is standard.
 
 5. **Parameter tampering**: Parameter tampering aims to manipulate parameters sent in **API** requests, creating access to potentially sensitive information. Parameter tampering is done mainly through input forms submitted by clients on the web.
-
-
 
 # Resources and Further Reading
 
