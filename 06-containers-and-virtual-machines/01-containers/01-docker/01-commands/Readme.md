@@ -1,8 +1,6 @@
 # Docker Commands
 
-# Docker Commands
-
-- Docker commands should be executed in the root folder where `Dockerfile` is located.
+# Table of Contents
 
 # Setup
 
@@ -11,7 +9,11 @@
     docker version
   ```
 
-# Start and Run Docker Containers
+# Docker Commands
+
+- Docker commands should be executed in the root folder where `Dockerfile` is located.
+
+## Command 1. Start and Run Docker Containers
 
 - Start **Docker Containers** defined in the `docker-compose.yml` file by:
   ```sh
@@ -47,7 +49,19 @@
     docker-compose start
   ```
 
-# Shutdown Docker Containers
+## Command 1.2: Custom Hostnames
+
+- While **Docker** uses **container names** as **hostnames** by default, you can set custom ones:
+  ```sh
+    docker run --name api --hostname custom-api --network myapp hello-world-go
+  ```
+- Now other containers on the network can reach this container using either `api` or `custom-api` as the **hostname**.
+- You can verify the **hostname** from inside the container:
+  ```sh
+    docker exec -it api hostname
+  ```
+
+## Command 2. Shutdown Docker Containers
 
 - To safely stop the active services, we can use `stop`, which will preserve containers, `volumes`, and `networks`, along with every modification made to them:
 
@@ -64,7 +78,7 @@
 
 # Docker Images
 
-## Command 1. Lists Docker Images
+## Command 3.1: Lists Docker Images
 
 - To list all the docker images on your system, run:
 
@@ -76,7 +90,7 @@
     docker images ls
   ```
 
-## Command 2. Docker Image Metadata
+## Command 3.2: Docker Image Metadata
 
 - Before running a container, you can review the image metadata using:
   ```sh
@@ -93,7 +107,7 @@
     docker inspect postgres
   ```
 
-## Command 3: Delete Docker Images
+## Command 3.3: Delete Docker Images
 
 - To delete an **image**, you have to ensure no **container** is using that `image`; if a container is using the image, we'd have to delete the container before we would be able to delete the image
 - Syntax:
@@ -114,7 +128,7 @@
 
 # Docker Containers
 
-## Command 1.: Lists Docker Containers
+## Command 4.1: Lists Docker Containers
 
 - To check the status and details of running containers on your system, you can use the `docker ps` command.
   ```sh
@@ -128,14 +142,14 @@
     docker ps -a
   ```
 
-## Command 2: Execute Commands in a Running Container
+## Command 4.2: Execute Commands in a Running Container
 
 - `docker exec` Docker command used to execute commands in a running container
   - `-it`: These are options passed to the docker exec command:
     - `-i` or `--interactive`: This option allows you to interact with the container's standard input, allowing you to provide input to the executed command.
     - `-t` or `--tty`: This option allocates a pseudo-TTY (terminal) for the command being executed, allowing you to see the command's output as if you were running it directly in a terminal.
 
-## Command 3: Stop Running Container
+## Command 4.3: Stop Running Container
 
 - Syntax
   ```sh
@@ -146,7 +160,7 @@
     docker stop postgres
   ```
 
-## Command 4: Remove Containers
+## Command 4.4: Remove Containers
 
 - Use `docker-compose rm -sf` command to remove stopped service containers defined in a `docker-compose.yml` file.
 
@@ -155,7 +169,7 @@
 
 - This command is useful for quickly cleaning up your Docker environment by stopping and removing containers defined in the Compose file.
 
-## Command 5: Delete a Container
+## Command 4.5: Delete a Container
 
 - To delete a **container**, it must not be running
 - Syntax:
@@ -169,14 +183,14 @@
 
 # Docker Volumes
 
-## Command 1: Lists Docker Volumes
+## Command 5.1: Lists Docker Volumes
 
 - List all your volumes with `docker volume ls`:
   ```sh
     docker volume ls
   ```
 
-## Command 2: Inspect Docker Volumes
+## Command 5.2: Inspect Docker Volumes
 
 - If you want to know Where is **Docker** storing your data when you use a `volume`, you can use the `docker volumne inspect` command:
 - Syntax
@@ -188,7 +202,7 @@
     docker volume inspect postgres_volume
   ```
 
-## Command 3: Delete Docker Volumes
+## Command 5.3: Delete Docker Volumes
 
 - Delete a volume with `docker volume rm`:
   ```sh
@@ -202,7 +216,6 @@
   ```sh
     docker volume prune
   ```
-
 
 # Docker Exec Commands
 
@@ -234,7 +247,7 @@
 - By default, these logs capture **standard output** (`stdout`) and **standard error** (`stderr`) streams from your running containers.
 - Depending on your configuration, you can route these logs to specific drivers for storage, analysis, or further processing. These logs are crucial when analyzing service logs across multi-container applications.
 
-## 1. How to View Docker Compose Logs
+## 6.1: How to View Docker Compose Logs
 
 - The command to access logs is
   ```sh
@@ -258,7 +271,7 @@
       docker-compose logs --timestamps
     ```
 
-## 2. Configuring Logging in Docker Compose
+## 6.2: Configuring Logging in Docker Compose
 
 - Docker Compose uses the Docker logging drivers to control how logs are handled. You can specify logging options in your `docker-compose.yml` file under the logging key.
 - Example Configuration
@@ -381,6 +394,13 @@
     ```
 
 # Docker Networks Commands
+
+- Docker supports several **network types**:
+  1. **bridge**: The default network driver. Good for containers on a single host.
+  2. **host**: Removes network isolation, container uses host’s network directly
+  3. **none**: Disables networking completely
+  4. **overlay**: For connecting containers across multiple **Docker hosts**
+  5. **macvlan**: Assigns a MAC address to containers, making them appear as physical devices
 
 ## 1. Get the list of docker Networks
 
