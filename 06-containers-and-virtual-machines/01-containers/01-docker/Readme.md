@@ -127,6 +127,15 @@
    - **Docker Desktop** can be used to see which containers are running, manage containers, and perform other Docker-related tasks.
    - [Install Docker Desktop on Windows](https://docs.docker.com/desktop/install/windows-install/)
 
+- **Remarks**:
+  - Docker Desktop Alternatives include:
+    1. [OrbStack](https://orbstack.dev/): is a fast, light, and simple way to run containers and Linux machines on macOS. It’s a supercharged alternative to Docker Desktop and all in one easy-to-use app. Unfortunately, it’s currently only for Mac users.
+       - There are several compelling reasons to use Orbstack, but the main ones are:
+         - Fast. It starts in 2 seconds, has an optimized network and file system, and fast x86 emulation.
+         - Lightweight. It consumes low CPU and disk usage, and it’s battery-friendly compared to Docker Desktop.
+         - Simple. It’s simple to use and comes with CLI & container/image/volume file access, VPN, and SSH support.
+         - Powerful. You can run Docker containers, Kubernetes, and Linux distros and manage containers from your menu bar.
+
 # Docker Concepts
 
 ## Docker Concept 7: Ports (Publishing and Exposing Ports)
