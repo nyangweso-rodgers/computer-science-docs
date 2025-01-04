@@ -19,11 +19,12 @@
   - error detecting aids
   - scheduling
 
-# Definitions of Terms
+## 1. Kernel
 
-1. **Kernel**: is the heart of any OS. It's the _piece of software that interacts the closest with the hardware and the rest of the OS sits on top of it_. The Kernel is responsible for low-level tasks such as disk management, memory management, task management, and so on.
-
-2. **Package Manager**: piece of software that allows you to _install, update, and uninstall programs_ from the terminal, just by entering a few commands. All package managers function in a similar way, but there are some differences in the syntax used for each. It's also important to mention that you can install and run a different package manager than the default.
+- **Kernel** is the heart of any OS. It's the _piece of software that interacts the closest with the hardware and the rest of the OS sits on top of it_. The **Kernel** is responsible for low-level tasks such as:
+  1. disk management,
+  2. memory management,
+  3. task management, and so on.
 
 # Types of Operating System
 
