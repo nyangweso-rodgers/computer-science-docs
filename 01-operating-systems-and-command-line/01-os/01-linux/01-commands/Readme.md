@@ -143,4 +143,29 @@
 
 ## Command 1.2: Set Environment Variables
 
+- **Linux** offers two ways to **set environment variables**:
+  - You can first set a shell variable and then export the shell variable as an **environment variable**
+  - The second way is to directly export an **environment variable**.
+- To create new **environment variables** and set their value for the current shell session, use the following command:
+  ```sh
+    MYVAR=foo
+  ```
+- At this point, new **environment variables** are created only for the **shell**. You can confirm if the variable is set using the `echo` command. This variable is not an **environment variable** and if you use the `printenv` command, its output will be empty:
+  ```sh
+    printenv MYVAR
+  ```
+- Now we can convert this **shell variable** to a single **environment variable** using the `export` command:
+  ```sh
+    export MYVAR
+  ```
+- Now MYVAR is an environment variable, this affects the current shell and all processes started from the current shell.
+- Remarks:
+  - You do not have to always follow this long process to **set an environment variable**. You can directly export the environment variable in a single command:
+    ```sh
+        export MYENV=bar
+    ```
+  - You must note that variables set through these commands are available only for the current session. Once you close the session, these variables are lost. To permanently set the environment variables, you must edit /etc/profile.d directory, ~/.bashrc, /etc/environment, or /etc/profile files using a text editor.
+
 # Resources and Further Reading
+
+1. [List and Set Environment Variables in Linux](https://linuxopsys.com/list-and-set-environment-variables-in-linux)
