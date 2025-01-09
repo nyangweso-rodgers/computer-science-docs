@@ -3,28 +3,226 @@
 ## Table of Contents# Linux Commands
 
 1. `pwd` - Print the current working directory.
-2. `whoami`: Display your username.
-3. `man <command>`: Access the manual for a specific command.
-4. `echo "Hello, WSL!"`: Print a message to the terminal.
-5. `ls` - List files and directoriesv. View the contents of your current directory.
-6. `cd` - Change directories.
-7. `mkdir` - Create a new directory
-8. `cat` - View file contents
-9. Install software:
+2. `man <command>`: Access the manual for a specific command.
+3. `echo "Hello, WSL!"`: Print a message to the terminal.
+4. `cd` - Change directories.
+5. `cat` - View file contents
+6. Install software:
    - Use `sudo apt install` followed by package name.
    - E.g.,
      ```sh
       sudo apt install chrome
      ```
-10. Update package:
-    - Use `sudo apt update`
-    - E.g.,
+7. Update package:
+   - Use `sudo apt update`
+   - E.g.,
+     ```sh
+       sudo apt update
+     ```
+8. Upgrade installed packages.
+   - Use, `sudo apt upgrade`
+9. `clear` - Clear the terminal screen.
+
+## 1. System Commandss
+
+1. Get type of OS
+
+   ```sh
+    uname
+   ```
+
+2. Get Kernel Version Of OS
+
+   ```sh
+    uname -r
+   ```
+
+3. Get full info about OS
+
+   ```sh
+    uname -a
+   ```
+
+4. Get since how long the system is in running state
+
+   ```sh
+    uptime
+   ```
+
+   - Running the below command will only give the time:
+     ```sh
+      uptime -p
+     ```
+
+5. Get private DNS name of the system
+   ```sh
+    hostname
+   ```
+6. Get private ip of the system
+
+   ```sh
+    hostname -i
+   ```
+
+7. Change hostname
+
+   ```sh
+    old-hostname set-hostname “new-hostname”
+   ```
+
+8. Get private ip
+
+   ```sh
+    ip addr
+   ```
+
+9. Get private ip
+
+   ```sh
+    ip route
+   ```
+
+10. Get private IP
+    ```sh
+      ifconfig
+    ```
+11. Get today's date
+
+    ```sh
+      date
+    ```
+
+12. Get Timezones
+
+    ```sh
+      timedatectl
+    ```
+
+13. See how many users have been loggin into your system
+    ```sh
+      who
+    ```
+14. See the current user (Display your username)
+
+    ```sh
+      whoami
+    ```
+
+15. See the running processors in the system
+
+    ```sh
+      ps
+    ```
+
+    - Alternatively, you can run the command:
+
       ```sh
-        sudo apt update
+       ps -p $$
       ```
-11. Upgrade installed packages.
-    - Use, `sudo apt upgrade`
-12. `clear` - Clear the terminal screen.
+
+    - You can also use `ps -p $$ -o args=` which output just the shell name.
+
+16. Kill a process
+    ```sh
+      kill -9 PID
+    ```
+
+## 2. System Commands
+
+1. Displays information about the CPU architecture
+
+   ```sh
+     lscpu
+   ```
+
+2. Lists the information about all the block devices attached to the system
+
+   ```sh
+    lsblk -a
+   ```
+
+3. Displays system memory(RAM) details:
+
+   ```sh
+    free # in KB
+    # or
+    free -m # in MB
+   ```
+
+4. Report file system disk space usage in human readable languages
+   ```sh
+    df -h
+   ```
+
+## 3. File Commands
+
+1. Create a file
+
+   ```sh
+    touch <file-name>
+   ```
+
+2. Create multiple files
+
+   ```sh
+    touch aws azure gcp
+   ```
+
+3. Remove file with permission
+
+   ```sh
+    rm <file-name>
+   ```
+
+4. Remove file With Permission
+
+   ```sh
+     rm -f <file-name>
+   ```
+
+5. Delete all files
+
+   ```sh
+    rm -f*
+   ```
+
+6. Delete all files with a `.txt` extension
+
+   ```sh
+    rm -f *.txt
+   ```
+
+7. Delete all files which are stared with “a” letter
+
+   ```sh
+    rm -f a*
+   ```
+
+8. List files
+   ```sh
+    ll # gives the full info about files/folders
+    # or
+    ls # gives only file/folder names
+   ```
+
+## 4. Folder Commands
+
+1. Create a directory
+
+   ```sh
+    mkdir <directory-name>
+   ```
+
+2. Remove empty directories
+
+   ```sh
+    rmdir <directory-name>
+   ```
+
+3. Remove all files & folders and also it is used to remove non empty folders
+   ```sh
+    rm -rf *
+   ```
 
 # Command : Check Which Shell You are using on Linux
 
@@ -53,22 +251,14 @@
         echo $0
        ```
 
-  2. Using `ps` command
-     - Commonly used for listing running processes, the `ps` command in its basic format sheds light on the shell that you are using. Simply execute the command:
-       ```sh
-        ps
-       ```
-     - Alternatively, you can run the command:
-       ```sh
-        ps -p $$
-       ```
-     - You can also use `ps -p $$ -o args=` which output just the shell name.
-  3. By viewing `/etc/passwd` file
-  4. Using `lsof` command
+  2. By viewing `/etc/passwd` file
+  3. Using `lsof` command
      - Ordinarily, the `lsof` command, short for **list of open files**, is used to provide a list of open files on your system. However, when used with the `-p $$` flag, it gives a pointer to the shell you are in when you look at the first column of the output.
        ```sh
         lsof -p $$
        ```
+
+## 5. Environment Variables Commands
 
 # Command : List and Set Environment Variables in Linux
 
