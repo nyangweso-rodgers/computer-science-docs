@@ -5,6 +5,11 @@
 - [System Design Concepts](#system-design-concepts)
   - [Table of Contents](#table-of-contents)
 - [System Design Concepts](#system-design-concepts-1)
+- [Software Architecture Pattersn](#software-architecture-pattersn)
+  - [1. Backend for Frontend (BFF) Architecture](#1-backend-for-frontend-bff-architecture)
+- [Repository Organization](#repository-organization)
+  - [1. Monolith](#1-monolith)
+  - [1. Mongorepo](#1-mongorepo)
   - [Cookies](#cookies)
   - [Caches](#caches)
   - [1. Load Balancing](#1-load-balancing)
@@ -15,6 +20,98 @@
 - [Resources and Further Reading](#resources-and-further-reading)
 
 # System Design Concepts
+
+# Software Architecture Pattersn
+
+## 1. Backend for Frontend (BFF) Architecture
+
+- As applications become more distributed, the need to tailor backend services to individual client needs has become critical for delivering fast, maintainable, and secure user experiences.
+- At its core, **Backend for Frontend** is a architecture pattern that provides a dedicated backend layer for each frontend interface. Each frontend (e.g., mobile app, web app, smart device, etc.) may have different performance, data, and interaction needs. Instead of relying on a single monolithic or generalized API, a BFF tailors the backend to the specific needs of a given frontend.
+- In essence, for every client or group of clients (such as mobile or web), you build a separate backend that:
+  1. Consolidates or orchestrates calls to various services.
+  2. Prepares data in a client-friendly format.
+  3. Handles specific logic tied to the frontend.
+- This allows for a separation of concerns, making it easier to optimize each backend for the client’s specific use case.
+
+- **How BFF Works**:
+
+  1. **Client Requests**: The client (mobile, web, etc.) makes a request to its corresponding BFF.
+  2. **BFF Layer**: The BFF consolidates data from multiple microservices, performs any transformations or optimizations, and responds with a tailored response.
+  3. **Microservices**: The BFF interacts with underlying services (e.g., user service, order service, etc.).
+
+- **Traditional Architectures vs BFF**:
+
+  - In **traditional architectures**, a single **API gateway** often handles requests from different clients (e.g., web, mobile, IoT). While an API gateway is great for routing requests, adding authentication, and rate limiting, it lacks the flexibility to handle frontend-specific needs, such as:
+    - Tailored data models for different client apps.
+    - Specialized performance optimizations for slower mobile networks.
+    - Managing complex orchestration between services for specific frontends.
+  - The **monolithic API** approach often leads to over-fetching (too much data) or under-fetching (too little data), forcing clients to make multiple round trips to collect the necessary information. BFF solves this by separating backends, ensuring each client gets precisely what it needs.
+
+- **Why Use BFF**:
+
+  - **Tailored User Experiences**: Each frontend — whether it’s a mobile app, desktop, or wearable device — gets exactly the data it needs, without extra clutter. Like having a perfectly sized suit for every occasion.
+  - **Reduced Complexity**: The BFF simplifies things by customizing each backend, ensuring seamless experiences across platforms.
+  - **Improved Performance**: BFFs are turbochargers for your app. By reducing unnecessary API calls, they ensure faster responses and happier users.
+  - **Faster Development**: When teams work on different BFFs for each frontend, they can move faster without stepping on each other’s toes. It’s like having multiple chefs in the kitchen, each mastering their own dish.
+  - **Enhanced Security**: Since the BFF controls all interaction with the backend, it can enforce strict security measures, such as token validation, input validation, and rate limiting, making the system more secure.
+
+- **When to use BFF?**
+
+  - **Multi-Platform Applications** — For companies building multi-platform apps (web, mobile, smart devices), BFF allows each platform to get a tailored experience.
+  - **Microservice Orchestration** — In a microservices architecture, clients may need to fetch data from multiple services (e.g., user service, order service, inventory service). BFF can act as the orchestrator that pulls together the necessary data from various services and presents it as a cohesive response to the client.
+  - **Optimizing Legacy APIs** — When migrating to microservices or using legacy systems, a BFF can help mask the complexities of the underlying architecture. It provides a modern interface to the frontend while still interacting with older systems.
+
+- **Challenges of BFF**:
+
+  1. **Increased Maintenance Overhead**: Having multiple backends to maintain (one per frontend) can increase complexity. This necessitates additional monitoring, scaling, and security measures.
+  2. **Consistency Issues**: If not designed carefully, having separate backends can lead to inconsistencies in data returned across different clients.
+  3. **Performance Bottlenecks**: The BFF layer could become a performance bottleneck if it’s not optimized for handling numerous requests or if it performs heavy computation.
+
+- **Best Practices for BFF**:
+  1. **Limit Business Logic in BFF**: The BFF should primarily focus on orchestrating and formatting data for the frontend, not implementing complex business logic.
+  2. **Use Caching**: To improve performance, especially for mobile clients, you can cache common responses in the BFF layer.
+  3. **Error Handling**: Centralize error handling and logging in the BFF to prevent client-facing issues.
+  4. **Security**: Secure the BFF by enforcing authentication, authorization, and rate limiting at the BFF level to protect your backend services.
+
+# Repository Organization
+
+## 1. Monolith
+
+## 1. Mongorepo
+
+- A **monorepo** (**mono repository**) is a version management configuration that stores many projects in one repository. The projects can be unrelated and can be completely distinct.
+
+- **Benefits of Using a Monorepo**
+
+  - Provides a single source of truth
+  - Makes it easy to share code.
+  - Makes it easier to refactor code.
+
+- Difference Between **Monorepo** and **Monolith**:
+
+  - A **monorepo** is a massive codebase containing independent projects, whereas a **monolith** (or **monolithic application**) is a service or set of services dedicated to a single dataset (or project). The dataset, however, can have many sub-projects. But, typically, we think of a **monolith** and a single entity with related data.
+  - A **monolith** can be managed in a **monorepo**. But a **monolith** could also be split into multiple repositories. Conversely, a **monorepo** cannot be stored in a **monolithic application**; instead, monorepos can be used with microservices instead.
+
+- **Monolith vs. Microservices** — Which Is Best for Your Team?
+
+  - Monorepo vs. Multi-Repo: Whereas a **monorepo** contains all the needed code in one repository, a **multi-repo** (also known as a **polyrepo**) typically has one repository for each project.
+  - **Use Cases for Mongorepo** (Monorepo Is Usually Best For…)
+
+    1. Visibility: With a monorepo, there is more accountability since many projects are visible to many people and monorepos lend themselves to security features.
+    2. Collaboration: A single repository makes it easier to collaborate. That’s because everyone can access the code, files, and assets. So, developers can share and reuse assets.
+    3. Speed: Using a single repository can help you accelerate development. For instance, you can make atomic changes (one action to make a change across multiple projects).
+
+  - **Use Cases for Multi-repo**:
+    - A **multi-repo** configuration can complicate matters if data from multiple repos is required. The orchestration of gathering accurate data from many different servers would be very challenging. A multi-repo solution would require multiple connections to the multiple repositories to get access to the correct data. It is a little like merging onto a 10 lane highway at rush hour. Coordination is key to merge safely.
+    - Git Projects: Managing a **monorepo** at scale in Git would never work. As the repository gets bigger, a monorepo in Git becomes a huge problem. So if you have teams using Git, it’s best to have multiple repositories.
+
+- **Reasons why you should consider using a mono repository**:
+  - You want a single source of truth.
+  - You want to share and reuse code easily.
+  - You want visibility to manage dependencies (e.g., If you make a change, what else will be impacted?).
+  - You want to make atomic changes (e.g., one operation to make a change across multiple projects).
+  - You want teams to collaborate more.
+  - You want to make large-scale changes (e.g., code refactoring).
 
 ## Cookies
 
@@ -141,3 +238,6 @@
 - It usually requires downtime, something which big corporations cannot afford.
 
 # Resources and Further Reading
+
+1. [daily.dev - What Is a Monorepo?](https://www.perforce.com/blog/vcs/what-monorepo?ref=dailydev)
+2. [Medium - Backend for Frontend (BFF) Architecture](https://levelup.gitconnected.com/backend-for-frontend-bff-architecture-64fa9f316a5a)
