@@ -3,6 +3,11 @@
 # Operating System
 
 - An OS is a software that acts as an interface between computer hardware components and the user.
+- An OS qualifies as an OS if it meets these criteria:
+  1. Manages Hardware Resources: Handles CPU, memory, storage, and peripherals.
+  2. Provides an Interface: Offers a way for users to interact with the system (e.g., GUI or command-line interface).
+  3. Runs Applications:Provides a platform where software can be executed.
+  4. Handles Processes: Manages multiple processes, including scheduling and prioritization.
 
 # Kernel
 
