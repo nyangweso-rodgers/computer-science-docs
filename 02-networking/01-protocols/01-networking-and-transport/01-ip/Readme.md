@@ -12,8 +12,9 @@
 - [IP Address Classes](#ip-address-classes)
 - [Commands For IP Address From Command Prompt](#commands-for-ip-address-from-command-prompt)
   - [Command 1. Get IP Address](#command-1-get-ip-address)
-- [IPv4 Address](#ipv4-address)
-- [IPv6 Address](#ipv6-address)
+- [IPv4 vs. IPv6](#ipv4-vs-ipv6)
+  - [1. IPv4 Address](#1-ipv4-address)
+  - [2. IPv6 Address](#2-ipv6-address)
 - [using nslookup on the command line](#using-nslookup-on-the-command-line)
 - [DNS Caching](#dns-caching)
 - [Resources and Further Reading](#resources-and-further-reading)
@@ -104,13 +105,15 @@
     ipconfig
 ```
 
-# IPv4 Address
+# IPv4 vs. IPv6
+
+## 1. IPv4 Address
 
 - The common type of **IP address** (is known as **IPv4**, for “**version 4**”). Here’s an example of what an **IP address** might look like: **66.171.248.170**.
 
 - An **IPv4** address consists of **four numbers**, each of which contains one to three digits, with a single dot (.) separating each number or set of digits. Each of the four numbers can range from 0 to 255. This versatile group of segmented numbers create the addresses that lets you and everyone around the globe to send and retrieve data over our **Internet** connections. Without this numeric protocol, sending and receiving data over the World Wide Web would be impossible.
 
-# IPv6 Address
+## 2. IPv6 Address
 
 - **IPv6** offers a maximum number of **IP address** for today and for the future. Whereas **IPv4** supports a maximum of approximately 4.3 billion unique IP addresses, **IPv6** supports, in theory, a maximum number that will never run out. An **IPv6** address consists of **eight groups** of four hexadecimal digits. If a group consists of four zeros, the notation can be shortened using a colon to replace the zeros. Here’s an example IPv6 address: **2001:0db8:85a3:0000:0000:8a2e:0370:7334**
 
