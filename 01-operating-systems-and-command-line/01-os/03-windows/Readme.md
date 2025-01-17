@@ -29,6 +29,20 @@
        - A company might spin up a Windows Server VM on Azure to host a web application, SQL database, or file-sharing service.
        - You access these servers remotely through tools like RDP, SSH (if enabled), or cloud-specific tools.
 
+- **Popular Windows Remote Server Distributions**
+
+  1. **Windows Server Editions**:
+
+     1. **Windows Server 2022**: The latest long-term servicing release from Microsoft, offering enhanced security, scalability, and performance improvements for business-critical workloads.
+     2. **Windows Server 2019**: A stable and widely used version, providing an array of features like Windows Containers, enhanced security (Shielded VMs), and improved hybrid cloud support.
+     3. **Windows Server 2016**: Though it's an older version, it's still widely used in many organizations for virtualization, data center management, and cloud deployments.
+     4. **Windows Server 2012 R2**: This version was popular for a long time due to its integration with Hyper-V and improvements in storage management, though it's becoming outdated.
+     5. **Windows Server Core**: A minimal installation option for Windows Server that doesn't include a GUI (Graphical User Interface). This option reduces the attack surface and is commonly used in virtualized environments or containerized setups.
+
+  2. **Windows Server Essentials**: A simplified version of Windows Server for small businesses with fewer than 25 users. It's easier to manage and includes features like file sharing, data backup, and remote access.
+
+  3. **Microsoft Hyper-V Server**: A free version of Windows Server specifically designed for running Hyper-V virtual machines. It’s used for setting up virtualized server environments, often in data centers
+
 # How to Connect to a Windows Remote Server
 
 - Remarks
