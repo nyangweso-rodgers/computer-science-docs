@@ -55,10 +55,14 @@
 
 ## 8. `curl`
 
-- **Purpose**: Used to transfer data to or from a server, supporting multiple protocols (HTTP, FTP, etc.).
+- **Purpose**: Used to transfer data to or from a server, supporting multiple protocols (**HTTP**, **FTP**, etc.).
+- Installimg `curl`:
+  - The latest modern OS has **curl** pre-installed so you don't need to install it to work with it. Or you can install it from here: https://curl.se/download.html
 - Example usage
-  1. `curl http://www.google.com` — Fetch the content of a webpage.
-  2. `curl -I http://www.google.com` — Fetch the HTTP headers of the webpage.
+  1. `curl --version` - check the version of curl installed
+  2. `curl http://www.google.com` — Fetch the content of a webpage.
+  3. `curl -I http://www.google.com` — Fetch the HTTP headers of the webpage.
+  4. `curl https://jsonplaceholder.typicode.com/users` - fetch JOSN Placeholder API Content
 
 ## 9. `arp`
 
