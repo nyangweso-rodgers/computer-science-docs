@@ -396,13 +396,29 @@
 
 # Docker Networks
 
-- Docker supports several **network types**:
+- What Are Docker Network Drivers?
+- The Four Built-In Docker Network Drivers
 
-  1. **bridge**: The default network driver. Good for containers on a single host.
-  2. **host**: Removes network isolation, container uses host’s network directly
-  3. **none**: Disables networking completely
-  4. **overlay**: For connecting containers across multiple **Docker hosts**
-  5. **macvlan**: Assigns a MAC address to containers, making them appear as physical devices
+  1. **None Driver**:
+
+     - Disables networking entirely for a container.
+     - The container is isolated from all other containers and external networks.
+
+  2. **Host Driver**:
+
+     - The container shares the network stack with the Docker host.
+     - The container essentially appears as the host itself in terms of networking.
+
+  3. **Bridge Driver** (Default)
+
+     - Creates an internal network within a single Docker host.
+     - **Containers** in this network can communicate with each other but are isolated from external networks or containers on other networks.
+     - The bridge driver is the default for standalone containers and Docker Compose setups.
+
+  4. **Overlay Driver**:
+     - Creates a distributed network spanning multiple Docker hosts.
+     - Ideal for multi-host setups, such as Docker Swarm services, where containers need to communicate across nodes.
+     - The overlay driver is the default for **Docker Swarm**.
 
 # Docker Networks Commands
 
@@ -468,3 +484,4 @@
 1. [https://www.digitalocean.com/community/tutorials/how-to-use-docker-exec-to-run-commands-in-a-docker-container?ref=dailydev](https://www.digitalocean.com/community/tutorials/how-to-use-docker-exec-to-run-commands-in-a-docker-container?ref=dailydev)
 2. [Docker Compose Logs: An In-Depth Guide for Developers](https://last9.io/blog/docker-compose-logs/?ref=dailydev)
 3. [Learn Docker CP Command for Effective File Management](https://www.heyvaldemar.com/learn-docker-cp-command-effective-file-management/?ref=dailydev)
+4. [Medium - Docker Networking Explained: Theory and Network Drivers Simplified](https://medium.com/javarevisited/sdocker-networking-explained-theory-and-network-drivers-simplified-8c93252d2719)
