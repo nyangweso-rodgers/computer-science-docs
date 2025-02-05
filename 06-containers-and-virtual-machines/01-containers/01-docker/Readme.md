@@ -155,17 +155,16 @@
     - Here,
       - We are using the `HOST_PORT:CONTAINER_PORT` mapping
 
-## Docker Concept #7: Docker Hub
+## Docker Concept: Docker Hub
 
 - [Docker Hub](https://hub.docker.com/) is a centralized repository for storing and sharing **Docker images**. All the components required to run an application are included in a **docker image**, which serves as the container's architectural blueprint.
 
-# Bonus
 
-## Docker Image Best Practices
+# Docker Image Best Practices
 
 - To ensure optimal performance, scalability, and security, it’s essential to follow best practices when creating and managing **Docker images**.
 
-### 1. Choose the Right Base Image
+## 1. Choose the Right Base Image
 
 - Consider using official images from trusted sources like Docker Hub, as they are regularly updated and maintained by the community.
 - Choose a minimalistic base image to reduce the attack surface and optimize the image size. Alpine Linux is a popular choice for its lightweight nature.
@@ -173,7 +172,7 @@
     FROM Alpine:latest
   ```
 
-### 2. Use `.dockerignore`
+## 2. Use `.dockerignore`
 
 - Similar to `.gitignore`, a `.dockerignore` file allows you to specify files and directories to exclude from the build context.
 - By preventing unnecessary files from being added to the image, you can further reduce its size. Common exclusions include `node_modules`, `.git`, and temporary files.
@@ -191,7 +190,7 @@
   - `node_modules`: For Node.js projects, this excludes all dependencies, which should be installed fresh during the build process.
   - `test`: Excludes the test directory, as tests typically aren't needed in production images.
 
-### 3. Implement Health Checks in Your `Dockerfiles`
+## 3. Implement Health Checks in Your `Dockerfiles`
 
 - [Health checks](https://docs.docker.com/reference/dockerfile/#healthcheck) are an important feature in Docker that help you make sure that your containers are not only running, but actually working as expected. They allow Docker to regularly check if your application is functioning correctly.
 - Example:
@@ -208,7 +207,7 @@
        - `--retries=3`: If the health check fails 3 times in a row, the container is considered unhealthy.
      - The actual health check command (`curl -f http://localhost/ || exit 1`) attempts to make an HTTP request to the server. If the request fails, the health check fails.
 
-### 4. Use Docker Compose for Local Development
+## 4. Use Docker Compose for Local Development
 
 - [Docker Compose]() is a tool for defining and running multi-container Docker applications. It's especially useful for local development environments where you might need to run several interconnected services.
 
