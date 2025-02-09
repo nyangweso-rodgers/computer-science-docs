@@ -118,7 +118,9 @@
      - Best Practice:
        - For pipelines where real-time processing isn’t critical, compress your end result before loading into your data warehouse or final storage. This approach is often easier to manage and debug.
 
-- Remarks:
+- **Remarks**:
   - For **batch processing** of large text datasets (**CSV**, **JSON**), **GZIP** offers a good balance of compression and compatibility.
   - For **real-time analytics** or **streaming data**, consider **LZO** or **Snappy** to minimize latency.
   - For big data ecosystems, leverage the built-in compression capabilities of formats like **Parquet** and **Avro**, tuning the algorithm (e.g., choosing between Snappy or GZIP) based on your performance requirements.
+
+# Data Serialization
