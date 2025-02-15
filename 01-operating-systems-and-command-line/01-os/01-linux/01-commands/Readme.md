@@ -220,9 +220,98 @@
    ```
 
 3. Remove all files & folders and also it is used to remove non empty folders
+
    ```sh
     rm -rf *
    ```
+
+4. To see who owns the directory and what permissions exist, run:
+
+   ```sh
+    ls -ld /usr/
+   ```
+
+5. Archive a Folder
+
+   1. Create a `.tar` Archive (Without Compression)
+
+      ```sh
+        tar -cvf archive.tar /path/to/folder
+      ```
+
+      - `c` : Create an archive
+      - `v` : Verbose mode (shows progress)
+      - `f` : Filename of the archive
+      - Example 1: `tar -cvf backup.tar /home/user/documents`
+
+   2. Create a Compressed `.tar.gz` Archive
+   3. Create a Compressed `.tar.bz2` Archive (Better Compression)
+   4. Extract a `.tar.gz` Archive
+      ```bash
+        tar -xzvf archive.tar.gz
+      ```
+
+## 5. Disk Commands
+
+1. Check available disk space:
+
+   ```sh
+    df -h
+   ```
+
+2. Check Largest Files:
+   ```sh
+    du -ah / | sort -rh | head -20
+   ```
+
+## 6. CPU
+
+1. Real-time CPU usage: here are several commands to check CPU usage in Linux. Here are the most useful ones:
+
+   1. `top` – Real-Time CPU Usage
+
+      ```sh
+        top
+      ```
+
+      - This displays real-time CPU usage for all processes.
+      - Look at the `%Cpu(s)` section:
+
+   2. `htop` – Interactive CPU Monitoring (Better than `top`)
+
+      ```sh
+        htop
+      ```
+
+      - `htop` is a more user-friendly version of `top`. It shows CPU usage with graphs and color coding.
+      - If not installed, install it with: `sudo apt install htop  # Ubuntu/Debian`
+
+   3. `mpstat` – Per-Core CPU Usage
+
+      ```sh
+        mpstat -P ALL
+      ```
+
+      - This shows CPU usage per core.
+      - If not installed, install it with: `sudo apt install sysstat  # Ubuntu/Debian`
+
+   4. `sar` – CPU Usage Over Time
+
+      ```sh
+        sar -u 5 10
+      ```
+
+      - This collects CPU usage every 5 seconds for 10 times.
+      - Requires `sysstat` package.
+
+   5. `iostat` – CPU & Disk I/O Usage
+
+      ```sh
+        iostat -c 2 5
+      ```
+
+      - This shows CPU usage every 2 seconds for 5 times.
+      - Install with: `sudo apt install sysstat`
 
 # Command : Check Which Shell You are using on Linux
 
