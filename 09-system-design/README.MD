@@ -5,23 +5,138 @@
 - [System Design Concepts](#system-design-concepts)
   - [Table of Contents](#table-of-contents)
 - [System Design Concepts](#system-design-concepts-1)
-- [Software Architecture Pattersn](#software-architecture-pattersn)
+- [Strategies For Scalable Systems](#strategies-for-scalable-systems)
+  - [1. Stateless Services](#1-stateless-services)
+  - [2. Horizontal Scaling](#2-horizontal-scaling)
+  - [3. Load Balancing](#3-load-balancing)
+  - [4. Caching](#4-caching)
+  - [5. Database Replication](#5-database-replication)
+  - [6. Database Sharding](#6-database-sharding)
+  - [7. Async Processing](#7-async-processing)
+- [Software- Architecture Pattersn](#software--architecture-pattersn)
   - [1. Backend for Frontend (BFF) Architecture](#1-backend-for-frontend-bff-architecture)
 - [Repository Organization](#repository-organization)
   - [1. Monolith](#1-monolith)
   - [1. Mongorepo](#1-mongorepo)
   - [Cookies](#cookies)
-  - [Caches](#caches)
-  - [1. Load Balancing](#1-load-balancing)
   - [Distributed Sys](#distributed-sys)
   - [](#)
-- [Vertical vs. Horizontal Scaling](#vertical-vs-horizontal-scaling)
-- [Disadvantages to Vertical Scaling](#disadvantages-to-vertical-scaling)
 - [Resources and Further Reading](#resources-and-further-reading)
 
 # System Design Concepts
 
-# Software Architecture Pattersn
+# Strategies For Scalable Systems
+
+## 1. Stateless Services
+
+- A **stateless service** is one that doesn’t retain information about **client sessions** between requests. Each request contains all the information necessary for the server to process it.
+- **Stateless architecture** makes scaling much easier because it allows servers to be interchangeable and reduces the complexity of managing the state.
+
+- Benefits:
+
+  - **Ease of Scaling**: Stateless services can easily be duplicated across multiple servers
+  - **Fault Tolerance**: If a server fails, requests can be redirected to another server without losing session data.
+
+- Implementation Tips:
+  - Use tokens like **JSON Web Tokens** (**JWT**) to store session data on the client side instead of the server.
+  - For operations requiring state (e.g., shopping cart sessions), consider externalizing state management to a database or caching layer like **Redis**.
+
+## 2. Horizontal Scaling
+
+- **Vertical scaling** involves adding more resources to a machine. E.g., suppose you have a traditional database server which is starting to get overloaded. The way to get this solved is to simply increase the resources (**CPU**, **RAM**, **SSD**) on the server.
+- **Disadvantages to Vertical Scaling**
+
+  1. There are limits defined by the hardware. You cannot scale upwards indefinitely.
+  2. It usually requires downtime, something which big corporations cannot afford.
+
+- **Horizontal scalability** is solving the same problem by throwing more machines at it. Adding a new machine does not require downtime nor are there any limits to the amount of machines you can have in your cluster. The catch is that not all systems support horizontal scalability, as they are not designed to work in a cluster and those that are are usually more complex to work with.
+- **Horizontal scaling**, or "scale-out," involves adding more servers to share the load. Unlike **vertical scaling**, which involves upgrading hardware, **horizontal scaling** is more cost-effective and provides better fault tolerance.
+
+- Why It Matters:
+
+  1. **Redundancy**: Multiple servers reduce the impact of single points of failure.
+  2. **Scalability**: You can handle larger workloads by simply adding more servers.
+
+- Implementation Tips:
+  1. Ensure your system supports distributed workloads. Tools like **Kubernetes** can help manage containerized applications across multiple nodes.
+  2. Use **stateless services** to simplify horizontal scaling, as each server can independently handle requests.
+
+## 3. Load Balancing
+
+- A **load balancer** sits in front of various servers and acts as a traffic cop to direct traffic to the right server. It makes sure that no server is overloaded, and provides high availability and reliability by ensuring all requests are served. If a server goes down, it starts redirecting the requests to different servers that are online.
+
+- **Benefits** of a **load balancer**:
+
+  - Faster user experience
+  - Less downtime and high thorughput. If a particular server is down, LB takes care of routing the traffic to the ones which are up.
+  - Reduces individual server load and prevents any one application server from becoming a single point of failure.
+  - Improves response time
+  - Improves overall system availability.
+
+- **How Do Load Balancer Works**? A **load balancer** can use any of the below **algorithms** to decide where to route the next incoming request. The **algorithms** used depend on the use case:
+
+  - **Least Connection Method**: Route traffic to the server with the fewest active connections.
+  - **Least Response Time Method**: Route traffic to the server with the fewest active connections and the lowest average response time.
+  - **Least Bandwidth Method**: Route traffic to the server that is currently serving the least amount of traffic measured in megabits per second (Mbps)
+  - **Round Robin**: Routes through a list of servers and sends each new requst to the next server. When it reaches the end of the list, it starts over at the beginning.
+  - **Weighted Rounded Robin Method**: The weighted round robin scheduling is designed to better handle servers with different processing capacities. Each server is assigned a weight (an integer that indicates the processing capacity). Servers with higher weights receive new connections before those with less weight and servers with higher weights get more connections than those with less weights.
+  - **IP Hash**: Under this method, a hash of the IP address of the client is calculated to redirect the request.
+
+- **Implementation Tips**:
+  1. Use hardware or software load balancers like **NGINX**, **HAProxy**, or AWS **Elastic Load Balancer**.
+  2. Implement health checks to ensure that the load balancer only sends requests to functioning servers.
+  3. Configure sticky sessions cautiously, as they can introduce statefulness and reduce flexibility.
+
+## 4. Caching
+
+- **Caching** is the temporary storage of information outside of the **server**.
+- In between the **client** and the **server**, there are many points of presence where the cache can be stored:
+
+  - The cache can be stored near the server like an **API gateway cache** on AWS.
+  - The cache can be stored somewhere in the middle between the **client** and the **server** using a 3rd party solution or using a hierarchy of **proxy servers** that just holds cache data, and are called **caching proxy servers**. This is usually a shared cache so this cache can be shared by many clients.
+  - Lastly, the cache can be stored on the client/in the app/on the device. It is not shared and is only available to the client. This is called a **private cache**.
+
+* **Caching** information includes:
+  - database query results
+  - computationally intensive calculations
+  - API requests/responses
+  - data files like HTML, images or
+  - any application data in general e.t.c
+
+- **Benefits of caching** include:
+
+  - improves application performance
+  - reduced load on servers
+  - reduced load on databases
+  - eliminates database hotspots
+  - increases Read Throughput(IOPS)
+  - reduces bandwidth consumption
+
+- **Implementation Tips**:
+  1. Use caching tools like Redis, Memcached, or Varnish.
+  2. Implement different caching layers:
+     1. **Database Caching**: Cache query results to avoid recalculating them.
+     2. **Application Caching**: Store data in memory for quick access.
+     3. **Content Delivery Networks** (**CDNs**): Cache static assets like images and scripts close to the user.
+  3. Set appropriate expiration times to ensure cached data remains up-to-date.
+
+## 5. Database Replication
+
+- **Database replication** involves creating multiple copies of your database across different nodes. These replicas can handle read requests, improving both performance and redundancy.
+
+## 6. Database Sharding
+
+- **Sharding** is the process of dividing your database into smaller, more manageable pieces called **shards**. Each **shard** contains a subset of the data and operates independently.
+
+## 7. Async Processing
+
+- **Asynchronous processing** moves resource-intensive tasks, such as sending emails or generating reports, to background workers. This allows the system to handle new requests without waiting for the completion of these tasks.
+- **Implementation Tips**:
+  1. Use message queues like **RabbitMQ**, **Kafka**, or **AWS SQS** to manage task queues.
+  2. Implement retry mechanisms to handle failures in background tasks.
+  3. Prioritize idempotency for tasks to ensure they can be retried safely without duplication.
+
+# Software- Architecture Pattersn
 
 ## 1. Backend for Frontend (BFF) Architecture
 
@@ -142,51 +257,6 @@
     - **Use anti-malware**: Using anti-malware solutions or reliable security plugins will protect your system from cookie stealing software
     - **Digital hygiene**: Digital hygiene refers to general tips that keep online connections secure. These include logging out of accounts to end the session once you are done, avoiding public wifi connections when possible, and regularly clearing out your browser's cookie data.
 
-## Caches
-
-- **Caching** is the temporary storage of information outside of the **server**.
-
-* In between the **client** and the **server**, there are many points of presence where the cache can be stored:
-
-  - The cache can be stored near the server like an **API gateway cache** on AWS.
-  - The cache can be stored somewhere in the middle between the **client** and the **server** using a 3rd party solution or using a hierarchy of **proxy servers** that just holds cache data, and are called **caching proxy servers**. This is usually a shared cache so this cache can be shared by many clients.
-  - Lastly, the cache can be stored on the client/in the app/on the device. It is not shared and is only available to the client. This is called a **private cache**.
-
-* **Caching** information includes:
-  - database query results
-  - computationally intensive calculations
-  - API requests/responses
-  - data files like HTML, images or
-  - any application data in general e.t.c
-
-- **Benefits of caching** include:
-  - improves application performance
-  - reduced load on servers
-  - reduced load on databases
-  - eliminates database hotspots
-  - increases Read Throughput(IOPS)
-  - reduces bandwidth consumption
-
-## 1. Load Balancing
-
-- A **load balancer** sits in front of various servers and acts as a traffic cop to direct traffic to the right server. It makes sure that no server is overloaded, and provides high availability and reliability by ensuring all requests are served. If a server goes down, it starts redirecting the requests to different servers that are online.
-
-- **Benefits** of a **load balancer**:
-
-  - Faster user experience
-  - Less downtime and high thorughput. If a particular server is down, LB takes care of routing the traffic to the ones which are up.
-  - Reduces individual server load and prevents any one application server from becoming a single point of failure.
-  - Improves response time
-  - Improves overall system availability.
-
-- **How Do Load Balancer Works**? A **load balancer** can use any of the below **algorithms** to decide where to route the next incoming request. The **algorithms** used depend on the use case:
-  - **Least Connection Method**: Route traffic to the server with the fewest active connections.
-  - **Least Response Time Method**: Route traffic to the server with the fewest active connections and the lowest average response time.
-  - **Least Bandwidth Method**: Route traffic to the server that is currently serving the least amount of traffic measured in megabits per second (Mbps)
-  - **Round Robin**: Routes through a list of servers and sends each new requst to the next server. When it reaches the end of the list, it starts over at the beginning.
-  - **Weighted Rounded Robin Method**: The weighted round robin scheduling is designed to better handle servers with different processing capacities. Each server is assigned a weight (an integer that indicates the processing capacity). Servers with higher weights receive new connections before those with less weight and servers with higher weights get more connections than those with less weights.
-  - **IP Hash**: Under this method, a hash of the IP address of the client is calculated to redirect the request.
-
 ## Distributed Sys
 
 - A **distributed** system is one which is split into multiple running machines, all of which work together in a cluster to appear as one single node to the end user. **Kafka** is distributed in the sense that it stores, receives and sends messages on different nodes (called **brokers**).
@@ -225,17 +295,6 @@
 5. **Firewall**: Web servers use a firewall to protect the system against breaches and attacks. For example , if a bad source starts flooding the web server with a large number of concurrent requests, the firewall will detect the problem and block requests from that **IP address** to keep them from reaching the web server.
 
 6. **TCP (Transfer Control Protocol)**: HTTP uses the TCP transport layer protocol for establishing and maintaining a connection from your machine to the server to ensure reliable delivery. In HTTP requests, it’s the job of TCP protocols to ensure fast and efficient delivery.
-
-# Vertical vs. Horizontal Scaling
-
-- **Vertical scaling** involves adding more resources to a machine. E.g., suppose you have a traditional database server which is starting to get overloaded. The way to get this solved is to simply increase the resources (CPU, RAM, SSD) on the server.
-
-- **Horizontal scalability** is solving the same problem by throwing more machines at it. Adding a new machine does not require downtime nor are there any limits to the amount of machines you can have in your cluster. The catch is that not all systems support horizontal scalability, as they are not designed to work in a cluster and those that are are usually more complex to work with.
-
-# Disadvantages to Vertical Scaling
-
-- There are limits defined by the hardware. You cannot scale upwards indefinitely.
-- It usually requires downtime, something which big corporations cannot afford.
 
 # Resources and Further Reading
 
