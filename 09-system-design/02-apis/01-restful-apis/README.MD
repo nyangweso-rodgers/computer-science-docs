@@ -5,6 +5,14 @@
 # What is an API?
 
 - An **API** is a set of rules and protocols for building and interacting with software applications. It defines the methods and data formats that applications use to communicate with external systems or services. APIs enable different software components to interact with each other, allowing developers to use functionalities of other applications without needing to understand their internal workings.
+- **Implementation Frameworks**: Choosing the proper framework can significantly impact your API development experience
+  1. **Python**:
+     1. [Flask](https://flask.palletsprojects.com/en/stable/)
+     2. [Django REST framework](https://www.django-rest-framework.org/)
+     3. [FastAPI](https://fastapi.tiangolo.com/)
+  2. **JavaScript**​: [Express.js](https://expressjs.com/)
+  3. **Java**: [Spring Boot](https://spring.io/projects/spring-boot)
+  4. **.NET**: [ASP.NET Core](https://dotnet.microsoft.com/en-us/apps/aspnet)
 
 # Types of APIs
 
@@ -104,43 +112,35 @@
 
 # Basic Principles of API Design
 
-## 1. Consistency
+1. **Consistency**
 
-- Ensure that your API is consistent in its structure, naming conventions, and error handling. For instance:
-  - Use similar naming conventions for endpoints.
-  - Apply uniform formats for responses and errors.
-  - Standardize parameter names and data types.
+   - Ensure that your API is consistent in its structure, naming conventions, and error handling. For instance:
+     - Use similar naming conventions for endpoints.
+     - Apply uniform formats for responses and errors.
+     - Standardize parameter names and data types.
 
-## 2. Statelessness
+2. **Statelessness**
 
-- Each request from a client should contain all the information needed to process the request. This simplifies the server’s design and improves scalability. **Statelessness** means that the server does not store any client context between requests, which helps in distributing the load across multiple servers.
+   - Each request from a client should contain all the information needed to process the request. This simplifies the server’s design and improves scalability. **Statelessness** means that the **server** does not store any **client** context between **requests**, which helps in distributing the load across multiple servers.
 
-## 3. Resource-Oriented Design
+3. **Resource-Oriented Design**
 
-- Treat everything in your API as a resource. Resources can be objects, data, or services, and each should have a unique identifier (typically a URL in RESTful APIs). Design endpoints to represent resources and use HTTP methods to perform actions on them.
+   - Treat everything in your API as a resource. **Resources** can be **objects**, **data**, or **services**, and each should have a unique identifier (typically a URL in RESTful APIs). Design endpoints to represent resources and use HTTP methods to perform actions on them.
 
-## 4. Use Standard HTTP Methods
+4. **Use Standard HTTP Methods**
 
-- Follow the HTTP methods convention to perform operations on resources:
-  1. GET for retrieving resources.
-  2. POST for creating resources.
-  3. PUT for updating resources.
-  4. DELETE for deleting resources. Using these standard methods makes your API intuitive and easier to use.
+   - Follow the **HTTP methods** convention to perform operations on resources:
+     1. `GET` for retrieving resources.
+     2. `POST` for creating resources.
+     3. `PUT` for updating resources.
+     4. `DELETE` for deleting resources. Using these standard methods makes your API intuitive and easier to use.
 
-## 5. Versioning
+5. **Versioning**
 
-- Include versioning in your API design to handle updates without breaking existing clients. Common versioning strategies include:
-  - URL versioning (`/v1/resource`).
-  - Header versioning (`Accept: application/vnd.yourapi.v1+json`).
-  - Parameter versioning (`/resource?version=1`).
-
-## 6. Implementation Frameworks
-
-- Choosing the proper framework can significantly impact your API development experience
-  1. Python: [Flask](https://flask.palletsprojects.com/en/stable/), [Django REST framework](https://www.django-rest-framework.org/), [FastAPI](https://fastapi.tiangolo.com/)
-  2. **JavaScript**​: [Express.js](https://expressjs.com/)
-  3. **Java**: [Spring Boot](https://spring.io/projects/spring-boot)
-  4. **.NET**: [ASP.NET Core](https://dotnet.microsoft.com/en-us/apps/aspnet)
+   - Include versioning in your API design to handle updates without breaking existing clients. Common versioning strategies include:
+     - **URL versioning** (`/v1/resource`).
+     - **Header versioning** (`Accept: application/vnd.yourapi.v1+json`).
+     - **Parameter versioning** (`/resource?version=1`).
 
 # Designing a Simple RESTful API
 
@@ -207,239 +207,226 @@
 
 7. **Access Token**: used for **authentication**. Applications use an access token to authenticate themselves so that they can make an API call. Access tokens are just random strings.
 
-# API Gateway
+8. **API Gateway**
+   - Is a type of software that provides a way for **clients** to interact with a set of back-end services. A typical API gateway will provide a set of APIs that clients can use to access the various back-end services.
+   - **API Gateway** acts as a **proxy**, intercepting requests from the application and forwarding them to the appropriate backend service.
+   - Benefits include:
+     1. Increased Security: API gateways can provide an additional layer of security for your backend services by validating incoming requests and enforcing authentication and authorization policies.
+     2. Improved performance: API gateways can cache commonly requested data and distribute load across multiple backend servers to improve performance.
+     3. Easier management: API gateways can provide a single point of control for managing your backend services, making them easier to deploy.
 
-- API Gateway is a type of software that provides a way for clients to interact with a set of back-end services. A typical API gateway will provide a set of APIs that clients can use to access the various back-end services.
-- API Gateway acts as a proxy, intercepting requests from the application and forwarding them to the appropriate backend service.
-- Benefits of API Gateway include:
-  1. Increased Security: API gateways can provide an additional layer of security for your backend services by validating incoming requests and enforcing authentication and authorization policies.
-  2. Improved performance: API gateways can cache commonly requested data and distribute load across multiple backend servers to improve performance.
-  3. Easier management: API gateways can provide a single point of control for managing your backend services, making them easier to deploy.
+# API Design Best Practices
 
-# API Design Bes Practices
+1. **Authentication and Authorization**
 
-## 1. Authentication and Authorization
+   - Secure your API using **authentication** (who you are) and **authorization** (what you can do). Common methods include:
+     1. **OAuth**: A widely used open standard for access delegation, commonly used for token-based authentication.
+     2. **JWT** (JSON Web Tokens): Tokens that encode a payload with a signature to ensure data integrity.
+     3. **API Keys**: Simple tokens passed via HTTP headers or query parameters to authenticate requests.
 
-- Secure your API using authentication (who you are) and authorization (what you can do). Common methods include:
-  1. **OAuth**: A widely used open standard for access delegation, commonly used for token-based authentication.
-  2. **JWT** (JSON Web Tokens): Tokens that encode a payload with a signature to ensure data integrity.
-  3. **API Keys**: Simple tokens passed via HTTP headers or query parameters to authenticate requests.
+2. **Rate Limiting**
 
-## 2. Rate Limiting
+   - **Rate limiting** helps protect your API from excessive use and ensures resources are available for all users.
+   - there might be a case where the user executes a loop, causing many API requests that can slow doen your API performance. In order to avioid such scenarios, use **rate-limitng** factors and limit the specific number or requests in the given time period.
 
-- Rate limiting helps protect your API from excessive use and ensures resources are available for all users.
-- there might be a case where the user executes a loop, causing many API requests that can slow doen your API performance. In order to avioid such scenarios, use **rate-limitng** factors and limit the specific number or requests in the given time period.
+3. **Error Handling**
 
-## 3. Error Handling
+   - Provide clear and consistent error messages. Use standard **HTTP status** codes and include meaningful error messages and codes in the response body.
+   - For example:
+     ```json
+     {
+       "error": {
+         "code": 404,
+         "message": "Resource not found"
+       }
+     }
+     ```
+   - Common **HTTP status codes** include:
+     1. `200 OK` for successful requests.
+     2. `201 Created` for successful resource creation.
+     3. `400 Bad Request` for client-side errors.
+     4. `401 Unauthorized` for authentication errors.
+     5. `403 Forbidden` for authorization errors.
+     6. `404 Not Found` for non-existent resources.
+     7. `500 Internal Server Error` for server-side errors.
 
-- Provide clear and consistent error messages. Use standard HTTP status codes and include meaningful error messages and codes in the response body.
-- For example:
-  ```json
-  {
-    "error": {
-      "code": 404,
-      "message": "Resource not found"
-    }
-  }
-  ```
-- Common HTTP status codes include:
-  1. `200 OK` for successful requests.
-  2. `201 Created` for successful resource creation.
-  3. `400 Bad Request` for client-side errors.
-  4. `401 Unauthorized` for authentication errors.
-  5. `403 Forbidden` for authorization errors.
-  6. `404 Not Found` for non-existent resources.
-  7. `500 Internal Server Error` for server-side errors.
+4. **Pagination and Filtering**
 
-## 4. Pagination and Filtering
+   - For endpoints returning large datasets, implement **pagination** to manage the load and improve performance. Allow clients to filter and sort data as needed.
+   - For example:
+     - Pagination: `GET /posts?page=2&limit=10`
+     - Filtering: `GET /posts?author=JohnDoe`
+     - Sorting: `GET /posts?sort=created_at&order=desc`
+   - Here are six popular **pagination techniques**:
+     1. **Offset-based Pagination**:
+        - This technique uses an offset and a limit parameter to define the starting point and the number of records to return.
+        - Example:
+          ```sh
+           GET /orders?offset=0&limit=3
+          ```
+        - Pros:
+          - Simple to implement and understand.
+        - Cons:
+          - Can become inefficient for large offsets, as it requires scanning and skipping rows.
+     2. **Cursor-based Pagination**:
+        - This technique uses a **cursor** (a **unique identifier**) to mark the position in the dataset. Typically, the **cursor** is an encoded string that points to a specific record.
+        - Example:
+          ```sh
+           GET /orders?cursor=xxx
+          ```
+        - Pros:
+          - More efficient for large datasets, as it doesn't require scanning skipped records.
+        - Cons:
+          - Slightly more complex to implement and understand.
+     3. **Page-based Pagination**:
+        - This technique specifies the page number and the size of each page.
+        - Example
+          ```sh
+           GET /items?page=2&size=3
+          ```
+        - Pros
+          - Easy to implement and use.
+        - Cons
+          - Similar performance issues as offset-based pagination for large page numbers.
+     4. **Keyset-based Pagination**:
+        - This technique uses a key to filter the dataset, often the primary key or another indexed column.
+        - Example
+          ```sh
+           GET /items?after_id=102&limit=3
+          ```
+        - Pros:
+          - Efficient for large datasets and avoids performance issues with large offsets.
+        - Cons:
+          - Requires a unique and indexed key, and can be complex to implement
+     5. **Time-based Pagination**:
+        - This technique uses a timestamp or date to paginate through records.
+        - Example
+          ```sh
+           GET /items?start_time=xxx&end_time=yyy
+          ```
+        - Pros:
+          - Useful for datasets ordered by time, ensures no records are missed if new ones are added.
+        - Cons
+          - Requires a reliable and consistent timestamp.
+     6. **Hybrid Pagination**:
+        - This technique combines multiple pagination techniques to leverage their strengths.
+        - Example:
+          - Combining **cursor** and **time-based pagination** for efficient scrolling through time-ordered records.
+        - Example:
+          ```sh
+           GET /items?cursor=abc&start_time=xxx&end_time=yyy
+          ```
+        - Pros:
+          - Can offer the best performance and flexibility for complex datasets.
+        - Cons:
+          - More complex to implement and requires careful design.
 
-- For endpoints returning large datasets, implement **pagination** to manage the load and improve performance. Allow clients to filter and sort data as needed.
-- For example:
-  - Pagination: `GET /posts?page=2&limit=10`
-  - Filtering: `GET /posts?author=JohnDoe`
-  - Sorting: `GET /posts?sort=created_at&order=desc`
-- Here are six popular **pagination techniques**:
-  1. Offset-based Pagination:
-     - This technique uses an offset and a limit parameter to define the starting point and the number of records to return.
-     - Example:
-       ```sh
-        GET /orders?offset=0&limit=3
-       ```
-     - Pros:
-       - Simple to implement and understand.
-     - Cons:
-       - Can become inefficient for large offsets, as it requires scanning and skipping rows.
-  2. Cursor-based Pagination:
-     - This technique uses a cursor (a unique identifier) to mark the position in the dataset. Typically, the cursor is an encoded string that points to a specific record.
-     - Example:
-       ```sh
-        GET /orders?cursor=xxx
-       ```
-     - Pros:
-       - More efficient for large datasets, as it doesn't require scanning skipped records.
-     - Cons:
-       - Slightly more complex to implement and understand.
-  3. Page-based Pagination:
-     - This technique specifies the page number and the size of each page.
-     - Example
-       ```sh
-        GET /items?page=2&size=3
-       ```
-     - Pros
-       - Easy to implement and use.
-     - Cons
-       - Similar performance issues as offset-based pagination for large page numbers.
-  4. Keyset-based Pagination:
-     - This technique uses a key to filter the dataset, often the primary key or another indexed column.
-     - Example
-       ```sh
-        GET /items?after_id=102&limit=3
-       ```
-     - Pros:
-       - Efficient for large datasets and avoids performance issues with large offsets.
-     - Cons:
-       - Requires a unique and indexed key, and can be complex to implement
-  5. Time-based Pagination:
-     - This technique uses a timestamp or date to paginate through records.
-     - Example
-       ```sh
-        GET /items?start_time=xxx&end_time=yyy
-       ```
-     - Pros:
-       - Useful for datasets ordered by time, ensures no records are missed if new ones are added.
-     - Cons
-       - Requires a reliable and consistent timestamp.
-  6. Hybrid Pagination:
-     - This technique combines multiple pagination techniques to leverage their strengths.
-     - Example:
-       - Combining **cursor** and **time-based pagination** for efficient scrolling through time-ordered records.
-     - Example:
-       ```sh
-        GET /items?cursor=abc&start_time=xxx&end_time=yyy
-       ```
-     - Pros:
-       - Can offer the best performance and flexibility for complex datasets.
-     - Cons:
-       - More complex to implement and requires careful design.
+5. **Documentation**
 
-## 5. Documentation
+   - Use tools like **Swagger** (**OpenAPI**) or **Postman** to create interactive and up-to-date documentation. Good documentation should include:
 
-- Use tools like Swagger (OpenAPI) or Postman to create interactive and up-to-date documentation. Good documentation should include:
+     - Detailed descriptions of endpoints.
+     - Request and response examples.
+     - Error messages and codes.
+     - Authentication methods.
+     - Sample code snippets.
 
-  - Detailed descriptions of endpoints.
-  - Request and response examples.
-  - Error messages and codes.
-  - Authentication methods.
-  - Sample code snippets.
+   - Tools for API documentation include:
+     1. [Swagger/OpenAPI Specification](https://swagger.io/specification/): A standard for describing RESTful APIs
+     2. [Postman](https://www.postman.com/): A popular tool for API development and documentation
 
-- Tools for API documentation include:
-  1. [Swagger/OpenAPI Specification](https://swagger.io/specification/): A standard for describing RESTful APIs
-  2. [Postman](https://www.postman.com/): A popular tool for API development and documentation
+6. **Testing**
 
-## 6. Testing
+   - **API Testing** is performed to test wheather a particular API meets pre-deined parametsrs or not. It includes testing APIs in isolation to ascertain if they meet the:
+     - functionality,
+     - reliability,
+     - latency,
+     - performance,
+     - security, and other essesbtial parameters.
+   - Some of the api tests include:
 
-- **API Testing** is performed to test wheather a particular API meets pre-deined parametsrs or not. It includes testing APIs in isolation to ascertain if they meet the:
-  - functionality,
-  - reliability,
-  - latency,
-  - performance,
-  - security, and other essesbtial parameters.
-- Some of the api tests include:
-  1. **Unit Testing:** involves testing the individual operations of the API by logically dividig them into units. **Unit testing** helps to identify imperfections in the early stages. It typically inclues testing each part of the code seperately.
-  2. **Functional Testing:** includes testing of all the functions in the codebase. It is often uses unit tests as tyhe building blocks.
-  3. **Load Testing:** generally validates the functionality and performance of API under load. **Load Testing** ensures whether an API will work as expected if multiple users are accessing the API concurrently.
-  4. **Runtime Error Detection**: can be performed manually or through automated testing. This testing includes monitoring an API by actually running the API entirely. It helps us to detect errors and exceptions and also prevent resource leaks.
-  5. **Security Testing**: this testing handles all the security aspects of an API, including external threats, validation, access control, and data encryption.
-  6. **Penetration Testing:** includes testing an API to find vulnerabilities in the system or codebase that attackers can exploit. It also includes testing functions that could be misused and test security assests that could be bypassed.
-  7. **Fuzz Testing:** in this testing, we provide substantial random data as the input to test the reliability of an API. This random data is known as **fuzz**. Fuzz Testing ensures the API functionality in the worst-case scenario.
+     1. **Unit Testing:** involves testing the individual operations of the API by logically dividig them into units. **Unit testing** helps to identify imperfections in the early stages. It typically inclues testing each part of the code seperately.
+     2. **Functional Testing:** includes testing of all the functions in the codebase. It is often uses unit tests as tyhe building blocks.
+     3. **Load Testing:** generally validates the functionality and performance of API under load. **Load Testing** ensures whether an API will work as expected if multiple users are accessing the API concurrently.
+     4. **Runtime Error Detection**: can be performed manually or through automated testing. This testing includes monitoring an API by actually running the API entirely. It helps us to detect errors and exceptions and also prevent resource leaks.
+     5. **Security Testing**: this testing handles all the security aspects of an API, including external threats, validation, access control, and data encryption.
+     6. **Penetration Testing:** includes testing an API to find vulnerabilities in the system or codebase that attackers can exploit. It also includes testing functions that could be misused and test security assests that could be bypassed.
+     7. **Fuzz Testing:** in this testing, we provide substantial random data as the input to test the reliability of an API. This random data is known as **fuzz**. Fuzz Testing ensures the API functionality in the worst-case scenario.
 
-* Thoroughly test your API to ensure it handles various scenarios gracefully. Use unit tests, integration tests, and automated testing tools to validate functionality and performance. Popular testing frameworks include:
-  1. **JUnit** for Java.
-  2. **PyTest** for Python.
-  3. **Mocha** for JavaScript. Automated testing can help catch issues early and ensure your API remains reliable as it evolves.
+   - Thoroughly test your API to ensure it handles various scenarios gracefully. Use unit tests, integration tests, and automated testing tools to validate functionality and performance. Popular testing frameworks include:
+     1. **JUnit** for Java.
+     2. **PyTest** for Python.
+     3. **Mocha** for JavaScript. Automated testing can help catch issues early and ensure your API remains reliable as it evolves.
 
-## 7. Naming API Endpoints
+7. **Naming API Endpoints**
 
-- Here are some guidelines and examples to help you name your API endpoints effectively:
+   - Here are some guidelines and examples to help you name your API endpoints effectively:
 
-  1. **Use Nouns for Resource Names**. Endpoints should represent resources (nouns) rather than actions (verbs). For example, use `/users` instead of `/getUsers`
-  2. **Use Plural Names for Collections**. When referring to a collection of resources, use plural nouns (e.g., `/users`). For a single resource, use the singular form along with its identifier (e.g., `/users/{id}`)
-  3. **Use HTTP Methods to Define Actions**:
-     - **GET**. Retrieve a resource or a collection of resources (e.g., `GET /users`, `GET /users/{id}`)
-     - **POST**. Create a new resource (e.g., `POST /users`)
-     - **PUT** or **PATCH**. Update an existing resource (e.g., `PUT /users/{id}` or `PATCH /users/{id}`).
-     - **DELETE**. Remove a resource (e.g., `DELETE /users/{id}`)
-  4. **Hierarchical Structure**. Use a clear and logical hierarchy to represent relationships between resources (e.g., `/users/{id}/posts` to represent posts by a specific user)
-  5. **Use Consistent Naming Conventions**. Stick to a consistent naming convention, such as snake_case or kebab-case, and be consistent throughout your API (e.g., `/user_profiles` or `/user-profiles`)
-  6. **Avoid Special Characters and Spaces**. Use hyphens (`-`) to separate words instead of spaces or underscores in URL paths (e.g., `/user-profiles` rather than `/user_profiles`)
-  7. **Keep It Simple and Intuitive**. Names should be easy to understand and remember. Avoid complex or overly technical terminology.
-  8. **Version Your API**. Include versioning in your endpoint paths to allow for future changes without breaking existing clients (e.g., `/v1/users`)
-  9. **Describe Actions with Query Parameters**. Instead of using verbs in your endpoint paths, use query parameters for filtering, sorting, or searching (e.g., `GET /users?status=active`)
+     1. **Use Nouns for Resource Names**. Endpoints should represent resources (nouns) rather than actions (verbs). For example, use `/users` instead of `/getUsers`
+     2. **Use Plural Names for Collections**. When referring to a collection of resources, use plural nouns (e.g., `/users`). For a single resource, use the singular form along with its identifier (e.g., `/users/{id}`)
+     3. **Use HTTP Methods to Define Actions**:
+        - **GET**. Retrieve a resource or a collection of resources (e.g., `GET /users`, `GET /users/{id}`)
+        - **POST**. Create a new resource (e.g., `POST /users`)
+        - **PUT** or **PATCH**. Update an existing resource (e.g., `PUT /users/{id}` or `PATCH /users/{id}`).
+        - **DELETE**. Remove a resource (e.g., `DELETE /users/{id}`)
+     4. **Hierarchical Structure**. Use a clear and logical hierarchy to represent relationships between resources (e.g., `/users/{id}/posts` to represent posts by a specific user)
+     5. **Use Consistent Naming Conventions**. Stick to a consistent naming convention, such as snake_case or kebab-case, and be consistent throughout your API (e.g., `/user_profiles` or `/user-profiles`)
+     6. **Avoid Special Characters and Spaces**. Use hyphens (`-`) to separate words instead of spaces or underscores in URL paths (e.g., `/user-profiles` rather than `/user_profiles`)
+     7. **Keep It Simple and Intuitive**. Names should be easy to understand and remember. Avoid complex or overly technical terminology.
+     8. **Version Your API**. Include versioning in your endpoint paths to allow for future changes without breaking existing clients (e.g., `/v1/users`)
+     9. **Describe Actions with Query Parameters**. Instead of using verbs in your endpoint paths, use query parameters for filtering, sorting, or searching (e.g., `GET /users?status=active`)
 
-- Examples (Well-named API Endpoints):
-  1. User Management
-     - GET /v1/users – Retrieve a list of users.
-     - GET /v1/users/{id} – Retrieve a specific user by ID
-     - POST /v1/users – Create a new user
-     - PUT /v1/users/{id} – Update a user's information
-     - DELETE /v1/users/{id} – Delete a user
-  2. Authentication
-     - POST /v1/auth/login – User login
-     - POST /v1/auth/register – User registration
-     - POST /v1/auth/logout – User logout
-  3. Resource Relationship
-     - GET /v1/users/{id}/posts – Retrieve posts created by a specific user
-     - POST /v1/users/{id}/posts – Create a new post for a specific user
-  4. Pagination and Filtering
-     - GET /v1/users?page=2&limit=10 – Paginate users with 10 per page
-     - GET /v1/posts?sort=desc&category=tech – Retrieve posts sorted by date in descending order and filtered by category
-  5. Complex Operations with Clear Naming
-     - POST /v1/orders/{id}/cancel – Cancel an order
-     - PUT /v1/users/{id}/password – Update a user's password.
-  6. Error Handling and Statuses
-     - GET /v1/orders?status=pending – Retrieve orders with a pending status
+   - Examples (Well-named API Endpoints):
+     1. User Management
+        - GET /v1/users – Retrieve a list of users.
+        - GET /v1/users/{id} – Retrieve a specific user by ID
+        - POST /v1/users – Create a new user
+        - PUT /v1/users/{id} – Update a user's information
+        - DELETE /v1/users/{id} – Delete a user
+     2. Authentication
+        - POST /v1/auth/login – User login
+        - POST /v1/auth/register – User registration
+        - POST /v1/auth/logout – User logout
+     3. Resource Relationship
+        - GET /v1/users/{id}/posts – Retrieve posts created by a specific user
+        - POST /v1/users/{id}/posts – Create a new post for a specific user
+     4. Pagination and Filtering
+        - GET /v1/users?page=2&limit=10 – Paginate users with 10 per page
+        - GET /v1/posts?sort=desc&category=tech – Retrieve posts sorted by date in descending order and filtered by category
+     5. Complex Operations with Clear Naming
+        - POST /v1/orders/{id}/cancel – Cancel an order
+        - PUT /v1/users/{id}/password – Update a user's password.
+     6. Error Handling and Statuses
+        - GET /v1/orders?status=pending – Retrieve orders with a pending status
 
-# API Optimizations
+8. **API Optimizations**
 
-It's imperative to optimize your API to provide a better user experience. Here are five ways to optimize your API performance and make it standout:
+   - It's imperative to optimize your API to provide a better user experience.
+   - Here are five ways to optimize your API performance and make it standout:
+     1. **Cache Requests:** you can implement cache endpoints for the frequently used requests. This will reduce the number of round trips of client requets to the server and improve API performance and latency.
+     2. **Use PATCH over PUT:** the **PATCH** requests method only updates the necessary part of the resource whereas **PUT** updates the entire resource.
+     3. **Compress Data:** massive data transactions make the API slow. Consider using compression teschniques like **GZip** to compress the data sent through the API. It will make the transfer faster and improve the overall performance of your API.
+     4. **Using Appropriate Hosting:** if you expect your API to see high traffic surges, make sure you use a good hosting company that provides you with enough CPUs and databse instances to make your APIs fast. It will solve your network-related issues.
 
-1. **Cache Requests:** you can implement cache endpoints for the frequently used requests. This will reduce the number of round trips of client requets to the server and improve API performance and latency.
+9. **API Lifecycle**
 
-2. **Use PATCH over PUT:** the **PATCH** requests method only updates the necessary part of the resource whereas **PUT** updates the entire resource.
+   - **API Lifecycle** provides a clear-cut plan for the entire lifecycle of an API. From a higher level, the **lifecycle of an API** involves three key phases — **create**, **control**, and **consume**.
+   - The following are the **7 stages of an API Lifecycle**:
+     1. **Design**: An API’s lifecycle starts with planning and designing the API in question. API design includes choosing an _API architecture_, _target audience_, and _API type_ (public, private, or partner). Lastly, API requirements are laid out using an API specification file.
+     2. **Develop**: A team of API developers works on implementing the API according to the decisions and specifications in the design plan. An organized development phase includes implementation using a language or framework of choice, debugging, testing and documentation.
+     3. **Publish**: At the end of the development phase, it is time to deploy the finished API to development, staging, and production environments. Then, we can make it available to the end-users by publishing it.
+     4. **Secure**: The secure phase includes authentication and access control to stop unauthorized access to the API. The API should also be protected against OWASP 10 API security vulnerabilities.
+     5. **Discover**: In this phase, the aim is to expose your API to potential consumers to increase adoption. We can call it the monetize phase for cases when you want to sell your API as a product.
+     6. **Monitor**: When the API is up and running, it will be connected to multiple consumer applications that rely on it for data. Now the API enters the monitoring phase, where all parameters are checked to ensure the API is working correctly.
+     7. **Depreciate**: In the API industry, backward compatibility is a serious concern, which is why older versions must work long enough after newer versions are released. Therefore, after proper planning and monitoring, API enters the last stage, where the older version is retired.
 
-3. **Compress Data:** massive data transactions make the API slow. Consider using compression teschniques like **GZip** to compress the data sent through the API. It will make the transfer faster and improve the overall performance of your API.
+10. **Attacks On APIs**
 
-4. **Using Appropriate Hosting:** if you expect your API to see high traffic surges, make sure you use a good hosting company that provides you with enough CPUs and databse instances to make your APIs fast. It will solve your network-related issues.
-
-# API Lifecycle
-
-- **API Lifecycle** provides a clear-cut plan for the entire lifecycle of an API. From a higher level, the **lifecycle of an API** involves three key phases — **create**, **control**, and **consume**. The following are the 7 stages of an API Lifecycle:
-
-  1. **Design**: An API’s lifecycle starts with planning and designing the API in question. API design includes choosing an _API architecture_, _target audience_, and _API type_ (public, private, or partner). Lastly, API requirements are laid out using an API specification file.
-
-  2. **Develop**: A team of API developers works on implementing the API according to the decisions and specifications in the design plan. An organized development phase includes implementation using a language or framework of choice, debugging, testing and documentation.
-
-  3. **Publish**: At the end of the development phase, it is time to deploy the finished API to development, staging, and production environments. Then, we can make it available to the end-users by publishing it.
-
-  4. **Secure**: The secure phase includes authentication and access control to stop unauthorized access to the API. The API should also be protected against OWASP 10 API security vulnerabilities.
-
-  5. **Discover**: In this phase, the aim is to expose your API to potential consumers to increase adoption. We can call it the monetize phase for cases when you want to sell your API as a product.
-
-  6. **Monitor**: When the API is up and running, it will be connected to multiple consumer applications that rely on it for data. Now the API enters the monitoring phase, where all parameters are checked to ensure the API is working correctly.
-
-  7. **Depreciate**: In the API industry, backward compatibility is a serious concern, which is why older versions must work long enough after newer versions are released. Therefore, after proper planning and monitoring, API enters the last stage, where the older version is retired.
-
-# Attacks On APIs
-
-1. **API Injection Attack**: Injection attacks are carried out by inserting malicious code into the API via a query or request to obtain unauthorized access to data. These are most commonly SQL injection attacks, which insert malicious SQL code as a parameter field.
-
-2. **DDoS (Distributed Denial of Service) attack**: This aims to disrupt a server with a large amount of traffic. It essentially creates a traffic jam, with no traffic able to be transferred to and from the server. This can break the API by making its data inaccessible to users.
-
-3. **Excessive data exposure**: This is where an API returns unneeded or sensitive data in its responses that could be valuable to hackers. This is commonly seen where APIs return complete datasets as they are on backend servers, and the client is relied on to filter the results.
-
-4. **MITM (Man-in-the-middle attack)**: MITM attacks are when a hacker intercepts communication between two programs to obtain the information being transferred between them. This risk is much greater if the data in transit is not encrypted, which is why using HTTPS is standard.
-
-5. **Parameter tampering**: Parameter tampering aims to manipulate parameters sent in **API** requests, creating access to potentially sensitive information. Parameter tampering is done mainly through input forms submitted by clients on the web.
+    1. **API Injection Attack**: Injection attacks are carried out by inserting malicious code into the API via a query or request to obtain unauthorized access to data. These are most commonly SQL injection attacks, which insert malicious SQL code as a parameter field.
+    2. **DDoS (Distributed Denial of Service) attack**: This aims to disrupt a server with a large amount of traffic. It essentially creates a traffic jam, with no traffic able to be transferred to and from the server. This can break the API by making its data inaccessible to users.
+    3. **Excessive data exposure**: This is where an API returns unneeded or sensitive data in its responses that could be valuable to hackers. This is commonly seen where APIs return complete datasets as they are on backend servers, and the client is relied on to filter the results.
+    4. **MITM (Man-in-the-middle attack)**: MITM attacks are when a hacker intercepts communication between two programs to obtain the information being transferred between them. This risk is much greater if the data in transit is not encrypted, which is why using HTTPS is standard.
+    5. **Parameter tampering**: Parameter tampering aims to manipulate parameters sent in **API** requests, creating access to potentially sensitive information. Parameter tampering is done mainly through input forms submitted by clients on the web.
 
 # Resources and Further Reading
 
