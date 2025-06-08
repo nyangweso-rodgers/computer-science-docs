@@ -6,6 +6,17 @@
 
 - **Event-driven architectures** establish an event that can be consumed and reacted to. But what is an **event**? An **event** is essentially _any significant change from one state to another, such as the change from having no messages in your inbox to have a new message in your inbox_.
 
+# Popular Concepts in APIs Design
+
+## 1. Access Tokens
+
+- In their broadest sense, an **access token** is any code that authorizes a user and establishes the extent of their permissions. Once they’re received, a resource server verifies the access token and grants access for the specified duration. This duration is usually very short for security reasons. **Sessions** can be extended by using a **refresh token** to obtain a new access token without requiring the user to log in again.
+
+- **Main Types of Access Tokens**:
+  1. **Bearer tokens**: are the most rudimentary, as they’re the digital equivalent of the key to your front door. They’ve got the same problems and limitations as physical keys, too. If someone gets a hold of a bearer token, they’ll have the same access as the official recipient.
+  2. **Sender-constrained tokens**: are more secure while operating on a principle similar to access tokens. For sender-constrained tokens, the access token is bound to the client’s identity, preventing unauthorized reuse.
+  3. **ID tokens**: serve a different purpose — proving who the user is. Using OpenID Connect, ID tokens are issued as JSON Web Tokens (JWTs) containing numerous properties associated with the user, all of which can be configured by the authorization server. JWTs are web tokens encoded in Base64URL format consisting of three segments: the header, the payload, and the signature. Each of these segments is separated by a period.
+
 # 5 Protocols For Event-Driven API Architectures
 
 - 5 common event-driven methods include:
