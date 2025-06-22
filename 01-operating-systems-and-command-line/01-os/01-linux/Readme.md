@@ -66,6 +66,76 @@
      - `/snap`: Snap packages (containerized software packages).
 - Additionally, it's worth noting that directories like `/sys` and `/proc` are virtual filesystems providing information about the kernel and processes, respectively.
 
+## Linux System Logs (`/var/log`)
+
+- Linux system keeps a detailed record of its activity, and most of it lives in one place: `/var/log`. It’s the go-to directory when something breaks, slows down, or behaves oddly.
+- `/var/log` is a standard directory in **Linux** and Unix-like os where **system logs** are stored - it records **events**, **errors**, **warnings**, and other important information about OS and applications.
+- The name itself tells you a bit about its purpose:
+  - `/var` stands for "variable" – it contains files that change over time
+  - `/log` refers to logging information – the records of system activities
+- When you're troubleshooting issues, monitoring system health, or just trying to understand what's happening on your machine, `/var/log` is your first stop.
+- **The Structure of `/var/log`**: Key Log Files in `/var/log` include:
+
+  1. `/var/log/syslog` or `/var/log/messages`
+
+     - Purpose: General system messages
+     - What You'll Find: Boot information, device changes, system services
+
+  2. `/var/log/auth.log` or `/var/log/secure`
+
+     - Purpose: Authentication events
+     - What You'll Find: Login attempts, sudo commands, SSH access
+
+  3. `/var/log/kern.log`
+
+     - Purpose: Kernel messages
+     - What You'll Find: Hardware issues, driver problems
+
+  4. `/var/log/dmesg`
+
+     - Purpose: Boot messages
+     - What You'll Find: Device initializations, hardware detection
+
+  5. `/var/log/dpkg.log` or `/var/log/yum.log`
+
+     - Purpose: Package management
+     - What You'll Find: Software installations, updates, removals
+
+  6. `/var/log/apache2/` or `/var/log/httpd/`
+
+     - Purpose: Web server logs
+     - What You'll Find: HTTP requests, errors, access attempts
+
+  7. `/var/log/mysql/`
+     - Purpose: Database logs
+     - What You'll Find: Query errors, connection issues
+
+- **Note**: Different Linux distributions might use slightly different naming conventions, but the general structure remains similar across systems.
+
+- **Commands For Working with Logs**
+
+  - To view the contents of a log file, you can use these commands:
+
+    ```sh
+      # View entire file
+      cat /var/log/syslog
+
+      # View last 10 lines
+      tail /var/log/syslog
+
+      # View last 50 lines
+      tail -n 50 /var/log/syslog
+
+      # Follow log in real-time (great for troubleshooting)
+      tail -f /var/log/syslog
+
+      # Search for specific terms
+      grep "error" /var/log/syslog
+
+      # Combine commands for powerful filtering
+      tail -f /var/log/syslog | grep "error"
+    ```
+
 # Linux Remote Server
 
 - A **Linux remote server** is a Linux-based machine that can be accessed and controlled remotely over a network. Unlike a local server or machine that you interact with directly (using a keyboard, monitor, etc.), a remote server is located elsewhere and accessed from your local machine or other networked device. Remote access is often used for managing systems, hosting applications, providing services, or performing tasks like backups, data analysis, or web hosting.
