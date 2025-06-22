@@ -207,14 +207,6 @@
 
 7. **Access Token**: used for **authentication**. Applications use an access token to authenticate themselves so that they can make an API call. Access tokens are just random strings.
 
-8. **API Gateway**
-   - Is a type of software that provides a way for **clients** to interact with a set of back-end services. A typical API gateway will provide a set of APIs that clients can use to access the various back-end services.
-   - **API Gateway** acts as a **proxy**, intercepting requests from the application and forwarding them to the appropriate backend service.
-   - Benefits include:
-     1. Increased Security: API gateways can provide an additional layer of security for your backend services by validating incoming requests and enforcing authentication and authorization policies.
-     2. Improved performance: API gateways can cache commonly requested data and distribute load across multiple backend servers to improve performance.
-     3. Easier management: API gateways can provide a single point of control for managing your backend services, making them easier to deploy.
-
 # API Design Best Practices
 
 1. **Authentication and Authorization**
