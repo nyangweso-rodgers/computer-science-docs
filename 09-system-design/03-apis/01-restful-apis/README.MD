@@ -420,6 +420,56 @@
     4. **MITM (Man-in-the-middle attack)**: MITM attacks are when a hacker intercepts communication between two programs to obtain the information being transferred between them. This risk is much greater if the data in transit is not encrypted, which is why using HTTPS is standard.
     5. **Parameter tampering**: Parameter tampering aims to manipulate parameters sent in **API** requests, creating access to potentially sensitive information. Parameter tampering is done mainly through input forms submitted by clients on the web.
 
+## API Versioning
+
+- As application evolves, you’ll certainly need to make changes to your **APIs**, such as **adding new features**, **fixing bugs**, or **improving performance**. However, once other developers begin building applications that rely on your **API**, any change may break their code. This is why **API versioning** is so important. i.e., You don't have to make a new API version every time something changes, but you might want to do so for changes that break things e.g.,
+  - Removing or renaming fields in the response
+  - Adding new require perameters
+  - Changing how an endpoint works in a basic way
+- Most of the time, changes that don't break things don't need a new version. Examples are adding optional fields to a response or making an API run faster without affecting how clients use it.
+
+- **Versioning Strategies**:
+
+  - You can choose between two main ways to handle changes to your API: the **additive change strategy** and the **explicit versioning strategy**.
+  - **Additive Change Strategy**:
+
+    - This is about adding new features or fields without changing what's already there in your API. Any changes you make to your API must still work with older versions.
+    - Things you can't do are removing or renaming existing fields, changing data types or error codes, and changing how endpoints fundamentally work.
+    - Things you can do are add new optional fields, add new endpoints, and make features optional with opt-in parameters.
+    - Suppose that your financial API returns this response:
+      ```json
+      {
+        "stock": "AAPL",
+        "price": 150.25,
+        "currency": "USD",
+        "market_cap": 28
+      }
+      ```
+    - After some time, you realize that not all users need the `market_cap` information, which is causing an extra network load. With the a**dditive change strategy**, you can't just get rid of this field because some clients may need it. Instead, we could add an optional query parameter like `exclude_market_cap=true`. It will work like this: clients who want to lower their network load can choose to use the new behavior; other clients will not have to make any changes.
+    - The **additive strategy** works well for smaller APIs that don't change much. However, it can become challenging to use as your APIs become more complex.
+
+  - **Explicit Versioning Strategy**
+    - Allows you to maintain multiple versions of your API at the same time. When you want to make a breaking change, you release it as a new version. This gives you more freedom to evolve your API.
+    - The explicit versioning strategy works well for enterprise applications and products that require significant evolution over time.
+
+- **Implementation Methods**
+
+  - There are 3 primary methods for user to specify which API version they want to use:
+
+    1. **URL Path Versioning**
+
+       - This is the most common approach in which we add the version to the URL path like:
+
+         ```sh
+          https://api.example.com/v1/stocks
+          https://api.example.com/v2/stocks
+         ```
+
+       - The version identifier (`v1`, `v2`) comes before the resource name. This makes it apply to all resources and methods in that version. The benefits of this approach are that it is clear and easy to understand. It makes debugging simpler since you see the version in any API call. It also works well with API documentation and testing tools.
+       - The downside is that the resource URL changes with the version. This is not ideal if you want to use these URLs as permanent links. Despite that, many popular APIs use this approach, including GitHub
+
+    2. **Semantic Versioning**
+
 # Resources and Further Reading
 
 1. [dev - Best Practices for Naming API Endpoints](https://dev.to/msnmongare/best-practices-for-naming-api-endpoints-2n5o?ref=dailydev)
