@@ -2,6 +2,33 @@
 
 ## Table Of Contents
 
+# Concepts
+
+## AWS VPC – Regional Networking
+
+- **AWS** uses a **regional VPC model**. When you create a **VPC** in AWS, it’s tied to one region, and it cannot span multiple regions. This means:
+
+  - If you have deployments in `us-east-1`, `us-west-1`, and `eu-west-1`, you must create three separate VPCs.
+  - Each **VPC** has its own CIDR block (for example, `10.0.0.0/16` in `us-east-1`, `10.1.0.0/16` in `us-west-1`, `10.2.0.0/16` in `eu-west-1`).
+  - Cross-region communication requires VPC Peering or an AWS Transit Gateway.
+
+- **Key Characteristics of AWS VPC**:
+
+  1. One VPC per region
+  2. **Subnets** belong to Availability Zones within that region
+  3. Manual setup required for cross-region routing
+  4. Security groups and NACLs (network ACLs) are managed on a per-VPC basis
+
+- **Limitations of AWS’s Regional Model**:
+
+  1.  Scaling to new regions requires creating a new VPC and repeating network configuration.
+  2.  Overlapping CIDRs can prevent direct VPC Peering.
+  3.  Inter-region traffic is billed per GB, increasing costs for global apps.
+  4.  Security rules must be duplicated in each region.
+
+- **Remarks**:
+  - Despite the above challenges, **AWS VPC** is popular for fine-grained control and region-specific isolation, which can be useful for certain compliance needs.
+
 # AWS Services
 
 # 1. Container Services
