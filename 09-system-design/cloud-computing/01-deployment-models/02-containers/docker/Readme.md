@@ -78,6 +78,101 @@
         docker-compose exec <service-name> curl -f http://localhost:8080/health
      ```
 
+## Docker Logging
+
+- **Docker logging drivers** are built-in mechanisms that determine how **container logs** are **collected**, **stored**, and **accessed**.
+- By default, **Docker** uses the `json-file` driver, which saves logs as JSON files on the **host** machine. But that's just the beginning—Docker supports multiple logging drivers that can send your logs to various destinations.
+- Why Docker Logging Drivers Matter
+  1.  **Troubleshooting**: Find and fix issues faster by having logs in the right place
+  2.  **Monitoring**: Keep an eye on container health and performance
+  3.  **Compliance**: Meet regulatory requirements with proper log retention
+  4.  **Resource Management**: Prevent logs from eating up your disk space
+- Available **Docker Logging Drivers**:
+
+  1.  `json-file`
+
+      - Best for local development
+      - Features:
+        - Simple setup, easy access with `docker logs`
+
+  2.  `local`
+
+      - Best for: Production environments
+      - Features:
+        - Block I/O for better performance
+
+  3.  `syslog`
+
+      - Best for Unix/Linux environments
+      - Features:
+        - Integration with system logging
+
+  4.  `journald`
+
+      - Best for SystemD-based distros
+      - Features:
+        -     Structured logging with metadata
+
+  5.  `fluentd`
+
+      - Best for Distributed logging
+      - Features:
+        - Unified logging layer
+
+  6.  `awslogs`
+
+      - Best for AWS environments
+      - Features:
+        - Direct integration with **CloudWatch**
+
+  7.  `splunk`
+
+      - Best for Enterprise monitoring
+      - Features:
+        - Advanced search capabilities
+
+  8.  `gelf`
+      - Best for Graylog integration
+      - **Features**:
+        - Compressed log messages
+
+- **How to Set Up the Default Logging Driver**
+
+  - You can configure the default logging driver for all containers on your Docker daemon. Here's how to do it:
+  - Edit the Docker daemon configuration file:
+    ```json
+    {
+      "log-driver": "local",
+      "log-opts": {
+        "max-size": "10m",
+        "max-file": "3"
+      }
+    }
+    ```
+  - Restart the Docker daemon:
+    ```sh
+      sudo systemctl restart docker
+    ```
+  - This configuration sets the `local` driver as default and limits log files to 10MB with a maximum of 3 files per container.
+
+- **Choose a Logging Driver for Individual Containers**
+  - We can override the default driver when running a container to set a different logging settings for specific containers. E.g.,
+    ```sh
+      docker run --log-driver=fluentd --log-opt fluentd-address=localhost:24224 nginx
+    ```
+  - For Docker Compose, add the logging configuration to your `docker-compose.yml` file:
+    ```yml
+    services:
+      web:
+        image: nginx
+        logging:
+          driver: "fluentd"
+          options:
+            fluentd-address: localhost:24224
+            tag: web.{{.Name}}
+    ```
+
 # Resources and Further Reading
 
 1. [Medium - Docker Compose Health Checks Made Easy: A Practical Guide](https://medium.com/@cbaah123/docker-compose-health-checks-made-easy-a-practical-guide-3a340571b88e)
+2. [last9.io - How Docker Logging Drivers Work](https://last9.io/blog/docker-logging-drivers/?ref=dailydev)
