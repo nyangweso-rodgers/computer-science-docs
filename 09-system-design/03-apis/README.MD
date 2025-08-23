@@ -355,6 +355,14 @@
             https://your-domain.atlassian.net/rest/agile/1.0/sprint/13/issue?fields=summary,sprint
        ```
 
+## 3. GitHub REST API
+
+- Check your current rate limit:
+  ```sh
+    GET https://api.github.com/rate_limit
+    Authorization: token YOUR_TOKEN
+  ```
+
 # Resources and Further Reading
 
 1. [OpneReplay - API Gateway Patterns and Practices](https://blog.openreplay.com/api-gateway-patterns-and-practices/?ref=dailydev)
