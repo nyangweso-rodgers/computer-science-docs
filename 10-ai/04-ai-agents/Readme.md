@@ -50,6 +50,10 @@
        - “List main modules and their purpose.”
        - “Explain the function parse_config and show where it’s used.”
 
+## LangGraph
+
+- **LangGraph** is a low-level orchestration framework for building, managing, and deploying long-running, stateful agents.
+
 # Resources and Tools
 
 ## [Sim](https://github.com/simstudioai/sim?tab=readme-ov-file) (GitHub Repo)
@@ -57,3 +61,5 @@
 - **Sim**, an open-source **AI agent** workflow builder, allows users to rapidly build and deploy LLMs that connect with various tools.
 
 # Resources and Further Reading
+
+1. [LangGraph](https://langchain-ai.github.io/langgraph/)
