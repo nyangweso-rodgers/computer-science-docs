@@ -90,6 +90,7 @@
           test
         ```
   3.  Implement Health Checks in Your `Dockerfiles`
+
       - [Health checks](https://docs.docker.com/reference/dockerfile/#healthcheck) are an important feature in Docker that help you make sure that your containers are not only running, but actually working as expected. They allow Docker to regularly check if your application is functioning correctly.
       - Examples
         - healthcheck for Nginx Server:
@@ -119,6 +120,8 @@
 
 ## Docker Compose
 
+- **Docker Compose** makes it possible for an application to run multiple **containers**. While `Dockerfile` are used to create individual container images, **Docker Compose** provides a way to manage the configuration of multiple containers, their dependencies, networks, and volumes in a single `YAML` file.
+
 ## Docker Ports
 
 - **Publishing** a port provides the ability to break through a little bit of networking isolation by setting up a forwarding rule. As an example, you can indicate that requests on your host’s port `8080` should be forwarded to the container’s port `80`.
@@ -135,6 +138,31 @@
     ```
     - Here,
       - We are using the `HOST_PORT:CONTAINER_PORT` mapping
+
+## Docker Networks
+
+- The Four Built-In Docker Network Drivers
+
+  1. **None Driver**:
+
+     - Disables networking entirely for a container.
+     - The container is isolated from all other containers and external networks.
+
+  2. **Host Driver**:
+
+     - The container shares the network stack with the Docker host.
+     - The container essentially appears as the host itself in terms of networking.
+
+  3. **Bridge Driver** (Default)
+
+     - Creates an internal network within a single Docker host.
+     - **Containers** in this network can communicate with each other but are isolated from external networks or containers on other networks.
+     - The bridge driver is the default for standalone containers and Docker Compose setups.
+
+  4. **Overlay Driver**:
+     - Creates a distributed network spanning multiple Docker hosts.
+     - Ideal for multi-host setups, such as Docker Swarm services, where containers need to communicate across nodes.
+     - The overlay driver is the default for **Docker Swarm**.
 
 ## Docker Registry
 
