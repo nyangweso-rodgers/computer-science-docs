@@ -5,6 +5,7 @@
 - [System Design Concepts](#system-design-concepts)
   - [Table of Contents](#table-of-contents)
 - [System Design Concepts](#system-design-concepts-1)
+  - [Concurrency vs. Parallelism](#concurrency-vs-parallelism)
 - [Strategies For Scalable Systems](#strategies-for-scalable-systems)
   - [1. Stateless Services](#1-stateless-services)
   - [2. Horizontal Scaling](#2-horizontal-scaling)
@@ -13,8 +14,10 @@
   - [5. Database Replication](#5-database-replication)
   - [6. Database Sharding](#6-database-sharding)
   - [7. Async Processing](#7-async-processing)
-- [Software- Architecture Pattersn](#software--architecture-pattersn)
-  - [1. Backend for Frontend (BFF) Architecture](#1-backend-for-frontend-bff-architecture)
+- [Software- Architecture Patterns](#software--architecture-patterns)
+  - [1. Monolithic Architectures](#1-monolithic-architectures)
+  - [2. Microservices Architecture](#2-microservices-architecture)
+  - [3. Backend for Frontend (BFF) Architecture](#3-backend-for-frontend-bff-architecture)
 - [Repository Organization](#repository-organization)
   - [1. Monolith](#1-monolith)
   - [1. Mongorepo](#1-mongorepo)
@@ -24,6 +27,11 @@
 - [Resources and Further Reading](#resources-and-further-reading)
 
 # System Design Concepts
+
+## Concurrency vs. Parallelism
+
+- **Parallelism** refers to executing multiple tasks simultaneously across different processor cores or machines.
+- **Concurrency** means executing multiple tasks simultaneously, either by running them in parallel or by rapidly switching between them on the same processor core.
 
 # Strategies For Scalable Systems
 
@@ -136,9 +144,49 @@
   2. Implement retry mechanisms to handle failures in background tasks.
   3. Prioritize idempotency for tasks to ensure they can be retried safely without duplication.
 
-# Software- Architecture Pattersn
+# Software- Architecture Patterns
 
-## 1. Backend for Frontend (BFF) Architecture
+- The **software architecture** of a system represents the design decisions related to overall **system structure** and **behavior**. i.e., **software architecture** refers to how you organize stuff in the process of creating software. And "stuff" here can refer to:
+  - **Implementation details** (that is, the folder structure of your repo)
+  - **Implementation design** decisions (Do you use server side or client side rendering? Relational or non-relational databases?)
+  - The **technologies** you choose (Do you use REST or GraphQl for your API? Python with Django or Node with Express for your back end?)
+  - **System design** decisions (like is your system a monolith or is it divided into microservices?)
+  - **Infrastructure** decisions (Do you host your software on premise or on a cloud provider?)
+
+## 1. Monolithic Architectures
+
+- A **monolithic architecture** is one in which all the components of an application are built as a single unit. This means all the code for an application is stored in a single codebase. **Monolithic software applications** consist of a _user interface_, a _business logic layer_, and a _data storage layer_. All of these components are tightly coupled, which means changes to one component can affect the other components.
+- **Situations to Use Monotholic Architectures**
+
+  1. **You want to build a simple application**: If you’re building a simple application with few dependencies, a monolithic architecture may be the best choice. You can quickly build and deploy a monolithic application without having to worry about managing multiple services.
+  2. **Your application doesn’t need to be highly scalable**: Microservices are great for applications that may need to scale quickly. If this doesn’t seem likely to be the case for your application, a monolithic architecture may be the simpler choice.
+  3. **Your team is small**: While microservices have many advantages, they can also be quite complex to manage. If your team is small and you want to avoid this complexity, a monolithic architecture may be the best choice.
+  4. **You don’t have experience with microservices**: If your team doesn’t have experience with microservices and you want to avoid the learning curve, then it may be best to stick to what they know until they have the necessary skill set.
+
+- **Problems in monolithic application**
+  1. There is a team of developers working on the application : Modules dependency & every developer needs to understand each & every modules.
+  2. We need that new team members must quickly become productive
+  3. The application must be easy to understand and modify
+
+## 2. Microservices Architecture
+
+- **Microservices**: generally meant to describe an approach to **software development** that involves de-composing application functionality into individual components that can be deployed separately from each other, and typically communicate via **APIs**.
+- **Characteristics of Microservices**
+
+  1. Support HTTP/REST protocols
+  2. Implement JSON or XML format for data exchange
+  3. Deployed via a **containerization** framework, such as **Docker**
+  4. Dynamically scaled on public or private cloud infrastructure
+  5. Often use noSQL or microSQL or key value stores to persist data
+
+- **Benefits of a Microservices Architecture**
+  1. Improved resilience and fault tolerance due to service function isolation
+  2. Improved scalability with the ability to individually scale services as needed
+  3. Extreme reusability with standardized interface definitions
+  4. Easier polyglot support since separate services can be built in different programming languages
+  5. Easier migration since services can be re-architected or re-built with different technologies while supporting the same API definition to minimize disruption.
+
+## 3. Backend for Frontend (BFF) Architecture
 
 - As applications become more distributed, the need to tailor backend services to individual client needs has become critical for delivering fast, maintainable, and secure user experiences.
 - At its core, **Backend for Frontend** is a architecture pattern that provides a dedicated backend layer for each frontend interface. Each frontend (e.g., mobile app, web app, smart device, etc.) may have different performance, data, and interaction needs. Instead of relying on a single monolithic or generalized API, a BFF tailors the backend to the specific needs of a given frontend.
