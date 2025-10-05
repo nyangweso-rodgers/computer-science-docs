@@ -2,6 +2,11 @@
 
 ## Table Of Contents
 
+- XML
+- JSON
+- Protobuf
+- Avro
+
 # Common Data Formats and Their Characteristics
 
 1. CSV:
